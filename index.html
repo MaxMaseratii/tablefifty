@@ -1,0 +1,2133 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Every table. Half the bill. TableFifty finds London's half-price dining and delivery deals across First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, and links you straight to the venue page.">
+<meta name="theme-color" content="#0f172a">
+<link rel="canonical" href="https://tablefifty.co.uk/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f59e0b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%232b1a01'%3E50%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TableFifty">
+<meta property="og:title" content="TableFifty | Half-price dining and delivery deals in London">
+<meta property="og:description" content="Every table. Half the bill. TableFifty finds London's half-price dining and delivery deals across First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, and links you straight to the venue page.">
+<meta property="og:url" content="https://tablefifty.co.uk/">
+<meta property="og:image" content="https://tablefifty.co.uk/img/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TableFifty","url":"https://tablefifty.co.uk/","description":"Every table. Half the bill. TableFifty finds London's half-price dining and delivery deals across First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, and links you straight to the venue page."}</script>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}</style>
+<title>TableFifty | Half-price dining and delivery deals in London</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: dark;
+    --bg:#0f172a; --bg-deep:#0a1020; --surface:#131d33; --surface-2:#1a2640; --surface-3:#22304d;
+    --line:#27365a; --line-2:#34466b; --text:#e8eef8; --muted:#9dadc4; --faint:#6f809b;
+    --accent:#10b981; --accent-hi:#1fd09a; --accent-soft:rgba(16,185,129,.14); --accent-ink:#04261c;
+    --amber:#f59e0b; --amber-soft:rgba(245,158,11,.14); --amber-ink:#2b1a01;
+    --danger:#f87171; --danger-soft:rgba(248,113,113,.14);
+    --navh:62px; --hero-dir:90deg;
+    --f-display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    --f-body:"Figtree", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  }
+  html[dir="rtl"]{--hero-dir:270deg}
+  html[lang="ar"],html[lang="ur"]{--f-display:"Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif; --f-body:"Noto Naskh Arabic", "Segoe UI", Tahoma, sans-serif}
+  html[lang="pa"]{--f-display:"Noto Sans Gurmukhi", "Nirmala UI", sans-serif; --f-body:"Noto Sans Gurmukhi", "Nirmala UI", sans-serif}
+  html[lang="bn"]{--f-display:"Noto Sans Bengali", "Nirmala UI", sans-serif; --f-body:"Noto Sans Bengali", "Nirmala UI", sans-serif}
+  html:is([lang="ar"],[lang="ur"],[lang="pa"],[lang="bn"]) *{letter-spacing:0 !important;text-transform:none !important}
+  html:is([lang="ar"],[lang="ur"]) body{line-height:1.75}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--bg);color:var(--text)}
+  body{font-family:var(--f-body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  *,*::before,*::after{box-sizing:border-box}
+  button,input,select,textarea{font:inherit;color:inherit}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  mark{background:transparent;color:var(--accent);font-weight:700}
+  h1,h2,h3{text-wrap:balance}
+  .brandname,.url,code{direction:ltr;unicode-bidi:isolate}
+
+  .wrap{max-width:1200px;margin:0 auto;padding-inline:16px}
+  @media (min-width:720px){.wrap{padding-inline:28px}}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+  .sec-title{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(24px,3vw,32px);letter-spacing:-.015em;line-height:1.2}
+
+  /* Buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);font-weight:600;font-size:13.5px;text-decoration:none;cursor:pointer;white-space:nowrap;transition:background .15s,border-color .15s,transform .1s}
+  .btn:hover{background:var(--surface-3);border-color:var(--line-2)}
+  .btn:active{transform:translateY(1px)}
+  .btn svg{flex:none}
+  .btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .btn-primary:hover{background:var(--accent-hi);border-color:var(--accent-hi)}
+  .btn-amber{background:var(--amber);border-color:var(--amber);color:var(--amber-ink)}
+  .btn-amber:hover{background:#ffb02e;border-color:#ffb02e}
+  .btn-ghost{background:transparent}
+  .btn-icon{width:40px;padding:0}
+  .btn-lg{min-height:48px;padding:0 20px;font-size:15px;border-radius:12px}
+  .btn-danger{color:var(--danger);background:transparent;border-color:transparent;min-height:30px;padding:0 8px;font-size:12.5px}
+  .btn-danger:hover{background:var(--danger-soft);border-color:transparent}
+  .btn-danger.confirm{background:var(--danger);color:#2a0707}
+  [dir="rtl"] .flip{transform:scaleX(-1)}
+
+  /* Nav */
+  .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;height:var(--navh);background:rgba(10,16,32,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(52,70,107,.55)}
+  .nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+  .brand{display:flex;align-items:center;gap:9px;text-decoration:none;min-width:0}
+  .mark{flex:none;width:34px;height:34px;border-radius:50%;background:var(--amber);color:var(--amber-ink);display:grid;place-items:center;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:15px;letter-spacing:-.02em;line-height:1}
+  .brandname{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.01em;white-space:nowrap}
+  .brandname span{color:var(--accent)}
+  .navlinks{display:none;gap:2px}
+  .navlinks button{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:14px;padding:8px 11px;border-radius:8px;cursor:pointer}
+  .navlinks button:hover{color:var(--text);background:var(--surface)}
+  @media (min-width:980px){.navlinks{display:flex}}
+  .nav-right{display:flex;align-items:center;gap:8px}
+  .langpick{position:relative;display:flex;align-items:center}
+  .langpick svg{position:absolute;inset-inline-start:10px;color:var(--muted);pointer-events:none}
+  .langpick select{appearance:none;-webkit-appearance:none;height:40px;padding-inline:32px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);font-weight:600;font-size:13.5px;cursor:pointer;max-width:132px}
+  .langpick select:hover{border-color:var(--line-2)}
+  .nav-cta .lbl-long,.nav-cta .lbl-short{display:none}
+  @media (min-width:430px){.nav-cta .lbl-short{display:inline}}
+  @media (min-width:640px){.nav-cta .lbl-short{display:none}.nav-cta .lbl-long{display:inline}}
+
+  /* Disclosure */
+  .disclosure{background:var(--bg-deep);border-bottom:1px solid var(--line);color:var(--muted);font-size:13px}
+  .disclosure .wrap{padding-block:8px;display:flex;gap:4px 10px;align-items:center;flex-wrap:wrap}
+  .disclosure strong{color:var(--amber);font-weight:700}
+  .linkbtn{border:0;background:transparent;padding:0;color:var(--accent);font-weight:600;font-size:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+  .adtag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;padding:1px 6px;border-radius:5px;background:var(--amber);color:var(--amber-ink);line-height:1.4}
+
+  /* Hero */
+  .hero{position:relative;background:
+      linear-gradient(var(--hero-dir), rgba(10,16,32,.94) 0%, rgba(10,16,32,.78) 45%, rgba(10,16,32,.4) 100%),
+      linear-gradient(0deg, var(--bg) 0%, rgba(15,23,42,0) 38%),
+      url("img/hero.jpg") center 60%/cover no-repeat, var(--bg-deep)}
+  .hero .wrap{padding-block:60px 100px;display:grid;gap:18px}
+  @media (min-width:720px){.hero .wrap{padding-block:84px 116px}}
+  .hero h1{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(33px,5.2vw,60px);line-height:1.05;letter-spacing:-.025em;max-width:16ch}
+  html:is([lang="ar"],[lang="ur"],[lang="pa"],[lang="bn"]) .hero h1{line-height:1.35;font-size:clamp(28px,4.4vw,50px);max-width:20ch}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p.lead{margin:0;font-size:clamp(16px,1.6vw,18.5px);color:#c9d5e6;max-width:54ch}
+  .trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin:4px 0 0;padding:0;list-style:none;color:#c9d5e6;font-size:14px;font-weight:500}
+  .trust li{display:flex;align-items:center;gap:7px}
+  .trust svg{color:var(--accent);flex:none}
+
+  /* Search dock */
+  .dock{position:relative;z-index:20;margin-top:-64px}
+  @media (min-width:720px){.dock{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--navh) + 10px)}}
+  .dock-card{background:rgba(19,29,51,.97);border:1px solid var(--line-2);border-radius:18px;padding:14px;display:grid;gap:12px;box-shadow:0 22px 50px rgba(0,0,0,.45)}
+  .search{position:relative}
+  .search-field{position:relative;display:flex;align-items:center}
+  .search-field > svg{position:absolute;inset-inline-start:16px;color:var(--muted);pointer-events:none}
+  #q{width:100%;height:56px;padding-inline:48px 50px;border-radius:13px;border:1.5px solid var(--line-2);background:var(--bg-deep);font-size:16.5px;font-weight:500;color:#fff;outline:none;transition:border-color .15s,box-shadow .15s}
+  #q::-webkit-search-cancel-button,#q::-webkit-search-decoration{-webkit-appearance:none;appearance:none}
+  #q::placeholder{color:#7486a3;font-weight:400}
+  #q:focus{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+  #clearQ{position:absolute;inset-inline-end:9px;width:38px;height:38px;border:0;border-radius:10px;background:transparent;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+  #clearQ:hover{background:var(--surface-2);color:var(--text)}
+  .kbd{position:absolute;inset-inline-end:15px;font-family:var(--f-mono);font-size:12px;color:var(--faint);border:1px solid var(--line);border-radius:6px;padding:1px 7px;pointer-events:none}
+  @media (hover:none){.kbd{display:none}}
+  #suggest{position:absolute;inset-inline:0;top:calc(100% + 6px);margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.5);max-height:min(380px,60vh);overflow:auto;z-index:40}
+  #suggest li{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:10px;cursor:pointer}
+  #suggest li[aria-selected="true"],#suggest li:hover{background:var(--surface-2)}
+  #suggest img{flex:none;width:52px;height:40px;border-radius:7px;object-fit:cover}
+  .sg-txt{flex:1;min-width:0}
+  .sg-name{font-weight:600}
+  .sg-area{color:var(--muted);font-size:13px}
+  .sg-count{flex:none;font-size:12px;font-weight:700;color:var(--amber);text-align:end;max-width:40%}
+  .sg-foot{color:var(--faint);font-size:13px;padding:10px 12px !important;cursor:default !important}
+  .sg-foot:hover{background:transparent !important}
+  .dock-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+  .pills{display:flex;gap:8px;flex-wrap:wrap}
+  .pill{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;font-weight:600;font-size:13.5px;cursor:pointer;color:var(--muted)}
+  .pill:hover{color:var(--text);border-color:var(--line-2)}
+  .pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .pill .n{font-variant-numeric:tabular-nums;font-size:12px;padding:1px 7px;border-radius:999px;background:var(--surface-2);color:var(--text)}
+  .pill[aria-pressed="true"] .n{background:rgba(4,38,28,.18);color:var(--accent-ink)}
+  .dock-meta{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums}
+
+  /* Cuisines */
+  .cuisines{padding-block:34px 4px;display:grid;gap:14px}
+  .cuisines h2{margin:0;font-family:var(--f-display);font-size:19px;font-weight:700}
+  .cz-scroll{overflow-x:auto;scrollbar-width:thin;margin-inline:-4px;padding:4px 4px 10px}
+  .cz-row{display:flex;gap:12px;width:max-content}
+  .cz{position:relative;width:148px;height:96px;border-radius:14px;overflow:hidden;border:1px solid var(--line);cursor:pointer;padding:0;background:var(--surface)}
+  .cz img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+  .cz:hover img{transform:scale(1.06)}
+  .cz .cz-lbl{position:absolute;inset:auto 0 0 0;padding:22px 11px 9px;background:linear-gradient(0deg,rgba(6,10,20,.92),rgba(6,10,20,0));font-weight:700;font-size:14px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:6px;text-align:start}
+  .cz .cz-n{flex:none;font-size:11.5px;font-weight:700;min-width:22px;height:20px;padding:0 6px;border-radius:999px;background:rgba(255,255,255,.18);display:grid;place-items:center}
+  .cz[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent)}
+
+  /* Results */
+  main{padding-block:26px 56px;display:grid;gap:30px}
+  .grid{display:grid;gap:20px;grid-template-columns:1fr;align-items:stretch}
+  @media (min-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (min-width:1080px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;min-width:0;scroll-margin-top:calc(var(--navh) + 24px);transition:border-color .2s,box-shadow .2s}
+  @media (min-width:720px){.card{scroll-margin-top:calc(var(--navh) + 170px)}}
+  .card:hover{border-color:var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .card.flash{animation:flash 1.6s ease}
+  @keyframes flash{0%,45%{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}100%{}}
+  .media{position:relative;aspect-ratio:16/10;max-width:100%;background:var(--surface-2);overflow:hidden;flex:none}
+  .media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .card:hover .media img{transform:scale(1.04)}
+  .media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,16,32,.72) 0%,rgba(10,16,32,0) 45%);pointer-events:none}
+  .ribbon{position:absolute;inset-inline-start:12px;top:12px;z-index:1;background:var(--amber);color:var(--amber-ink);font-family:var(--f-display);font-weight:800;font-size:15px;padding:5px 11px;border-radius:9px;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+  .src{position:absolute;inset-inline-end:12px;top:12px;z-index:1;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:7px;background:rgba(10,16,32,.78);color:#dfe7f2;backdrop-filter:blur(4px)}
+  .src.yours{background:var(--accent);color:var(--accent-ink)}
+  .media-tag{position:absolute;inset-inline-end:10px;bottom:9px;z-index:1;font-size:10.5px;color:rgba(255,255,255,.72)}
+  .media-plats{position:absolute;inset-inline-start:12px;bottom:10px;z-index:1;display:flex;gap:5px;flex-wrap:wrap;max-width:62%}
+  .media-plats span{font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;background:rgba(10,16,32,.82);color:#fff;direction:ltr}
+  .card-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px}
+  .card-head h3{margin:0;font-family:var(--f-display);font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+  .area{margin:4px 0 0;color:var(--muted);font-size:13.5px;display:flex;align-items:center;gap:5px}
+  .chip{align-self:flex-start;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:1px 10px}
+  .card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:2px}
+
+  .offers{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+  .offer{background:var(--surface-2);border:1px solid var(--line);border-radius:13px;padding:12px 14px;display:grid;gap:8px;min-width:0}
+  .offer-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .plat{font-weight:700;font-size:14px;direction:ltr;unicode-bidi:isolate}
+  .kind{display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--muted)}
+  .lt{margin-inline-start:auto;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:6px;white-space:nowrap}
+  .lt-venue{background:var(--accent-soft);color:var(--accent)}
+  .lt-brand,.lt-search{background:var(--amber-soft);color:var(--amber)}
+  .lt-home,.lt-invalid{background:var(--danger-soft);color:var(--danger)}
+  .yours-tag{font-size:10.5px;font-weight:700;color:var(--accent);letter-spacing:.05em;text-transform:uppercase}
+  .headline{margin:0;font-family:var(--f-display);font-weight:800;font-size:20px;line-height:1.2;color:var(--amber);letter-spacing:-.01em}
+  .detail{margin:0;color:var(--muted);font-size:13px}
+  .lt-note{margin:0;font-size:12.5px;color:var(--amber)}
+  .tear{position:relative;height:0;border-top:1.5px dashed #3b4e74;margin:3px -14px}
+  .tear::before,.tear::after{content:"";position:absolute;top:-8px;width:15px;height:15px;border-radius:50%;background:var(--surface);border:1px solid var(--line)}
+  .tear::before{left:-8px;clip-path:inset(0 0 0 50%)}
+  .tear::after{right:-8px;clip-path:inset(0 50% 0 0)}
+  .url{display:block;font-family:var(--f-mono);font-size:11.5px;line-height:1.5;color:#b9c8dc;background:var(--bg-deep);border:1px solid var(--line);border-radius:8px;padding:6px 9px;word-break:break-all;user-select:all;-webkit-user-select:all;text-align:left}
+  .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .actions .btn-primary{flex:1 1 150px}
+  .codechip{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1.5px dashed var(--amber);background:var(--amber-soft);border-radius:10px;padding-block:6px;padding-inline:12px 6px;cursor:pointer;text-align:start;width:100%}
+  .codechip:hover{background:rgba(245,158,11,.22)}
+  .codechip .lbl{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber)}
+  .codechip code{font-family:var(--f-mono);font-weight:500;font-size:15px;color:#fff;letter-spacing:.04em}
+  .codechip .cp{display:inline-flex;align-items:center;gap:5px;background:var(--amber);color:var(--amber-ink);font-weight:700;font-size:12.5px;padding:5px 10px;border-radius:7px}
+  .offer-foot{display:flex;justify-content:flex-end}
+  .morebtn,.addlink{border:0;background:transparent;font-weight:600;font-size:13.5px;cursor:pointer;padding:4px 0;display:inline-flex;align-items:center;gap:6px}
+  .morebtn{color:var(--text)}
+  .morebtn svg{transition:transform .2s}
+  .morebtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+  .addlink{color:var(--accent)}
+  .morebtn:hover,.addlink:hover{text-decoration:underline}
+
+  .fill{position:relative;border-style:dashed;border-color:var(--line-2);background:
+      linear-gradient(0deg,rgba(10,16,32,.93),rgba(10,16,32,.8)), url("img/restaurant.jpg") center/cover no-repeat, var(--surface);
+      min-height:240px;justify-content:center}
+  .fill-in{padding:26px;display:grid;gap:12px;justify-items:start;align-content:center;max-width:560px}
+  .fill h3{margin:0;font-family:var(--f-display);font-weight:800;font-size:24px;line-height:1.2}
+  .fill p{margin:0;color:#c9d5e6}
+  .fill .row{display:flex;gap:8px;flex-wrap:wrap}
+  .fill.wide .fill-in{padding:30px 34px}
+
+  .empty{grid-column:1/-1;display:grid;grid-template-columns:1fr;background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  @media (min-width:720px){.empty{grid-template-columns:280px 1fr}}
+  .empty .media{aspect-ratio:auto;min-height:160px}
+  .empty-body{padding:24px;display:grid;gap:10px;justify-items:start;align-content:center}
+  .empty h3{margin:0;font-family:var(--f-display);font-size:24px;font-weight:800;line-height:1.25}
+  .empty h3 span{color:var(--amber)}
+  .empty p{margin:0;color:var(--muted);max-width:60ch}
+
+  /* Fallback launchers */
+  .fallback{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:16px;scroll-margin-top:calc(var(--navh) + 24px)}
+  @media (min-width:720px){.fallback{scroll-margin-top:calc(var(--navh) + 170px)}}
+  .fb-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+  .fb-head h2{margin:0;font-family:var(--f-display);font-size:19px;font-weight:700}
+  .fb-head p{margin:3px 0 0;color:var(--muted);font-size:13.5px}
+  .fb-head p strong{color:var(--text)}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;padding:3px;gap:3px;background:var(--bg-deep)}
+  .seg button{border:0;background:transparent;border-radius:7px;padding:6px 11px;font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--surface-3);color:var(--text)}
+  .fb-group{display:grid;gap:8px}
+  .fb-group h3{margin:0;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700}
+  .fb-grid{display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+  .launch{display:flex;gap:6px}
+  .launch a{flex:1;min-width:0;justify-content:space-between}
+
+  /* How it works */
+  .band{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg-deep),var(--bg))}
+  .how{padding-block:56px;display:grid;gap:30px}
+  .steps{display:grid;gap:16px;grid-template-columns:1fr;margin:0;padding:0;list-style:none;counter-reset:s}
+  @media (min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+  .steps li{counter-increment:s;display:grid;gap:8px;align-content:start;padding:20px;border-radius:16px;background:var(--surface);border:1px solid var(--line)}
+  .steps li::before{content:counter(s);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:800}
+  .steps h3{margin:0;font-family:var(--f-display);font-size:19px;font-weight:700}
+  .steps p{margin:0;color:var(--muted);font-size:14.5px}
+  .plat-band{display:grid;gap:16px;grid-template-columns:1fr;padding:20px;border-radius:16px;border:1px solid var(--line);background:var(--surface)}
+  @media (min-width:820px){.plat-band{grid-template-columns:1fr 1fr}}
+  .plat-band h3{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .plat-list{display:flex;gap:8px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+  .plat-list li{font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;font-size:16px;padding:8px 14px;border-radius:10px;background:var(--surface-2);border:1px solid var(--line)}
+
+  /* Missing venue band */
+  .missing{padding-block:8px 64px}
+  .missing-card{display:grid;grid-template-columns:1fr;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+  @media (min-width:820px){.missing-card{grid-template-columns:1.05fr 1fr}}
+  .missing-card .photo{min-height:220px;background:url("img/restaurant.jpg") center/cover no-repeat,var(--surface-2)}
+  .missing-card .txt{padding:28px;display:grid;gap:12px;align-content:center;justify-items:start}
+  .missing-card ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;color:var(--muted);font-size:14.5px}
+  .missing-card li{display:flex;gap:8px;align-items:flex-start}
+  .missing-card li svg{flex:none;margin-top:4px;color:var(--accent)}
+
+  /* Footer */
+  footer{border-top:1px solid var(--line);background:var(--bg-deep);padding-block:36px 30px;color:var(--faint);font-size:13px}
+  .foot-grid{display:grid;gap:26px;grid-template-columns:1fr}
+  @media (min-width:820px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  .foot-grid h4{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .foot-grid ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+  .foot-grid button.lnk{border:0;background:transparent;padding:0;color:var(--faint);cursor:pointer;font-size:13px;text-align:start}
+  .foot-grid button.lnk:hover{color:var(--text)}
+  .foot-grid p{margin:8px 0 0;max-width:46ch}
+  .foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+  .foot-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .foot-row .btn{min-height:32px;font-size:12.5px}
+  .store-warn{color:var(--amber)}
+
+  /* Dialogs */
+  dialog{width:min(580px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border:1px solid var(--line-2);border-radius:20px;background:var(--surface);color:var(--text);padding:0;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  dialog::backdrop{background:rgba(3,7,18,.72);backdrop-filter:blur(3px)}
+  #aboutDialog{width:min(680px,calc(100vw - 24px))}
+  .dlg{display:grid;gap:14px;padding:22px}
+  .dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .dlg-head h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:22px}
+  .dlg-head p{margin:3px 0 0;color:var(--muted);font-size:13px}
+  .fields{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+  .field{display:grid;gap:5px;min-width:0;align-content:start}
+  .field.full{grid-column:1/-1}
+  @media (max-width:520px){.fields{grid-template-columns:1fr}}
+  .field label,.field .lbl{font-size:12.5px;font-weight:600;color:var(--muted)}
+  .field label .req{color:var(--amber)}
+  .field input,.field select,.field textarea{width:100%;min-height:42px;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--bg-deep);outline:none}
+  .field textarea{min-height:120px;font-family:var(--f-mono);font-size:12.5px;resize:vertical;direction:ltr}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+  #fUrl{font-family:var(--f-mono);font-size:13px;direction:ltr;text-align:left}
+  .checkrow{display:flex;gap:9px;align-items:center;font-size:13.5px;color:var(--text);font-weight:500;cursor:pointer}
+  .checkrow input{width:18px;height:18px;min-height:0;accent-color:var(--accent);flex:none}
+  .photo-pick{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .photo-pick .thumb{width:96px;height:60px;border-radius:9px;background:var(--surface-2) center/cover no-repeat;border:1px dashed var(--line-2);flex:none}
+  .photo-pick input[type=file]{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .hint{font-size:12.5px;color:var(--faint);margin:0}
+  .hint.ok{color:var(--accent)} .hint.warn{color:var(--amber)} .hint.bad{color:var(--danger)}
+  .formerr{margin:0;padding:9px 12px;border-radius:10px;background:var(--danger-soft);color:var(--danger);font-size:13px}
+  .dlg-actions{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+  .about{display:grid;gap:12px;color:var(--muted);font-size:14.5px}
+  .about h3{margin:6px 0 0;font-family:var(--f-display);font-size:17px;color:var(--text)}
+  .about p,.about ul{margin:0}
+  .about ul{padding-inline-start:20px;display:grid;gap:5px}
+  .about strong{color:var(--text)}
+  .about .note{padding:8px 12px;border-radius:10px;background:var(--surface-2);font-size:13px}
+
+  /* Toast */
+  #toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);opacity:0;pointer-events:none;z-index:100;max-width:calc(100vw - 32px);background:#e8eef8;color:#0f172a;font-weight:600;font-size:14px;padding:11px 16px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.45);display:flex;align-items:center;gap:9px;transition:opacity .2s,transform .2s}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+  #toast .dot{flex:none;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+  #toast.warn .dot{background:var(--amber)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top" data-scroll="top" aria-label="TableFifty">
+      <span class="mark" aria-hidden="true">50</span>
+      <b class="brandname">Table<span>Fifty</span></b>
+    </a>
+    <div class="navlinks">
+      <button type="button" data-scroll="deals" data-i18n="nav.deals">Deals</button>
+      <button type="button" data-scroll="how" data-i18n="nav.how">How it works</button>
+      <button type="button" data-scroll="missing" data-i18n="nav.add">Add a venue</button>
+    </div>
+    <div class="nav-right">
+      <label class="langpick">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+        <select id="lang" data-i18n-aria="lang.label" aria-label="Language"></select>
+      </label>
+      <button class="btn btn-primary nav-cta" type="button" id="openAdd" data-i18n-aria="nav.cta" aria-label="Add custom venue URL">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <span class="lbl-long" data-i18n="nav.cta">Add custom venue URL</span><span class="lbl-short" data-i18n="nav.ctaShort">Add venue</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="disclosure" role="note">
+  <div class="wrap">
+    <strong data-i18n="disc.label">Ad disclosure:</strong>
+    <span data-i18n="disc.text">TableFifty may earn a commission when you book or order through links on this site. Your price stays the same.</span>
+    <button type="button" class="linkbtn" data-about data-i18n="disc.link">How we make money</button>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="hero.eyebrow">Every table. Half the bill. · 7 platforms · 1 search</span>
+    <h1 data-i18n-html="hero.h1"><em>Half-price</em> tables and delivery deals, one tap from the venue page.</h1>
+    <p class="lead" data-i18n="hero.lead">Search once. We line up the offers on First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, then link you to the restaurant's own page on each one.</p>
+    <ul class="trust">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="trust.1">Up to 50% off food</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="trust.2">Links checked for venue vs search pages</span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="trust.3">Dine in or delivery</span></li>
+    </ul>
+  </div>
+</header>
+
+<div class="dock" id="dock">
+  <div class="wrap">
+    <div class="dock-card">
+      <div class="search">
+        <div class="search-field">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="Restaurant, area or cuisine" data-i18n-ph="search.ph" data-i18n-aria="search.aria"
+            role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="suggest" aria-label="Search restaurants">
+          <span class="kbd" id="kbd" aria-hidden="true">/</span>
+          <button id="clearQ" type="button" aria-label="Clear search" data-i18n-aria="search.clear" hidden>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <ul id="suggest" role="listbox" hidden></ul>
+      </div>
+      <div class="dock-row">
+        <div class="pills" role="group">
+          <button class="pill" type="button" data-kind="all" aria-pressed="true"><span data-i18n="pill.all">All Deals</span> <span class="n" id="n-all">0</span></button>
+          <button class="pill" type="button" data-kind="dine" aria-pressed="false"><span data-i18n="pill.dine">50% Off Dining In</span> <span class="n" id="n-dine">0</span></button>
+          <button class="pill" type="button" data-kind="delivery" aria-pressed="false"><span data-i18n="pill.delivery">Food Delivery</span> <span class="n" id="n-delivery">0</span></button>
+        </div>
+        <span class="dock-meta" id="resMeta"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap cuisines" aria-labelledby="czTitle">
+  <h2 id="czTitle" data-i18n="cz.title">Browse by cuisine</h2>
+  <div class="cz-scroll"><div class="cz-row" id="czRow"></div></div>
+</section>
+
+<main class="wrap" id="deals">
+  <section aria-labelledby="resTitle" style="display:grid;gap:16px">
+    <div>
+      <span class="eyebrow" id="resEyebrow"></span>
+      <h2 class="sec-title" id="resTitle"></h2>
+    </div>
+    <div id="results" class="grid"></div>
+  </section>
+
+  <section class="fallback" id="fallback" aria-labelledby="fbTitle" hidden>
+    <div class="fb-head">
+      <div>
+        <h2 id="fbTitle" data-i18n="fb.title">Search each platform directly</h2>
+        <p id="fbText"></p>
+      </div>
+      <div class="seg" role="group">
+        <button type="button" data-mode="platform" aria-pressed="true" data-i18n="fb.platform">Platform search</button>
+        <button type="button" data-mode="google" aria-pressed="false" data-i18n="fb.google">Google site search</button>
+      </div>
+    </div>
+    <div class="fb-group">
+      <h3 data-i18n="fb.dine">Dining in</h3>
+      <div class="fb-grid" id="fbDine"></div>
+    </div>
+    <div class="fb-group">
+      <h3 data-i18n="fb.delivery">Delivery</h3>
+      <div class="fb-grid" id="fbDelivery"></div>
+    </div>
+  </section>
+</main>
+
+<div class="band">
+  <section class="wrap how" id="how" aria-labelledby="howTitle">
+    <div>
+      <span class="eyebrow" data-i18n="how.eyebrow">How it works</span>
+      <h2 class="sec-title" id="howTitle" data-i18n="how.title">From craving to booked table in three steps</h2>
+    </div>
+    <ol class="steps">
+      <li><h3 data-i18n="s1.t">Search</h3><p data-i18n="s1.p"></p></li>
+      <li><h3 data-i18n="s2.t">Compare</h3><p data-i18n="s2.p"></p></li>
+      <li><h3 data-i18n="s3.t">Book direct</h3><p data-i18n="s3.p"></p></li>
+    </ol>
+    <div class="plat-band">
+      <div>
+        <h3 data-i18n="fb.dine">Dining in</h3>
+        <ul class="plat-list"><li>First Table</li><li>TheFork</li><li>Tastecard</li><li>OpenTable</li></ul>
+      </div>
+      <div>
+        <h3 data-i18n="fb.delivery">Delivery</h3>
+        <ul class="plat-list"><li>Deliveroo</li><li>Uber Eats</li><li>Just Eat</li></ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="wrap missing" id="missing" aria-labelledby="missTitle">
+  <div class="missing-card">
+    <div class="photo" role="img" data-i18n-aria="miss.photo" aria-label="A busy restaurant dining room"></div>
+    <div class="txt">
+      <span class="eyebrow" data-i18n="miss.eyebrow">Missing a venue?</span>
+      <h2 class="sec-title" id="missTitle" data-i18n="miss.title">Add the deal yourself in 20 seconds</h2>
+      <ul>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="miss.1"></span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="miss.2"></span></li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="miss.3"></span></li>
+      </ul>
+      <button class="btn btn-amber btn-lg" type="button" data-addfor="">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <span data-i18n="nav.add">Add a venue</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand"><span class="mark" aria-hidden="true">50</span><b class="brandname" style="color:var(--text)">Table<span>Fifty</span></b></span>
+        <p data-i18n="foot.tag"></p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.explore">Explore</h4>
+        <ul>
+          <li><button type="button" class="lnk" data-scroll="deals" data-i18n="nav.deals">Deals</button></li>
+          <li><button type="button" class="lnk" data-scroll="how" data-i18n="nav.how">How it works</button></li>
+          <li><button type="button" class="lnk" data-addfor="" data-i18n="nav.add">Add a venue</button></li>
+          <li><button type="button" class="lnk" data-about data-i18n="foot.about">About &amp; privacy</button></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.saved">Your saved venues</h4>
+        <p id="storeStatus" style="margin:0 0 10px"></p>
+        <div class="foot-row">
+          <button class="btn btn-ghost" type="button" id="copyBackup" data-i18n="foot.backup">Copy backup</button>
+          <button class="btn btn-ghost" type="button" id="openRestore" data-i18n="foot.restore">Restore backup</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span data-i18n="foot.legal"></span>
+      <span><span data-i18n="foot.photos"></span> <a href="privacy.html" style="color:var(--muted)" data-i18n="foot.privacy">Privacy policy</a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="addDialog" aria-labelledby="addTitle">
+  <form class="dlg" id="addForm" novalidate>
+    <div class="dlg-head">
+      <div>
+        <h2 id="addTitle" data-i18n="add.title">Add custom venue URL</h2>
+        <p data-i18n="add.sub"></p>
+      </div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="fields">
+      <div class="field">
+        <label for="fName"><span data-i18n="f.name">Venue name</span> <span class="req">*</span></label>
+        <input id="fName" name="name" required placeholder="Korean Grill Kensington">
+      </div>
+      <div class="field">
+        <label for="fArea" data-i18n="f.area">Area</label>
+        <input id="fArea" name="area" placeholder="South Kensington, London">
+      </div>
+      <div class="field full">
+        <label for="fUrl"><span data-i18n="f.url">Exact venue page URL</span> <span class="req">*</span></label>
+        <input id="fUrl" name="url" type="url" inputmode="url" required placeholder="https://www.firsttable.co.uk/london/…/venue-name">
+        <p class="hint" id="urlHint"></p>
+      </div>
+      <div class="field">
+        <label for="fPlatform"><span data-i18n="f.platform">Platform</span> <span class="req">*</span></label>
+        <select id="fPlatform" name="platform" required></select>
+      </div>
+      <div class="field">
+        <label for="fHeadline"><span data-i18n="f.headline">Discount</span> <span class="req">*</span></label>
+        <input id="fHeadline" name="headline" required data-i18n-ph="f.headlinePh">
+      </div>
+      <div class="field full">
+        <label for="fDetail" data-i18n="f.detail">Terms or notes</label>
+        <input id="fDetail" name="detail" data-i18n-ph="f.detailPh">
+      </div>
+      <div class="field">
+        <label for="fCode" data-i18n="f.code">Promo code</label>
+        <input id="fCode" name="code" autocapitalize="characters" data-i18n-ph="f.codePh">
+      </div>
+      <div class="field">
+        <label for="fTags" data-i18n="f.tags">Cuisine or tags</label>
+        <input id="fTags" name="tags" placeholder="korean, bbq">
+      </div>
+      <div class="field full">
+        <label class="checkrow" for="fAff"><input id="fAff" type="checkbox"><span data-i18n="f.aff"></span></label>
+      </div>
+      <div class="field full">
+        <span class="lbl" data-i18n="f.photo">Photo</span>
+        <div class="photo-pick">
+          <div class="thumb" id="photoThumb" aria-hidden="true"></div>
+          <label class="btn" for="fPhoto" data-i18n="f.choosePhoto">Choose photo</label>
+          <input id="fPhoto" type="file" accept="image/*">
+          <button class="btn btn-ghost" type="button" id="photoClear" data-i18n="f.removePhoto" hidden>Remove</button>
+        </div>
+        <p class="hint" id="photoHint"></p>
+      </div>
+    </div>
+    <p class="formerr" id="formErr" hidden></p>
+    <div class="dlg-actions">
+      <button class="btn btn-ghost" type="button" data-close data-i18n="btn.cancel">Cancel</button>
+      <button class="btn btn-primary" type="submit" data-i18n="btn.save">Save venue</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="restoreDialog" aria-labelledby="restoreTitle">
+  <form class="dlg" id="restoreForm" novalidate>
+    <div class="dlg-head">
+      <div>
+        <h2 id="restoreTitle" data-i18n="rs.title">Restore backup</h2>
+        <p data-i18n="rs.sub"></p>
+      </div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="field">
+      <label for="fBackup" data-i18n="rs.label">Backup text</label>
+      <textarea id="fBackup" placeholder='[{"name":"…","platform":"firsttable","url":"https://…"}]'></textarea>
+    </div>
+    <p class="formerr" id="restoreErr" hidden></p>
+    <div class="dlg-actions">
+      <button class="btn btn-ghost" type="button" data-close data-i18n="btn.cancel">Cancel</button>
+      <button class="btn btn-primary" type="submit" data-i18n="rs.btn">Restore</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="aboutDialog" aria-labelledby="aboutTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div>
+        <h2 id="aboutTitle" data-i18n="about.title">About &amp; privacy</h2>
+        <p data-i18n="about.sub"></p>
+      </div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="about" id="aboutBody"></div>
+  </div>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"><span class="dot"></span><span id="toastMsg"></span></div>
+
+<script>
+const LANGS = [
+  { code: "en", name: "English", dir: "ltr" },
+  { code: "pl", name: "Polski", dir: "ltr" },
+  { code: "ro", name: "Română", dir: "ltr" },
+  { code: "pa", name: "ਪੰਜਾਬੀ", dir: "ltr" },
+  { code: "ur", name: "اردو", dir: "rtl" },
+  { code: "pt", name: "Português", dir: "ltr" },
+  { code: "es", name: "Español", dir: "ltr" },
+  { code: "ar", name: "العربية", dir: "rtl" },
+  { code: "bn", name: "বাংলা", dir: "ltr" }
+];
+
+const I18N = {
+en: {
+  "nav.deals": "Deals", "nav.how": "How it works", "nav.add": "Add a venue", "nav.cta": "Add custom venue URL", "nav.ctaShort": "Add venue", "lang.label": "Language",
+  "disc.label": "Ad disclosure:", "disc.text": "TableFifty may earn a commission when you book or order through links on this site. Your price stays the same.", "disc.link": "How we make money",
+  "hero.eyebrow": "Every table. Half the bill. · 7 platforms · 1 search",
+  "hero.h1": "<em>Half-price</em> tables and delivery deals, one tap from the venue page.",
+  "hero.lead": "Search once. We line up the offers on First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, then link you to the restaurant's own page on each one.",
+  "trust.1": "Up to 50% off food", "trust.2": "Links checked for venue vs search pages", "trust.3": "Dine in or delivery",
+  "search.ph": "Restaurant, area or cuisine", "search.aria": "Search restaurants", "search.clear": "Clear search",
+  "pill.all": "All Deals", "pill.dine": "50% Off Dining In", "pill.delivery": "Food Delivery",
+  "meta": ({ v, l }) => `${v} venue${v === 1 ? "" : "s"} · ${l} link${l === 1 ? "" : "s"}`,
+  "cz.title": "Browse by cuisine", "cz.korean": "Korean", "cz.indian": "Indian", "cz.steak": "Steak", "cz.pizza": "Pizza", "cz.chicken": "Chicken", "cz.ramen": "Japanese", "cz.sushi": "Sushi", "cz.chinese": "Chinese", "cz.thai": "Thai", "cz.italian": "Italian", "cz.burger": "Burgers",
+  "res.eyebrow.search": "Search results", "res.eyebrow.all": "All deals", "res.eyebrow.dine": "Dining in", "res.eyebrow.delivery": "Delivery",
+  "res.title.all": "Deals across London", "res.title.search": "Deals for “{q}”", "res.title.none": "Nothing listed for “{q}” yet",
+  "src.curated": "Curated", "src.yours": "Saved by you", "media.tag": "Cuisine photo",
+  "kind.dine": "Dine-in", "kind.delivery": "Delivery", "yours": "Yours", "ad": "Ad", "ad.title": "We may earn a commission from this link",
+  "lt.venue": "Exact venue page", "lt.brand": "Brand page", "lt.search": "Platform search", "lt.home": "Homepage", "lt.invalid": "Bad link",
+  "ltn.brand": "Opens the brand page. Pick the branch near you there.", "ltn.search": "Opens a search, not the venue page. Find the venue, then save its own link.", "ltn.home": "This is a homepage. Replace it with the venue page.", "ltn.invalid": "This link can't be read.",
+  "offer.open": "Open on {p}", "offer.copy": "Copy exact link", "offer.retry": "Didn't open? Try the backup method",
+  "promo.label": "Promo code", "promo.copy": "Copy", "more.show": "More deals ({n})", "more.hide": "Fewer deals",
+  "remove": "Remove", "remove.confirm": "Tap again to remove", "addlink": "Add a platform link",
+  "rib.pct": "{n}% OFF", "rib.upto": "UP TO {n}% OFF", "rib.241": "2-FOR-1", "rib.delivery": "DELIVERY",
+  "deal.ft.h": "50% off food", "deal.ft.d": "Typical First Table deal: early or late sittings, small booking fee. Check times on the page.",
+  "deal.tf.h": "Up to 50% off", "deal.tf.d": "Typical TheFork deal: à la carte on selected slots. Varies by venue.",
+  "deal.tc.h": "2-for-1 or 25% off", "deal.tc.d": "Typical Tastecard deal with membership. Terms vary by branch.",
+  "deal.dl.h": "Delivery", "deal.dl.d": "Live promos (money off, free delivery) show on the listing.",
+  "area.multi": "London, multiple branches",
+  "empty.title": "No verified offers found", "empty.for": "for “{q}”",
+  "empty.filtered": "“{q}” is listed, but not under this filter. Switch to All Deals to see it.",
+  "empty.missing": "“{q}” isn't in our list yet. Use the platform searches below, then save the exact venue link here.",
+  "empty.none": "Nothing matches this filter yet.", "empty.add": "Add “{q}” as a venue",
+  "fill.title": "Can't find your restaurant?", "fill.text": "Search all 7 platforms at once, or add the venue yourself.", "fill.search": "Search the platforms", "fill.add": "Add a venue",
+  "fb.title": "Search each platform directly", "fb.text": "Pre-filled with <strong>{q}</strong>. Found the venue page? Save its exact link with Add custom venue URL.",
+  "fb.platform": "Platform search", "fb.google": "Google site search", "fb.dine": "Dining in", "fb.delivery": "Delivery", "fb.copy": "Copy {p} search link",
+  "how.eyebrow": "How it works", "how.title": "From craving to booked table in three steps",
+  "s1.t": "Search", "s1.p": "Type a restaurant, an area or a cuisine. Every word you type has to match, so you only see the right venues.",
+  "s2.t": "Compare", "s2.p": "See each platform's deal side by side. A green badge means the link goes straight to the venue page. Amber means it opens a search.",
+  "s3.t": "Book direct", "s3.p": "Tap Open to land on the venue page. Pop-ups blocked? Copy the exact link and paste it in a new tab.",
+  "miss.eyebrow": "Missing a venue?", "miss.title": "Add the deal yourself in 20 seconds",
+  "miss.1": "Paste the venue's own page link. We check it matches the platform.", "miss.2": "Add the discount, a promo code and your own photo.", "miss.3": "It's saved in this browser, ready next time you visit.", "miss.photo": "A busy restaurant dining room",
+  "foot.tag": "Half-price dining and delivery deals across London, with direct links to each venue page.",
+  "foot.explore": "Explore", "foot.about": "About & privacy", "foot.saved": "Your saved venues", "foot.backup": "Copy backup", "foot.restore": "Restore backup",
+  "foot.legal": "© 2026 TableFifty. Not linked to any platform listed here. Offers change often, so check the terms before you book or order.",
+  "foot.photos": "Cuisine photos show the type of food, not the venue itself. Food photography via Unsplash.", "foot.privacy": "Privacy policy",
+  "store.some": ({ n }) => `${n} saved link${n === 1 ? "" : "s"} kept in this browser.`,
+  "store.none": "Venues you add are kept in this browser.",
+  "store.blocked": "This browser is blocking storage. Venues you add last until you close the page. Use Copy backup to keep them.",
+  "add.title": "Add custom venue URL", "add.sub": "Saved in this browser. The same venue name adds to its existing card.",
+  "f.name": "Venue name", "f.area": "Area", "f.url": "Exact venue page URL", "f.urlHint": "Paste the link from the venue's own page, not a search page.",
+  "f.platform": "Platform", "f.choose": "Choose…", "f.headline": "Discount", "f.headlinePh": "50% off food", "f.detail": "Terms or notes", "f.detailPh": "Sun–Thu, first and last sittings only",
+  "f.code": "Promo code", "f.codePh": "Optional", "f.tags": "Cuisine or tags", "f.aff": "This is my affiliate link (it earns TableFifty money). It shows an Ad tag.",
+  "f.photo": "Photo", "f.choosePhoto": "Choose photo", "f.removePhoto": "Remove", "f.photoHint": "Optional. Use a photo you took or have permission to use. No photo? We show a cuisine photo.",
+  "btn.cancel": "Cancel", "btn.save": "Save venue", "btn.close": "Close",
+  "hint.bad": "That isn't a full link yet. It should start with https://", "hint.venue": "Exact venue page on {p}.", "hint.brand": "Brand page on {p}. A branch page is more direct if there is one.",
+  "hint.search": "This is a search page on {p}. Open the venue there and paste its own link instead.", "hint.home": "This is the {p} homepage. Paste the venue page link.", "hint.unknown": "an unknown site",
+  "err.name": "Add the venue name.", "err.url": "Add the full venue link, starting with https://", "err.platform": "Choose which platform this link is on.",
+  "err.mismatch": "This link is on {a}, but the platform is set to {b}. Change one so they match.", "err.host": "This link isn't on {p} ({h}). Check you copied the right page.",
+  "err.home": "That's the platform homepage. Open the venue and paste its own page link.", "err.headline": "Add the discount, e.g. 50% off food.", "err.dup": "You've already saved this exact link for this venue.",
+  "photo.notimg": "That file isn't a picture. Choose a JPG, PNG or WebP photo.", "photo.ready": "Photo ready. It's cropped to fit the card.", "photo.bad": "This photo couldn't be read. Try a different file.", "photo.removed": "Photo removed.",
+  "t.link": "Link copied", "t.code": "Promo code copied", "t.search": "Search link copied", "t.backup": "Backup copied",
+  "t.copyFailSel": "Copy was blocked. The link is selected: press Ctrl+C, or long-press and Copy.", "t.copyFail": "Copy was blocked here. Select the text and copy it by hand.",
+  "t.opened": "Opened in a new tab", "t.popup": "Pop-ups are blocked here, so we copied the link instead.", "t.opening": "Opening {p} in a new tab", "t.removed": "Link removed",
+  "t.saved": "Saved {n}. It will be here next time.", "t.savedTemp": "Added {n} for this visit. This browser is blocking storage.", "t.savedNoPhoto": "Saved {n} without the photo. This browser is out of storage space.",
+  "t.backupEmpty": "Nothing to back up yet. Add a venue first.", "t.restored": "Links restored: {n}", "t.restoredNone": "All of those links were already here.",
+  "rs.title": "Restore backup", "rs.sub": "Paste the text from Copy backup. Venues you already have are kept.", "rs.label": "Backup text", "rs.btn": "Restore",
+  "rs.bad": "That text isn't a TableFifty backup. Copy it again with Copy backup.", "rs.none": "No valid venue links found in that text.",
+  "sg.none": "No verified offers. Press Enter to search each platform.",
+  "about.title": "About & privacy", "about.sub": "How TableFifty works, how it makes money, and what it does with your data.",
+  "ab.h1": "What TableFifty is",
+  "ab.p1": "TableFifty puts London's half-price dining and delivery deals in one place. We check First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats and Just Eat, then link you straight to the venue's page on each one. TableFifty is not linked to, or approved by, any of these platforms or restaurants.",
+  "ab.h2": "How we make money",
+  "ab.m1": "Some links on TableFifty are affiliate links. If you click one and then book or order, the platform may pay us a small commission.",
+  "ab.m2": "**Your price stays the same.** The commission comes from the platform, not from you.",
+  "ab.m3": "Links that earn us money carry an {ad} tag.",
+  "ab.m4": "We list deals because they are good for you, not because they pay us.",
+  "ab.h3": "Privacy and cookies",
+  "ab.c1": "**We don't ask for your name, email or card.** There are no accounts.",
+  "ab.c2": "**Venues you save stay in your own browser.** They never reach us. Clearing your browser data deletes them.",
+  "ab.c3": "**We use no tracking or advertising cookies** of our own right now. If we add website stats or ads later, we will update this page and ask you first.",
+  "ab.c4": "**When you click through to a platform,** that platform's own privacy policy applies. It may set a cookie so it knows TableFifty sent you.",
+  "ab.c5": "**Your rights:** you can ask what we hold about you or ask us to delete it by emailing {email}. If you're unhappy with our answer, you can complain to the Information Commissioner's Office (ico.org.uk).",
+  "ab.h4": "Who runs TableFifty", "ab.p4": "TableFifty is run by Max Maserati in England. Contact: {email}.", "ab.upd": "Last updated 27 September 2026.", "ab.note": ""
+},
+
+pl: {
+  "nav.deals": "Oferty", "nav.how": "Jak to działa", "nav.add": "Dodaj lokal", "nav.cta": "Dodaj własny link do lokalu", "nav.ctaShort": "Dodaj lokal", "lang.label": "Język",
+  "disc.label": "Informacja o reklamach:", "disc.text": "TableFifty może otrzymać prowizję, gdy rezerwujesz lub zamawiasz przez linki na tej stronie. Twoja cena się nie zmienia.", "disc.link": "Jak zarabiamy",
+  "hero.eyebrow": "Każdy stolik. Połowa rachunku. · 7 platform · 1 wyszukiwanie",
+  "hero.h1": "<em>Stoliki za pół ceny</em> i oferty z dostawą, jedno kliknięcie od strony lokalu.",
+  "hero.lead": "Szukasz raz. Zbieramy oferty z First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats i Just Eat, a potem kierujemy Cię prosto na stronę restauracji na każdej z nich.",
+  "trust.1": "Do 50% taniej za jedzenie", "trust.2": "Sprawdzamy, czy link prowadzi do lokalu, czy do wyszukiwarki", "trust.3": "Na miejscu lub z dostawą",
+  "search.ph": "Restauracja, dzielnica lub kuchnia", "search.aria": "Szukaj restauracji", "search.clear": "Wyczyść",
+  "pill.all": "Wszystkie oferty", "pill.dine": "50% taniej na miejscu", "pill.delivery": "Dostawa jedzenia",
+  "meta": ({ v, l }) => `Lokale: ${v} · Linki: ${l}`,
+  "cz.title": "Przeglądaj według kuchni", "cz.korean": "Koreańska", "cz.indian": "Indyjska", "cz.steak": "Steki", "cz.pizza": "Pizza", "cz.chicken": "Kurczak", "cz.ramen": "Japońska", "cz.sushi": "Sushi", "cz.chinese": "Chińska", "cz.thai": "Tajska", "cz.italian": "Włoska", "cz.burger": "Burgery",
+  "res.eyebrow.search": "Wyniki wyszukiwania", "res.eyebrow.all": "Wszystkie oferty", "res.eyebrow.dine": "Na miejscu", "res.eyebrow.delivery": "Dostawa",
+  "res.title.all": "Oferty w całym Londynie", "res.title.search": "Oferty dla „{q}”", "res.title.none": "Na razie brak ofert dla „{q}”",
+  "src.curated": "Wybrane przez nas", "src.yours": "Zapisane przez Ciebie", "media.tag": "Zdjęcie poglądowe",
+  "kind.dine": "Na miejscu", "kind.delivery": "Dostawa", "yours": "Twoje", "ad": "Reklama", "ad.title": "Możemy otrzymać prowizję za ten link",
+  "lt.venue": "Strona lokalu", "lt.brand": "Strona marki", "lt.search": "Wyszukiwarka platformy", "lt.home": "Strona główna", "lt.invalid": "Błędny link",
+  "ltn.brand": "Otwiera stronę marki. Wybierz tam najbliższy lokal.", "ltn.search": "Otwiera wyszukiwarkę, nie stronę lokalu. Znajdź lokal i zapisz jego własny link.", "ltn.home": "To strona główna. Zamień ją na stronę lokalu.", "ltn.invalid": "Nie można odczytać tego linku.",
+  "offer.open": "Otwórz w {p}", "offer.copy": "Kopiuj link", "offer.retry": "Nie otworzyło się? Spróbuj metody zapasowej",
+  "promo.label": "Kod promocyjny", "promo.copy": "Kopiuj", "more.show": "Więcej ofert ({n})", "more.hide": "Mniej ofert",
+  "remove": "Usuń", "remove.confirm": "Kliknij ponownie, aby usunąć", "addlink": "Dodaj link z innej platformy",
+  "rib.pct": "-{n}%", "rib.upto": "DO -{n}%", "rib.241": "2 W CENIE 1", "rib.delivery": "DOSTAWA",
+  "deal.ft.h": "50% taniej za jedzenie", "deal.ft.d": "Typowa oferta First Table: wczesne lub późne godziny, niewielka opłata za rezerwację. Sprawdź godziny na stronie.",
+  "deal.tf.h": "Do 50% taniej", "deal.tf.d": "Typowa oferta TheFork: menu à la carte w wybranych godzinach. Zależy od lokalu.",
+  "deal.tc.h": "2 w cenie 1 lub 25% taniej", "deal.tc.d": "Typowa oferta Tastecard z członkostwem. Warunki zależą od lokalu.",
+  "deal.dl.h": "Dostawa", "deal.dl.d": "Aktualne promocje (rabaty, darmowa dostawa) są widoczne na stronie oferty.",
+  "area.multi": "Londyn, wiele lokali",
+  "empty.title": "Nie znaleziono sprawdzonych ofert", "empty.for": "dla „{q}”",
+  "empty.filtered": "„{q}” jest na liście, ale nie w tym filtrze. Wybierz Wszystkie oferty.",
+  "empty.missing": "„{q}” nie ma jeszcze na naszej liście. Skorzystaj z wyszukiwarek platform poniżej, a potem zapisz tu link do lokalu.",
+  "empty.none": "Nic nie pasuje do tego filtra.", "empty.add": "Dodaj „{q}” jako lokal",
+  "fill.title": "Nie widzisz swojej restauracji?", "fill.text": "Przeszukaj wszystkie 7 platform naraz albo dodaj lokal samodzielnie.", "fill.search": "Szukaj na platformach", "fill.add": "Dodaj lokal",
+  "fb.title": "Szukaj bezpośrednio na każdej platformie", "fb.text": "Wpisane: <strong>{q}</strong>. Masz stronę lokalu? Zapisz jej link przyciskiem Dodaj własny link do lokalu.",
+  "fb.platform": "Wyszukiwarka platformy", "fb.google": "Wyszukiwanie Google", "fb.dine": "Na miejscu", "fb.delivery": "Dostawa", "fb.copy": "Kopiuj link wyszukiwania {p}",
+  "how.eyebrow": "Jak to działa", "how.title": "Od ochoty na jedzenie do rezerwacji w trzech krokach",
+  "s1.t": "Szukaj", "s1.p": "Wpisz restaurację, dzielnicę lub kuchnię. Każde słowo musi pasować, więc widzisz tylko właściwe lokale.",
+  "s2.t": "Porównaj", "s2.p": "Zobacz oferty wszystkich platform obok siebie. Zielona plakietka oznacza link prosto do lokalu. Żółta oznacza wyszukiwarkę.",
+  "s3.t": "Rezerwuj bezpośrednio", "s3.p": "Kliknij Otwórz, aby przejść na stronę lokalu. Wyskakujące okna zablokowane? Skopiuj link i wklej go w nowej karcie.",
+  "miss.eyebrow": "Brakuje lokalu?", "miss.title": "Dodaj ofertę sam w 20 sekund",
+  "miss.1": "Wklej link do strony lokalu. Sprawdzimy, czy pasuje do platformy.", "miss.2": "Dodaj zniżkę, kod promocyjny i własne zdjęcie.", "miss.3": "Zapisujemy to w tej przeglądarce, gotowe na następną wizytę.", "miss.photo": "Zatłoczona sala restauracji",
+  "foot.tag": "Oferty za pół ceny na miejscu i z dostawą w całym Londynie, z linkami prosto do każdego lokalu.",
+  "foot.explore": "Menu", "foot.about": "O nas i prywatność", "foot.saved": "Twoje zapisane lokale", "foot.backup": "Kopiuj kopię zapasową", "foot.restore": "Przywróć kopię",
+  "foot.legal": "© 2026 TableFifty. Nie jesteśmy powiązani z żadną z wymienionych platform. Oferty często się zmieniają, więc sprawdź warunki przed rezerwacją lub zamówieniem.",
+  "foot.photos": "Zdjęcia pokazują rodzaj kuchni, a nie sam lokal. Zdjęcia: Unsplash.", "foot.privacy": "Polityka prywatności (po angielsku)",
+  "store.some": ({ n }) => `Zapisane linki w tej przeglądarce: ${n}.`,
+  "store.none": "Dodane lokale zapisujemy w tej przeglądarce.",
+  "store.blocked": "Ta przeglądarka blokuje zapisywanie. Dodane lokale znikną po zamknięciu strony. Użyj Kopiuj kopię zapasową, aby je zachować.",
+  "add.title": "Dodaj własny link do lokalu", "add.sub": "Zapisane w tej przeglądarce. Ta sama nazwa lokalu dołącza do istniejącej karty.",
+  "f.name": "Nazwa lokalu", "f.area": "Dzielnica", "f.url": "Link do strony lokalu", "f.urlHint": "Wklej link ze strony lokalu, a nie z wyszukiwarki.",
+  "f.platform": "Platforma", "f.choose": "Wybierz…", "f.headline": "Zniżka", "f.headlinePh": "50% taniej za jedzenie", "f.detail": "Warunki lub uwagi", "f.detailPh": "Nd–czw, tylko pierwsze i ostatnie godziny",
+  "f.code": "Kod promocyjny", "f.codePh": "Opcjonalnie", "f.tags": "Kuchnia lub tagi", "f.aff": "To mój link partnerski (TableFifty na nim zarabia). Pokaże się oznaczenie Reklama.",
+  "f.photo": "Zdjęcie", "f.choosePhoto": "Wybierz zdjęcie", "f.removePhoto": "Usuń", "f.photoHint": "Opcjonalnie. Użyj własnego zdjęcia lub takiego, na które masz zgodę. Bez zdjęcia pokażemy zdjęcie kuchni.",
+  "btn.cancel": "Anuluj", "btn.save": "Zapisz lokal", "btn.close": "Zamknij",
+  "hint.bad": "To jeszcze nie jest pełny link. Powinien zaczynać się od https://", "hint.venue": "Strona lokalu na {p}.", "hint.brand": "Strona marki na {p}. Strona konkretnego lokalu będzie lepsza, jeśli istnieje.",
+  "hint.search": "To strona wyszukiwania na {p}. Otwórz tam lokal i wklej jego własny link.", "hint.home": "To strona główna {p}. Wklej link do strony lokalu.", "hint.unknown": "nieznanej stronie",
+  "err.name": "Podaj nazwę lokalu.", "err.url": "Podaj pełny link do lokalu, zaczynający się od https://", "err.platform": "Wybierz platformę, na której jest ten link.",
+  "err.mismatch": "Ten link jest na {a}, a wybrana platforma to {b}. Zmień jedno z nich.", "err.host": "Ten link nie jest na {p} ({h}). Sprawdź, czy skopiowałeś właściwą stronę.",
+  "err.home": "To strona główna platformy. Otwórz lokal i wklej link do jego strony.", "err.headline": "Podaj zniżkę, np. 50% taniej za jedzenie.", "err.dup": "Ten link do tego lokalu jest już zapisany.",
+  "photo.notimg": "Ten plik nie jest zdjęciem. Wybierz JPG, PNG lub WebP.", "photo.ready": "Zdjęcie gotowe. Przycięliśmy je do karty.", "photo.bad": "Nie udało się odczytać zdjęcia. Spróbuj innego pliku.", "photo.removed": "Zdjęcie usunięte.",
+  "t.link": "Link skopiowany", "t.code": "Kod promocyjny skopiowany", "t.search": "Link wyszukiwania skopiowany", "t.backup": "Kopia zapasowa skopiowana",
+  "t.copyFailSel": "Kopiowanie zablokowane. Link jest zaznaczony: naciśnij Ctrl+C lub przytrzymaj i wybierz Kopiuj.", "t.copyFail": "Kopiowanie zablokowane. Zaznacz tekst i skopiuj go ręcznie.",
+  "t.opened": "Otwarto w nowej karcie", "t.popup": "Wyskakujące okna są tu zablokowane, więc skopiowaliśmy link.", "t.opening": "Otwieram {p} w nowej karcie", "t.removed": "Link usunięty",
+  "t.saved": "Zapisano {n}. Będzie tu następnym razem.", "t.savedTemp": "Dodano {n} na tę wizytę. Ta przeglądarka blokuje zapisywanie.", "t.savedNoPhoto": "Zapisano {n} bez zdjęcia. W przeglądarce brakuje miejsca.",
+  "t.backupEmpty": "Nie ma jeszcze czego kopiować. Najpierw dodaj lokal.", "t.restored": "Przywrócone linki: {n}", "t.restoredNone": "Wszystkie te linki już tu są.",
+  "rs.title": "Przywróć kopię", "rs.sub": "Wklej tekst z Kopiuj kopię zapasową. Obecne lokale zostaną.", "rs.label": "Tekst kopii", "rs.btn": "Przywróć",
+  "rs.bad": "Ten tekst nie jest kopią TableFifty. Skopiuj go ponownie.", "rs.none": "W tym tekście nie ma poprawnych linków.",
+  "sg.none": "Brak sprawdzonych ofert. Naciśnij Enter, aby szukać na platformach.",
+  "about.title": "O nas i prywatność", "about.sub": "Jak działa TableFifty, jak zarabia i co robi z Twoimi danymi.",
+  "ab.h1": "Czym jest TableFifty",
+  "ab.p1": "TableFifty zbiera w jednym miejscu londyńskie oferty za pół ceny w restauracjach i z dostawą. Sprawdzamy First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats i Just Eat, a potem kierujemy Cię prosto na stronę lokalu na każdej z nich. TableFifty nie jest powiązany z tymi platformami ani restauracjami i nie jest przez nie zatwierdzony.",
+  "ab.h2": "Jak zarabiamy",
+  "ab.m1": "Niektóre linki na TableFifty to linki partnerskie. Jeśli klikniesz taki link, a potem zarezerwujesz lub zamówisz, platforma może zapłacić nam niewielką prowizję.",
+  "ab.m2": "**Twoja cena się nie zmienia.** Prowizję płaci platforma, nie Ty.",
+  "ab.m3": "Linki, na których zarabiamy, mają oznaczenie {ad}.",
+  "ab.m4": "Pokazujemy oferty, bo są dobre dla Ciebie, a nie dlatego, że nam płacą.",
+  "ab.h3": "Prywatność i pliki cookie",
+  "ab.c1": "**Nie pytamy o imię, e-mail ani kartę.** Nie ma kont.",
+  "ab.c2": "**Zapisane lokale zostają w Twojej przeglądarce.** Nigdy do nas nie trafiają. Wyczyszczenie danych przeglądarki je usuwa.",
+  "ab.c3": "**Nie używamy własnych plików cookie do śledzenia ani reklam.** Jeśli kiedyś dodamy statystyki lub reklamy, zaktualizujemy tę stronę i najpierw zapytamy o zgodę.",
+  "ab.c4": "**Gdy przechodzisz na platformę,** obowiązuje jej własna polityka prywatności. Może ona zapisać plik cookie, by wiedzieć, że przyszedłeś z TableFifty.",
+  "ab.c5": "**Twoje prawa:** możesz zapytać, jakie dane o Tobie mamy, lub poprosić o ich usunięcie, pisząc na {email}. Jeśli nie jesteś zadowolony z odpowiedzi, możesz złożyć skargę do brytyjskiego urzędu ICO (ico.org.uk).",
+  "ab.h4": "Kto prowadzi TableFifty", "ab.p4": "TableFifty prowadzi Max Maserati w Anglii. Kontakt: {email}.", "ab.upd": "Ostatnia aktualizacja: 27 września 2026.",
+  "ab.note": "To tłumaczenie ma charakter pomocniczy. Wiążąca jest wersja angielska."
+},
+
+ro: {
+  "nav.deals": "Oferte", "nav.how": "Cum funcționează", "nav.add": "Adaugă un local", "nav.cta": "Adaugă linkul unui local", "nav.ctaShort": "Adaugă local", "lang.label": "Limbă",
+  "disc.label": "Informare despre reclame:", "disc.text": "TableFifty poate primi un comision când rezervi sau comanzi prin linkurile de pe acest site. Prețul tău rămâne același.", "disc.link": "Cum câștigăm bani",
+  "hero.eyebrow": "Fiecare masă. Jumătate din notă. · 7 platforme · 1 căutare",
+  "hero.h1": "<em>Mese la jumătate de preț</em> și oferte cu livrare, la un clic de pagina localului.",
+  "hero.lead": "Cauți o singură dată. Adunăm ofertele de pe First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats și Just Eat, apoi te trimitem direct la pagina restaurantului pe fiecare.",
+  "trust.1": "Până la 50% reducere la mâncare", "trust.2": "Verificăm dacă linkul duce la local sau la o căutare", "trust.3": "La restaurant sau cu livrare",
+  "search.ph": "Restaurant, zonă sau bucătărie", "search.aria": "Caută restaurante", "search.clear": "Șterge căutarea",
+  "pill.all": "Toate ofertele", "pill.dine": "50% reducere la restaurant", "pill.delivery": "Livrare de mâncare",
+  "meta": ({ v, l }) => `Localuri: ${v} · Linkuri: ${l}`,
+  "cz.title": "Caută după bucătărie", "cz.korean": "Coreeană", "cz.indian": "Indiană", "cz.steak": "Fripturi", "cz.pizza": "Pizza", "cz.chicken": "Pui", "cz.ramen": "Japoneză", "cz.sushi": "Sushi", "cz.chinese": "Chinezească", "cz.thai": "Thailandeză", "cz.italian": "Italiană", "cz.burger": "Burgeri",
+  "res.eyebrow.search": "Rezultatele căutării", "res.eyebrow.all": "Toate ofertele", "res.eyebrow.dine": "La restaurant", "res.eyebrow.delivery": "Livrare",
+  "res.title.all": "Oferte în toată Londra", "res.title.search": "Oferte pentru „{q}”", "res.title.none": "Încă nu avem nimic pentru „{q}”",
+  "src.curated": "Selectat de noi", "src.yours": "Salvat de tine", "media.tag": "Fotografie ilustrativă",
+  "kind.dine": "La restaurant", "kind.delivery": "Livrare", "yours": "Al tău", "ad": "Reclamă", "ad.title": "Putem primi un comision pentru acest link",
+  "lt.venue": "Pagina localului", "lt.brand": "Pagina brandului", "lt.search": "Căutare pe platformă", "lt.home": "Pagina principală", "lt.invalid": "Link greșit",
+  "ltn.brand": "Deschide pagina brandului. Alege acolo localul cel mai apropiat.", "ltn.search": "Deschide o căutare, nu pagina localului. Găsește localul, apoi salvează linkul lui.", "ltn.home": "Aceasta este o pagină principală. Înlocuiește-o cu pagina localului.", "ltn.invalid": "Linkul nu poate fi citit.",
+  "offer.open": "Deschide pe {p}", "offer.copy": "Copiază linkul", "offer.retry": "Nu s-a deschis? Încearcă metoda de rezervă",
+  "promo.label": "Cod promoțional", "promo.copy": "Copiază", "more.show": "Mai multe oferte ({n})", "more.hide": "Mai puține oferte",
+  "remove": "Șterge", "remove.confirm": "Apasă din nou pentru a șterge", "addlink": "Adaugă linkul altei platforme",
+  "rib.pct": "-{n}%", "rib.upto": "PÂNĂ LA -{n}%", "rib.241": "2 LA PREȚ DE 1", "rib.delivery": "LIVRARE",
+  "deal.ft.h": "50% reducere la mâncare", "deal.ft.d": "Ofertă tipică First Table: ore devreme sau târzii, taxă mică de rezervare. Verifică orele pe pagină.",
+  "deal.tf.h": "Până la 50% reducere", "deal.tf.d": "Ofertă tipică TheFork: meniu à la carte în anumite intervale. Diferă de la local la local.",
+  "deal.tc.h": "2 la preț de 1 sau 25% reducere", "deal.tc.d": "Ofertă tipică Tastecard, cu abonament. Condițiile diferă de la local la local.",
+  "deal.dl.h": "Livrare", "deal.dl.d": "Promoțiile actuale (reduceri, livrare gratuită) apar pe pagina ofertei.",
+  "area.multi": "Londra, mai multe localuri",
+  "empty.title": "Nu am găsit oferte verificate", "empty.for": "pentru „{q}”",
+  "empty.filtered": "„{q}” este în listă, dar nu la acest filtru. Alege Toate ofertele ca să-l vezi.",
+  "empty.missing": "„{q}” nu este încă în lista noastră. Folosește căutările pe platforme de mai jos, apoi salvează aici linkul localului.",
+  "empty.none": "Nimic nu se potrivește acestui filtru deocamdată.", "empty.add": "Adaugă „{q}” ca local",
+  "fill.title": "Nu găsești restaurantul?", "fill.text": "Caută pe toate cele 7 platforme deodată sau adaugă singur localul.", "fill.search": "Caută pe platforme", "fill.add": "Adaugă un local",
+  "fb.title": "Caută direct pe fiecare platformă", "fb.text": "Completat cu <strong>{q}</strong>. Ai găsit pagina localului? Salvează linkul cu Adaugă linkul unui local.",
+  "fb.platform": "Căutare pe platformă", "fb.google": "Căutare Google pe site", "fb.dine": "La restaurant", "fb.delivery": "Livrare", "fb.copy": "Copiază linkul de căutare {p}",
+  "how.eyebrow": "Cum funcționează", "how.title": "De la poftă la masa rezervată în trei pași",
+  "s1.t": "Caută", "s1.p": "Scrie un restaurant, o zonă sau o bucătărie. Fiecare cuvânt trebuie să se potrivească, așa că vezi doar localurile potrivite.",
+  "s2.t": "Compară", "s2.p": "Vezi ofertele fiecărei platforme una lângă alta. Insigna verde înseamnă link direct la local. Cea galbenă înseamnă o căutare.",
+  "s3.t": "Rezervă direct", "s3.p": "Apasă Deschide ca să ajungi pe pagina localului. Ferestrele pop-up sunt blocate? Copiază linkul și lipește-l într-o filă nouă.",
+  "miss.eyebrow": "Lipsește un local?", "miss.title": "Adaugă singur oferta în 20 de secunde",
+  "miss.1": "Lipește linkul paginii localului. Verificăm că se potrivește cu platforma.", "miss.2": "Adaugă reducerea, un cod promoțional și propria fotografie.", "miss.3": "Se salvează în acest browser, gata pentru data viitoare.", "miss.photo": "Sala aglomerată a unui restaurant",
+  "foot.tag": "Oferte la jumătate de preț la restaurant și cu livrare în toată Londra, cu linkuri directe spre fiecare local.",
+  "foot.explore": "Explorează", "foot.about": "Despre noi și confidențialitate", "foot.saved": "Localurile tale salvate", "foot.backup": "Copiază copia de siguranță", "foot.restore": "Restaurează copia",
+  "foot.legal": "© 2026 TableFifty. Nu suntem afiliați cu nicio platformă de aici. Ofertele se schimbă des, așa că verifică condițiile înainte să rezervi sau să comanzi.",
+  "foot.photos": "Fotografiile arată tipul de mâncare, nu localul. Fotografii: Unsplash.", "foot.privacy": "Politica de confidențialitate (în engleză)",
+  "store.some": ({ n }) => `Linkuri salvate în acest browser: ${n}.`,
+  "store.none": "Localurile adăugate se păstrează în acest browser.",
+  "store.blocked": "Acest browser blochează salvarea. Localurile adăugate dispar când închizi pagina. Folosește Copiază copia de siguranță ca să le păstrezi.",
+  "add.title": "Adaugă linkul unui local", "add.sub": "Se salvează în acest browser. Același nume de local se adaugă la cardul existent.",
+  "f.name": "Numele localului", "f.area": "Zona", "f.url": "Linkul paginii localului", "f.urlHint": "Lipește linkul de pe pagina localului, nu de pe o pagină de căutare.",
+  "f.platform": "Platforma", "f.choose": "Alege…", "f.headline": "Reducere", "f.headlinePh": "50% reducere la mâncare", "f.detail": "Condiții sau note", "f.detailPh": "Dum–joi, doar primele și ultimele ore",
+  "f.code": "Cod promoțional", "f.codePh": "Opțional", "f.tags": "Bucătărie sau etichete", "f.aff": "Acesta este linkul meu de afiliat (TableFifty câștigă din el). Apare eticheta Reclamă.",
+  "f.photo": "Fotografie", "f.choosePhoto": "Alege o fotografie", "f.removePhoto": "Șterge", "f.photoHint": "Opțional. Folosește o fotografie făcută de tine sau pe care ai voie să o folosești. Fără fotografie, afișăm o imagine cu bucătăria.",
+  "btn.cancel": "Anulează", "btn.save": "Salvează localul", "btn.close": "Închide",
+  "hint.bad": "Nu este încă un link complet. Trebuie să înceapă cu https://", "hint.venue": "Pagina localului pe {p}.", "hint.brand": "Pagina brandului pe {p}. Pagina unui anumit local e mai directă, dacă există.",
+  "hint.search": "Aceasta este o pagină de căutare pe {p}. Deschide acolo localul și lipește linkul lui.", "hint.home": "Aceasta este pagina principală {p}. Lipește linkul paginii localului.", "hint.unknown": "un site necunoscut",
+  "err.name": "Adaugă numele localului.", "err.url": "Adaugă linkul complet al localului, care începe cu https://", "err.platform": "Alege platforma pe care se află acest link.",
+  "err.mismatch": "Linkul este pe {a}, dar platforma aleasă este {b}. Schimbă una ca să se potrivească.", "err.host": "Linkul nu este pe {p} ({h}). Verifică dacă ai copiat pagina corectă.",
+  "err.home": "Aceasta este pagina principală a platformei. Deschide localul și lipește linkul paginii lui.", "err.headline": "Adaugă reducerea, de ex. 50% reducere la mâncare.", "err.dup": "Ai salvat deja acest link pentru acest local.",
+  "photo.notimg": "Fișierul nu este o fotografie. Alege JPG, PNG sau WebP.", "photo.ready": "Fotografia e gata. Am decupat-o pe măsura cardului.", "photo.bad": "Fotografia nu a putut fi citită. Încearcă alt fișier.", "photo.removed": "Fotografie ștearsă.",
+  "t.link": "Link copiat", "t.code": "Cod promoțional copiat", "t.search": "Link de căutare copiat", "t.backup": "Copia de siguranță a fost copiată",
+  "t.copyFailSel": "Copierea a fost blocată. Linkul este selectat: apasă Ctrl+C sau ține apăsat și alege Copiază.", "t.copyFail": "Copierea a fost blocată. Selectează textul și copiază-l manual.",
+  "t.opened": "S-a deschis într-o filă nouă", "t.popup": "Ferestrele pop-up sunt blocate aici, așa că am copiat linkul.", "t.opening": "Se deschide {p} într-o filă nouă", "t.removed": "Link șters",
+  "t.saved": "Am salvat {n}. Îl găsești aici data viitoare.", "t.savedTemp": "Am adăugat {n} pentru această vizită. Browserul blochează salvarea.", "t.savedNoPhoto": "Am salvat {n} fără fotografie. Browserul nu mai are spațiu.",
+  "t.backupEmpty": "Nu e nimic de salvat încă. Adaugă mai întâi un local.", "t.restored": "Linkuri restaurate: {n}", "t.restoredNone": "Toate aceste linkuri erau deja aici.",
+  "rs.title": "Restaurează copia", "rs.sub": "Lipește textul din Copiază copia de siguranță. Localurile existente rămân.", "rs.label": "Textul copiei", "rs.btn": "Restaurează",
+  "rs.bad": "Textul nu este o copie TableFifty. Copiază-l din nou.", "rs.none": "Nu am găsit linkuri valide în acest text.",
+  "sg.none": "Nicio ofertă verificată. Apasă Enter ca să cauți pe platforme.",
+  "about.title": "Despre noi și confidențialitate", "about.sub": "Cum funcționează TableFifty, cum câștigă bani și ce face cu datele tale.",
+  "ab.h1": "Ce este TableFifty",
+  "ab.p1": "TableFifty adună într-un singur loc ofertele la jumătate de preț din Londra, la restaurant și cu livrare. Verificăm First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats și Just Eat, apoi te trimitem direct la pagina localului pe fiecare. TableFifty nu este afiliat cu aceste platforme sau restaurante și nu este aprobat de ele.",
+  "ab.h2": "Cum câștigăm bani",
+  "ab.m1": "Unele linkuri de pe TableFifty sunt linkuri de afiliere. Dacă dai clic pe unul și apoi rezervi sau comanzi, platforma ne poate plăti un mic comision.",
+  "ab.m2": "**Prețul tău rămâne același.** Comisionul îl plătește platforma, nu tu.",
+  "ab.m3": "Linkurile din care câștigăm au eticheta {ad}.",
+  "ab.m4": "Afișăm oferte pentru că sunt bune pentru tine, nu pentru că ne plătesc.",
+  "ab.h3": "Confidențialitate și cookie-uri",
+  "ab.c1": "**Nu îți cerem numele, e-mailul sau cardul.** Nu există conturi.",
+  "ab.c2": "**Localurile salvate rămân în browserul tău.** Nu ajung niciodată la noi. Dacă ștergi datele browserului, dispar.",
+  "ab.c3": "**Nu folosim cookie-uri proprii de urmărire sau publicitate** în acest moment. Dacă vom adăuga statistici sau reclame, vom actualiza această pagină și îți vom cere mai întâi acordul.",
+  "ab.c4": "**Când ajungi pe o platformă,** se aplică politica ei de confidențialitate. Poate salva un cookie ca să știe că ai venit de la TableFifty.",
+  "ab.c5": "**Drepturile tale:** poți întreba ce date avem despre tine sau cere ștergerea lor scriind la {email}. Dacă nu ești mulțumit de răspuns, poți depune o plângere la autoritatea britanică ICO (ico.org.uk).",
+  "ab.h4": "Cine se ocupă de TableFifty", "ab.p4": "TableFifty este condus de Max Maserati, în Anglia. Contact: {email}.", "ab.upd": "Ultima actualizare: 27 septembrie 2026.",
+  "ab.note": "Această traducere este oferită pentru comoditate. Versiunea în engleză este cea oficială."
+},
+
+pa: {
+  "nav.deals": "ਆਫ਼ਰਾਂ", "nav.how": "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ", "nav.add": "ਰੈਸਟੋਰੈਂਟ ਜੋੜੋ", "nav.cta": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਲਿੰਕ ਜੋੜੋ", "nav.ctaShort": "ਜੋੜੋ", "lang.label": "ਭਾਸ਼ਾ",
+  "disc.label": "ਇਸ਼ਤਿਹਾਰ ਬਾਰੇ ਜਾਣਕਾਰੀ:", "disc.text": "ਜਦੋਂ ਤੁਸੀਂ ਇਸ ਸਾਈਟ ਦੇ ਲਿੰਕਾਂ ਰਾਹੀਂ ਬੁਕਿੰਗ ਜਾਂ ਆਰਡਰ ਕਰਦੇ ਹੋ, ਤਾਂ TableFifty ਨੂੰ ਕਮਿਸ਼ਨ ਮਿਲ ਸਕਦਾ ਹੈ। ਤੁਹਾਡੀ ਕੀਮਤ ਉਹੀ ਰਹਿੰਦੀ ਹੈ।", "disc.link": "ਅਸੀਂ ਪੈਸੇ ਕਿਵੇਂ ਕਮਾਉਂਦੇ ਹਾਂ",
+  "hero.eyebrow": "ਹਰ ਟੇਬਲ। ਅੱਧਾ ਬਿੱਲ। · 7 ਪਲੇਟਫਾਰਮ · 1 ਖੋਜ",
+  "hero.h1": "<em>ਅੱਧੀ ਕੀਮਤ ’ਤੇ ਟੇਬਲ</em> ਅਤੇ ਡਿਲੀਵਰੀ ਆਫ਼ਰਾਂ, ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ਤੋਂ ਬੱਸ ਇੱਕ ਟੈਪ ਦੂਰ।",
+  "hero.lead": "ਇੱਕ ਵਾਰ ਖੋਜੋ। ਅਸੀਂ First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats ਅਤੇ Just Eat ਦੀਆਂ ਆਫ਼ਰਾਂ ਇਕੱਠੀਆਂ ਕਰਦੇ ਹਾਂ, ਫਿਰ ਤੁਹਾਨੂੰ ਹਰ ਪਲੇਟਫਾਰਮ ’ਤੇ ਰੈਸਟੋਰੈਂਟ ਦੇ ਆਪਣੇ ਪੰਨੇ ’ਤੇ ਲੈ ਜਾਂਦੇ ਹਾਂ।",
+  "trust.1": "ਖਾਣੇ ’ਤੇ 50% ਤੱਕ ਛੋਟ", "trust.2": "ਅਸੀਂ ਜਾਂਚਦੇ ਹਾਂ ਕਿ ਲਿੰਕ ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੰਨਾ ਖੋਲ੍ਹਦਾ ਹੈ ਜਾਂ ਖੋਜ", "trust.3": "ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ ਜਾਂ ਡਿਲੀਵਰੀ",
+  "search.ph": "ਰੈਸਟੋਰੈਂਟ, ਇਲਾਕਾ ਜਾਂ ਖਾਣੇ ਦੀ ਕਿਸਮ", "search.aria": "ਰੈਸਟੋਰੈਂਟ ਖੋਜੋ", "search.clear": "ਖੋਜ ਸਾਫ਼ ਕਰੋ",
+  "pill.all": "ਸਾਰੀਆਂ ਆਫ਼ਰਾਂ", "pill.dine": "ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ 50% ਛੋਟ", "pill.delivery": "ਖਾਣੇ ਦੀ ਡਿਲੀਵਰੀ",
+  "meta": ({ v, l }) => `ਰੈਸਟੋਰੈਂਟ: ${v} · ਲਿੰਕ: ${l}`,
+  "cz.title": "ਖਾਣੇ ਦੀ ਕਿਸਮ ਅਨੁਸਾਰ ਦੇਖੋ", "cz.korean": "ਕੋਰੀਆਈ", "cz.indian": "ਭਾਰਤੀ", "cz.steak": "ਸਟੇਕ", "cz.pizza": "ਪੀਜ਼ਾ", "cz.chicken": "ਚਿਕਨ", "cz.ramen": "ਜਪਾਨੀ", "cz.sushi": "ਸੂਸ਼ੀ", "cz.chinese": "ਚੀਨੀ", "cz.thai": "ਥਾਈ", "cz.italian": "ਇਤਾਲਵੀ", "cz.burger": "ਬਰਗਰ",
+  "res.eyebrow.search": "ਖੋਜ ਨਤੀਜੇ", "res.eyebrow.all": "ਸਾਰੀਆਂ ਆਫ਼ਰਾਂ", "res.eyebrow.dine": "ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ", "res.eyebrow.delivery": "ਡਿਲੀਵਰੀ",
+  "res.title.all": "ਪੂਰੇ ਲੰਡਨ ਦੀਆਂ ਆਫ਼ਰਾਂ", "res.title.search": "“{q}” ਲਈ ਆਫ਼ਰਾਂ", "res.title.none": "“{q}” ਲਈ ਅਜੇ ਕੁਝ ਨਹੀਂ",
+  "src.curated": "ਸਾਡੀ ਚੋਣ", "src.yours": "ਤੁਹਾਡੇ ਵੱਲੋਂ ਜੋੜਿਆ", "media.tag": "ਨਮੂਨੇ ਦੀ ਤਸਵੀਰ",
+  "kind.dine": "ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ", "kind.delivery": "ਡਿਲੀਵਰੀ", "yours": "ਤੁਹਾਡਾ", "ad": "ਇਸ਼ਤਿਹਾਰ", "ad.title": "ਇਸ ਲਿੰਕ ਤੋਂ ਸਾਨੂੰ ਕਮਿਸ਼ਨ ਮਿਲ ਸਕਦਾ ਹੈ",
+  "lt.venue": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੰਨਾ", "lt.brand": "ਬ੍ਰਾਂਡ ਦਾ ਪੰਨਾ", "lt.search": "ਪਲੇਟਫਾਰਮ ਖੋਜ", "lt.home": "ਮੁੱਖ ਪੰਨਾ", "lt.invalid": "ਗਲਤ ਲਿੰਕ",
+  "ltn.brand": "ਬ੍ਰਾਂਡ ਦਾ ਪੰਨਾ ਖੁੱਲ੍ਹਦਾ ਹੈ। ਉੱਥੇ ਆਪਣੀ ਨੇੜਲੀ ਬ੍ਰਾਂਚ ਚੁਣੋ।", "ltn.search": "ਇਹ ਖੋਜ ਖੋਲ੍ਹਦਾ ਹੈ, ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੰਨਾ ਨਹੀਂ। ਰੈਸਟੋਰੈਂਟ ਲੱਭੋ, ਫਿਰ ਉਸ ਦਾ ਆਪਣਾ ਲਿੰਕ ਸੰਭਾਲੋ।", "ltn.home": "ਇਹ ਮੁੱਖ ਪੰਨਾ ਹੈ। ਇਸ ਨੂੰ ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ਨਾਲ ਬਦਲੋ।", "ltn.invalid": "ਇਹ ਲਿੰਕ ਪੜ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।",
+  "offer.open": "{p} ’ਤੇ ਖੋਲ੍ਹੋ", "offer.copy": "ਲਿੰਕ ਕਾਪੀ ਕਰੋ", "offer.retry": "ਨਹੀਂ ਖੁੱਲ੍ਹਿਆ? ਦੂਜਾ ਤਰੀਕਾ ਅਜ਼ਮਾਓ",
+  "promo.label": "ਪ੍ਰੋਮੋ ਕੋਡ", "promo.copy": "ਕਾਪੀ", "more.show": "ਹੋਰ ਆਫ਼ਰਾਂ ({n})", "more.hide": "ਘੱਟ ਆਫ਼ਰਾਂ",
+  "remove": "ਹਟਾਓ", "remove.confirm": "ਹਟਾਉਣ ਲਈ ਦੁਬਾਰਾ ਟੈਪ ਕਰੋ", "addlink": "ਕਿਸੇ ਹੋਰ ਪਲੇਟਫਾਰਮ ਦਾ ਲਿੰਕ ਜੋੜੋ",
+  "rib.pct": "{n}% ਛੋਟ", "rib.upto": "{n}% ਤੱਕ ਛੋਟ", "rib.241": "ਇੱਕ ਨਾਲ ਇੱਕ ਮੁਫ਼ਤ", "rib.delivery": "ਡਿਲੀਵਰੀ",
+  "deal.ft.h": "ਖਾਣੇ ’ਤੇ 50% ਛੋਟ", "deal.ft.d": "First Table ਦੀ ਆਮ ਆਫ਼ਰ: ਜਲਦੀ ਜਾਂ ਦੇਰ ਵਾਲੇ ਸਮੇਂ, ਥੋੜ੍ਹੀ ਬੁਕਿੰਗ ਫੀਸ। ਸਮੇਂ ਪੰਨੇ ’ਤੇ ਦੇਖੋ।",
+  "deal.tf.h": "50% ਤੱਕ ਛੋਟ", "deal.tf.d": "TheFork ਦੀ ਆਮ ਆਫ਼ਰ: ਚੁਣੇ ਸਮਿਆਂ ’ਤੇ ਮੀਨੂ ’ਤੇ ਛੋਟ। ਹਰ ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ ਵੱਖਰੀ।",
+  "deal.tc.h": "ਇੱਕ ਨਾਲ ਇੱਕ ਮੁਫ਼ਤ ਜਾਂ 25% ਛੋਟ", "deal.tc.d": "Tastecard ਦੀ ਆਮ ਆਫ਼ਰ, ਮੈਂਬਰਸ਼ਿਪ ਨਾਲ। ਸ਼ਰਤਾਂ ਹਰ ਬ੍ਰਾਂਚ ਵਿੱਚ ਵੱਖਰੀਆਂ।",
+  "deal.dl.h": "ਡਿਲੀਵਰੀ", "deal.dl.d": "ਮੌਜੂਦਾ ਪ੍ਰੋਮੋ (ਛੋਟ, ਮੁਫ਼ਤ ਡਿਲੀਵਰੀ) ਪੰਨੇ ’ਤੇ ਦਿਸਦੇ ਹਨ।",
+  "area.multi": "ਲੰਡਨ, ਕਈ ਬ੍ਰਾਂਚਾਂ",
+  "empty.title": "ਕੋਈ ਪੱਕੀ ਆਫ਼ਰ ਨਹੀਂ ਮਿਲੀ", "empty.for": "“{q}” ਲਈ",
+  "empty.filtered": "“{q}” ਸੂਚੀ ਵਿੱਚ ਹੈ, ਪਰ ਇਸ ਫਿਲਟਰ ਵਿੱਚ ਨਹੀਂ। ਦੇਖਣ ਲਈ ਸਾਰੀਆਂ ਆਫ਼ਰਾਂ ਚੁਣੋ।",
+  "empty.missing": "“{q}” ਅਜੇ ਸਾਡੀ ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ ਹੈ। ਹੇਠਾਂ ਪਲੇਟਫਾਰਮਾਂ ’ਤੇ ਖੋਜੋ, ਫਿਰ ਰੈਸਟੋਰੈਂਟ ਦਾ ਲਿੰਕ ਇੱਥੇ ਸੰਭਾਲੋ।",
+  "empty.none": "ਇਸ ਫਿਲਟਰ ਨਾਲ ਅਜੇ ਕੁਝ ਨਹੀਂ ਮਿਲਦਾ।", "empty.add": "“{q}” ਨੂੰ ਰੈਸਟੋਰੈਂਟ ਵਜੋਂ ਜੋੜੋ",
+  "fill.title": "ਆਪਣਾ ਰੈਸਟੋਰੈਂਟ ਨਹੀਂ ਲੱਭਿਆ?", "fill.text": "ਸੱਤੇ ਪਲੇਟਫਾਰਮਾਂ ’ਤੇ ਇੱਕੋ ਵਾਰ ਖੋਜੋ, ਜਾਂ ਖੁਦ ਰੈਸਟੋਰੈਂਟ ਜੋੜੋ।", "fill.search": "ਪਲੇਟਫਾਰਮਾਂ ’ਤੇ ਖੋਜੋ", "fill.add": "ਰੈਸਟੋਰੈਂਟ ਜੋੜੋ",
+  "fb.title": "ਹਰ ਪਲੇਟਫਾਰਮ ’ਤੇ ਸਿੱਧਾ ਖੋਜੋ", "fb.text": "ਖੋਜ: <strong>{q}</strong>। ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੰਨਾ ਮਿਲ ਗਿਆ? “ਰੈਸਟੋਰੈਂਟ ਦਾ ਲਿੰਕ ਜੋੜੋ” ਨਾਲ ਉਸ ਦਾ ਲਿੰਕ ਸੰਭਾਲੋ।",
+  "fb.platform": "ਪਲੇਟਫਾਰਮ ਖੋਜ", "fb.google": "ਗੂਗਲ ਸਾਈਟ ਖੋਜ", "fb.dine": "ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ", "fb.delivery": "ਡਿਲੀਵਰੀ", "fb.copy": "{p} ਦਾ ਖੋਜ ਲਿੰਕ ਕਾਪੀ ਕਰੋ",
+  "how.eyebrow": "ਇਹ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ", "how.title": "ਭੁੱਖ ਤੋਂ ਬੁੱਕ ਕੀਤੇ ਟੇਬਲ ਤੱਕ, ਤਿੰਨ ਕਦਮਾਂ ਵਿੱਚ",
+  "s1.t": "ਖੋਜੋ", "s1.p": "ਰੈਸਟੋਰੈਂਟ, ਇਲਾਕਾ ਜਾਂ ਖਾਣੇ ਦੀ ਕਿਸਮ ਲਿਖੋ। ਹਰ ਸ਼ਬਦ ਦਾ ਮੇਲ ਹੋਣਾ ਜ਼ਰੂਰੀ ਹੈ, ਇਸ ਲਈ ਤੁਹਾਨੂੰ ਸਿਰਫ਼ ਸਹੀ ਰੈਸਟੋਰੈਂਟ ਦਿਸਦੇ ਹਨ।",
+  "s2.t": "ਤੁਲਨਾ ਕਰੋ", "s2.p": "ਹਰ ਪਲੇਟਫਾਰਮ ਦੀ ਆਫ਼ਰ ਨਾਲ-ਨਾਲ ਦੇਖੋ। ਹਰਾ ਨਿਸ਼ਾਨ ਮਤਲਬ ਲਿੰਕ ਸਿੱਧਾ ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ’ਤੇ ਜਾਂਦਾ ਹੈ। ਪੀਲਾ ਨਿਸ਼ਾਨ ਖੋਜ ਖੋਲ੍ਹਦਾ ਹੈ।",
+  "s3.t": "ਸਿੱਧਾ ਬੁੱਕ ਕਰੋ", "s3.p": "ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ’ਤੇ ਜਾਣ ਲਈ “ਖੋਲ੍ਹੋ” ਦਬਾਓ। ਪੌਪ-ਅੱਪ ਬੰਦ ਹਨ? ਲਿੰਕ ਕਾਪੀ ਕਰਕੇ ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।",
+  "miss.eyebrow": "ਕੋਈ ਰੈਸਟੋਰੈਂਟ ਨਹੀਂ ਹੈ?", "miss.title": "20 ਸਕਿੰਟਾਂ ਵਿੱਚ ਖੁਦ ਆਫ਼ਰ ਜੋੜੋ",
+  "miss.1": "ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ਦਾ ਲਿੰਕ ਪੇਸਟ ਕਰੋ। ਅਸੀਂ ਜਾਂਚਦੇ ਹਾਂ ਕਿ ਇਹ ਪਲੇਟਫਾਰਮ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਹੈ।", "miss.2": "ਛੋਟ, ਪ੍ਰੋਮੋ ਕੋਡ ਅਤੇ ਆਪਣੀ ਤਸਵੀਰ ਜੋੜੋ।", "miss.3": "ਇਹ ਇਸੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ, ਅਗਲੀ ਵਾਰ ਲਈ ਤਿਆਰ।", "miss.photo": "ਭੀੜ ਵਾਲਾ ਰੈਸਟੋਰੈਂਟ ਹਾਲ",
+  "foot.tag": "ਪੂਰੇ ਲੰਡਨ ਵਿੱਚ ਅੱਧੀ ਕੀਮਤ ਵਾਲੀਆਂ ਰੈਸਟੋਰੈਂਟ ਅਤੇ ਡਿਲੀਵਰੀ ਆਫ਼ਰਾਂ, ਹਰ ਰੈਸਟੋਰੈਂਟ ਦੇ ਸਿੱਧੇ ਲਿੰਕਾਂ ਨਾਲ।",
+  "foot.explore": "ਦੇਖੋ", "foot.about": "ਸਾਡੇ ਬਾਰੇ ਅਤੇ ਪਰਦੇਦਾਰੀ", "foot.saved": "ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਰੈਸਟੋਰੈਂਟ", "foot.backup": "ਬੈਕਅੱਪ ਕਾਪੀ ਕਰੋ", "foot.restore": "ਬੈਕਅੱਪ ਵਾਪਸ ਲਿਆਓ",
+  "foot.legal": "© 2026 TableFifty। ਇੱਥੇ ਦਿੱਤੇ ਕਿਸੇ ਵੀ ਪਲੇਟਫਾਰਮ ਨਾਲ ਸਾਡਾ ਸੰਬੰਧ ਨਹੀਂ। ਆਫ਼ਰਾਂ ਅਕਸਰ ਬਦਲਦੀਆਂ ਹਨ, ਇਸ ਲਈ ਬੁਕਿੰਗ ਜਾਂ ਆਰਡਰ ਤੋਂ ਪਹਿਲਾਂ ਸ਼ਰਤਾਂ ਦੇਖੋ।",
+  "foot.photos": "ਤਸਵੀਰਾਂ ਖਾਣੇ ਦੀ ਕਿਸਮ ਦਿਖਾਉਂਦੀਆਂ ਹਨ, ਰੈਸਟੋਰੈਂਟ ਨਹੀਂ। ਤਸਵੀਰਾਂ: Unsplash।", "foot.privacy": "ਪਰਦੇਦਾਰੀ ਨੀਤੀ (ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ)",
+  "store.some": ({ n }) => `ਇਸ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਸੰਭਾਲੇ ਲਿੰਕ: ${n}।`,
+  "store.none": "ਤੁਹਾਡੇ ਜੋੜੇ ਰੈਸਟੋਰੈਂਟ ਇਸੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਸੰਭਾਲੇ ਜਾਂਦੇ ਹਨ।",
+  "store.blocked": "ਇਹ ਬ੍ਰਾਊਜ਼ਰ ਸੰਭਾਲਣ ਨਹੀਂ ਦਿੰਦਾ। ਪੰਨਾ ਬੰਦ ਕਰਨ ’ਤੇ ਜੋੜੇ ਰੈਸਟੋਰੈਂਟ ਮਿਟ ਜਾਣਗੇ। ਰੱਖਣ ਲਈ “ਬੈਕਅੱਪ ਕਾਪੀ ਕਰੋ” ਵਰਤੋ।",
+  "add.title": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਲਿੰਕ ਜੋੜੋ", "add.sub": "ਇਸੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਸੰਭਾਲਿਆ ਜਾਂਦਾ ਹੈ। ਜੇ ਨਾਂ ਪਹਿਲਾਂ ਹੈ, ਤਾਂ ਉਸੇ ਕਾਰਡ ਵਿੱਚ ਜੁੜ ਜਾਂਦਾ ਹੈ।",
+  "f.name": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਨਾਂ", "f.area": "ਇਲਾਕਾ", "f.url": "ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ਦਾ ਲਿੰਕ", "f.urlHint": "ਰੈਸਟੋਰੈਂਟ ਦੇ ਆਪਣੇ ਪੰਨੇ ਦਾ ਲਿੰਕ ਪੇਸਟ ਕਰੋ, ਖੋਜ ਪੰਨੇ ਦਾ ਨਹੀਂ।",
+  "f.platform": "ਪਲੇਟਫਾਰਮ", "f.choose": "ਚੁਣੋ…", "f.headline": "ਛੋਟ", "f.headlinePh": "ਖਾਣੇ ’ਤੇ 50% ਛੋਟ", "f.detail": "ਸ਼ਰਤਾਂ ਜਾਂ ਨੋਟ", "f.detailPh": "ਐਤ–ਵੀਰ, ਸਿਰਫ਼ ਪਹਿਲੇ ਅਤੇ ਆਖਰੀ ਸਮੇਂ",
+  "f.code": "ਪ੍ਰੋਮੋ ਕੋਡ", "f.codePh": "ਚੋਣਵਾਂ", "f.tags": "ਖਾਣੇ ਦੀ ਕਿਸਮ ਜਾਂ ਟੈਗ", "f.aff": "ਇਹ ਮੇਰਾ ਐਫ਼ੀਲੀਏਟ ਲਿੰਕ ਹੈ (ਇਸ ਤੋਂ TableFifty ਕਮਾਉਂਦਾ ਹੈ)। ਇਸ ’ਤੇ “ਇਸ਼ਤਿਹਾਰ” ਨਿਸ਼ਾਨ ਲੱਗਦਾ ਹੈ।",
+  "f.photo": "ਤਸਵੀਰ", "f.choosePhoto": "ਤਸਵੀਰ ਚੁਣੋ", "f.removePhoto": "ਹਟਾਓ", "f.photoHint": "ਚੋਣਵਾਂ। ਆਪਣੀ ਖਿੱਚੀ ਜਾਂ ਇਜਾਜ਼ਤ ਵਾਲੀ ਤਸਵੀਰ ਵਰਤੋ। ਤਸਵੀਰ ਨਾ ਹੋਵੇ ਤਾਂ ਅਸੀਂ ਖਾਣੇ ਦੀ ਕਿਸਮ ਦੀ ਤਸਵੀਰ ਦਿਖਾਉਂਦੇ ਹਾਂ।",
+  "btn.cancel": "ਰੱਦ ਕਰੋ", "btn.save": "ਰੈਸਟੋਰੈਂਟ ਸੰਭਾਲੋ", "btn.close": "ਬੰਦ ਕਰੋ",
+  "hint.bad": "ਇਹ ਅਜੇ ਪੂਰਾ ਲਿੰਕ ਨਹੀਂ। ਇਹ https:// ਨਾਲ ਸ਼ੁਰੂ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ", "hint.venue": "{p} ’ਤੇ ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੰਨਾ।", "hint.brand": "{p} ’ਤੇ ਬ੍ਰਾਂਡ ਦਾ ਪੰਨਾ। ਜੇ ਬ੍ਰਾਂਚ ਦਾ ਪੰਨਾ ਹੋਵੇ ਤਾਂ ਉਹ ਬਿਹਤਰ ਹੈ।",
+  "hint.search": "ਇਹ {p} ’ਤੇ ਖੋਜ ਪੰਨਾ ਹੈ। ਉੱਥੇ ਰੈਸਟੋਰੈਂਟ ਖੋਲ੍ਹੋ ਅਤੇ ਉਸ ਦਾ ਆਪਣਾ ਲਿੰਕ ਪੇਸਟ ਕਰੋ।", "hint.home": "ਇਹ {p} ਦਾ ਮੁੱਖ ਪੰਨਾ ਹੈ। ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ਦਾ ਲਿੰਕ ਪੇਸਟ ਕਰੋ।", "hint.unknown": "ਅਣਜਾਣ ਸਾਈਟ",
+  "err.name": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਨਾਂ ਲਿਖੋ।", "err.url": "ਰੈਸਟੋਰੈਂਟ ਦਾ ਪੂਰਾ ਲਿੰਕ ਲਿਖੋ, ਜੋ https:// ਨਾਲ ਸ਼ੁਰੂ ਹੋਵੇ", "err.platform": "ਚੁਣੋ ਕਿ ਇਹ ਲਿੰਕ ਕਿਸ ਪਲੇਟਫਾਰਮ ਦਾ ਹੈ।",
+  "err.mismatch": "ਇਹ ਲਿੰਕ {a} ਦਾ ਹੈ, ਪਰ ਚੁਣਿਆ ਪਲੇਟਫਾਰਮ {b} ਹੈ। ਇੱਕ ਨੂੰ ਬਦਲੋ ਤਾਂ ਜੋ ਦੋਵੇਂ ਮਿਲਣ।", "err.host": "ਇਹ ਲਿੰਕ {p} ({h}) ਦਾ ਨਹੀਂ। ਜਾਂਚੋ ਕਿ ਤੁਸੀਂ ਸਹੀ ਪੰਨਾ ਕਾਪੀ ਕੀਤਾ ਹੈ।",
+  "err.home": "ਇਹ ਪਲੇਟਫਾਰਮ ਦਾ ਮੁੱਖ ਪੰਨਾ ਹੈ। ਰੈਸਟੋਰੈਂਟ ਖੋਲ੍ਹੋ ਅਤੇ ਉਸ ਦੇ ਪੰਨੇ ਦਾ ਲਿੰਕ ਪੇਸਟ ਕਰੋ।", "err.headline": "ਛੋਟ ਲਿਖੋ, ਜਿਵੇਂ ਖਾਣੇ ’ਤੇ 50% ਛੋਟ।", "err.dup": "ਤੁਸੀਂ ਇਹ ਲਿੰਕ ਇਸ ਰੈਸਟੋਰੈਂਟ ਲਈ ਪਹਿਲਾਂ ਹੀ ਸੰਭਾਲ ਚੁੱਕੇ ਹੋ।",
+  "photo.notimg": "ਇਹ ਫ਼ਾਈਲ ਤਸਵੀਰ ਨਹੀਂ। JPG, PNG ਜਾਂ WebP ਤਸਵੀਰ ਚੁਣੋ।", "photo.ready": "ਤਸਵੀਰ ਤਿਆਰ ਹੈ। ਕਾਰਡ ਮੁਤਾਬਕ ਕੱਟ ਦਿੱਤੀ ਗਈ ਹੈ।", "photo.bad": "ਤਸਵੀਰ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ। ਕੋਈ ਹੋਰ ਫ਼ਾਈਲ ਅਜ਼ਮਾਓ।", "photo.removed": "ਤਸਵੀਰ ਹਟਾ ਦਿੱਤੀ ਗਈ।",
+  "t.link": "ਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ", "t.code": "ਪ੍ਰੋਮੋ ਕੋਡ ਕਾਪੀ ਹੋ ਗਿਆ", "t.search": "ਖੋਜ ਲਿੰਕ ਕਾਪੀ ਹੋ ਗਿਆ", "t.backup": "ਬੈਕਅੱਪ ਕਾਪੀ ਹੋ ਗਿਆ",
+  "t.copyFailSel": "ਕਾਪੀ ਰੋਕ ਦਿੱਤੀ ਗਈ। ਲਿੰਕ ਚੁਣਿਆ ਹੋਇਆ ਹੈ: Ctrl+C ਦਬਾਓ, ਜਾਂ ਦਬਾ ਕੇ ਰੱਖੋ ਅਤੇ ਕਾਪੀ ਚੁਣੋ।", "t.copyFail": "ਇੱਥੇ ਕਾਪੀ ਰੋਕ ਦਿੱਤੀ ਗਈ। ਟੈਕਸਟ ਚੁਣ ਕੇ ਖੁਦ ਕਾਪੀ ਕਰੋ।",
+  "t.opened": "ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਖੁੱਲ੍ਹ ਗਿਆ", "t.popup": "ਇੱਥੇ ਪੌਪ-ਅੱਪ ਬੰਦ ਹਨ, ਇਸ ਲਈ ਅਸੀਂ ਲਿੰਕ ਕਾਪੀ ਕਰ ਦਿੱਤਾ।", "t.opening": "{p} ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਖੁੱਲ੍ਹ ਰਿਹਾ ਹੈ", "t.removed": "ਲਿੰਕ ਹਟਾ ਦਿੱਤਾ ਗਿਆ",
+  "t.saved": "{n} ਸੰਭਾਲਿਆ ਗਿਆ। ਅਗਲੀ ਵਾਰ ਇੱਥੇ ਹੀ ਮਿਲੇਗਾ।", "t.savedTemp": "{n} ਸਿਰਫ਼ ਇਸ ਵਾਰ ਲਈ ਜੋੜਿਆ ਗਿਆ। ਇਹ ਬ੍ਰਾਊਜ਼ਰ ਸੰਭਾਲਣ ਨਹੀਂ ਦਿੰਦਾ।", "t.savedNoPhoto": "{n} ਤਸਵੀਰ ਤੋਂ ਬਿਨਾਂ ਸੰਭਾਲਿਆ ਗਿਆ। ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਥਾਂ ਨਹੀਂ।",
+  "t.backupEmpty": "ਅਜੇ ਬੈਕਅੱਪ ਲਈ ਕੁਝ ਨਹੀਂ। ਪਹਿਲਾਂ ਕੋਈ ਰੈਸਟੋਰੈਂਟ ਜੋੜੋ।", "t.restored": "ਵਾਪਸ ਲਿਆਂਦੇ ਲਿੰਕ: {n}", "t.restoredNone": "ਇਹ ਸਾਰੇ ਲਿੰਕ ਪਹਿਲਾਂ ਹੀ ਇੱਥੇ ਸਨ।",
+  "rs.title": "ਬੈਕਅੱਪ ਵਾਪਸ ਲਿਆਓ", "rs.sub": "“ਬੈਕਅੱਪ ਕਾਪੀ ਕਰੋ” ਵਾਲਾ ਟੈਕਸਟ ਇੱਥੇ ਪੇਸਟ ਕਰੋ। ਤੁਹਾਡੇ ਮੌਜੂਦਾ ਰੈਸਟੋਰੈਂਟ ਰਹਿਣਗੇ।", "rs.label": "ਬੈਕਅੱਪ ਟੈਕਸਟ", "rs.btn": "ਵਾਪਸ ਲਿਆਓ",
+  "rs.bad": "ਇਹ TableFifty ਦਾ ਬੈਕਅੱਪ ਨਹੀਂ। ਦੁਬਾਰਾ ਕਾਪੀ ਕਰੋ।", "rs.none": "ਇਸ ਟੈਕਸਟ ਵਿੱਚ ਕੋਈ ਸਹੀ ਲਿੰਕ ਨਹੀਂ।",
+  "sg.none": "ਕੋਈ ਪੱਕੀ ਆਫ਼ਰ ਨਹੀਂ। ਪਲੇਟਫਾਰਮਾਂ ’ਤੇ ਖੋਜਣ ਲਈ Enter ਦਬਾਓ।",
+  "about.title": "ਸਾਡੇ ਬਾਰੇ ਅਤੇ ਪਰਦੇਦਾਰੀ", "about.sub": "TableFifty ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ, ਕਿਵੇਂ ਕਮਾਉਂਦਾ ਹੈ, ਅਤੇ ਤੁਹਾਡੇ ਡਾਟਾ ਨਾਲ ਕੀ ਕਰਦਾ ਹੈ।",
+  "ab.h1": "TableFifty ਕੀ ਹੈ",
+  "ab.p1": "TableFifty ਲੰਡਨ ਦੀਆਂ ਅੱਧੀ ਕੀਮਤ ਵਾਲੀਆਂ ਰੈਸਟੋਰੈਂਟ ਅਤੇ ਡਿਲੀਵਰੀ ਆਫ਼ਰਾਂ ਇੱਕ ਥਾਂ ’ਤੇ ਦਿਖਾਉਂਦਾ ਹੈ। ਅਸੀਂ First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats ਅਤੇ Just Eat ਦੇਖਦੇ ਹਾਂ, ਫਿਰ ਤੁਹਾਨੂੰ ਹਰ ਇੱਕ ’ਤੇ ਰੈਸਟੋਰੈਂਟ ਦੇ ਪੰਨੇ ’ਤੇ ਸਿੱਧਾ ਭੇਜਦੇ ਹਾਂ। TableFifty ਇਹਨਾਂ ਪਲੇਟਫਾਰਮਾਂ ਜਾਂ ਰੈਸਟੋਰੈਂਟਾਂ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਅਤੇ ਨਾ ਹੀ ਇਹਨਾਂ ਵੱਲੋਂ ਮਨਜ਼ੂਰ ਹੈ।",
+  "ab.h2": "ਅਸੀਂ ਪੈਸੇ ਕਿਵੇਂ ਕਮਾਉਂਦੇ ਹਾਂ",
+  "ab.m1": "TableFifty ਦੇ ਕੁਝ ਲਿੰਕ ਐਫ਼ੀਲੀਏਟ ਲਿੰਕ ਹਨ। ਜੇ ਤੁਸੀਂ ਇਹਨਾਂ ’ਤੇ ਕਲਿੱਕ ਕਰਕੇ ਬੁਕਿੰਗ ਜਾਂ ਆਰਡਰ ਕਰਦੇ ਹੋ, ਤਾਂ ਪਲੇਟਫਾਰਮ ਸਾਨੂੰ ਥੋੜ੍ਹਾ ਕਮਿਸ਼ਨ ਦੇ ਸਕਦਾ ਹੈ।",
+  "ab.m2": "**ਤੁਹਾਡੀ ਕੀਮਤ ਉਹੀ ਰਹਿੰਦੀ ਹੈ।** ਕਮਿਸ਼ਨ ਪਲੇਟਫਾਰਮ ਦਿੰਦਾ ਹੈ, ਤੁਸੀਂ ਨਹੀਂ।",
+  "ab.m3": "ਜਿਹੜੇ ਲਿੰਕਾਂ ਤੋਂ ਅਸੀਂ ਕਮਾਉਂਦੇ ਹਾਂ, ਉਹਨਾਂ ’ਤੇ {ad} ਨਿਸ਼ਾਨ ਹੁੰਦਾ ਹੈ।",
+  "ab.m4": "ਅਸੀਂ ਆਫ਼ਰਾਂ ਇਸ ਲਈ ਦਿਖਾਉਂਦੇ ਹਾਂ ਕਿਉਂਕਿ ਉਹ ਤੁਹਾਡੇ ਲਈ ਚੰਗੀਆਂ ਹਨ, ਇਸ ਲਈ ਨਹੀਂ ਕਿ ਉਹ ਸਾਨੂੰ ਪੈਸੇ ਦਿੰਦੀਆਂ ਹਨ।",
+  "ab.h3": "ਪਰਦੇਦਾਰੀ ਅਤੇ ਕੂਕੀਜ਼",
+  "ab.c1": "**ਅਸੀਂ ਤੁਹਾਡਾ ਨਾਂ, ਈਮੇਲ ਜਾਂ ਕਾਰਡ ਨਹੀਂ ਮੰਗਦੇ।** ਕੋਈ ਖਾਤਾ ਨਹੀਂ ਹੁੰਦਾ।",
+  "ab.c2": "**ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਰੈਸਟੋਰੈਂਟ ਤੁਹਾਡੇ ਆਪਣੇ ਬ੍ਰਾਊਜ਼ਰ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ।** ਉਹ ਸਾਡੇ ਤੱਕ ਨਹੀਂ ਪਹੁੰਚਦੇ। ਬ੍ਰਾਊਜ਼ਰ ਡਾਟਾ ਮਿਟਾਉਣ ਨਾਲ ਉਹ ਮਿਟ ਜਾਂਦੇ ਹਨ।",
+  "ab.c3": "**ਅਸੀਂ ਹੁਣ ਆਪਣੀਆਂ ਕੋਈ ਟਰੈਕਿੰਗ ਜਾਂ ਇਸ਼ਤਿਹਾਰੀ ਕੂਕੀਜ਼ ਨਹੀਂ ਵਰਤਦੇ।** ਜੇ ਬਾਅਦ ਵਿੱਚ ਅੰਕੜੇ ਜਾਂ ਇਸ਼ਤਿਹਾਰ ਜੋੜੇ, ਤਾਂ ਅਸੀਂ ਇਹ ਪੰਨਾ ਅੱਪਡੇਟ ਕਰਾਂਗੇ ਅਤੇ ਪਹਿਲਾਂ ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਲਵਾਂਗੇ।",
+  "ab.c4": "**ਜਦੋਂ ਤੁਸੀਂ ਕਿਸੇ ਪਲੇਟਫਾਰਮ ’ਤੇ ਜਾਂਦੇ ਹੋ,** ਤਾਂ ਉਸ ਦੀ ਆਪਣੀ ਪਰਦੇਦਾਰੀ ਨੀਤੀ ਲਾਗੂ ਹੁੰਦੀ ਹੈ। ਉਹ ਇਹ ਜਾਣਨ ਲਈ ਕੂਕੀ ਰੱਖ ਸਕਦਾ ਹੈ ਕਿ ਤੁਹਾਨੂੰ TableFifty ਨੇ ਭੇਜਿਆ।",
+  "ab.c5": "**ਤੁਹਾਡੇ ਹੱਕ:** ਤੁਸੀਂ {email} ’ਤੇ ਈਮੇਲ ਕਰਕੇ ਪੁੱਛ ਸਕਦੇ ਹੋ ਕਿ ਸਾਡੇ ਕੋਲ ਤੁਹਾਡਾ ਕੀ ਡਾਟਾ ਹੈ, ਜਾਂ ਉਸ ਨੂੰ ਮਿਟਾਉਣ ਲਈ ਕਹਿ ਸਕਦੇ ਹੋ। ਜੇ ਜਵਾਬ ਤੋਂ ਸੰਤੁਸ਼ਟ ਨਹੀਂ, ਤਾਂ ਤੁਸੀਂ ਯੂਕੇ ਦੇ ICO (ico.org.uk) ਕੋਲ ਸ਼ਿਕਾਇਤ ਕਰ ਸਕਦੇ ਹੋ।",
+  "ab.h4": "TableFifty ਕੌਣ ਚਲਾਉਂਦਾ ਹੈ", "ab.p4": "TableFifty ਨੂੰ ਇੰਗਲੈਂਡ ਵਿੱਚ Max Maserati ਚਲਾਉਂਦੇ ਹਨ। ਸੰਪਰਕ: {email}।", "ab.upd": "ਆਖਰੀ ਅੱਪਡੇਟ: 27 ਸਤੰਬਰ 2026।",
+  "ab.note": "ਇਹ ਅਨੁਵਾਦ ਸਹੂਲਤ ਲਈ ਹੈ। ਅੰਗਰੇਜ਼ੀ ਰੂਪ ਹੀ ਅਧਿਕਾਰਤ ਹੈ।"
+},
+
+ur: {
+  "nav.deals": "آفرز", "nav.how": "یہ کیسے کام کرتا ہے", "nav.add": "ریسٹورنٹ شامل کریں", "nav.cta": "ریسٹورنٹ کا لنک شامل کریں", "nav.ctaShort": "شامل کریں", "lang.label": "زبان",
+  "disc.label": "اشتہار کی وضاحت:", "disc.text": "جب آپ اس سائٹ کے لنکس سے بکنگ یا آرڈر کرتے ہیں تو TableFifty کو کمیشن مل سکتا ہے۔ آپ کی قیمت وہی رہتی ہے۔", "disc.link": "ہم پیسے کیسے کماتے ہیں",
+  "hero.eyebrow": "ہر ٹیبل۔ آدھا بل۔ · 7 پلیٹ فارمز · ایک سرچ",
+  "hero.h1": "<em>آدھی قیمت پر ٹیبل</em> اور ڈیلیوری آفرز، ریسٹورنٹ کے صفحے سے بس ایک ٹیپ دور۔",
+  "hero.lead": "ایک بار سرچ کریں۔ ہم First Table، TheFork، Tastecard، OpenTable، Deliveroo، Uber Eats اور Just Eat کی آفرز ایک جگہ جمع کرتے ہیں، پھر آپ کو ہر پلیٹ فارم پر ریسٹورنٹ کے اپنے صفحے تک پہنچاتے ہیں۔",
+  "trust.1": "کھانے پر 50% تک رعایت", "trust.2": "ہم چیک کرتے ہیں کہ لنک ریسٹورنٹ کا صفحہ کھولتا ہے یا سرچ", "trust.3": "ریسٹورنٹ میں یا ڈیلیوری",
+  "search.ph": "ریسٹورنٹ، علاقہ یا کھانے کی قسم", "search.aria": "ریسٹورنٹس تلاش کریں", "search.clear": "سرچ صاف کریں",
+  "pill.all": "تمام آفرز", "pill.dine": "ریسٹورنٹ میں 50% رعایت", "pill.delivery": "کھانے کی ڈیلیوری",
+  "meta": ({ v, l }) => `ریسٹورنٹس: ${v} · لنکس: ${l}`,
+  "cz.title": "کھانے کی قسم کے مطابق دیکھیں", "cz.korean": "کورین", "cz.indian": "انڈین", "cz.steak": "اسٹیک", "cz.pizza": "پیزا", "cz.chicken": "چکن", "cz.ramen": "جاپانی", "cz.sushi": "سوشی", "cz.chinese": "چائنیز", "cz.thai": "تھائی", "cz.italian": "اطالوی", "cz.burger": "برگر",
+  "res.eyebrow.search": "سرچ کے نتائج", "res.eyebrow.all": "تمام آفرز", "res.eyebrow.dine": "ریسٹورنٹ میں", "res.eyebrow.delivery": "ڈیلیوری",
+  "res.title.all": "پورے لندن کی آفرز", "res.title.search": "«{q}» کے لیے آفرز", "res.title.none": "«{q}» کے لیے ابھی کچھ نہیں",
+  "src.curated": "ہمارا انتخاب", "src.yours": "آپ نے شامل کیا", "media.tag": "نمونے کی تصویر",
+  "kind.dine": "ریسٹورنٹ میں", "kind.delivery": "ڈیلیوری", "yours": "آپ کا", "ad": "اشتہار", "ad.title": "اس لنک سے ہمیں کمیشن مل سکتا ہے",
+  "lt.venue": "ریسٹورنٹ کا صفحہ", "lt.brand": "برانڈ کا صفحہ", "lt.search": "پلیٹ فارم سرچ", "lt.home": "ہوم پیج", "lt.invalid": "غلط لنک",
+  "ltn.brand": "برانڈ کا صفحہ کھلتا ہے۔ وہاں اپنی قریبی برانچ چنیں۔", "ltn.search": "یہ سرچ کھولتا ہے، ریسٹورنٹ کا صفحہ نہیں۔ ریسٹورنٹ ڈھونڈیں، پھر اس کا اپنا لنک محفوظ کریں۔", "ltn.home": "یہ ہوم پیج ہے۔ اسے ریسٹورنٹ کے صفحے سے بدلیں۔", "ltn.invalid": "یہ لنک پڑھا نہیں جا سکتا۔",
+  "offer.open": "{p} پر کھولیں", "offer.copy": "لنک کاپی کریں", "offer.retry": "نہیں کھلا؟ متبادل طریقہ آزمائیں",
+  "promo.label": "پرومو کوڈ", "promo.copy": "کاپی", "more.show": "مزید آفرز ({n})", "more.hide": "کم آفرز",
+  "remove": "ہٹائیں", "remove.confirm": "ہٹانے کے لیے دوبارہ ٹیپ کریں", "addlink": "کسی اور پلیٹ فارم کا لنک شامل کریں",
+  "rib.pct": "{n}% رعایت", "rib.upto": "{n}% تک رعایت", "rib.241": "ایک کے ساتھ ایک مفت", "rib.delivery": "ڈیلیوری",
+  "deal.ft.h": "کھانے پر 50% رعایت", "deal.ft.d": "First Table کی عام آفر: جلدی یا دیر کے اوقات، معمولی بکنگ فیس۔ اوقات صفحے پر دیکھیں۔",
+  "deal.tf.h": "50% تک رعایت", "deal.tf.d": "TheFork کی عام آفر: مخصوص اوقات میں مینو پر رعایت۔ ہر ریسٹورنٹ میں مختلف۔",
+  "deal.tc.h": "ایک کے ساتھ ایک مفت یا 25% رعایت", "deal.tc.d": "Tastecard کی عام آفر، ممبرشپ کے ساتھ۔ شرائط ہر برانچ میں مختلف ہیں۔",
+  "deal.dl.h": "ڈیلیوری", "deal.dl.d": "موجودہ پروموز (رعایت، مفت ڈیلیوری) صفحے پر نظر آتے ہیں۔",
+  "area.multi": "لندن، کئی برانچیں",
+  "empty.title": "کوئی تصدیق شدہ آفر نہیں ملی", "empty.for": "«{q}» کے لیے",
+  "empty.filtered": "«{q}» فہرست میں ہے، لیکن اس فلٹر میں نہیں۔ دیکھنے کے لیے تمام آفرز چنیں۔",
+  "empty.missing": "«{q}» ابھی ہماری فہرست میں نہیں ہے۔ نیچے پلیٹ فارمز پر سرچ کریں، پھر ریسٹورنٹ کا لنک یہاں محفوظ کریں۔",
+  "empty.none": "ابھی اس فلٹر سے کچھ نہیں ملتا۔", "empty.add": "«{q}» کو ریسٹورنٹ کے طور پر شامل کریں",
+  "fill.title": "اپنا ریسٹورنٹ نہیں ملا؟", "fill.text": "ساتوں پلیٹ فارمز پر ایک ساتھ سرچ کریں، یا خود ریسٹورنٹ شامل کریں۔", "fill.search": "پلیٹ فارمز پر سرچ کریں", "fill.add": "ریسٹورنٹ شامل کریں",
+  "fb.title": "ہر پلیٹ فارم پر براہ راست سرچ کریں", "fb.text": "سرچ: <strong>{q}</strong>۔ ریسٹورنٹ کا صفحہ مل گیا؟ «ریسٹورنٹ کا لنک شامل کریں» سے اس کا لنک محفوظ کریں۔",
+  "fb.platform": "پلیٹ فارم سرچ", "fb.google": "گوگل سائٹ سرچ", "fb.dine": "ریسٹورنٹ میں", "fb.delivery": "ڈیلیوری", "fb.copy": "{p} کا سرچ لنک کاپی کریں",
+  "how.eyebrow": "یہ کیسے کام کرتا ہے", "how.title": "بھوک سے بک شدہ ٹیبل تک، تین آسان مراحل",
+  "s1.t": "سرچ کریں", "s1.p": "ریسٹورنٹ، علاقہ یا کھانے کی قسم لکھیں۔ ہر لفظ کا ملنا ضروری ہے، اس لیے آپ کو صرف صحیح ریسٹورنٹس نظر آتے ہیں۔",
+  "s2.t": "موازنہ کریں", "s2.p": "ہر پلیٹ فارم کی آفر ساتھ ساتھ دیکھیں۔ سبز نشان کا مطلب ہے لنک سیدھا ریسٹورنٹ کے صفحے پر جاتا ہے۔ پیلا نشان سرچ کھولتا ہے۔",
+  "s3.t": "براہ راست بک کریں", "s3.p": "ریسٹورنٹ کے صفحے پر جانے کے لیے «کھولیں» دبائیں۔ پاپ اپ بلاک ہیں؟ لنک کاپی کر کے نئے ٹیب میں پیسٹ کریں۔",
+  "miss.eyebrow": "کوئی ریسٹورنٹ غائب ہے؟", "miss.title": "20 سیکنڈ میں خود آفر شامل کریں",
+  "miss.1": "ریسٹورنٹ کے صفحے کا لنک پیسٹ کریں۔ ہم چیک کرتے ہیں کہ یہ پلیٹ فارم سے ملتا ہے۔", "miss.2": "رعایت، پرومو کوڈ اور اپنی تصویر شامل کریں۔", "miss.3": "یہ اسی براؤزر میں محفوظ رہتا ہے، اگلی بار کے لیے تیار۔", "miss.photo": "ایک مصروف ریسٹورنٹ کا ہال",
+  "foot.tag": "پورے لندن میں آدھی قیمت پر ریسٹورنٹ اور ڈیلیوری آفرز، ہر ریسٹورنٹ کے براہ راست لنکس کے ساتھ۔",
+  "foot.explore": "دیکھیں", "foot.about": "ہمارے بارے میں اور پرائیویسی", "foot.saved": "آپ کے محفوظ ریسٹورنٹس", "foot.backup": "بیک اپ کاپی کریں", "foot.restore": "بیک اپ بحال کریں",
+  "foot.legal": "© 2026 TableFifty۔ یہاں درج کسی پلیٹ فارم سے ہمارا تعلق نہیں۔ آفرز اکثر بدلتی ہیں، اس لیے بکنگ یا آرڈر سے پہلے شرائط دیکھ لیں۔",
+  "foot.photos": "تصاویر کھانے کی قسم دکھاتی ہیں، ریسٹورنٹ نہیں۔ تصاویر: Unsplash۔", "foot.privacy": "پرائیویسی پالیسی (انگریزی میں)",
+  "store.some": ({ n }) => `اس براؤزر میں محفوظ لنکس: ${n}۔`,
+  "store.none": "آپ کے شامل کیے گئے ریسٹورنٹس اسی براؤزر میں محفوظ رہتے ہیں۔",
+  "store.blocked": "یہ براؤزر محفوظ کرنے کی اجازت نہیں دیتا۔ صفحہ بند کرنے پر شامل کیے گئے ریسٹورنٹس ختم ہو جائیں گے۔ انہیں رکھنے کے لیے «بیک اپ کاپی کریں» استعمال کریں۔",
+  "add.title": "ریسٹورنٹ کا لنک شامل کریں", "add.sub": "اسی براؤزر میں محفوظ ہوتا ہے۔ اگر نام پہلے سے موجود ہو تو اسی کارڈ میں شامل ہو جاتا ہے۔",
+  "f.name": "ریسٹورنٹ کا نام", "f.area": "علاقہ", "f.url": "ریسٹورنٹ کے صفحے کا لنک", "f.urlHint": "ریسٹورنٹ کے اپنے صفحے کا لنک پیسٹ کریں، سرچ صفحے کا نہیں۔",
+  "f.platform": "پلیٹ فارم", "f.choose": "منتخب کریں…", "f.headline": "رعایت", "f.headlinePh": "کھانے پر 50% رعایت", "f.detail": "شرائط یا نوٹس", "f.detailPh": "اتوار تا جمعرات، صرف پہلے اور آخری اوقات",
+  "f.code": "پرومو کوڈ", "f.codePh": "اختیاری", "f.tags": "کھانے کی قسم یا ٹیگز", "f.aff": "یہ میرا ایفیلیئٹ لنک ہے (اس سے TableFifty کماتا ہے)۔ اس پر «اشتہار» کا نشان لگتا ہے۔",
+  "f.photo": "تصویر", "f.choosePhoto": "تصویر منتخب کریں", "f.removePhoto": "ہٹائیں", "f.photoHint": "اختیاری۔ اپنی کھینچی ہوئی یا اجازت والی تصویر استعمال کریں۔ تصویر نہ ہو تو ہم کھانے کی قسم کی تصویر دکھاتے ہیں۔",
+  "btn.cancel": "منسوخ کریں", "btn.save": "ریسٹورنٹ محفوظ کریں", "btn.close": "بند کریں",
+  "hint.bad": "یہ ابھی مکمل لنک نہیں۔ اسے https:// سے شروع ہونا چاہیے", "hint.venue": "{p} پر ریسٹورنٹ کا صفحہ۔", "hint.brand": "{p} پر برانڈ کا صفحہ۔ اگر برانچ کا صفحہ ہو تو وہ بہتر ہے۔",
+  "hint.search": "یہ {p} پر سرچ کا صفحہ ہے۔ وہاں ریسٹورنٹ کھولیں اور اس کا اپنا لنک پیسٹ کریں۔", "hint.home": "یہ {p} کا ہوم پیج ہے۔ ریسٹورنٹ کے صفحے کا لنک پیسٹ کریں۔", "hint.unknown": "نامعلوم سائٹ",
+  "err.name": "ریسٹورنٹ کا نام لکھیں۔", "err.url": "ریسٹورنٹ کا مکمل لنک لکھیں، جو https:// سے شروع ہو", "err.platform": "منتخب کریں کہ یہ لنک کس پلیٹ فارم کا ہے۔",
+  "err.mismatch": "یہ لنک {a} کا ہے، لیکن منتخب پلیٹ فارم {b} ہے۔ ایک کو بدلیں تاکہ دونوں ملیں۔", "err.host": "یہ لنک {p} ({h}) کا نہیں۔ چیک کریں کہ آپ نے صحیح صفحہ کاپی کیا ہے۔",
+  "err.home": "یہ پلیٹ فارم کا ہوم پیج ہے۔ ریسٹورنٹ کھولیں اور اس کے صفحے کا لنک پیسٹ کریں۔", "err.headline": "رعایت لکھیں، جیسے کھانے پر 50% رعایت۔", "err.dup": "آپ یہ لنک اس ریسٹورنٹ کے لیے پہلے ہی محفوظ کر چکے ہیں۔",
+  "photo.notimg": "یہ فائل تصویر نہیں۔ JPG، PNG یا WebP تصویر منتخب کریں۔", "photo.ready": "تصویر تیار ہے۔ کارڈ کے مطابق کاٹ دی گئی ہے۔", "photo.bad": "تصویر نہیں پڑھی جا سکی۔ کوئی اور فائل آزمائیں۔", "photo.removed": "تصویر ہٹا دی گئی۔",
+  "t.link": "لنک کاپی ہو گیا", "t.code": "پرومو کوڈ کاپی ہو گیا", "t.search": "سرچ لنک کاپی ہو گیا", "t.backup": "بیک اپ کاپی ہو گیا",
+  "t.copyFailSel": "کاپی روک دی گئی۔ لنک منتخب ہے: Ctrl+C دبائیں، یا دیر تک دبا کر کاپی چنیں۔", "t.copyFail": "یہاں کاپی روک دی گئی۔ متن منتخب کر کے خود کاپی کریں۔",
+  "t.opened": "نئے ٹیب میں کھل گیا", "t.popup": "یہاں پاپ اپ بلاک ہیں، اس لیے ہم نے لنک کاپی کر دیا۔", "t.opening": "{p} نئے ٹیب میں کھل رہا ہے", "t.removed": "لنک ہٹا دیا گیا",
+  "t.saved": "{n} محفوظ ہو گیا۔ اگلی بار یہیں ملے گا۔", "t.savedTemp": "{n} صرف اس وزٹ کے لیے شامل ہوا۔ یہ براؤزر محفوظ کرنے نہیں دیتا۔", "t.savedNoPhoto": "{n} تصویر کے بغیر محفوظ ہوا۔ براؤزر میں جگہ نہیں۔",
+  "t.backupEmpty": "ابھی بیک اپ کے لیے کچھ نہیں۔ پہلے کوئی ریسٹورنٹ شامل کریں۔", "t.restored": "بحال شدہ لنکس: {n}", "t.restoredNone": "یہ سب لنکس پہلے سے موجود تھے۔",
+  "rs.title": "بیک اپ بحال کریں", "rs.sub": "«بیک اپ کاپی کریں» والا متن یہاں پیسٹ کریں۔ آپ کے موجودہ ریسٹورنٹس رہیں گے۔", "rs.label": "بیک اپ کا متن", "rs.btn": "بحال کریں",
+  "rs.bad": "یہ TableFifty کا بیک اپ نہیں۔ دوبارہ کاپی کریں۔", "rs.none": "اس متن میں کوئی درست لنک نہیں۔",
+  "sg.none": "کوئی تصدیق شدہ آفر نہیں۔ پلیٹ فارمز پر سرچ کے لیے Enter دبائیں۔",
+  "about.title": "ہمارے بارے میں اور پرائیویسی", "about.sub": "TableFifty کیسے کام کرتا ہے، کیسے کماتا ہے، اور آپ کے ڈیٹا کے ساتھ کیا کرتا ہے۔",
+  "ab.h1": "TableFifty کیا ہے",
+  "ab.p1": "TableFifty لندن کی آدھی قیمت والی ریسٹورنٹ اور ڈیلیوری آفرز ایک جگہ دکھاتا ہے۔ ہم First Table، TheFork، Tastecard، OpenTable، Deliveroo، Uber Eats اور Just Eat دیکھتے ہیں، پھر آپ کو ہر ایک پر ریسٹورنٹ کے صفحے تک سیدھا پہنچاتے ہیں۔ TableFifty کا ان پلیٹ فارمز یا ریسٹورنٹس سے کوئی تعلق نہیں، نہ ہی یہ ان کا منظور شدہ ہے۔",
+  "ab.h2": "ہم پیسے کیسے کماتے ہیں",
+  "ab.m1": "TableFifty کے کچھ لنکس ایفیلیئٹ لنکس ہیں۔ اگر آپ ان پر کلک کر کے بکنگ یا آرڈر کریں تو پلیٹ فارم ہمیں تھوڑا سا کمیشن دے سکتا ہے۔",
+  "ab.m2": "**آپ کی قیمت وہی رہتی ہے۔** کمیشن پلیٹ فارم دیتا ہے، آپ نہیں۔",
+  "ab.m3": "جن لنکس سے ہم کماتے ہیں ان پر {ad} کا نشان ہوتا ہے۔",
+  "ab.m4": "ہم آفرز اس لیے دکھاتے ہیں کہ وہ آپ کے لیے اچھی ہیں، اس لیے نہیں کہ وہ ہمیں پیسے دیتی ہیں۔",
+  "ab.h3": "پرائیویسی اور کوکیز",
+  "ab.c1": "**ہم آپ کا نام، ای میل یا کارڈ نہیں مانگتے۔** کوئی اکاؤنٹ نہیں ہوتا۔",
+  "ab.c2": "**آپ کے محفوظ ریسٹورنٹس آپ کے اپنے براؤزر میں رہتے ہیں۔** وہ ہم تک کبھی نہیں پہنچتے۔ براؤزر کا ڈیٹا صاف کرنے سے وہ مٹ جاتے ہیں۔",
+  "ab.c3": "**ہم فی الحال اپنی کوئی ٹریکنگ یا اشتہاری کوکیز استعمال نہیں کرتے۔** اگر بعد میں اعداد و شمار یا اشتہارات شامل کیے تو یہ صفحہ اپ ڈیٹ کریں گے اور پہلے آپ سے اجازت لیں گے۔",
+  "ab.c4": "**جب آپ کسی پلیٹ فارم پر جاتے ہیں،** تو اس کی اپنی پرائیویسی پالیسی لاگو ہوتی ہے۔ وہ یہ جاننے کے لیے کوکی رکھ سکتا ہے کہ آپ کو TableFifty نے بھیجا۔",
+  "ab.c5": "**آپ کے حقوق:** آپ {email} پر ای میل کر کے پوچھ سکتے ہیں کہ ہمارے پاس آپ کا کیا ڈیٹا ہے، یا اسے مٹانے کا کہہ سکتے ہیں۔ اگر آپ جواب سے مطمئن نہ ہوں تو برطانیہ کے ICO (ico.org.uk) کو شکایت کر سکتے ہیں۔",
+  "ab.h4": "TableFifty کون چلاتا ہے", "ab.p4": "TableFifty کو انگلینڈ میں Max Maserati چلاتے ہیں۔ رابطہ: {email}۔", "ab.upd": "آخری اپ ڈیٹ: 27 ستمبر 2026۔",
+  "ab.note": "یہ ترجمہ سہولت کے لیے ہے۔ انگریزی نسخہ ہی سرکاری ہے۔"
+},
+
+pt: {
+  "nav.deals": "Ofertas", "nav.how": "Como funciona", "nav.add": "Adicionar restaurante", "nav.cta": "Adicionar link de restaurante", "nav.ctaShort": "Adicionar", "lang.label": "Idioma",
+  "disc.label": "Aviso de publicidade:", "disc.text": "O TableFifty pode receber uma comissão quando faz uma reserva ou um pedido através dos links deste site. O seu preço não muda.", "disc.link": "Como ganhamos dinheiro",
+  "hero.eyebrow": "Cada mesa. Metade da conta. · 7 plataformas · 1 pesquisa",
+  "hero.h1": "<em>Mesas a metade do preço</em> e ofertas de entrega, a um toque da página do restaurante.",
+  "hero.lead": "Pesquise uma vez. Juntamos as ofertas do First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats e Just Eat e damos o link direto para a página do restaurante em cada um.",
+  "trust.1": "Até 50% de desconto na comida", "trust.2": "Verificamos se o link abre o restaurante ou uma pesquisa", "trust.3": "No restaurante ou com entrega",
+  "search.ph": "Restaurante, zona ou cozinha", "search.aria": "Pesquisar restaurantes", "search.clear": "Limpar pesquisa",
+  "pill.all": "Todas as ofertas", "pill.dine": "50% de desconto no restaurante", "pill.delivery": "Entrega de comida",
+  "meta": ({ v, l }) => `Restaurantes: ${v} · Links: ${l}`,
+  "cz.title": "Explorar por cozinha", "cz.korean": "Coreana", "cz.indian": "Indiana", "cz.steak": "Bife", "cz.pizza": "Pizza", "cz.chicken": "Frango", "cz.ramen": "Japonesa", "cz.sushi": "Sushi", "cz.chinese": "Chinesa", "cz.thai": "Tailandesa", "cz.italian": "Italiana", "cz.burger": "Hambúrgueres",
+  "res.eyebrow.search": "Resultados da pesquisa", "res.eyebrow.all": "Todas as ofertas", "res.eyebrow.dine": "No restaurante", "res.eyebrow.delivery": "Entrega",
+  "res.title.all": "Ofertas em Londres", "res.title.search": "Ofertas para “{q}”", "res.title.none": "Ainda não há nada para “{q}”",
+  "src.curated": "Escolhido por nós", "src.yours": "Adicionado por si", "media.tag": "Foto ilustrativa",
+  "kind.dine": "No restaurante", "kind.delivery": "Entrega", "yours": "Seu", "ad": "Anúncio", "ad.title": "Podemos receber uma comissão por este link",
+  "lt.venue": "Página do restaurante", "lt.brand": "Página da marca", "lt.search": "Pesquisa na plataforma", "lt.home": "Página inicial", "lt.invalid": "Link inválido",
+  "ltn.brand": "Abre a página da marca. Escolha lá o restaurante mais próximo.", "ltn.search": "Abre uma pesquisa, não a página do restaurante. Encontre o restaurante e guarde o link dele.", "ltn.home": "É uma página inicial. Substitua-a pela página do restaurante.", "ltn.invalid": "Não é possível ler este link.",
+  "offer.open": "Abrir no {p}", "offer.copy": "Copiar link", "offer.retry": "Não abriu? Tente o método alternativo",
+  "promo.label": "Código promocional", "promo.copy": "Copiar", "more.show": "Mais ofertas ({n})", "more.hide": "Menos ofertas",
+  "remove": "Remover", "remove.confirm": "Toque de novo para remover", "addlink": "Adicionar link de outra plataforma",
+  "rib.pct": "-{n}%", "rib.upto": "ATÉ -{n}%", "rib.241": "2 POR 1", "rib.delivery": "ENTREGA",
+  "deal.ft.h": "50% de desconto na comida", "deal.ft.d": "Oferta típica do First Table: horários cedo ou tarde, pequena taxa de reserva. Confirme os horários na página.",
+  "deal.tf.h": "Até 50% de desconto", "deal.tf.d": "Oferta típica do TheFork: à la carte em horários selecionados. Varia conforme o restaurante.",
+  "deal.tc.h": "2 por 1 ou 25% de desconto", "deal.tc.d": "Oferta típica do Tastecard, com assinatura. As condições variam conforme o restaurante.",
+  "deal.dl.h": "Entrega", "deal.dl.d": "As promoções atuais (descontos, entrega grátis) aparecem na página.",
+  "area.multi": "Londres, vários restaurantes",
+  "empty.title": "Nenhuma oferta verificada encontrada", "empty.for": "para “{q}”",
+  "empty.filtered": "“{q}” está na lista, mas não neste filtro. Escolha Todas as ofertas para ver.",
+  "empty.missing": "“{q}” ainda não está na nossa lista. Use as pesquisas nas plataformas abaixo e depois guarde aqui o link do restaurante.",
+  "empty.none": "Nada corresponde a este filtro por agora.", "empty.add": "Adicionar “{q}” como restaurante",
+  "fill.title": "Não encontra o seu restaurante?", "fill.text": "Pesquise nas 7 plataformas de uma vez ou adicione o restaurante.", "fill.search": "Pesquisar nas plataformas", "fill.add": "Adicionar restaurante",
+  "fb.title": "Pesquisar diretamente em cada plataforma", "fb.text": "Preenchido com <strong>{q}</strong>. Encontrou a página do restaurante? Guarde o link em Adicionar link de restaurante.",
+  "fb.platform": "Pesquisa na plataforma", "fb.google": "Pesquisa Google no site", "fb.dine": "No restaurante", "fb.delivery": "Entrega", "fb.copy": "Copiar link de pesquisa do {p}",
+  "how.eyebrow": "Como funciona", "how.title": "Da vontade de comer à mesa reservada em três passos",
+  "s1.t": "Pesquisar", "s1.p": "Escreva um restaurante, uma zona ou uma cozinha. Todas as palavras têm de corresponder, por isso só vê os restaurantes certos.",
+  "s2.t": "Comparar", "s2.p": "Veja a oferta de cada plataforma lado a lado. Um selo verde significa link direto para o restaurante. Âmbar significa que abre uma pesquisa.",
+  "s3.t": "Reservar direto", "s3.p": "Toque em Abrir para ir à página do restaurante. Pop-ups bloqueados? Copie o link e cole-o numa nova aba.",
+  "miss.eyebrow": "Falta um restaurante?", "miss.title": "Adicione a oferta em 20 segundos",
+  "miss.1": "Cole o link da página do restaurante. Verificamos se corresponde à plataforma.", "miss.2": "Adicione o desconto, um código promocional e a sua própria foto.", "miss.3": "Fica guardado neste navegador para a próxima visita.", "miss.photo": "Sala de restaurante cheia",
+  "foot.tag": "Ofertas a metade do preço no restaurante e com entrega em Londres, com links diretos para cada restaurante.",
+  "foot.explore": "Explorar", "foot.about": "Sobre nós e privacidade", "foot.saved": "Os seus restaurantes guardados", "foot.backup": "Copiar cópia de segurança", "foot.restore": "Restaurar cópia",
+  "foot.legal": "© 2026 TableFifty. Não estamos ligados a nenhuma das plataformas listadas. As ofertas mudam com frequência, por isso confirme as condições antes de reservar ou encomendar.",
+  "foot.photos": "As fotos mostram o tipo de comida, não o restaurante. Fotografias: Unsplash.", "foot.privacy": "Política de privacidade (em inglês)",
+  "store.some": ({ n }) => `Links guardados neste navegador: ${n}.`,
+  "store.none": "Os restaurantes que adicionar ficam guardados neste navegador.",
+  "store.blocked": "Este navegador está a bloquear o armazenamento. Os restaurantes adicionados desaparecem ao fechar a página. Use Copiar cópia de segurança para os manter.",
+  "add.title": "Adicionar link de restaurante", "add.sub": "Fica guardado neste navegador. O mesmo nome junta-se ao cartão existente.",
+  "f.name": "Nome do restaurante", "f.area": "Zona", "f.url": "Link da página do restaurante", "f.urlHint": "Cole o link da página do próprio restaurante, não de uma pesquisa.",
+  "f.platform": "Plataforma", "f.choose": "Escolher…", "f.headline": "Desconto", "f.headlinePh": "50% de desconto na comida", "f.detail": "Condições ou notas", "f.detailPh": "Dom–qui, só primeiros e últimos horários",
+  "f.code": "Código promocional", "f.codePh": "Opcional", "f.tags": "Cozinha ou etiquetas", "f.aff": "Este é o meu link de afiliado (o TableFifty ganha com ele). Mostra a etiqueta Anúncio.",
+  "f.photo": "Foto", "f.choosePhoto": "Escolher foto", "f.removePhoto": "Remover", "f.photoHint": "Opcional. Use uma foto sua ou que tenha autorização para usar. Sem foto, mostramos uma foto da cozinha.",
+  "btn.cancel": "Cancelar", "btn.save": "Guardar restaurante", "btn.close": "Fechar",
+  "hint.bad": "Ainda não é um link completo. Deve começar por https://", "hint.venue": "Página do restaurante no {p}.", "hint.brand": "Página da marca no {p}. A página de um restaurante específico é mais direta, se existir.",
+  "hint.search": "É uma página de pesquisa no {p}. Abra lá o restaurante e cole o link dele.", "hint.home": "É a página inicial do {p}. Cole o link da página do restaurante.", "hint.unknown": "site desconhecido",
+  "err.name": "Adicione o nome do restaurante.", "err.url": "Adicione o link completo do restaurante, a começar por https://", "err.platform": "Escolha a plataforma deste link.",
+  "err.mismatch": "Este link é do {a}, mas a plataforma escolhida é {b}. Altere um deles.", "err.host": "Este link não é do {p} ({h}). Confirme que copiou a página certa.",
+  "err.home": "É a página inicial da plataforma. Abra o restaurante e cole o link da página dele.", "err.headline": "Adicione o desconto, por exemplo 50% de desconto na comida.", "err.dup": "Já guardou este link para este restaurante.",
+  "photo.notimg": "Este ficheiro não é uma imagem. Escolha JPG, PNG ou WebP.", "photo.ready": "Foto pronta. Foi recortada para caber no cartão.", "photo.bad": "Não foi possível ler a foto. Tente outro ficheiro.", "photo.removed": "Foto removida.",
+  "t.link": "Link copiado", "t.code": "Código promocional copiado", "t.search": "Link de pesquisa copiado", "t.backup": "Cópia de segurança copiada",
+  "t.copyFailSel": "A cópia foi bloqueada. O link está selecionado: prima Ctrl+C ou mantenha premido e escolha Copiar.", "t.copyFail": "A cópia foi bloqueada. Selecione o texto e copie-o manualmente.",
+  "t.opened": "Aberto numa nova aba", "t.popup": "Os pop-ups estão bloqueados aqui, por isso copiámos o link.", "t.opening": "A abrir o {p} numa nova aba", "t.removed": "Link removido",
+  "t.saved": "{n} guardado. Vai estar aqui da próxima vez.", "t.savedTemp": "{n} adicionado para esta visita. Este navegador bloqueia o armazenamento.", "t.savedNoPhoto": "{n} guardado sem a foto. O navegador não tem espaço.",
+  "t.backupEmpty": "Ainda não há nada para copiar. Adicione primeiro um restaurante.", "t.restored": "Links restaurados: {n}", "t.restoredNone": "Todos esses links já estavam aqui.",
+  "rs.title": "Restaurar cópia", "rs.sub": "Cole o texto de Copiar cópia de segurança. Os restaurantes que já tem ficam.", "rs.label": "Texto da cópia", "rs.btn": "Restaurar",
+  "rs.bad": "Este texto não é uma cópia do TableFifty. Copie-o novamente.", "rs.none": "Não há links válidos neste texto.",
+  "sg.none": "Nenhuma oferta verificada. Prima Enter para pesquisar nas plataformas.",
+  "about.title": "Sobre nós e privacidade", "about.sub": "Como o TableFifty funciona, como ganha dinheiro e o que faz com os seus dados.",
+  "ab.h1": "O que é o TableFifty",
+  "ab.p1": "O TableFifty reúne num só lugar as ofertas a metade do preço de Londres, no restaurante e com entrega. Verificamos o First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats e Just Eat e damos o link direto para a página do restaurante em cada um. O TableFifty não está ligado a estas plataformas ou restaurantes, nem é aprovado por eles.",
+  "ab.h2": "Como ganhamos dinheiro",
+  "ab.m1": "Alguns links do TableFifty são links de afiliado. Se clicar num deles e depois reservar ou encomendar, a plataforma pode pagar-nos uma pequena comissão.",
+  "ab.m2": "**O seu preço não muda.** A comissão é paga pela plataforma, não por si.",
+  "ab.m3": "Os links com que ganhamos dinheiro têm a etiqueta {ad}.",
+  "ab.m4": "Mostramos ofertas porque são boas para si, não porque nos pagam.",
+  "ab.h3": "Privacidade e cookies",
+  "ab.c1": "**Não pedimos o seu nome, email ou cartão.** Não há contas.",
+  "ab.c2": "**Os restaurantes que guarda ficam no seu navegador.** Nunca chegam até nós. Se apagar os dados do navegador, desaparecem.",
+  "ab.c3": "**Não usamos cookies próprios de rastreio ou publicidade** neste momento. Se mais tarde adicionarmos estatísticas ou anúncios, atualizamos esta página e pedimos primeiro a sua autorização.",
+  "ab.c4": "**Quando segue para uma plataforma,** aplica-se a política de privacidade dessa plataforma. Ela pode guardar um cookie para saber que foi o TableFifty que o enviou.",
+  "ab.c5": "**Os seus direitos:** pode perguntar que dados temos sobre si ou pedir que os apaguemos, escrevendo para {email}. Se não ficar satisfeito com a resposta, pode apresentar queixa ao ICO do Reino Unido (ico.org.uk).",
+  "ab.h4": "Quem gere o TableFifty", "ab.p4": "O TableFifty é gerido por Max Maserati, em Inglaterra. Contacto: {email}.", "ab.upd": "Última atualização: 27 de setembro de 2026.",
+  "ab.note": "Esta tradução é apenas para sua conveniência. A versão oficial é a inglesa."
+},
+
+es: {
+  "nav.deals": "Ofertas", "nav.how": "Cómo funciona", "nav.add": "Añadir un local", "nav.cta": "Añadir enlace de un local", "nav.ctaShort": "Añadir local", "lang.label": "Idioma",
+  "disc.label": "Aviso publicitario:", "disc.text": "TableFifty puede recibir una comisión cuando reservas o pides a través de los enlaces de esta web. Tu precio no cambia.", "disc.link": "Cómo ganamos dinero",
+  "hero.eyebrow": "Cada mesa. La mitad de la cuenta. · 7 plataformas · 1 búsqueda",
+  "hero.h1": "<em>Mesas a mitad de precio</em> y ofertas a domicilio, a un toque de la página del local.",
+  "hero.lead": "Busca una vez. Reunimos las ofertas de First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats y Just Eat, y te llevamos a la página del propio restaurante en cada una.",
+  "trust.1": "Hasta un 50% de descuento en comida", "trust.2": "Comprobamos si el enlace lleva al local o a una búsqueda", "trust.3": "En el local o a domicilio",
+  "search.ph": "Restaurante, zona o tipo de cocina", "search.aria": "Buscar restaurantes", "search.clear": "Borrar búsqueda",
+  "pill.all": "Todas las ofertas", "pill.dine": "50% de descuento en el local", "pill.delivery": "Comida a domicilio",
+  "meta": ({ v, l }) => `Locales: ${v} · Enlaces: ${l}`,
+  "cz.title": "Explorar por cocina", "cz.korean": "Coreana", "cz.indian": "India", "cz.steak": "Carne", "cz.pizza": "Pizza", "cz.chicken": "Pollo", "cz.ramen": "Japonesa", "cz.sushi": "Sushi", "cz.chinese": "China", "cz.thai": "Tailandesa", "cz.italian": "Italiana", "cz.burger": "Hamburguesas",
+  "res.eyebrow.search": "Resultados de búsqueda", "res.eyebrow.all": "Todas las ofertas", "res.eyebrow.dine": "En el local", "res.eyebrow.delivery": "A domicilio",
+  "res.title.all": "Ofertas en todo Londres", "res.title.search": "Ofertas para “{q}”", "res.title.none": "Aún no hay nada para “{q}”",
+  "src.curated": "Seleccionado por nosotros", "src.yours": "Guardado por ti", "media.tag": "Foto ilustrativa",
+  "kind.dine": "En el local", "kind.delivery": "A domicilio", "yours": "Tuyo", "ad": "Anuncio", "ad.title": "Podemos recibir una comisión por este enlace",
+  "lt.venue": "Página del local", "lt.brand": "Página de la marca", "lt.search": "Búsqueda en la plataforma", "lt.home": "Página de inicio", "lt.invalid": "Enlace no válido",
+  "ltn.brand": "Abre la página de la marca. Elige allí el local más cercano.", "ltn.search": "Abre una búsqueda, no la página del local. Encuentra el local y guarda su propio enlace.", "ltn.home": "Es una página de inicio. Cámbiala por la página del local.", "ltn.invalid": "No se puede leer este enlace.",
+  "offer.open": "Abrir en {p}", "offer.copy": "Copiar enlace", "offer.retry": "¿No se abrió? Prueba el método alternativo",
+  "promo.label": "Código promocional", "promo.copy": "Copiar", "more.show": "Más ofertas ({n})", "more.hide": "Menos ofertas",
+  "remove": "Eliminar", "remove.confirm": "Toca otra vez para eliminar", "addlink": "Añadir enlace de otra plataforma",
+  "rib.pct": "-{n}%", "rib.upto": "HASTA -{n}%", "rib.241": "2×1", "rib.delivery": "A DOMICILIO",
+  "deal.ft.h": "50% de descuento en comida", "deal.ft.d": "Oferta típica de First Table: horarios temprano o tarde, pequeña tarifa de reserva. Mira los horarios en la página.",
+  "deal.tf.h": "Hasta un 50% de descuento", "deal.tf.d": "Oferta típica de TheFork: a la carta en franjas seleccionadas. Varía según el local.",
+  "deal.tc.h": "2×1 o 25% de descuento", "deal.tc.d": "Oferta típica de Tastecard con suscripción. Las condiciones varían según el local.",
+  "deal.dl.h": "A domicilio", "deal.dl.d": "Las promociones actuales (descuentos, envío gratis) aparecen en la página.",
+  "area.multi": "Londres, varios locales",
+  "empty.title": "No hemos encontrado ofertas verificadas", "empty.for": "para “{q}”",
+  "empty.filtered": "“{q}” está en la lista, pero no en este filtro. Elige Todas las ofertas para verlo.",
+  "empty.missing": "“{q}” aún no está en nuestra lista. Usa las búsquedas en las plataformas de abajo y guarda aquí el enlace del local.",
+  "empty.none": "Nada coincide con este filtro por ahora.", "empty.add": "Añadir “{q}” como local",
+  "fill.title": "¿No encuentras tu restaurante?", "fill.text": "Busca en las 7 plataformas a la vez o añade tú el local.", "fill.search": "Buscar en las plataformas", "fill.add": "Añadir un local",
+  "fb.title": "Busca directamente en cada plataforma", "fb.text": "Rellenado con <strong>{q}</strong>. ¿Encontraste la página del local? Guarda su enlace con Añadir enlace de un local.",
+  "fb.platform": "Búsqueda en la plataforma", "fb.google": "Búsqueda de Google en el sitio", "fb.dine": "En el local", "fb.delivery": "A domicilio", "fb.copy": "Copiar enlace de búsqueda de {p}",
+  "how.eyebrow": "Cómo funciona", "how.title": "De las ganas de comer a la mesa reservada en tres pasos",
+  "s1.t": "Busca", "s1.p": "Escribe un restaurante, una zona o un tipo de cocina. Cada palabra tiene que coincidir, así solo ves los locales correctos.",
+  "s2.t": "Compara", "s2.p": "Mira la oferta de cada plataforma una al lado de otra. La insignia verde significa enlace directo al local. La ámbar significa que abre una búsqueda.",
+  "s3.t": "Reserva directo", "s3.p": "Toca Abrir para ir a la página del local. ¿Ventanas emergentes bloqueadas? Copia el enlace y pégalo en una pestaña nueva.",
+  "miss.eyebrow": "¿Falta un local?", "miss.title": "Añade la oferta tú mismo en 20 segundos",
+  "miss.1": "Pega el enlace de la página del local. Comprobamos que coincide con la plataforma.", "miss.2": "Añade el descuento, un código promocional y tu propia foto.", "miss.3": "Se guarda en este navegador para tu próxima visita.", "miss.photo": "Comedor de un restaurante lleno de gente",
+  "foot.tag": "Ofertas a mitad de precio en el local y a domicilio en todo Londres, con enlaces directos a cada local.",
+  "foot.explore": "Explorar", "foot.about": "Sobre nosotros y privacidad", "foot.saved": "Tus locales guardados", "foot.backup": "Copiar copia de seguridad", "foot.restore": "Restaurar copia",
+  "foot.legal": "© 2026 TableFifty. No estamos vinculados a ninguna de las plataformas mencionadas. Las ofertas cambian a menudo, así que revisa las condiciones antes de reservar o pedir.",
+  "foot.photos": "Las fotos muestran el tipo de comida, no el local. Fotografías: Unsplash.", "foot.privacy": "Política de privacidad (en inglés)",
+  "store.some": ({ n }) => `Enlaces guardados en este navegador: ${n}.`,
+  "store.none": "Los locales que añadas se guardan en este navegador.",
+  "store.blocked": "Este navegador bloquea el almacenamiento. Los locales que añadas desaparecerán al cerrar la página. Usa Copiar copia de seguridad para conservarlos.",
+  "add.title": "Añadir enlace de un local", "add.sub": "Se guarda en este navegador. Si el nombre ya existe, se añade a esa tarjeta.",
+  "f.name": "Nombre del local", "f.area": "Zona", "f.url": "Enlace de la página del local", "f.urlHint": "Pega el enlace de la página del propio local, no de una búsqueda.",
+  "f.platform": "Plataforma", "f.choose": "Elegir…", "f.headline": "Descuento", "f.headlinePh": "50% de descuento en comida", "f.detail": "Condiciones o notas", "f.detailPh": "Dom–jue, solo primeros y últimos turnos",
+  "f.code": "Código promocional", "f.codePh": "Opcional", "f.tags": "Cocina o etiquetas", "f.aff": "Este es mi enlace de afiliado (TableFifty gana dinero con él). Muestra la etiqueta Anuncio.",
+  "f.photo": "Foto", "f.choosePhoto": "Elegir foto", "f.removePhoto": "Quitar", "f.photoHint": "Opcional. Usa una foto tuya o que tengas permiso para usar. Sin foto, mostramos una foto del tipo de cocina.",
+  "btn.cancel": "Cancelar", "btn.save": "Guardar local", "btn.close": "Cerrar",
+  "hint.bad": "Todavía no es un enlace completo. Debe empezar por https://", "hint.venue": "Página del local en {p}.", "hint.brand": "Página de la marca en {p}. Si existe, la página de un local concreto es más directa.",
+  "hint.search": "Es una página de búsqueda en {p}. Abre allí el local y pega su propio enlace.", "hint.home": "Es la página de inicio de {p}. Pega el enlace de la página del local.", "hint.unknown": "un sitio desconocido",
+  "err.name": "Añade el nombre del local.", "err.url": "Añade el enlace completo del local, empezando por https://", "err.platform": "Elige en qué plataforma está este enlace.",
+  "err.mismatch": "Este enlace es de {a}, pero la plataforma elegida es {b}. Cambia uno de los dos.", "err.host": "Este enlace no es de {p} ({h}). Comprueba que copiaste la página correcta.",
+  "err.home": "Es la página de inicio de la plataforma. Abre el local y pega el enlace de su página.", "err.headline": "Añade el descuento, por ejemplo 50% de descuento en comida.", "err.dup": "Ya guardaste este enlace para este local.",
+  "photo.notimg": "Ese archivo no es una imagen. Elige JPG, PNG o WebP.", "photo.ready": "Foto lista. La hemos recortado para la tarjeta.", "photo.bad": "No se pudo leer la foto. Prueba con otro archivo.", "photo.removed": "Foto quitada.",
+  "t.link": "Enlace copiado", "t.code": "Código promocional copiado", "t.search": "Enlace de búsqueda copiado", "t.backup": "Copia de seguridad copiada",
+  "t.copyFailSel": "Se bloqueó la copia. El enlace está seleccionado: pulsa Ctrl+C o mantén pulsado y elige Copiar.", "t.copyFail": "Se bloqueó la copia. Selecciona el texto y cópialo a mano.",
+  "t.opened": "Abierto en una pestaña nueva", "t.popup": "Aquí se bloquean las ventanas emergentes, así que copiamos el enlace.", "t.opening": "Abriendo {p} en una pestaña nueva", "t.removed": "Enlace eliminado",
+  "t.saved": "{n} guardado. Estará aquí la próxima vez.", "t.savedTemp": "{n} añadido para esta visita. Este navegador bloquea el almacenamiento.", "t.savedNoPhoto": "{n} guardado sin la foto. El navegador no tiene espacio.",
+  "t.backupEmpty": "Aún no hay nada que copiar. Añade primero un local.", "t.restored": "Enlaces restaurados: {n}", "t.restoredNone": "Todos esos enlaces ya estaban aquí.",
+  "rs.title": "Restaurar copia", "rs.sub": "Pega el texto de Copiar copia de seguridad. Se conservan los locales que ya tienes.", "rs.label": "Texto de la copia", "rs.btn": "Restaurar",
+  "rs.bad": "Ese texto no es una copia de TableFifty. Cópialo de nuevo.", "rs.none": "No hay enlaces válidos en ese texto.",
+  "sg.none": "No hay ofertas verificadas. Pulsa Enter para buscar en las plataformas.",
+  "about.title": "Sobre nosotros y privacidad", "about.sub": "Cómo funciona TableFifty, cómo gana dinero y qué hace con tus datos.",
+  "ab.h1": "Qué es TableFifty",
+  "ab.p1": "TableFifty reúne en un solo lugar las ofertas a mitad de precio de Londres, en el local y a domicilio. Revisamos First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats y Just Eat, y te llevamos directamente a la página del local en cada una. TableFifty no está vinculado a estas plataformas o restaurantes ni aprobado por ellos.",
+  "ab.h2": "Cómo ganamos dinero",
+  "ab.m1": "Algunos enlaces de TableFifty son enlaces de afiliado. Si haces clic en uno y luego reservas o pides, la plataforma puede pagarnos una pequeña comisión.",
+  "ab.m2": "**Tu precio no cambia.** La comisión la paga la plataforma, no tú.",
+  "ab.m3": "Los enlaces con los que ganamos dinero llevan la etiqueta {ad}.",
+  "ab.m4": "Mostramos ofertas porque son buenas para ti, no porque nos paguen.",
+  "ab.h3": "Privacidad y cookies",
+  "ab.c1": "**No te pedimos nombre, email ni tarjeta.** No hay cuentas.",
+  "ab.c2": "**Los locales que guardas se quedan en tu navegador.** Nunca nos llegan. Si borras los datos del navegador, desaparecen.",
+  "ab.c3": "**Ahora mismo no usamos cookies propias de seguimiento ni de publicidad.** Si más adelante añadimos estadísticas o anuncios, actualizaremos esta página y te pediremos permiso antes.",
+  "ab.c4": "**Cuando pasas a una plataforma,** se aplica su propia política de privacidad. Puede guardar una cookie para saber que te envió TableFifty.",
+  "ab.c5": "**Tus derechos:** puedes preguntar qué datos tenemos sobre ti o pedirnos que los borremos escribiendo a {email}. Si no te convence nuestra respuesta, puedes reclamar ante el ICO del Reino Unido (ico.org.uk).",
+  "ab.h4": "Quién está detrás de TableFifty", "ab.p4": "TableFifty lo gestiona Max Maserati en Inglaterra. Contacto: {email}.", "ab.upd": "Última actualización: 27 de septiembre de 2026.",
+  "ab.note": "Esta traducción es solo por comodidad. La versión oficial es la inglesa."
+},
+
+ar: {
+  "nav.deals": "العروض", "nav.how": "كيف يعمل", "nav.add": "أضف مطعمًا", "nav.cta": "أضف رابط مطعم", "nav.ctaShort": "أضف مطعمًا", "lang.label": "اللغة",
+  "disc.label": "إفصاح إعلاني:", "disc.text": "قد يحصل TableFifty على عمولة عندما تحجز أو تطلب عبر الروابط في هذا الموقع. سعرك لا يتغير.", "disc.link": "كيف نكسب المال",
+  "hero.eyebrow": "كل طاولة. نصف الفاتورة. · 7 منصات · بحث واحد",
+  "hero.h1": "<em>طاولات بنصف السعر</em> وعروض توصيل، على بُعد نقرة من صفحة المطعم.",
+  "hero.lead": "ابحث مرة واحدة. نجمع العروض من First Table وTheFork وTastecard وOpenTable وDeliveroo وUber Eats وJust Eat، ثم نوصلك إلى صفحة المطعم نفسه على كل منصة.",
+  "trust.1": "خصم يصل إلى 50% على الطعام", "trust.2": "نتحقق إن كان الرابط يفتح صفحة المطعم أم صفحة بحث", "trust.3": "تناول في المطعم أو توصيل",
+  "search.ph": "مطعم أو منطقة أو نوع مطبخ", "search.aria": "ابحث عن مطاعم", "search.clear": "امسح البحث",
+  "pill.all": "كل العروض", "pill.dine": "خصم 50% في المطعم", "pill.delivery": "توصيل الطعام",
+  "meta": ({ v, l }) => `المطاعم: ${v} · الروابط: ${l}`,
+  "cz.title": "تصفح حسب المطبخ", "cz.korean": "كوري", "cz.indian": "هندي", "cz.steak": "ستيك", "cz.pizza": "بيتزا", "cz.chicken": "دجاج", "cz.ramen": "ياباني", "cz.sushi": "سوشي", "cz.chinese": "صيني", "cz.thai": "تايلندي", "cz.italian": "إيطالي", "cz.burger": "برغر",
+  "res.eyebrow.search": "نتائج البحث", "res.eyebrow.all": "كل العروض", "res.eyebrow.dine": "في المطعم", "res.eyebrow.delivery": "توصيل",
+  "res.title.all": "عروض في أنحاء لندن", "res.title.search": "عروض لـ «{q}»", "res.title.none": "لا يوجد شيء لـ «{q}» بعد",
+  "src.curated": "من اختيارنا", "src.yours": "أضفته أنت", "media.tag": "صورة توضيحية",
+  "kind.dine": "في المطعم", "kind.delivery": "توصيل", "yours": "لك", "ad": "إعلان", "ad.title": "قد نحصل على عمولة من هذا الرابط",
+  "lt.venue": "صفحة المطعم", "lt.brand": "صفحة العلامة التجارية", "lt.search": "بحث في المنصة", "lt.home": "الصفحة الرئيسية", "lt.invalid": "رابط غير صالح",
+  "ltn.brand": "يفتح صفحة العلامة التجارية. اختر الفرع الأقرب إليك هناك.", "ltn.search": "يفتح صفحة بحث وليس صفحة المطعم. ابحث عن المطعم ثم احفظ رابطه الخاص.", "ltn.home": "هذه صفحة رئيسية. استبدلها بصفحة المطعم.", "ltn.invalid": "لا يمكن قراءة هذا الرابط.",
+  "offer.open": "افتح على {p}", "offer.copy": "انسخ الرابط", "offer.retry": "لم يُفتح؟ جرّب الطريقة البديلة",
+  "promo.label": "رمز الخصم", "promo.copy": "نسخ", "more.show": "عروض أخرى ({n})", "more.hide": "عروض أقل",
+  "remove": "حذف", "remove.confirm": "اضغط مرة أخرى للحذف", "addlink": "أضف رابط منصة أخرى",
+  "rib.pct": "خصم {n}%", "rib.upto": "خصم حتى {n}%", "rib.241": "اثنان بسعر واحد", "rib.delivery": "توصيل",
+  "deal.ft.h": "خصم 50% على الطعام", "deal.ft.d": "عرض First Table المعتاد: مواعيد مبكرة أو متأخرة ورسوم حجز بسيطة. تحقق من المواعيد على الصفحة.",
+  "deal.tf.h": "خصم حتى 50%", "deal.tf.d": "عرض TheFork المعتاد: قائمة الطعام في أوقات محددة. يختلف حسب المطعم.",
+  "deal.tc.h": "اثنان بسعر واحد أو خصم 25%", "deal.tc.d": "عرض Tastecard المعتاد مع الاشتراك. تختلف الشروط حسب الفرع.",
+  "deal.dl.h": "توصيل", "deal.dl.d": "تظهر العروض الحالية (خصومات، توصيل مجاني) على صفحة المطعم.",
+  "area.multi": "لندن، فروع متعددة",
+  "empty.title": "لم نجد عروضًا موثوقة", "empty.for": "لـ «{q}»",
+  "empty.filtered": "«{q}» موجود في القائمة، لكن ليس ضمن هذا الفلتر. اختر كل العروض لرؤيته.",
+  "empty.missing": "«{q}» ليس في قائمتنا بعد. استخدم البحث في المنصات بالأسفل، ثم احفظ رابط المطعم هنا.",
+  "empty.none": "لا شيء يطابق هذا الفلتر حاليًا.", "empty.add": "أضف «{q}» كمطعم",
+  "fill.title": "لم تجد مطعمك؟", "fill.text": "ابحث في المنصات السبع دفعة واحدة، أو أضف المطعم بنفسك.", "fill.search": "ابحث في المنصات", "fill.add": "أضف مطعمًا",
+  "fb.title": "ابحث مباشرة في كل منصة", "fb.text": "البحث عن <strong>{q}</strong>. وجدت صفحة المطعم؟ احفظ رابطها عبر «أضف رابط مطعم».",
+  "fb.platform": "البحث في المنصة", "fb.google": "بحث Google في الموقع", "fb.dine": "في المطعم", "fb.delivery": "توصيل", "fb.copy": "انسخ رابط البحث في {p}",
+  "how.eyebrow": "كيف يعمل", "how.title": "من الجوع إلى طاولة محجوزة في ثلاث خطوات",
+  "s1.t": "ابحث", "s1.p": "اكتب اسم مطعم أو منطقة أو نوع مطبخ. يجب أن تتطابق كل كلمة، فترى المطاعم الصحيحة فقط.",
+  "s2.t": "قارن", "s2.p": "شاهد عرض كل منصة جنبًا إلى جنب. الشارة الخضراء تعني أن الرابط يفتح صفحة المطعم مباشرة. الشارة الصفراء تعني أنه يفتح صفحة بحث.",
+  "s3.t": "احجز مباشرة", "s3.p": "اضغط «افتح» لتصل إلى صفحة المطعم. النوافذ المنبثقة محظورة؟ انسخ الرابط والصقه في علامة تبويب جديدة.",
+  "miss.eyebrow": "مطعم غير موجود؟", "miss.title": "أضف العرض بنفسك في 20 ثانية",
+  "miss.1": "الصق رابط صفحة المطعم. نتحقق من أنه يطابق المنصة.", "miss.2": "أضف الخصم ورمز الخصم وصورتك الخاصة.", "miss.3": "يُحفظ في هذا المتصفح لزيارتك القادمة.", "miss.photo": "قاعة مطعم مزدحمة",
+  "foot.tag": "عروض بنصف السعر في المطاعم وللتوصيل في أنحاء لندن، مع روابط مباشرة لكل مطعم.",
+  "foot.explore": "استكشف", "foot.about": "من نحن والخصوصية", "foot.saved": "مطاعمك المحفوظة", "foot.backup": "انسخ نسخة احتياطية", "foot.restore": "استعد النسخة الاحتياطية",
+  "foot.legal": "© 2026 TableFifty. لسنا مرتبطين بأي من المنصات المذكورة. تتغير العروض كثيرًا، لذا تحقق من الشروط قبل الحجز أو الطلب.",
+  "foot.photos": "الصور تُظهر نوع الطعام وليس المطعم نفسه. الصور من Unsplash.", "foot.privacy": "سياسة الخصوصية (بالإنجليزية)",
+  "store.some": ({ n }) => `الروابط المحفوظة في هذا المتصفح: ${n}.`,
+  "store.none": "تُحفظ المطاعم التي تضيفها في هذا المتصفح.",
+  "store.blocked": "هذا المتصفح يمنع الحفظ. ستختفي المطاعم التي تضيفها عند إغلاق الصفحة. استخدم «انسخ نسخة احتياطية» للاحتفاظ بها.",
+  "add.title": "أضف رابط مطعم", "add.sub": "يُحفظ في هذا المتصفح. إذا تكرر اسم المطعم، يُضاف إلى بطاقته الحالية.",
+  "f.name": "اسم المطعم", "f.area": "المنطقة", "f.url": "رابط صفحة المطعم", "f.urlHint": "الصق الرابط من صفحة المطعم نفسه، وليس من صفحة بحث.",
+  "f.platform": "المنصة", "f.choose": "اختر…", "f.headline": "الخصم", "f.headlinePh": "خصم 50% على الطعام", "f.detail": "الشروط أو الملاحظات", "f.detailPh": "الأحد–الخميس، أول وآخر المواعيد فقط",
+  "f.code": "رمز الخصم", "f.codePh": "اختياري", "f.tags": "المطبخ أو الوسوم", "f.aff": "هذا رابط الإحالة الخاص بي (يكسب منه TableFifty). تظهر عليه شارة «إعلان».",
+  "f.photo": "صورة", "f.choosePhoto": "اختر صورة", "f.removePhoto": "إزالة", "f.photoHint": "اختياري. استخدم صورة التقطتها أو لديك إذن باستخدامها. بدون صورة، نعرض صورة لنوع المطبخ.",
+  "btn.cancel": "إلغاء", "btn.save": "احفظ المطعم", "btn.close": "إغلاق",
+  "hint.bad": "هذا ليس رابطًا كاملًا بعد. يجب أن يبدأ بـ https://", "hint.venue": "صفحة المطعم على {p}.", "hint.brand": "صفحة العلامة التجارية على {p}. صفحة الفرع أفضل إن وُجدت.",
+  "hint.search": "هذه صفحة بحث على {p}. افتح المطعم هناك والصق رابطه الخاص.", "hint.home": "هذه الصفحة الرئيسية لـ {p}. الصق رابط صفحة المطعم.", "hint.unknown": "موقع غير معروف",
+  "err.name": "أضف اسم المطعم.", "err.url": "أضف رابط المطعم كاملًا، يبدأ بـ https://", "err.platform": "اختر المنصة التي عليها هذا الرابط.",
+  "err.mismatch": "هذا الرابط على {a}، لكن المنصة المختارة هي {b}. غيّر أحدهما ليتطابقا.", "err.host": "هذا الرابط ليس على {p} ({h}). تأكد من أنك نسخت الصفحة الصحيحة.",
+  "err.home": "هذه الصفحة الرئيسية للمنصة. افتح المطعم والصق رابط صفحته.", "err.headline": "أضف الخصم، مثل: خصم 50% على الطعام.", "err.dup": "لقد حفظت هذا الرابط لهذا المطعم من قبل.",
+  "photo.notimg": "هذا الملف ليس صورة. اختر صورة JPG أو PNG أو WebP.", "photo.ready": "الصورة جاهزة. قصصناها لتناسب البطاقة.", "photo.bad": "تعذرت قراءة الصورة. جرّب ملفًا آخر.", "photo.removed": "أُزيلت الصورة.",
+  "t.link": "نُسخ الرابط", "t.code": "نُسخ رمز الخصم", "t.search": "نُسخ رابط البحث", "t.backup": "نُسخت النسخة الاحتياطية",
+  "t.copyFailSel": "تم منع النسخ. الرابط محدد: اضغط Ctrl+C، أو اضغط مطولًا واختر نسخ.", "t.copyFail": "تم منع النسخ هنا. حدد النص وانسخه يدويًا.",
+  "t.opened": "فُتح في علامة تبويب جديدة", "t.popup": "النوافذ المنبثقة محظورة هنا، لذا نسخنا الرابط.", "t.opening": "جارٍ فتح {p} في علامة تبويب جديدة", "t.removed": "حُذف الرابط",
+  "t.saved": "حُفظ {n}. ستجده هنا في المرة القادمة.", "t.savedTemp": "أُضيف {n} لهذه الزيارة فقط. هذا المتصفح يمنع الحفظ.", "t.savedNoPhoto": "حُفظ {n} بدون الصورة. لا توجد مساحة كافية في المتصفح.",
+  "t.backupEmpty": "لا يوجد شيء لنسخه بعد. أضف مطعمًا أولًا.", "t.restored": "الروابط المستعادة: {n}", "t.restoredNone": "كل هذه الروابط موجودة بالفعل.",
+  "rs.title": "استعد النسخة الاحتياطية", "rs.sub": "الصق النص من «انسخ نسخة احتياطية». ستبقى المطاعم الموجودة لديك.", "rs.label": "نص النسخة الاحتياطية", "rs.btn": "استعادة",
+  "rs.bad": "هذا النص ليس نسخة احتياطية من TableFifty. انسخه مرة أخرى.", "rs.none": "لا توجد روابط صالحة في هذا النص.",
+  "sg.none": "لا توجد عروض موثوقة. اضغط Enter للبحث في المنصات.",
+  "about.title": "من نحن والخصوصية", "about.sub": "كيف يعمل TableFifty، وكيف يكسب المال، وماذا يفعل ببياناتك.",
+  "ab.h1": "ما هو TableFifty",
+  "ab.p1": "يجمع TableFifty عروض لندن بنصف السعر في المطاعم وللتوصيل في مكان واحد. نراجع First Table وTheFork وTastecard وOpenTable وDeliveroo وUber Eats وJust Eat، ثم نوصلك مباشرة إلى صفحة المطعم على كل منصة. TableFifty غير مرتبط بأي من هذه المنصات أو المطاعم ولا يحظى بموافقتها.",
+  "ab.h2": "كيف نكسب المال",
+  "ab.m1": "بعض الروابط على TableFifty روابط إحالة. إذا نقرت على أحدها ثم حجزت أو طلبت، فقد تدفع لنا المنصة عمولة صغيرة.",
+  "ab.m2": "**سعرك لا يتغير.** العمولة تدفعها المنصة، لا أنت.",
+  "ab.m3": "الروابط التي نكسب منها تحمل شارة {ad}.",
+  "ab.m4": "نعرض العروض لأنها مفيدة لك، لا لأنها تدفع لنا.",
+  "ab.h3": "الخصوصية وملفات تعريف الارتباط",
+  "ab.c1": "**لا نطلب اسمك أو بريدك الإلكتروني أو بطاقتك.** لا توجد حسابات.",
+  "ab.c2": "**المطاعم التي تحفظها تبقى في متصفحك.** لا تصل إلينا أبدًا. مسح بيانات المتصفح يحذفها.",
+  "ab.c3": "**لا نستخدم حاليًا ملفات تعريف ارتباط خاصة بنا للتتبع أو الإعلانات.** إذا أضفنا إحصاءات أو إعلانات لاحقًا، فسنحدّث هذه الصفحة ونطلب موافقتك أولًا.",
+  "ab.c4": "**عندما تنتقل إلى منصة،** تنطبق سياسة الخصوصية الخاصة بها. قد تحفظ ملف تعريف ارتباط لتعرف أن TableFifty أرسلك.",
+  "ab.c5": "**حقوقك:** يمكنك أن تسأل عن البيانات التي نحتفظ بها عنك أو تطلب حذفها بمراسلة {email}. وإذا لم يرضك ردنا، يمكنك تقديم شكوى إلى مكتب مفوض المعلومات البريطاني ICO (ico.org.uk).",
+  "ab.h4": "من يدير TableFifty", "ab.p4": "يدير Max Maserati موقع TableFifty من إنجلترا. للتواصل: {email}.", "ab.upd": "آخر تحديث: 27 سبتمبر 2026.",
+  "ab.note": "هذه الترجمة للتسهيل فقط. النسخة الإنجليزية هي النسخة الرسمية."
+},
+
+bn: {
+  "nav.deals": "অফার", "nav.how": "কীভাবে কাজ করে", "nav.add": "রেস্তোরাঁ যোগ করুন", "nav.cta": "রেস্তোরাঁর লিংক যোগ করুন", "nav.ctaShort": "যোগ করুন", "lang.label": "ভাষা",
+  "disc.label": "বিজ্ঞাপন সংক্রান্ত তথ্য:", "disc.text": "এই সাইটের লিংক দিয়ে বুক বা অর্ডার করলে TableFifty কমিশন পেতে পারে। আপনার দাম একই থাকে।", "disc.link": "আমরা কীভাবে আয় করি",
+  "hero.eyebrow": "প্রতিটি টেবিল। অর্ধেক বিল। · 7টি প্ল্যাটফর্ম · 1টি সার্চ",
+  "hero.h1": "<em>অর্ধেক দামে টেবিল</em> আর ডেলিভারি অফার, রেস্তোরাঁর পাতা থেকে মাত্র এক ট্যাপ দূরে।",
+  "hero.lead": "একবার সার্চ করুন। আমরা First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats আর Just Eat-এর অফার এক জায়গায় আনি, তারপর প্রতিটিতে রেস্তোরাঁর নিজের পাতায় নিয়ে যাই।",
+  "trust.1": "খাবারে 50% পর্যন্ত ছাড়", "trust.2": "লিংকটি রেস্তোরাঁর পাতা খোলে নাকি সার্চ, আমরা যাচাই করি", "trust.3": "রেস্তোরাঁয় বসে বা ডেলিভারি",
+  "search.ph": "রেস্তোরাঁ, এলাকা বা খাবারের ধরন", "search.aria": "রেস্তোরাঁ খুঁজুন", "search.clear": "সার্চ মুছুন",
+  "pill.all": "সব অফার", "pill.dine": "রেস্তোরাঁয় 50% ছাড়", "pill.delivery": "খাবার ডেলিভারি",
+  "meta": ({ v, l }) => `রেস্তোরাঁ: ${v} · লিংক: ${l}`,
+  "cz.title": "খাবারের ধরন অনুযায়ী দেখুন", "cz.korean": "কোরিয়ান", "cz.indian": "ভারতীয়", "cz.steak": "স্টেক", "cz.pizza": "পিৎজা", "cz.chicken": "চিকেন", "cz.ramen": "জাপানি", "cz.sushi": "সুশি", "cz.chinese": "চাইনিজ", "cz.thai": "থাই", "cz.italian": "ইতালিয়ান", "cz.burger": "বার্গার",
+  "res.eyebrow.search": "সার্চের ফলাফল", "res.eyebrow.all": "সব অফার", "res.eyebrow.dine": "রেস্তোরাঁয়", "res.eyebrow.delivery": "ডেলিভারি",
+  "res.title.all": "সারা লন্ডনের অফার", "res.title.search": "“{q}”-এর জন্য অফার", "res.title.none": "“{q}”-এর জন্য এখনো কিছু নেই",
+  "src.curated": "আমাদের বাছাই", "src.yours": "আপনার যোগ করা", "media.tag": "নমুনা ছবি",
+  "kind.dine": "রেস্তোরাঁয়", "kind.delivery": "ডেলিভারি", "yours": "আপনার", "ad": "বিজ্ঞাপন", "ad.title": "এই লিংক থেকে আমরা কমিশন পেতে পারি",
+  "lt.venue": "রেস্তোরাঁর পাতা", "lt.brand": "ব্র্যান্ডের পাতা", "lt.search": "প্ল্যাটফর্ম সার্চ", "lt.home": "হোমপেজ", "lt.invalid": "ভুল লিংক",
+  "ltn.brand": "ব্র্যান্ডের পাতা খোলে। সেখানে আপনার কাছের শাখা বেছে নিন।", "ltn.search": "এটি সার্চ খোলে, রেস্তোরাঁর পাতা নয়। রেস্তোরাঁটি খুঁজে তার নিজের লিংক সংরক্ষণ করুন।", "ltn.home": "এটি হোমপেজ। রেস্তোরাঁর পাতা দিয়ে বদলান।", "ltn.invalid": "এই লিংকটি পড়া যাচ্ছে না।",
+  "offer.open": "{p}-এ খুলুন", "offer.copy": "লিংক কপি করুন", "offer.retry": "খোলেনি? বিকল্প উপায় চেষ্টা করুন",
+  "promo.label": "প্রোমো কোড", "promo.copy": "কপি", "more.show": "আরও অফার ({n})", "more.hide": "কম অফার",
+  "remove": "সরান", "remove.confirm": "সরাতে আবার ট্যাপ করুন", "addlink": "অন্য প্ল্যাটফর্মের লিংক যোগ করুন",
+  "rib.pct": "{n}% ছাড়", "rib.upto": "{n}% পর্যন্ত ছাড়", "rib.241": "একটি কিনলে একটি ফ্রি", "rib.delivery": "ডেলিভারি",
+  "deal.ft.h": "খাবারে 50% ছাড়", "deal.ft.d": "First Table-এর সাধারণ অফার: আগের বা পরের সময়ে, সামান্য বুকিং ফি। সময় পাতায় দেখে নিন।",
+  "deal.tf.h": "50% পর্যন্ত ছাড়", "deal.tf.d": "TheFork-এর সাধারণ অফার: নির্দিষ্ট সময়ে মেনুতে ছাড়। রেস্তোরাঁভেদে আলাদা।",
+  "deal.tc.h": "একটি কিনলে একটি ফ্রি বা 25% ছাড়", "deal.tc.d": "Tastecard-এর সাধারণ অফার, সদস্যপদসহ। শর্ত শাখাভেদে আলাদা।",
+  "deal.dl.h": "ডেলিভারি", "deal.dl.d": "বর্তমান প্রোমো (ছাড়, ফ্রি ডেলিভারি) পাতায় দেখা যায়।",
+  "area.multi": "লন্ডন, একাধিক শাখা",
+  "empty.title": "কোনো যাচাই করা অফার পাওয়া যায়নি", "empty.for": "“{q}”-এর জন্য",
+  "empty.filtered": "“{q}” তালিকায় আছে, কিন্তু এই ফিল্টারে নেই। দেখতে সব অফার বেছে নিন।",
+  "empty.missing": "“{q}” এখনো আমাদের তালিকায় নেই। নিচের প্ল্যাটফর্মগুলোতে সার্চ করুন, তারপর রেস্তোরাঁর লিংক এখানে সংরক্ষণ করুন।",
+  "empty.none": "এই ফিল্টারে এখনো কিছু মেলে না।", "empty.add": "“{q}” রেস্তোরাঁ হিসেবে যোগ করুন",
+  "fill.title": "আপনার রেস্তোরাঁ পাচ্ছেন না?", "fill.text": "সাতটি প্ল্যাটফর্মে একসাথে সার্চ করুন, বা নিজেই রেস্তোরাঁ যোগ করুন।", "fill.search": "প্ল্যাটফর্মে সার্চ করুন", "fill.add": "রেস্তোরাঁ যোগ করুন",
+  "fb.title": "প্রতিটি প্ল্যাটফর্মে সরাসরি সার্চ করুন", "fb.text": "সার্চ: <strong>{q}</strong>। রেস্তোরাঁর পাতা পেয়েছেন? “রেস্তোরাঁর লিংক যোগ করুন” দিয়ে লিংকটি সংরক্ষণ করুন।",
+  "fb.platform": "প্ল্যাটফর্ম সার্চ", "fb.google": "গুগল সাইট সার্চ", "fb.dine": "রেস্তোরাঁয়", "fb.delivery": "ডেলিভারি", "fb.copy": "{p}-এর সার্চ লিংক কপি করুন",
+  "how.eyebrow": "কীভাবে কাজ করে", "how.title": "খিদে থেকে বুক করা টেবিল, তিন ধাপে",
+  "s1.t": "সার্চ করুন", "s1.p": "রেস্তোরাঁ, এলাকা বা খাবারের ধরন লিখুন। প্রতিটি শব্দ মিলতে হবে, তাই শুধু সঠিক রেস্তোরাঁই দেখবেন।",
+  "s2.t": "তুলনা করুন", "s2.p": "প্রতিটি প্ল্যাটফর্মের অফার পাশাপাশি দেখুন। সবুজ চিহ্ন মানে লিংক সরাসরি রেস্তোরাঁর পাতায় যায়। হলুদ চিহ্ন মানে সার্চ খোলে।",
+  "s3.t": "সরাসরি বুক করুন", "s3.p": "রেস্তোরাঁর পাতায় যেতে “খুলুন” চাপুন। পপ-আপ বন্ধ? লিংক কপি করে নতুন ট্যাবে পেস্ট করুন।",
+  "miss.eyebrow": "কোনো রেস্তোরাঁ নেই?", "miss.title": "20 সেকেন্ডে নিজেই অফার যোগ করুন",
+  "miss.1": "রেস্তোরাঁর পাতার লিংক পেস্ট করুন। আমরা যাচাই করি এটি প্ল্যাটফর্মের সাথে মেলে কিনা।", "miss.2": "ছাড়, প্রোমো কোড আর নিজের ছবি যোগ করুন।", "miss.3": "এটি এই ব্রাউজারেই সংরক্ষিত থাকে, পরের বারের জন্য তৈরি।", "miss.photo": "ভিড়ে ভরা একটি রেস্তোরাঁ",
+  "foot.tag": "সারা লন্ডনে অর্ধেক দামের রেস্তোরাঁ ও ডেলিভারি অফার, প্রতিটি রেস্তোরাঁর সরাসরি লিংকসহ।",
+  "foot.explore": "দেখুন", "foot.about": "আমাদের সম্পর্কে ও গোপনীয়তা", "foot.saved": "আপনার সংরক্ষিত রেস্তোরাঁ", "foot.backup": "ব্যাকআপ কপি করুন", "foot.restore": "ব্যাকআপ ফিরিয়ে আনুন",
+  "foot.legal": "© 2026 TableFifty। এখানে উল্লেখ করা কোনো প্ল্যাটফর্মের সাথে আমরা যুক্ত নই। অফার প্রায়ই বদলায়, তাই বুক বা অর্ডারের আগে শর্ত দেখে নিন।",
+  "foot.photos": "ছবিগুলো খাবারের ধরন দেখায়, রেস্তোরাঁ নয়। ছবি: Unsplash।", "foot.privacy": "গোপনীয়তা নীতি (ইংরেজিতে)",
+  "store.some": ({ n }) => `এই ব্রাউজারে সংরক্ষিত লিংক: ${n}।`,
+  "store.none": "আপনার যোগ করা রেস্তোরাঁ এই ব্রাউজারেই সংরক্ষিত থাকে।",
+  "store.blocked": "এই ব্রাউজার সংরক্ষণ করতে দিচ্ছে না। পাতা বন্ধ করলে যোগ করা রেস্তোরাঁ মুছে যাবে। রাখতে “ব্যাকআপ কপি করুন” ব্যবহার করুন।",
+  "add.title": "রেস্তোরাঁর লিংক যোগ করুন", "add.sub": "এই ব্রাউজারে সংরক্ষিত হয়। নাম আগে থেকে থাকলে সেই কার্ডেই যোগ হয়।",
+  "f.name": "রেস্তোরাঁর নাম", "f.area": "এলাকা", "f.url": "রেস্তোরাঁর পাতার লিংক", "f.urlHint": "রেস্তোরাঁর নিজের পাতার লিংক পেস্ট করুন, সার্চ পাতার নয়।",
+  "f.platform": "প্ল্যাটফর্ম", "f.choose": "বেছে নিন…", "f.headline": "ছাড়", "f.headlinePh": "খাবারে 50% ছাড়", "f.detail": "শর্ত বা নোট", "f.detailPh": "রবি–বৃহস্পতি, শুধু প্রথম ও শেষ সময়ে",
+  "f.code": "প্রোমো কোড", "f.codePh": "ঐচ্ছিক", "f.tags": "খাবারের ধরন বা ট্যাগ", "f.aff": "এটি আমার অ্যাফিলিয়েট লিংক (এতে TableFifty আয় করে)। এতে “বিজ্ঞাপন” চিহ্ন দেখাবে।",
+  "f.photo": "ছবি", "f.choosePhoto": "ছবি বেছে নিন", "f.removePhoto": "সরান", "f.photoHint": "ঐচ্ছিক। নিজের তোলা বা অনুমতি আছে এমন ছবি দিন। ছবি না থাকলে আমরা খাবারের ধরনের ছবি দেখাই।",
+  "btn.cancel": "বাতিল", "btn.save": "রেস্তোরাঁ সংরক্ষণ করুন", "btn.close": "বন্ধ করুন",
+  "hint.bad": "এটি এখনো পুরো লিংক নয়। এটি https:// দিয়ে শুরু হওয়া উচিত", "hint.venue": "{p}-এ রেস্তোরাঁর পাতা।", "hint.brand": "{p}-এ ব্র্যান্ডের পাতা। শাখার পাতা থাকলে সেটাই ভালো।",
+  "hint.search": "এটি {p}-এর সার্চ পাতা। সেখানে রেস্তোরাঁটি খুলে তার নিজের লিংক পেস্ট করুন।", "hint.home": "এটি {p}-এর হোমপেজ। রেস্তোরাঁর পাতার লিংক পেস্ট করুন।", "hint.unknown": "অজানা সাইট",
+  "err.name": "রেস্তোরাঁর নাম লিখুন।", "err.url": "রেস্তোরাঁর পুরো লিংক লিখুন, যা https:// দিয়ে শুরু", "err.platform": "লিংকটি কোন প্ল্যাটফর্মের, বেছে নিন।",
+  "err.mismatch": "লিংকটি {a}-এর, কিন্তু বেছে নেওয়া প্ল্যাটফর্ম {b}। মেলাতে একটি বদলান।", "err.host": "লিংকটি {p} ({h})-এর নয়। সঠিক পাতা কপি করেছেন কিনা দেখুন।",
+  "err.home": "এটি প্ল্যাটফর্মের হোমপেজ। রেস্তোরাঁটি খুলে তার পাতার লিংক পেস্ট করুন।", "err.headline": "ছাড় লিখুন, যেমন খাবারে 50% ছাড়।", "err.dup": "এই রেস্তোরাঁর জন্য এই লিংক আগেই সংরক্ষণ করেছেন।",
+  "photo.notimg": "এই ফাইলটি ছবি নয়। JPG, PNG বা WebP ছবি বেছে নিন।", "photo.ready": "ছবি তৈরি। কার্ডের মাপে কাটা হয়েছে।", "photo.bad": "ছবিটি পড়া যায়নি। অন্য ফাইল চেষ্টা করুন।", "photo.removed": "ছবি সরানো হয়েছে।",
+  "t.link": "লিংক কপি হয়েছে", "t.code": "প্রোমো কোড কপি হয়েছে", "t.search": "সার্চ লিংক কপি হয়েছে", "t.backup": "ব্যাকআপ কপি হয়েছে",
+  "t.copyFailSel": "কপি আটকে গেছে। লিংকটি নির্বাচিত আছে: Ctrl+C চাপুন, বা চেপে ধরে কপি বেছে নিন।", "t.copyFail": "এখানে কপি আটকে গেছে। লেখাটি নির্বাচন করে নিজে কপি করুন।",
+  "t.opened": "নতুন ট্যাবে খুলেছে", "t.popup": "এখানে পপ-আপ বন্ধ, তাই আমরা লিংকটি কপি করেছি।", "t.opening": "{p} নতুন ট্যাবে খুলছে", "t.removed": "লিংক সরানো হয়েছে",
+  "t.saved": "{n} সংরক্ষিত হয়েছে। পরের বার এখানেই পাবেন।", "t.savedTemp": "{n} শুধু এই ভিজিটের জন্য যোগ হয়েছে। এই ব্রাউজার সংরক্ষণ করতে দিচ্ছে না।", "t.savedNoPhoto": "{n} ছবি ছাড়া সংরক্ষিত হয়েছে। ব্রাউজারে জায়গা নেই।",
+  "t.backupEmpty": "এখনো ব্যাকআপের কিছু নেই। আগে একটি রেস্তোরাঁ যোগ করুন।", "t.restored": "ফিরিয়ে আনা লিংক: {n}", "t.restoredNone": "এই সব লিংক আগে থেকেই আছে।",
+  "rs.title": "ব্যাকআপ ফিরিয়ে আনুন", "rs.sub": "“ব্যাকআপ কপি করুন” থেকে পাওয়া লেখা এখানে পেস্ট করুন। আপনার বর্তমান রেস্তোরাঁগুলো থাকবে।", "rs.label": "ব্যাকআপের লেখা", "rs.btn": "ফিরিয়ে আনুন",
+  "rs.bad": "এটি TableFifty-এর ব্যাকআপ নয়। আবার কপি করুন।", "rs.none": "এই লেখায় কোনো সঠিক লিংক নেই।",
+  "sg.none": "কোনো যাচাই করা অফার নেই। প্ল্যাটফর্মে সার্চ করতে Enter চাপুন।",
+  "about.title": "আমাদের সম্পর্কে ও গোপনীয়তা", "about.sub": "TableFifty কীভাবে কাজ করে, কীভাবে আয় করে, আর আপনার তথ্য নিয়ে কী করে।",
+  "ab.h1": "TableFifty কী",
+  "ab.p1": "TableFifty লন্ডনের অর্ধেক দামের রেস্তোরাঁ ও ডেলিভারি অফার এক জায়গায় আনে। আমরা First Table, TheFork, Tastecard, OpenTable, Deliveroo, Uber Eats আর Just Eat দেখি, তারপর প্রতিটিতে রেস্তোরাঁর পাতায় সরাসরি নিয়ে যাই। TableFifty এই প্ল্যাটফর্ম বা রেস্তোরাঁগুলোর সাথে যুক্ত নয়, তাদের অনুমোদিতও নয়।",
+  "ab.h2": "আমরা কীভাবে আয় করি",
+  "ab.m1": "TableFifty-এর কিছু লিংক অ্যাফিলিয়েট লিংক। এগুলোতে ক্লিক করে বুক বা অর্ডার করলে প্ল্যাটফর্ম আমাদের সামান্য কমিশন দিতে পারে।",
+  "ab.m2": "**আপনার দাম একই থাকে।** কমিশন দেয় প্ল্যাটফর্ম, আপনি নন।",
+  "ab.m3": "যে লিংক থেকে আমরা আয় করি, সেগুলোতে {ad} চিহ্ন থাকে।",
+  "ab.m4": "আমরা অফার দেখাই কারণ সেগুলো আপনার জন্য ভালো, আমাদের টাকা দেয় বলে নয়।",
+  "ab.h3": "গোপনীয়তা ও কুকি",
+  "ab.c1": "**আমরা আপনার নাম, ইমেইল বা কার্ড চাই না।** কোনো অ্যাকাউন্ট নেই।",
+  "ab.c2": "**আপনার সংরক্ষিত রেস্তোরাঁ আপনার নিজের ব্রাউজারেই থাকে।** সেগুলো কখনো আমাদের কাছে আসে না। ব্রাউজার ডেটা মুছলে সেগুলোও মুছে যায়।",
+  "ab.c3": "**এখন আমরা নিজেদের কোনো ট্র্যাকিং বা বিজ্ঞাপন কুকি ব্যবহার করি না।** পরে পরিসংখ্যান বা বিজ্ঞাপন যোগ করলে এই পাতা আপডেট করব এবং আগে আপনার অনুমতি নেব।",
+  "ab.c4": "**আপনি কোনো প্ল্যাটফর্মে গেলে,** সেই প্ল্যাটফর্মের নিজের গোপনীয়তা নীতি প্রযোজ্য। TableFifty আপনাকে পাঠিয়েছে জানতে সেটি কুকি রাখতে পারে।",
+  "ab.c5": "**আপনার অধিকার:** {email}-এ ইমেইল করে জানতে পারেন আমাদের কাছে আপনার কী তথ্য আছে, বা তা মুছে ফেলতে বলতে পারেন। উত্তরে সন্তুষ্ট না হলে যুক্তরাজ্যের ICO (ico.org.uk)-এ অভিযোগ করতে পারেন।",
+  "ab.h4": "TableFifty কে চালায়", "ab.p4": "TableFifty চালান Max Maserati, ইংল্যান্ডে। যোগাযোগ: {email}।", "ab.upd": "সর্বশেষ আপডেট: 27 সেপ্টেম্বর 2026।",
+  "ab.note": "এই অনুবাদ সুবিধার জন্য। ইংরেজি সংস্করণটিই সরকারি।"
+}
+};
+
+(() => {
+  "use strict";
+
+  /* ---------- Language ---------- */
+  const LANG_KEY = "tablefifty.lang";
+  const FONTS = {
+    ar: "Noto+Naskh+Arabic:wght@400;600;700", ur: "Noto+Naskh+Arabic:wght@400;600;700",
+    pa: "Noto+Sans+Gurmukhi:wght@400;600;700", bn: "Noto+Sans+Bengali:wght@400;600;700"
+  };
+  let lang = "en";
+  function t(key, vars) {
+    let v = (I18N[lang] && I18N[lang][key] !== undefined) ? I18N[lang][key] : I18N.en[key];
+    if (v === undefined) return key;
+    if (typeof v === "function") return v(vars || {});
+    if (vars) v = v.replace(/\{(\w+)\}/g, (m, k) => (vars[k] !== undefined ? vars[k] : m));
+    return v;
+  }
+  function pickInitialLang() {
+    const h = (location.hash || "").replace("#", "").toLowerCase();
+    if (LANGS.some(l => l.code === h)) return h;
+    try { const s = localStorage.getItem(LANG_KEY); if (s && I18N[s]) return s; } catch (e) {}
+    const nav = (navigator.languages || [navigator.language || "en"]).map(x => String(x).slice(0, 2).toLowerCase());
+    return nav.find(c => I18N[c]) || "en";
+  }
+  function applyStatic() {
+    document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+    document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+    document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+    $("#suggest").setAttribute("aria-label", t("search.aria"));
+    renderAbout();
+    renderPlatformOptions();
+  }
+  function setLang(code, persist) {
+    if (!I18N[code]) code = "en";
+    lang = code;
+    const meta = LANGS.find(l => l.code === code);
+    document.documentElement.lang = code;
+    document.documentElement.dir = meta.dir;
+    let fl = document.getElementById("scriptFont");
+    if (FONTS[code]) {
+      if (!fl) { fl = document.createElement("link"); fl.id = "scriptFont"; fl.rel = "stylesheet"; document.head.appendChild(fl); }
+      fl.href = `https://fonts.googleapis.com/css2?family=${FONTS[code]}&display=swap`;
+    } else if (fl) fl.remove();
+    if (persist) { try { localStorage.setItem(LANG_KEY, code); } catch (e) {} }
+    $("#lang").value = code;
+    applyStatic();
+    buildVenues();
+    renderStoreStatus();
+    render();
+  }
+
+  /* ---------- Icons ---------- */
+  const I = {
+    ext: '<svg class="flip" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M10 14 20 4"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>',
+    copy: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h10"/></svg>',
+    retry: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>',
+    pin: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
+    fork: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3v8a2 2 0 0 0 2 2v8M11 3v8M7 7h4M17 3c-1.7 0-3 2-3 5s1.3 4 3 4v9"/></svg>',
+    bag: '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+    plus: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>',
+    chev: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+    search: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>'
+  };
+
+  /* ---------- Platforms ---------- */
+  const enc = encodeURIComponent;
+  const PLATFORMS = {
+    firsttable: { name: "First Table", kind: "dine", hosts: ["firsttable.co.uk"], search: q => `https://www.firsttable.co.uk/london/search?q=${enc(q)}` },
+    thefork:    { name: "TheFork", kind: "dine", hosts: ["thefork.co.uk"], search: q => `https://www.thefork.co.uk/search?q=${enc(q)}` },
+    tastecard:  { name: "Tastecard", kind: "dine", hosts: ["tastecard.co.uk"], search: q => `https://www.tastecard.co.uk/search?location=London&query=${enc(q)}` },
+    opentable:  { name: "OpenTable", kind: "dine", hosts: ["opentable.co.uk", "opentable.com"], search: q => `https://www.opentable.co.uk/s?term=${enc(q)}` },
+    deliveroo:  { name: "Deliveroo", kind: "delivery", hosts: ["deliveroo.co.uk"], search: q => `https://deliveroo.co.uk/restaurants/london?q=${enc(q)}` },
+    ubereats:   { name: "Uber Eats", kind: "delivery", hosts: ["ubereats.com"], search: q => `https://www.ubereats.com/gb/search?q=${enc(q)}` },
+    justeat:    { name: "Just Eat", kind: "delivery", hosts: ["just-eat.co.uk"], search: q => `https://www.just-eat.co.uk/search?q=${enc(q)}` }
+  };
+  const PKEYS = Object.keys(PLATFORMS);
+  const googleSite = (q, p) => `https://www.google.com/search?q=${enc(q + " site:" + PLATFORMS[p].hosts[0])}`;
+
+  /* ---------- Cuisine photos (Unsplash License) ---------- */
+  const CUISINES = [
+    { key: "korean",  img: "img/korean.jpg",      alt: "Korean barbecue meat over open flames", words: ["korean", "bbq", "barbecue"] },
+    { key: "indian",  img: "img/indian.jpg",      alt: "Indian curries served in copper bowls", words: ["indian", "curry", "bombay", "biryani"] },
+    { key: "steak",   img: "img/steak-house.jpg", alt: "Sliced steak with asparagus on a skillet", words: ["steak", "steakhouse"] },
+    { key: "pizza",   img: "img/pizza.jpg",       alt: "Wood-fired pizza with basil", words: ["pizza"] },
+    { key: "chicken", img: "img/chicken.jpg",     alt: "Whole chicken roasting on a grill", words: ["chicken", "peri"] },
+    { key: "ramen",   img: "img/ramen.jpg",       alt: "Bowl of ramen with egg and chopsticks", words: ["ramen", "japanese", "noodles", "katsu"] },
+    { key: "sushi",   img: "img/sushi.jpg",       alt: "Platter of sushi rolls", words: ["sushi"] },
+    { key: "chinese", img: "img/dumplings.jpg",   alt: "Dumplings in a bamboo steamer", words: ["chinese", "dumplings", "dim"] },
+    { key: "thai",    img: "img/thai.jpg",        alt: "Table of Thai dishes", words: ["thai", "vietnamese"] },
+    { key: "italian", img: "img/pasta.jpg",       alt: "Penne in tomato sauce with cheese", words: ["italian", "pasta"] },
+    { key: "burger",  img: "img/burger.jpg",      alt: "Double cheeseburger", words: ["burger", "burgers"] }
+  ];
+  const GENERIC = { img: "img/restaurant.jpg", alt: "A busy restaurant dining room" };
+
+  /* ---------- Curated seed data ---------- */
+  const SEED = [
+    { id: "korean-grill-kensington", name: "Korean Grill Kensington", area: "South Kensington, London", cz: "korean",
+      tags: ["korean", "bbq", "grill"], aliases: ["korean bbq kensington"], img: "img/korean.jpg",
+      offers: [{ platform: "firsttable", url: "https://www.firsttable.co.uk/london/west/south-kensington/korean-grill-kensington", deal: "ft" }] },
+    { id: "dishoom-kensington", name: "Dishoom Kensington", area: "Kensington, London", cz: "indian",
+      tags: ["indian", "bombay", "curry"], aliases: ["dishoom"], img: "img/indian.jpg",
+      offers: [
+        { platform: "deliveroo", url: "https://deliveroo.co.uk/menu/london/kensington/dishoom-kensington", deal: "dl" },
+        { platform: "ubereats", url: "https://www.ubereats.com/gb/brand/dishoom", deal: "dl" }
+      ] },
+    { id: "hawksmoor-seven-dials", name: "Hawksmoor Seven Dials", area: "Covent Garden, London", cz: "steak",
+      tags: ["steak", "steakhouse", "british"], aliases: ["hawksmoor"], img: "img/steak-house.jpg",
+      offers: [
+        { platform: "thefork", url: "https://www.thefork.co.uk/search?q=Hawksmoor", deal: "tf" },
+        { platform: "firsttable", url: "https://www.firsttable.co.uk/london/search?q=Hawksmoor", deal: "ft" }
+      ] },
+    { id: "flat-iron-soho", name: "Flat Iron Soho", area: "Soho, London", cz: "steak",
+      tags: ["steak", "budget"], aliases: ["flat iron"], img: "img/steak-frites.jpg",
+      offers: [{ platform: "thefork", url: "https://www.thefork.co.uk/search?q=Flat%20Iron", deal: "tf" }] },
+    { id: "pizzaexpress", name: "PizzaExpress", areaKey: "area.multi", cz: "pizza",
+      tags: ["pizza", "italian", "chain"], aliases: ["pizza express"], img: "img/pizza.jpg",
+      offers: [{ platform: "tastecard", url: "https://www.tastecard.co.uk/search?location=London&query=PizzaExpress", deal: "tc" }] },
+    { id: "nandos", name: "Nando's", areaKey: "area.multi", cz: "chicken",
+      tags: ["chicken", "peri peri", "chain"], aliases: ["nandos"], img: "img/chicken.jpg",
+      offers: [{ platform: "deliveroo", url: "https://deliveroo.co.uk/restaurants/london?geohash=gcpv0&q=Nando%27s", deal: "dl" }] },
+    { id: "wagamama", name: "Wagamama", areaKey: "area.multi", cz: "ramen",
+      tags: ["japanese", "ramen", "noodles", "chain"], aliases: ["wagamamas"], img: "img/ramen.jpg",
+      offers: [{ platform: "ubereats", url: "https://www.ubereats.com/gb/search?q=Wagamama", deal: "dl" }] }
+  ];
+
+  /* ---------- Storage ---------- */
+  const STORE_KEY = "tablefifty.custom.v1", OLD_KEYS = ["halfnosh.custom.v1", "forkfinder.custom.v1"];
+  let storageOK = true;
+  function loadCustom() {
+    let raw = null;
+    try {
+      raw = localStorage.getItem(STORE_KEY);
+      for (const k of OLD_KEYS) { if (!raw) raw = localStorage.getItem(k); }
+    } catch (e) { storageOK = false; return []; }
+    if (!raw) return [];
+    try { const arr = JSON.parse(raw); return Array.isArray(arr) ? arr.filter(validRecord) : []; } catch (e) { return []; }
+  }
+  function saveCustom() {
+    let ok = false;
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(custom)); storageOK = true; ok = true; } catch (e) { ok = false; }
+    renderStoreStatus();
+    return ok;
+  }
+  function validRecord(r) {
+    return r && typeof r === "object" && typeof r.name === "string" && r.name.trim() && typeof r.url === "string" && safeUrl(r.url) && PLATFORMS[r.platform];
+  }
+  const validPhoto = p => typeof p === "string" && /^data:image\/(jpeg|png|webp);base64,/.test(p) && p.length < 400000;
+
+  /* ---------- Helpers ---------- */
+  function $(s) { return document.querySelector(s); }
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const norm = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase()
+    .replace(/[’'`]/g, "").replace(/&/g, " and ").replace(/[^\p{L}\p{M}\p{N}]+/gu, " ").trim();
+  const tokens = s => norm(s).split(" ").filter(Boolean);
+  const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function safeUrl(u) { try { const x = new URL(String(u).trim()); return x.protocol === "https:" || x.protocol === "http:" ? x.href : null; } catch (e) { return null; } }
+  function platformForUrl(u) {
+    try { const h = new URL(u).hostname.toLowerCase(); return PKEYS.find(k => PLATFORMS[k].hosts.some(d => h === d || h.endsWith("." + d))) || null; } catch (e) { return null; }
+  }
+  function linkType(u) {
+    let x; try { x = new URL(u); } catch (e) { return "invalid"; }
+    const p = x.pathname.toLowerCase().replace(/\/+$/, "");
+    if (/\/brand\//.test(p + "/")) return "brand";
+    if (/(^|\/)(search|s)$/.test(p) || /\/search\//.test(p) || ["q", "query", "term", "queryText", "search"].some(k => x.searchParams.has(k))) return "search";
+    if (p === "" || p === "/gb" || p === "/london") return "home";
+    return "venue";
+  }
+  function cuisineFor(v) {
+    if (v.cz) return CUISINES.find(c => c.key === v.cz) || null;
+    const words = tokens([v.name, ...v.tags].join(" "));
+    return CUISINES.find(c => c.words.some(w => words.some(x => x === w || x.startsWith(w)))) || null;
+  }
+  const offerHead = o => o.deal ? t(`deal.${o.deal}.h`) : o.headline;
+  const offerDetail = o => o.deal ? t(`deal.${o.deal}.d`) : o.detail;
+  function ribbonFor(offers) {
+    if (offers.some(o => o.deal === "tc" || /2\s*-?\s*(for|x|×)\s*-?\s*1/i.test(offerHead(o) || ""))) return t("rib.241");
+    let best = 0, upto = false;
+    offers.forEach(o => {
+      const src = o.deal === "ft" ? "50%" : o.deal === "tf" ? "up to 50%" : String(o.headline || "");
+      const m = src.match(/(\d{1,3})\s*%/);
+      if (m && +m[1] >= best) { upto = +m[1] > best ? /up to/i.test(src) : (upto && /up to/i.test(src)); best = +m[1]; }
+    });
+    if (best) return t(upto ? "rib.upto" : "rib.pct", { n: best });
+    if (offers.every(o => PLATFORMS[o.platform].kind === "delivery")) return t("rib.delivery");
+    return String(offerHead(offers[0]) || "").slice(0, 22);
+  }
+  const kindOf = o => PLATFORMS[o.platform].kind;
+
+  /* ---------- Build venue index ---------- */
+  let custom = loadCustom();
+  let venues = [];
+  function buildVenues() {
+    const map = new Map();
+    SEED.forEach(v => map.set(norm(v.name), {
+      ...v, area: v.areaKey ? t(v.areaKey) : v.area, tags: [...v.tags], aliases: [...v.aliases], custom: false, photo: "",
+      offers: v.offers.map((o, i) => ({ ...o, idx: i, custom: false }))
+    }));
+    custom.forEach(c => {
+      const k = norm(c.name);
+      let v = map.get(k);
+      if (!v) { v = { id: "c-" + c.id, name: c.name.trim(), area: (c.area || "").trim(), tags: [], aliases: [], offers: [], custom: true, photo: "" }; map.set(k, v); }
+      if (!v.area && c.area) v.area = c.area.trim();
+      if (validPhoto(c.photo)) v.photo = c.photo;
+      (c.tags || []).forEach(tg => { if (tg && !v.tags.includes(tg)) v.tags.push(tg); });
+      v.offers.push({ platform: c.platform, url: c.url, headline: c.headline || "", detail: c.detail || "", code: c.code || "", affiliate: !!c.affiliate, custom: true, cid: c.id, idx: v.offers.length });
+    });
+    venues = [...map.values()];
+    venues.forEach(v => {
+      const cz = cuisineFor(v);
+      v.czKey = cz ? cz.key : null;
+      if (!v.img) v.img = cz ? cz.img : GENERIC.img;
+      v.alt = cz ? cz.alt : GENERIC.alt;
+      const f = arr => { const w = tokens(arr.join(" ")); return { words: w, joined: w.join(" ") }; };
+      const czWords = cz ? [t("cz." + cz.key), I18N.en["cz." + cz.key]] : [];
+      v.idx = {
+        name: f([v.name]), area: f([v.area]),
+        meta: f([...v.aliases, ...v.tags, ...czWords]),
+        plat: f(v.offers.flatMap(o => [PLATFORMS[o.platform].name, o.platform, kindOf(o) === "dine" ? "dine dining in table book " + t("kind.dine") : "delivery takeaway " + t("kind.delivery")]))
+      };
+      v.nameNorm = norm(v.name);
+    });
+  }
+  function hit(tk, f) { return f.words.some(w => w.startsWith(tk)) || (tk.length >= 3 && f.joined.includes(tk)); }
+  function scoreVenue(v, toks) {
+    let s = 0;
+    for (const tk of toks) {
+      if (hit(tk, v.idx.name)) s += 5; else if (hit(tk, v.idx.area)) s += 3; else if (hit(tk, v.idx.meta)) s += 2; else if (hit(tk, v.idx.plat)) s += 1; else return -1;
+    }
+    const q = toks.join(" ");
+    if (v.nameNorm === q) s += 20; else if (v.nameNorm.startsWith(q)) s += 8;
+    return s;
+  }
+
+  /* ---------- State ---------- */
+  const state = { q: "", kind: "all", mode: "platform", active: -1 };
+  const expanded = new Set();
+
+  function query() {
+    const toks = tokens(state.q);
+    let list = venues.map(v => ({ v, s: toks.length ? scoreVenue(v, toks) : 0 })).filter(x => x.s >= 0);
+    if (toks.length) list.sort((a, b) => b.s - a.s || a.v.name.localeCompare(b.v.name));
+    else {
+      const rank = v => (v.custom ? 100 : 0) + v.offers.filter(o => linkType(o.url) === "venue").length * 10 + (v.offers.some(o => kindOf(o) === "dine") ? 5 : 0);
+      list.sort((a, b) => rank(b.v) - rank(a.v) || a.v.name.localeCompare(b.v.name));
+    }
+    const counts = {
+      all: list.length,
+      dine: list.filter(x => x.v.offers.some(o => kindOf(o) === "dine")).length,
+      delivery: list.filter(x => x.v.offers.some(o => kindOf(o) === "delivery")).length
+    };
+    const shown = list.map(x => ({ v: x.v, offers: state.kind === "all" ? x.v.offers : x.v.offers.filter(o => kindOf(o) === state.kind) })).filter(x => x.offers.length);
+    return { toks, counts, shown };
+  }
+
+  /* ---------- Render ---------- */
+  function offerHTML(v, o) {
+    const P = PLATFORMS[o.platform];
+    const url = safeUrl(o.url) || "";
+    const lt = linkType(url);
+    const uidStr = `u-${esc(v.id)}-${o.idx}`;
+    const head = offerHead(o), detail = offerDetail(o);
+    const note = lt === "venue" ? "" : t("ltn." + lt);
+    return `<li class="offer">
+      <div class="offer-top">
+        <span class="plat">${esc(P.name)}</span>
+        ${o.affiliate ? `<span class="adtag" title="${esc(t("ad.title"))}">${esc(t("ad"))}</span>` : ""}
+        <span class="kind">${P.kind === "dine" ? I.fork + esc(t("kind.dine")) : I.bag + esc(t("kind.delivery"))}</span>
+        ${o.custom ? `<span class="yours-tag">${esc(t("yours"))}</span>` : ""}
+        <span class="lt lt-${lt}">${esc(t("lt." + lt))}</span>
+      </div>
+      <p class="headline">${esc(head)}</p>
+      ${detail ? `<p class="detail">${esc(detail)}</p>` : ""}
+      ${note ? `<p class="lt-note">${esc(note)}</p>` : ""}
+      ${o.code ? `<button type="button" class="codechip" data-copy="${esc(o.code)}" data-what="t.code">
+          <span><span class="lbl">${esc(t("promo.label"))}</span><br><code>${esc(o.code)}</code></span>
+          <span class="cp">${I.copy}${esc(t("promo.copy"))}</span></button>` : ""}
+      <div class="tear" aria-hidden="true"></div>
+      <code class="url" id="${uidStr}">${esc(url)}</code>
+      <div class="actions">
+        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${o.affiliate ? " sponsored" : ""}" data-open="${esc(P.name)}">${esc(t("offer.open", { p: P.name }))} ${I.ext}</a>
+        <button type="button" class="btn" data-copy="${esc(url)}" data-what="t.link" data-target="${uidStr}">${I.copy}${esc(t("offer.copy"))}</button>
+        <button type="button" class="btn btn-icon" data-altopen="${esc(url)}" data-target="${uidStr}" aria-label="${esc(t("offer.retry"))}" title="${esc(t("offer.retry"))}">${I.retry}</button>
+      </div>
+      ${o.custom ? `<div class="offer-foot"><button type="button" class="btn btn-danger" data-remove="${esc(o.cid)}">${esc(t("remove"))}</button></div>` : ""}
+    </li>`;
+  }
+  function mainOffer(offers) {
+    const score = o => (linkType(o.url) === "venue" ? 4 : linkType(o.url) === "brand" ? 2 : 0) + (kindOf(o) === "dine" ? 1 : 0) + (o.custom ? 0.5 : 0);
+    return offers.reduce((best, o) => (score(o) > score(best) ? o : best), offers[0]);
+  }
+  function cardHTML(v, offers) {
+    const plats = [...new Set(offers.map(o => PLATFORMS[o.platform].name))];
+    const img = v.photo || v.img;
+    const main = mainOffer(offers);
+    const rest = offers.filter(o => o !== main);
+    const open = expanded.has(v.id);
+    return `<article class="card" id="v-${esc(v.id)}">
+      <div class="media">
+        <img src="${esc(img)}" alt="${esc(v.photo ? v.name : v.alt)}" loading="lazy" decoding="async">
+        <span class="ribbon">${esc(ribbonFor(offers))}</span>
+        <span class="src ${v.custom ? "yours" : ""}">${esc(t(v.custom ? "src.yours" : "src.curated"))}</span>
+        <div class="media-plats">${plats.map(p => `<span>${esc(p)}</span>`).join("")}</div>
+        ${v.photo ? "" : `<span class="media-tag">${esc(t("media.tag"))}</span>`}
+      </div>
+      <div class="card-body">
+        <div class="card-head">
+          <h3>${esc(v.name)}</h3>
+          ${v.area ? `<p class="area">${I.pin}${esc(v.area)}</p>` : ""}
+        </div>
+        ${v.czKey ? `<span class="chip">${esc(t("cz." + v.czKey))}</span>` : ""}
+        <ul class="offers">${offerHTML(v, main)}</ul>
+        ${rest.length ? `<div id="more-${esc(v.id)}" ${open ? "" : "hidden"}><ul class="offers">${rest.map(o => offerHTML(v, o)).join("")}</ul></div>` : ""}
+        <div class="card-foot">
+          ${rest.length ? `<button type="button" class="morebtn" data-more="${esc(v.id)}" aria-expanded="${open}" aria-controls="more-${esc(v.id)}">${esc(t(open ? "more.hide" : "more.show", { n: rest.length }))} ${I.chev}</button>` : "<span></span>"}
+          <button type="button" class="addlink" data-addfor="${esc(v.name)}" data-area="${esc(v.area)}">${I.plus}${esc(t("addlink"))}</button>
+        </div>
+      </div>
+    </article>`;
+  }
+  function fillHTML() {
+    return `<article class="card fill" aria-labelledby="fillTitle">
+      <div class="fill-in">
+        <h3 id="fillTitle">${esc(t("fill.title"))}</h3>
+        <p>${esc(t("fill.text"))}</p>
+        <div class="row">
+          <button type="button" class="btn btn-primary" data-fillsearch>${I.search}${esc(t("fill.search"))}</button>
+          <button type="button" class="btn" data-addfor="">${I.plus}${esc(t("fill.add"))}</button>
+        </div>
+      </div>
+    </article>`;
+  }
+  function layoutFill() {
+    const grid = $("#results"), fill = grid.querySelector(".fill");
+    if (!fill) return;
+    const cols = getComputedStyle(grid).gridTemplateColumns.split(" ").filter(Boolean).length || 1;
+    const n = grid.querySelectorAll(".card:not(.fill)").length;
+    const r = n % cols, span = r === 0 ? cols : cols - r;
+    fill.style.gridColumn = `span ${span}`;
+    fill.classList.toggle("wide", span >= 2);
+  }
+
+  function render() {
+    const { toks, counts, shown } = query();
+    ["all", "dine", "delivery"].forEach(k => $("#n-" + k).textContent = counts[k]);
+    const listings = shown.reduce((n, x) => n + x.offers.length, 0);
+    const q = state.q.trim();
+    $("#resEyebrow").textContent = toks.length ? t("res.eyebrow.search") : t("res.eyebrow." + state.kind);
+    $("#resTitle").textContent = toks.length ? t(shown.length ? "res.title.search" : "res.title.none", { q }) : t("res.title.all");
+    $("#resMeta").textContent = t("meta", { v: shown.length, l: listings });
+
+    const res = $("#results");
+    if (!shown.length) {
+      const cz = CUISINES.find(c => toks.some(tk => c.words.some(w => w.startsWith(tk) || tk.startsWith(w))));
+      const why = toks.length && counts.all > 0 ? t("empty.filtered", { q }) : toks.length ? t("empty.missing", { q }) : t("empty.none");
+      res.innerHTML = `<div class="empty">
+        <div class="media"><img src="${esc(cz ? cz.img : GENERIC.img)}" alt="" loading="lazy"></div>
+        <div class="empty-body">
+          <h3>${esc(t("empty.title"))}${toks.length ? ` <span>${esc(t("empty.for", { q }))}</span>` : ""}</h3>
+          <p>${esc(why)}</p>
+          ${toks.length ? `<button type="button" class="btn btn-primary" data-addfor="${esc(q)}">${I.plus}${esc(t("empty.add", { q }))}</button>` : ""}
+        </div>
+      </div>`;
+    } else {
+      res.innerHTML = shown.map(x => cardHTML(x.v, x.offers)).join("") + fillHTML();
+      layoutFill();
+    }
+    renderCuisines();
+    renderFallback();
+  }
+
+  function renderCuisines() {
+    const q = norm(state.q);
+    const avail = CUISINES.map(c => ({ c, n: venues.filter(v => v.czKey === c.key).length })).filter(x => x.n > 0);
+    $("#czRow").innerHTML = avail.map(({ c, n }) => {
+      const label = t("cz." + c.key);
+      const pressed = q === norm(label) || q === c.key;
+      return `<button type="button" class="cz" data-cz="${esc(c.key)}" aria-pressed="${pressed}">
+        <img src="${esc(c.img)}" alt="" loading="lazy">
+        <span class="cz-lbl"><span>${esc(label)}</span><span class="cz-n">${n}</span></span>
+      </button>`;
+    }).join("");
+  }
+
+  function renderFallback() {
+    const q = state.q.trim();
+    const fb = $("#fallback");
+    fb.hidden = !q;
+    if (!q) return;
+    $("#fbText").innerHTML = t("fb.text", { q: esc(q) });
+    const make = k => {
+      const url = state.mode === "google" ? googleSite(q, k) : PLATFORMS[k].search(q);
+      return `<div class="launch">
+        <a class="btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-open="${esc(PLATFORMS[k].name)}"><span class="plat">${esc(PLATFORMS[k].name)}</span> ${I.ext}</a>
+        <button type="button" class="btn btn-icon" data-copy="${esc(url)}" data-what="t.search" aria-label="${esc(t("fb.copy", { p: PLATFORMS[k].name }))}">${I.copy}</button>
+      </div>`;
+    };
+    $("#fbDine").innerHTML = PKEYS.filter(k => PLATFORMS[k].kind === "dine").map(make).join("");
+    $("#fbDelivery").innerHTML = PKEYS.filter(k => PLATFORMS[k].kind === "delivery").map(make).join("");
+  }
+
+  function renderStoreStatus() {
+    const el = $("#storeStatus");
+    if (storageOK) { el.className = ""; el.textContent = custom.length ? t("store.some", { n: custom.length }) : t("store.none"); }
+    else { el.className = "store-warn"; el.textContent = t("store.blocked"); }
+  }
+
+  function mini(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+      .replace("{ad}", `<span class="adtag">${esc(t("ad"))}</span>`)
+      .replace(/\{email\}/g, '<strong style="direction:ltr;unicode-bidi:isolate">hello@tablefifty.co.uk</strong>');
+  }
+  function renderAbout() {
+    const note = t("ab.note");
+    $("#aboutBody").innerHTML = `
+      ${note ? `<p class="note">${mini(note)}</p>` : ""}
+      <h3>${mini(t("ab.h1"))}</h3><p>${mini(t("ab.p1"))}</p>
+      <h3>${mini(t("ab.h2"))}</h3><ul>${["m1", "m2", "m3", "m4"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
+      <h3>${mini(t("ab.h3"))}</h3><ul>${["c1", "c2", "c3", "c4", "c5"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
+      <h3>${mini(t("ab.h4"))}</h3><p>${mini(t("ab.p4"))}</p>
+      <p style="color:var(--faint);font-size:13px">${mini(t("ab.upd"))}</p>`;
+  }
+
+  /* ---------- Scrolling ---------- */
+  function scrollToEl(el) { if (el) el.scrollIntoView({ behavior: reduceMotion() ? "auto" : "smooth", block: "start" }); }
+  function scrollToDeals() {
+    const el = $("#deals");
+    const offset = (matchMedia("(min-width:720px)").matches ? $("#dock").offsetHeight + 20 : 0) + 62 + 12;
+    const y = el.getBoundingClientRect().top + window.scrollY - offset;
+    if (Math.abs(window.scrollY - y) > 4) window.scrollTo({ top: y, behavior: reduceMotion() ? "auto" : "smooth" });
+  }
+
+  /* ---------- Autocomplete ---------- */
+  const qEl = $("#q"), sg = $("#suggest");
+  function highlight(name, toks) {
+    return name.split(/(\s+)/).map(part => {
+      const n = norm(part);
+      return n && toks.some(tk => n.startsWith(tk) || (tk.length >= 3 && n.includes(tk))) ? `<mark>${esc(part)}</mark>` : esc(part);
+    }).join("");
+  }
+  function renderSuggest() {
+    const toks = tokens(state.q);
+    if (!toks.length || document.activeElement !== qEl) return closeSuggest();
+    const top = query().shown.slice(0, 6);
+    sg.innerHTML = top.length ? top.map((x, i) => `<li role="option" id="opt-${i}" data-id="${esc(x.v.id)}" data-name="${esc(x.v.name)}" aria-selected="${i === state.active}">
+        <img src="${esc(x.v.photo || x.v.img)}" alt="">
+        <span class="sg-txt"><span class="sg-name">${highlight(x.v.name, toks)}</span><br><span class="sg-area">${esc(x.v.area || "")}</span></span>
+        <span class="sg-count">${esc(ribbonFor(x.offers))}</span>
+      </li>`).join("") : `<li class="sg-foot" role="presentation">${esc(t("sg.none"))}</li>`;
+    sg.hidden = false;
+    qEl.setAttribute("aria-expanded", "true");
+    if (state.active >= 0) qEl.setAttribute("aria-activedescendant", "opt-" + state.active); else qEl.removeAttribute("aria-activedescendant");
+  }
+  function closeSuggest() { sg.hidden = true; state.active = -1; qEl.setAttribute("aria-expanded", "false"); qEl.removeAttribute("aria-activedescendant"); }
+  function setQuery(val) { qEl.value = val; state.q = val; state.active = -1; syncClear(); render(); }
+  function pickVenue(id, name) {
+    setQuery(name); closeSuggest();
+    const card = document.getElementById("v-" + id);
+    if (card) { scrollToEl(card); card.classList.remove("flash"); void card.offsetWidth; card.classList.add("flash"); }
+  }
+  function syncClear() { const has = !!qEl.value; $("#clearQ").hidden = !has; $("#kbd").hidden = has; }
+
+  qEl.addEventListener("input", () => { state.q = qEl.value; state.active = -1; syncClear(); render(); renderSuggest(); });
+  qEl.addEventListener("focus", renderSuggest);
+  qEl.addEventListener("keydown", e => {
+    const opts = [...sg.querySelectorAll('[role="option"]')];
+    if (e.key === "ArrowDown" && opts.length) { e.preventDefault(); state.active = (state.active + 1) % opts.length; renderSuggest(); }
+    else if (e.key === "ArrowUp" && opts.length) { e.preventDefault(); state.active = (state.active - 1 + opts.length) % opts.length; renderSuggest(); }
+    else if (e.key === "Enter") {
+      e.preventDefault();
+      if (state.active >= 0 && opts[state.active]) pickVenue(opts[state.active].dataset.id, opts[state.active].dataset.name);
+      else { closeSuggest(); qEl.blur(); scrollToDeals(); }
+    }
+    else if (e.key === "Escape") { if (!sg.hidden) closeSuggest(); else setQuery(""); }
+  });
+  sg.addEventListener("mousedown", e => e.preventDefault());
+  sg.addEventListener("click", e => { const li = e.target.closest('[role="option"]'); if (li) pickVenue(li.dataset.id, li.dataset.name); });
+  document.addEventListener("click", e => { if (!e.target.closest(".search")) closeSuggest(); });
+  $("#clearQ").addEventListener("click", () => { setQuery(""); qEl.focus(); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "/" && !e.target.closest("input,textarea,select,[contenteditable]") && !document.querySelector("dialog[open]")) { e.preventDefault(); qEl.focus(); }
+  });
+
+  /* ---------- Pills, cuisines, fallback mode, language ---------- */
+  document.querySelectorAll(".pill").forEach(p => p.addEventListener("click", () => {
+    state.kind = p.dataset.kind;
+    document.querySelectorAll(".pill").forEach(x => x.setAttribute("aria-pressed", String(x === p)));
+    render();
+  }));
+  $("#czRow").addEventListener("click", e => {
+    const b = e.target.closest("[data-cz]");
+    if (!b) return;
+    const label = t("cz." + b.dataset.cz);
+    setQuery(b.getAttribute("aria-pressed") === "true" ? "" : label);
+    scrollToDeals();
+  });
+  document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+    state.mode = b.dataset.mode;
+    document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+    renderFallback();
+  }));
+  $("#lang").innerHTML = LANGS.map(l => `<option value="${l.code}" lang="${l.code}">${esc(l.name)}</option>`).join("");
+  $("#lang").addEventListener("change", e => setLang(e.target.value, true));
+  let rT; window.addEventListener("resize", () => { clearTimeout(rT); rT = setTimeout(layoutFill, 120); });
+
+  /* ---------- Toast ---------- */
+  let toastTimer;
+  function toast(msg, tone) {
+    const el = $("#toast");
+    $("#toastMsg").textContent = msg;
+    el.classList.toggle("warn", tone === "warn");
+    el.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove("show"), tone === "warn" ? 4600 : 2600);
+  }
+
+  /* ---------- Clipboard with fallbacks ---------- */
+  function selectEl(el) { try { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } catch (e) {} }
+  function legacyCopy(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+    document.body.appendChild(ta); ta.select();
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove(); return ok;
+  }
+  function copyText(text, doneMsg, targetEl) {
+    const done = () => toast(doneMsg);
+    const fail = () => {
+      if (targetEl) { selectEl(targetEl); toast(t("t.copyFailSel"), "warn"); } else toast(t("t.copyFail"), "warn");
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text).then(done, () => (legacyCopy(text) ? done() : fail()));
+    legacyCopy(text) ? done() : fail();
+    return Promise.resolve();
+  }
+
+  /* ---------- Delegated actions ---------- */
+  const confirmTimers = new Map();
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-about]")) { showDialog($("#aboutDialog")); return; }
+    const sc = e.target.closest("[data-scroll]");
+    if (sc) { e.preventDefault(); sc.dataset.scroll === "top" ? window.scrollTo({ top: 0, behavior: reduceMotion() ? "auto" : "smooth" }) : scrollToEl(document.getElementById(sc.dataset.scroll)); return; }
+    const more = e.target.closest("[data-more]");
+    if (more) {
+      const id = more.dataset.more, box = document.getElementById("more-" + id);
+      const open = !expanded.has(id);
+      open ? expanded.add(id) : expanded.delete(id);
+      if (box) box.hidden = !open;
+      more.setAttribute("aria-expanded", String(open));
+      const n = box ? box.querySelectorAll(".offer").length : 0;
+      more.innerHTML = `${esc(t(open ? "more.hide" : "more.show", { n }))} ${I.chev}`;
+      return;
+    }
+    if (e.target.closest("[data-fillsearch]")) {
+      if (state.q.trim()) scrollToEl($("#fallback"));
+      else { window.scrollTo({ top: Math.max(0, $("#dock").getBoundingClientRect().top + window.scrollY - 90), behavior: reduceMotion() ? "auto" : "smooth" }); qEl.focus({ preventScroll: true }); }
+      return;
+    }
+    const copyBtn = e.target.closest("[data-copy]");
+    if (copyBtn) {
+      const tgt = copyBtn.dataset.target ? document.getElementById(copyBtn.dataset.target) : null;
+      copyText(copyBtn.dataset.copy, t(copyBtn.dataset.what || "t.link"), tgt);
+      return;
+    }
+    const alt = e.target.closest("[data-altopen]");
+    if (alt) {
+      const url = safeUrl(alt.dataset.altopen);
+      let w = null;
+      try { w = window.open(url, "_blank"); } catch (err) { w = null; }
+      if (w) { try { w.opener = null; } catch (err) {} toast(t("t.opened")); }
+      else { const tgt = alt.dataset.target ? document.getElementById(alt.dataset.target) : null; copyText(url, t("t.popup"), tgt); }
+      return;
+    }
+    const open = e.target.closest("a[data-open]");
+    if (open) { toast(t("t.opening", { p: open.dataset.open })); return; }
+    const add = e.target.closest("[data-addfor]");
+    if (add) { openAdd({ name: add.dataset.addfor, area: add.dataset.area || "" }); return; }
+    const rm = e.target.closest("[data-remove]");
+    if (rm) {
+      const id = rm.dataset.remove;
+      if (!rm.classList.contains("confirm")) {
+        rm.classList.add("confirm"); rm.textContent = t("remove.confirm");
+        clearTimeout(confirmTimers.get(id));
+        confirmTimers.set(id, setTimeout(() => { rm.classList.remove("confirm"); rm.textContent = t("remove"); }, 3500));
+        return;
+      }
+      custom = custom.filter(c => c.id !== id);
+      saveCustom(); buildVenues(); render();
+      toast(t("t.removed"));
+    }
+  });
+
+  /* ---------- Dialogs ---------- */
+  function showDialog(d) { if (typeof d.showModal === "function") { try { d.showModal(); return; } catch (e) {} } d.setAttribute("open", ""); }
+  function closeDialog(d) { if (typeof d.close === "function") d.close(); else d.removeAttribute("open"); }
+  document.querySelectorAll("dialog [data-close]").forEach(b => b.addEventListener("click", () => closeDialog(b.closest("dialog"))));
+
+  const dlg = $("#addDialog"), form = $("#addForm");
+  const fName = $("#fName"), fArea = $("#fArea"), fUrl = $("#fUrl"), fPlatform = $("#fPlatform"),
+        fHeadline = $("#fHeadline"), fDetail = $("#fDetail"), fCode = $("#fCode"), fTags = $("#fTags"), fPhoto = $("#fPhoto");
+  let pendingPhoto = "";
+  function renderPlatformOptions() {
+    const cur = fPlatform.value;
+    fPlatform.innerHTML = `<option value="">${esc(t("f.choose"))}</option>
+      <optgroup label="${esc(t("fb.dine"))}">${PKEYS.filter(k => PLATFORMS[k].kind === "dine").map(k => `<option value="${k}">${PLATFORMS[k].name}</option>`).join("")}</optgroup>
+      <optgroup label="${esc(t("fb.delivery"))}">${PKEYS.filter(k => PLATFORMS[k].kind === "delivery").map(k => `<option value="${k}">${PLATFORMS[k].name}</option>`).join("")}</optgroup>`;
+    fPlatform.value = cur;
+  }
+  function setPhoto(dataUrl) {
+    pendingPhoto = dataUrl || "";
+    $("#photoThumb").style.backgroundImage = pendingPhoto ? `url("${pendingPhoto}")` : "";
+    $("#photoClear").hidden = !pendingPhoto;
+  }
+  function setHint(el, cls, msg) { el.className = "hint" + (cls ? " " + cls : ""); el.textContent = msg; }
+  function openAdd(pre = {}) {
+    form.reset(); setPhoto("");
+    setHint($("#photoHint"), "", t("f.photoHint"));
+    $("#formErr").hidden = true;
+    fName.value = pre.name || ""; fArea.value = pre.area || "";
+    updateUrlHint(); closeSuggest(); showDialog(dlg);
+    (fName.value ? fUrl : fName).focus();
+  }
+  $("#openAdd").addEventListener("click", () => openAdd({ name: state.q.trim() && !query().shown.length ? state.q.trim() : "" }));
+
+  fPhoto.addEventListener("change", () => {
+    const file = fPhoto.files && fPhoto.files[0];
+    const hint = $("#photoHint");
+    if (!file) return;
+    if (!/^image\//.test(file.type)) return setHint(hint, "bad", t("photo.notimg"));
+    const reader = new FileReader();
+    reader.onload = () => {
+      const im = new Image();
+      im.onload = () => {
+        const W = 800, H = 500, c = document.createElement("canvas");
+        c.width = W; c.height = H;
+        const s = Math.max(W / im.width, H / im.height), w = im.width * s, h = im.height * s;
+        c.getContext("2d").drawImage(im, (W - w) / 2, (H - h) / 2, w, h);
+        let data = c.toDataURL("image/jpeg", 0.72);
+        if (data.length > 380000) data = c.toDataURL("image/jpeg", 0.55);
+        setPhoto(data); setHint(hint, "ok", t("photo.ready"));
+      };
+      im.onerror = () => setHint(hint, "bad", t("photo.bad"));
+      im.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+  $("#photoClear").addEventListener("click", () => { setPhoto(""); fPhoto.value = ""; setHint($("#photoHint"), "", t("photo.removed")); });
+
+  function updateUrlHint() {
+    const h = $("#urlHint");
+    const raw = fUrl.value.trim();
+    if (!raw) return setHint(h, "", t("f.urlHint"));
+    const url = safeUrl(raw);
+    if (!url) return setHint(h, "bad", t("hint.bad"));
+    const p = platformForUrl(url);
+    if (p && fPlatform.value !== p) fPlatform.value = p;
+    const lt = linkType(url);
+    const who = p ? PLATFORMS[p].name : t("hint.unknown");
+    if (lt === "venue") setHint(h, "ok", t("hint.venue", { p: who }));
+    else if (lt === "brand") setHint(h, "warn", t("hint.brand", { p: who }));
+    else if (lt === "search") setHint(h, "warn", t("hint.search", { p: who }));
+    else setHint(h, "bad", t("hint.home", { p: who }));
+  }
+  fUrl.addEventListener("input", updateUrlHint);
+  fPlatform.addEventListener("change", updateUrlHint);
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const err = $("#formErr");
+    const fail = (msg, el) => { err.textContent = msg; err.hidden = false; if (el) el.focus(); };
+    const name = fName.value.trim(), url = safeUrl(fUrl.value.trim()), platform = fPlatform.value, headline = fHeadline.value.trim();
+    if (!name) return fail(t("err.name"), fName);
+    if (!url) return fail(t("err.url"), fUrl);
+    if (!platform) return fail(t("err.platform"), fPlatform);
+    const detected = platformForUrl(url);
+    if (detected && detected !== platform) return fail(t("err.mismatch", { a: PLATFORMS[detected].name, b: PLATFORMS[platform].name }), fPlatform);
+    if (!detected) return fail(t("err.host", { p: PLATFORMS[platform].name, h: PLATFORMS[platform].hosts[0] }), fUrl);
+    if (linkType(url) === "home") return fail(t("err.home"), fUrl);
+    if (!headline) return fail(t("err.headline"), fHeadline);
+    if (custom.some(c => norm(c.name) === norm(name) && c.url === url)) return fail(t("err.dup"), fUrl);
+    const rec = {
+      id: uid(), name, area: fArea.value.trim(), platform, url, headline, detail: fDetail.value.trim(), code: fCode.value.trim().toUpperCase(),
+      tags: fTags.value.split(",").map(x => x.trim().toLowerCase()).filter(Boolean), photo: pendingPhoto || "", affiliate: $("#fAff").checked,
+      createdAt: new Date().toISOString()
+    };
+    custom.push(rec);
+    let ok = saveCustom(), droppedPhoto = false;
+    if (!ok && rec.photo) { rec.photo = ""; droppedPhoto = true; ok = saveCustom(); }
+    if (!ok) { storageOK = false; renderStoreStatus(); }
+    buildVenues(); closeDialog(dlg); setQuery(name);
+    const v = venues.find(x => norm(x.name) === norm(name));
+    if (v) { const card = document.getElementById("v-" + v.id); if (card) { card.scrollIntoView({ block: "start" }); card.classList.add("flash"); } }
+    if (!ok) toast(t("t.savedTemp", { n: name }), "warn");
+    else if (droppedPhoto) toast(t("t.savedNoPhoto", { n: name }), "warn");
+    else toast(t("t.saved", { n: name }));
+  });
+
+  $("#copyBackup").addEventListener("click", () => {
+    if (!custom.length) return toast(t("t.backupEmpty"), "warn");
+    copyText(JSON.stringify(custom), t("t.backup"));
+  });
+  const rdlg = $("#restoreDialog");
+  $("#openRestore").addEventListener("click", () => { $("#restoreForm").reset(); $("#restoreErr").hidden = true; showDialog(rdlg); $("#fBackup").focus(); });
+  $("#restoreForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const err = $("#restoreErr");
+    const bad = msg => { err.textContent = msg; err.hidden = false; };
+    let data;
+    try { data = JSON.parse($("#fBackup").value.trim()); } catch (x) { return bad(t("rs.bad")); }
+    if (!Array.isArray(data)) return bad(t("rs.bad"));
+    const good = data.filter(validRecord).map(r => ({
+      id: String(r.id || uid()), name: String(r.name).trim(), area: String(r.area || ""), platform: r.platform, url: safeUrl(r.url),
+      headline: String(r.headline || ""), detail: String(r.detail || ""), code: String(r.code || ""),
+      tags: Array.isArray(r.tags) ? r.tags.map(String) : [], photo: validPhoto(r.photo) ? r.photo : "", affiliate: !!r.affiliate,
+      createdAt: r.createdAt || new Date().toISOString()
+    }));
+    if (!good.length) return bad(t("rs.none"));
+    const have = new Set(custom.map(c => c.id));
+    const fresh = good.filter(r => !have.has(r.id));
+    custom = custom.concat(fresh);
+    saveCustom(); buildVenues(); render(); closeDialog(rdlg);
+    toast(fresh.length ? t("t.restored", { n: fresh.length }) : t("t.restoredNone"));
+  });
+
+  /* ---------- Boot ---------- */
+  syncClear();
+  setLang(pickInitialLang(), false);
+})();
+</script>
+
+</body>
+</html>

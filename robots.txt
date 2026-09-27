@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tablefifty.co.uk/sitemap.xml
