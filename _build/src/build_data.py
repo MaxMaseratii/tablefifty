@@ -206,6 +206,7 @@ for path, rec in sorted(PAGES.items()):
           ('outdoor', 'Indoor & outdoor seating'), ('garden', 'Beer garden'), ('wheel', 'Wheelchair accessible'), ('private', 'Private dining'),
           ('parking', 'Free onsite parking'), ('kids', 'Highchairs available')]
     tagset = {t for cat, t in rec.get('tags', [])}
+    if tagset & {'Bars & pubs', 'Gastropub', 'Sports bar', 'Cocktail bar', 'Wine bar', 'Pub Food'}: v['pub'] = 1
     fx = [k for k, name in FX if name in tagset]
     if fx and 'fx' not in v: v['fx'] = fx
     subs = {k.lower(): val for k, val in (rec.get('subs') or [])}
@@ -382,7 +383,7 @@ chain("Meerkat Meals", "generic", ['d'], 'casual', "https://www.comparethemarket
 # ---------------- EatClub (free app, time-slot deals up to 50% off; see ../eatclub.py) ----------------
 EC_FILE = os.path.join(HERE, 'ec_pages.jsonl')
 EC_CITY = {'London': 'london', 'Manchester': 'manchester', 'Bristol': 'bristol', 'Leeds': 'leeds', 'Liverpool': 'liverpool', 'Cardiff': 'cardiff'}
-EC_CZ = CZ_PRIORITY + [('breakfast', {'Breakfast', 'Brunch', 'Bakery', 'Coffee', 'Dessert'}), ('cocktails', {'Bar', 'Cocktails', 'Pub', 'Wine Bar'}),
+EC_CZ = [('chicken', {'Fried Chicken'}), ('thai', {'SouthEast Asian'}), ('chinese', {'Dim Sum', 'Dumplings', 'Hot Pot'})] + CZ_PRIORITY + [('breakfast', {'Breakfast', 'Brunch', 'Bakery', 'Coffee', 'Dessert'}), ('cocktails', {'Bar', 'Cocktails', 'Pub', 'Wine Bar'}),
                        ('fine', {'Contemporary', 'Modern European'}), ('chicken', {'Chicken'}), ('british', {'Gastropub'})]
 import math
 def km(a, b):
@@ -435,6 +436,8 @@ for r in ec_rows:
         v['ll'] = ll; ec_added += 1
     if r.get('image') and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', r['image']) and 'img' not in v and 'imgx' not in v:
         v['imgx'] = r['image']
+    if set(r.get('cuisines') or []) & {'Bar', 'Drinks Focused', 'Nightclub'} or re.search(r"\b(arms|inn|tavern|pub|taproom|brewery)\b", r['name'].lower()):
+        v['pub'] = 1
     o = dict(p='eatclub', u='https://eatclub.co.uk/venue/' + r['slug'], h='upto_bill', n=best, sl=sl, seen=r.get('checked') or SEEN, live=True)
     if r.get('rating') and (r.get('reviews') or 0) >= 5: o['r'] = [round(r['rating'] * 2, 1), r['reviews'], 'ec']
     offer(v, **o)
@@ -464,6 +467,49 @@ perk("Monzo cashback", 'generic', "https://monzo.com/features/cashback", "2–10
      "Free for Monzo personal accounts. Switch on each offer in the app.")
 perk("O2 Priority: Greggs", 'breakfast', "https://www.o2.co.uk/priority", "Greggs hot drink or savoury for £1", 50,
      "Up to 4 times a month for O2 customers, in the Priority app.", k='coffee', m=('b', 'l'))
+
+# ---------------- Pubs: chain apps, clubs and cashback (checked 28 Sep 2026) ----------------
+def pubperk(name, u, x, n, d, c='british', end=None, pn=None, m=('l', 'd')):
+    v = venue(name, a="UK-wide", reg='multi', ct='uk', c=c, s='casual', m=list(m), k='dine')
+    v['pub'] = 1
+    o = dict(p='direct', u=u, h='text', x=x, n=n, d=d)
+    if end: o['end'] = end
+    if pn: o['pn'] = pn
+    offer(v, **o)
+pubperk("EatDrinkMeet app", "https://www.eatdrinkmeet.co.uk/app", "Free welcome drink at M&B pubs", 25,
+        "Mitchells & Butlers' pub app. A pint, glass of wine, Prosecco or soft drink on your first visit, Monday to Friday, within 30 days.", pn="EatDrinkMeet")
+pubperk("Greene King pubs", "https://www.greeneking.co.uk/loyalty", "Spin to win a free main, dessert or drink", 30,
+        "Greene King app: one welcome spin, monthly Pub Match prizes and 10% off selected drinks during big games. Chef & Brewer, Hungry Horse, Farmhouse Inns, Flaming Grill and more.", pn="Greene King app")
+pubperk("Hungry Horse", "https://www.hungryhorse.co.uk/deals", "Any Big Plate £10 on Thursdays", 35,
+        "Also Grill Monday from £10, curry and a drink £8 on Wednesdays, and second burger £1 on Fridays.")
+pubperk("Wetherspoon clubs", "https://www.jdwetherspoon.com/food-drink/", "Club deals every day, drink included", 30,
+        "Monday Small Plates, Tuesday Burger, Wednesday Pizza, Thursday Curry Club, and 2pm–5pm afternoon deals on weekdays.", pn="Wetherspoon")
+pubperk("Slug & Lettuce", "https://www.slugandlettuce.co.uk/offers/2-for-1-cocktails", "2-for-1 cocktails, all day, every day", 50,
+        "Order two of the same cocktail or mocktail. Students get 25% off food Sunday to Thursday.", c='cocktails', pn="Stonegate")
+pubperk("MiXR app (Stonegate pubs)", "https://www.walkaboutbar.co.uk/", "Free drink when you download", 20,
+        "Points and rewards at 700+ Stonegate venues: Slug & Lettuce, Be At One, Popworld, Walkabout.", c='cocktails', pn="Stonegate")
+pubperk("Nicholson's", "https://www.nicholsonspubs.co.uk/app", "Free welcome drink, then 20% off", 20,
+        "Nicholson's app: free drink on sign-up, a free drink at visit 4, £5 off £15 at visit 6, 20% off at visit 8.")
+pubperk("Ember Inns", "https://www.emberinns.co.uk/ember-app", "Free drink on sign-up, up to 33% off rewards", 33,
+        "Ember app: 1 stamp per £10. Two stamps unlock £5 off £20, a free drink or 33% off. CAMRA member discounts too.")
+pubperk("Vintage Inns", "https://www.vintageinn.co.uk/vintageinnsrewards", "£10 off when you spend £40", 25,
+        "Vintage Inns Rewards: welcome voucher valid 40 days for up to 6 people, then stamps towards 20% off mains and £30 off £60.")
+pubperk("O'Neill's", "https://www.oneills.co.uk/app", "Free welcome drink and lucky stamps", 20,
+        "O'Neill's app: free drink on sign-up, stamps for free pints and money off. Students get 20% off with a code from staff.")
+pubperk("All Bar One", "https://www.allbarone.co.uk/rewards", "£20 off when you spend £40", 50,
+        "All Bar One Rewards: welcome voucher, then a stamp per visit for a free cocktail, a third off drinks or a free dish.", c='cocktails')
+pubperk("Miller & Carter", "https://www.millerandcarter.co.uk/loyaltyapp", "Free glass of fizz when you join", 15,
+        "Masters of Steak Club: points every visit, rewards include a £25 voucher and a free starter or pudding.", c='steak')
+pubperk("Stonehouse", "https://www.stonehouserestaurants.co.uk/mystonehouse", "25% off the food bill when you join", 25,
+        "My Stonehouse app, up to 6 people. Then stamps towards a free main and 30% off.")
+pubperk("Young's pubs", "https://www.youngs.co.uk/on-tap-app", "Treats in the On Tap app", 15,
+        "Young's app: offers appear in the Your Treats tab at Young's pubs in London and the South.")
+pubperk("Blue Light Card pub discounts", "https://www.bluelightcard.co.uk/en/food-and-dining-discounts/pub-discounts", "Up to 20% off food at Marston's, Greene King, Toby Carvery", 20,
+        "Marston's 20%, Greene King 15%, Flaming Grill 15%, Toby Carvery 20% Mon–Fri, Ember Inns 10%. For Blue Light Card holders (£4.99 for 2 years).", pn="Blue Light Card")
+pubperk("Chef & Brewer", "https://www.chefandbrewer.com/partnerships", "Tesco Clubcard points worth 2x", 50,
+        "Swap Clubcard points for Chef & Brewer vouchers at double value. Also 10% off ales for CAMRA members.", pn="Tesco Clubcard")
+pubperk("Pub gift card cashback", "https://www.everup.com/brands/gb-pub", "8–10% instant cashback on your pub bill", 10,
+        "Buy a Great British Pub Card (Greene King pubs) or The Dining Out Card (M&B pubs) in the Everup app before you pay. About 8.5–10% back.", pn="Everup")
 
 # ---------------- Independent spotlights (researched 28 Sep 2026) ----------------
 tiki = venue("Grill Shack & Tiki Bar", key='grill-shack-tiki-bar', a="15 The Vale, East Acton, London W3 7SH", reg='west', ct='london',
@@ -511,7 +557,7 @@ chain("TGI Fridays", "burger", ['l', 'd'], 'casual', "https://www.tgifridays.co.
       "2-for-1 cocktails", 50, d="Also 10% off every visit when you keep your receipt, and app, main and drink from £12.49.")
 chain("Turtle Bay", "caribbean", ['l', 'd'], 'casual', "https://www.turtlebay.co.uk/happy-hour",
       "2-for-1 cocktails, all day", 50, d="Caribbean restaurant. Happy hour offer at every Turtle Bay.")
-chain("Toby Carvery", "breakfast", ['b', 'l', 'd'], 'casual', "https://www.tobycarvery.co.uk/offers",
+chain("Toby Carvery", "breakfast", ['b', 'l', 'd'], 'casual', "https://www.tobycarvery.co.uk/carveryclub",
       "All-you-can-eat breakfast £6.99", 30, d="Monday to Friday, £7.49 at weekends. Join Carvery Club for 25% off food.")
 chain("German Doner Kebab", "kebab", ['l', 'd'], 'casual', "https://gdk.com/uk/",
       "£5 Fridays and 2-for-1 Tuesdays", 50, d="Check your local GDK and the app for times.")
@@ -617,6 +663,15 @@ for v in V.values():
     if pick: v['ins'] = pick
 RC['last'] = counts_now
 json.dump(RC, open(RC_FILE, 'w'), separators=(',', ':'))
+
+# ---------- drop offers we can no longer re-check (closed venues disappear this way) ----------
+TODAY_D = datetime.date.today()
+for v in V.values():
+    v['o'] = [o for o in v['o'] if not (o.get('p') in ('thefork', 'code') and (TODAY_D - datetime.date.fromisoformat(o.get('seen') or SEEN)).days > 45)]
+for k in [k for k, v in V.items() if not v['o']]: del V[k]
+
+for nm in ('toby-carvery', 'harvester', 'tgi-fridays', 'hungry-horse'):
+    if nm in V: V[nm]['pub'] = 1
 
 # ---------- finalise ----------
 out = []

@@ -479,3 +479,10 @@ bn: { "t50.btn": "Insights", "ins.reviews": "{n}টি রিভিউ", "ins.ma
   "media.ec": "ছবি: EatClub", "media.own": "ছবি: রেস্তোরাঁ", "plat.strip": "আমরা {n}টি উৎস দেখি:", "plat.chains": "চেইন অফার" }
 };
 Object.keys(I18N_INS).forEach(l => Object.assign(I18N[l], I18N_INS[l]));
+(() => { const c = {
+  en: ["Pubs & bars", "Today's top 3 picks", "Today's top 3 near you"], pl: ["Puby i bary", "3 najlepsze wybory dnia", "3 najlepsze w pobliżu dziś"],
+  ro: ["Puburi și baruri", "Top 3 alegerile zilei", "Top 3 lângă tine azi"], pa: ["ਪੱਬ ਅਤੇ ਬਾਰ", "ਅੱਜ ਦੀਆਂ 3 ਚੋਟੀ ਦੀਆਂ ਚੋਣਾਂ", "ਤੁਹਾਡੇ ਨੇੜੇ ਅੱਜ ਦੀਆਂ 3 ਚੋਣਾਂ"],
+  ur: ["پب اور بار", "آج کے 3 بہترین انتخاب", "آپ کے قریب آج کے 3 انتخاب"], pt: ["Pubs e bares", "As 3 escolhas do dia", "As 3 escolhas do dia perto de si"],
+  es: ["Pubs y bares", "Las 3 elecciones del día", "Las 3 elecciones del día cerca de ti"], ar: ["حانات وبارات", "أفضل 3 اختيارات اليوم", "أفضل 3 اختيارات قربك اليوم"],
+  bn: ["পাব ও বার", "আজকের সেরা ৩টি", "আপনার কাছে আজকের সেরা ৩টি"] };
+  Object.keys(c).forEach(l => { I18N[l]["tab.pubs"] = c[l][0]; I18N[l]["spot.label3"] = c[l][1]; I18N[l]["spot.near3"] = c[l][2]; }); })();
