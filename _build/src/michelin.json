@@ -1,0 +1,2890 @@
+[
+ {
+  "name": "Moor Hall",
+  "town": "Aughton",
+  "stars": 3,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "The Fat Duck",
+  "town": "Bray",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Waterside Inn",
+  "town": "Bray",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "L'Enclume",
+  "town": "Cartmel",
+  "stars": 3,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Alain Ducasse at The Dorchester",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "CORE by Clare Smyth",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Hélène Darroze at The Connaught",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Gordon Ramsay",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sketch, The Lecture Room & Library",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Ledbury",
+  "town": "London",
+  "stars": 3,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Andrew Fairlie",
+  "town": "Auchterarder",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Opheem",
+  "town": "Birmingham",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Midsummer House",
+  "town": "Cambridge",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Glenturret Lalique",
+  "town": "Crieff",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "A.Wong",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Alex Dilling at Hotel Café Royal",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Bonheur by Matt Abé",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Brooklands by Claude Bosi",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Da Terra",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dinner by Heston Blumenthal",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Gymkhana",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Humble Chicken",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ikoyi",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kitchen Table",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Story",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Row on 5",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Clove Club",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Ritz Restaurant",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Trivet",
+  "town": "London",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ynyshir",
+  "town": "Machynlleth",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Hand and Flowers",
+  "town": "Marlow",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Sat Bains",
+  "town": "Nottingham",
+  "stars": 2,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "hide and fox",
+  "town": "Saltwood",
+  "stars": 2,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Lake Road Kitchen",
+  "town": "Ambleside",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Old Stamp House",
+  "town": "Ambleside",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Samling",
+  "town": "Ambleside",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Artichoke",
+  "town": "Amersham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Woven by Adam Smith",
+  "town": "Ascot",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Allium at Askham Hall",
+  "town": "Askham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sō–Lō",
+  "town": "Aughton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Barn",
+  "town": "Aughton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Latymer",
+  "town": "Bagshot",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Olive Tree",
+  "town": "Bath",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "OX",
+  "town": "Belfast",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Muddlers Club",
+  "town": "Belfast",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Adam's",
+  "town": "Birmingham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Wilderness",
+  "town": "Birmingham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "SOURCE at Gilpin Hotel",
+  "town": "Bowness-on-Windermere",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Cottage in the Wood",
+  "town": "Braithwaite",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Cedar Tree by Hrishikesh Desai",
+  "town": "Brampton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Hinds Head",
+  "town": "Bray",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Bulrush",
+  "town": "Bristol",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Wilsons",
+  "town": "Bristol",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Osip",
+  "town": "Bruton",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Pea Porridge",
+  "town": "Bury St Edmunds",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Twenty-Two",
+  "town": "Cambridge",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Gorse",
+  "town": "Cardiff",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Rogan & Co",
+  "town": "Cartmel",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Bybrook",
+  "town": "Castle Combe",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Gidleigh Park",
+  "town": "Chagford",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Le Champignon Sauvage",
+  "town": "Cheltenham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Lumière",
+  "town": "Cheltenham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Hywel Jones by Lucknam Park",
+  "town": "Colerne",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Gravetye Manor",
+  "town": "East Grinstead",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Stark",
+  "town": "East Mersea",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pine",
+  "town": "East Wallhouses",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "AVERY",
+  "town": "Edinburgh",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Condita",
+  "town": "Edinburgh",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "LYLA",
+  "town": "Edinburgh",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Timberyard",
+  "town": "Edinburgh",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "The Tudor Pass",
+  "town": "Egham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Starling",
+  "town": "Esher",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The White Swan",
+  "town": "Fence",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Fordwich Arms",
+  "town": "Fordwich",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Cail Bruich",
+  "town": "Glasgow",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Unalome by Graeme Cheevers",
+  "town": "Glasgow",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Forest Side",
+  "town": "Grasmere",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "Hambleton Hall",
+  "town": "Hambleton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Grace & Savour",
+  "town": "Hampton in Arden",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Star Inn at Harome",
+  "town": "Harome",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "FIFTY TWO",
+  "town": "Harrogate",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Angel",
+  "town": "Hetton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Meadowsweet",
+  "town": "Holt",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ben Wilkinson at The Pass",
+  "town": "Horsham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Maré by Rafael Cagali",
+  "town": "Hove",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "mýse",
+  "town": "Hovingham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Neptune",
+  "town": "Hunstanton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Loch Bay",
+  "town": "Isle of Skye",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Cross",
+  "town": "Kenilworth",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Killiecrankie House",
+  "town": "Killiecrankie",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Northcote",
+  "town": "Langho",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "33 The Homend",
+  "town": "Ledbury",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Heron",
+  "town": "Leith",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Martin Wishart",
+  "town": "Leith",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Kitchin",
+  "town": "Leith",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Boat",
+  "town": "Lichfield",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Upstairs by Tom Shepherd",
+  "town": "Lichfield",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Walnut Tree",
+  "town": "Llanddewi Skirrid",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "1890 by Gordon Ramsay",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "64 Goodge Street",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Akoko",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Amaya",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ambassadors Clubhouse",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Angler",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "AngloThai",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Aulis",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Behind",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Benares",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Brat",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Caractère",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Casa Fofō",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Chez Bruce",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Chishuru",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Corenucopia by Clare Smyth",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Cornus",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Cycene",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dining Room at The Goring",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dorian",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dysart Petersham",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Elystan Street",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Evelyn's Table",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Frog by Adam Handling",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Galvin La Chapelle",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "HIDE",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Jamavar",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kerfield Arms",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Kitchen W8",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "KOL",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "La Trompette",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Labombe by Trivet",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Legado",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Lita",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Luca",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Mauro Colagreco at Raffles London at The OWO",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Michael Caines at The Stafford",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Mountain",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Murano",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Muse by Tom Aikens",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "OMA",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ormer Mayfair",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pavyllon London",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pied à Terre",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Plates London",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Portland",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pétrus by Gordon Ramsay",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Quilon",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Restaurant Gordon Ramsay High",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "River Café",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sabor",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sollip",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "St. Barts",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "St. JOHN",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sushi Kanesaka",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Harwood Arms",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Ninth",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Tom Brown at The Capital",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Trinity",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Trishna",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Umu",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Veeraswamy",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Wild Honey St James",
+  "town": "London",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Interlude",
+  "town": "Lower Beeding",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Lympstone Manor",
+  "town": "Lympstone",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Dining Room",
+  "town": "Malmesbury",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "mana",
+  "town": "Manchester",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Skof",
+  "town": "Manchester",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Coach",
+  "town": "Marlow",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sosban & The Old Butchers",
+  "town": "Menai Bridge",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Forge",
+  "town": "Middleton Tyas",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Morston Hall",
+  "town": "Morston",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "John's House",
+  "town": "Mountsorrel",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Nut Tree Inn",
+  "town": "Murcott",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "House of Tides",
+  "town": "Newcastle upon Tyne",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "SOLSTICE BY KENNY ATKINSON",
+  "town": "Newcastle upon Tyne",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ugly Butterfly by Adam Handling",
+  "town": "Newquay",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "heft",
+  "town": "Newton in Cartmel",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "alchemilla",
+  "town": "Nottingham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Black Swan",
+  "town": "Oldstead",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "JÖRO",
+  "town": "Oughtibridge",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Beach House",
+  "town": "Oxwich",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Paul Ainsworth at No.6",
+  "town": "Padstow",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Peat Inn",
+  "town": "Peat Inn",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Home",
+  "town": "Penarth",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pentonbridge Inn",
+  "town": "Penton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Àclèaf",
+  "town": "Plymouth",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Outlaw's Fish Kitchen",
+  "town": "Port Isaac",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Shaun Rankin at Grantley Hall",
+  "town": "Ripon",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Sportsman",
+  "town": "Seasalter",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dog and Gun Inn",
+  "town": "Skelton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pipe and Glass",
+  "town": "South Dalton",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Elephant",
+  "town": "Torquay",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "1887",
+  "town": "Torridon",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "The Royal Oak",
+  "town": "Whatcote",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Whitebrook",
+  "town": "Whitebrook",
+  "stars": 1,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Winteringham Fields",
+  "town": "Winteringham",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Roots",
+  "town": "York",
+  "stars": 1,
+  "bib": false,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Mara",
+  "town": "Aberdeen",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Gaff",
+  "town": "Abergavenny",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "THE SCHELLY",
+  "town": "Ambleside",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Emilia",
+  "town": "Ashburton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Fish Shop",
+  "town": "Ballater",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Beckford Bottle Shop",
+  "town": "Bath",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Chequers",
+  "town": "Bath",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Beau",
+  "town": "Belfast",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Deanes at Queens",
+  "town": "Belfast",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "EDŌ",
+  "town": "Belfast",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Home",
+  "town": "Belfast",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "mrDeanes",
+  "town": "Belfast",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Riverine Rabbit",
+  "town": "Birmingham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Tropea",
+  "town": "Birmingham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Jai Ho",
+  "town": "Bishop's Cleeve",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Horse & Groom",
+  "town": "Bourton on the Hill",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Burnt Orange",
+  "town": "Brighton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Flint House",
+  "town": "Brighton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "BOX-E",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "COR",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Little Hollows Pasta",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Marmo",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "OTHER",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "RAGÙ",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Root",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Blaise Inn",
+  "town": "Bristol",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Briar",
+  "town": "Bruton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Heathcock",
+  "town": "Cardiff",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Purple Poppadom",
+  "town": "Cardiff",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Yr Hen Printworks",
+  "town": "Cardigan",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Angeethi by Sagar Massey",
+  "town": "Cardonald",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Peacock Inn",
+  "town": "Chelsworth",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Gina",
+  "town": "Chingford",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Andria",
+  "town": "Dartmouth",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Prashad",
+  "town": "Drighlington",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Noto",
+  "town": "Edinburgh",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Skua",
+  "town": "Edinburgh",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Scran & Scallie",
+  "town": "Edinburgh",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "tipo",
+  "town": "Edinburgh",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Duncombe Arms",
+  "town": "Ellastone",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Dastaan",
+  "town": "Ewell",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Three Horseshoes",
+  "town": "Fordham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "North Street Kitchen",
+  "town": "Fowey",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Three Oaks",
+  "town": "Gerrards Cross",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "GaGa",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ka Pao",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Margo",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Ox and Finch",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sebb's",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Clarence",
+  "town": "Glasgow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Queen of Cups",
+  "town": "Glastonbury",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Almanac",
+  "town": "Glossop",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Noble",
+  "town": "Holywood",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Bavette",
+  "town": "Horsforth",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Cin Cin",
+  "town": "Hove",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Palmito",
+  "town": "Hove",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Reindeer",
+  "town": "Hoveringham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Galvin Green Man",
+  "town": "Howe Street",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kilberry Inn",
+  "town": "Kilberry",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Norman's Neighbourhood Kitchen",
+  "town": "Kirkburton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Ardfern",
+  "town": "Leith",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "AGORA",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Akara",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Artusi",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Bancone",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Berenjak",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Brutto",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Cadet",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Café Spice Namasté",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Calong",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Canteen",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Donia",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Elsa",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Empire Empire",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Farang",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Goodbye Horses",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Gunpowder Spitalfields",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Hoppers",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Imad's Syrian Kitchen",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Josephine Bouchon",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kiln",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kolae",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kricket",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kruk",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Lai Rai",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Legare",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Les 2 Garçons",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Mambow",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "manteca",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Miga",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Mignonette",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Morchella",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Oren",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Padella",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Palomar",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Plaquemine Lock",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Plaza Khao Gaeng",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Primeur",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Provender",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Singburi",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Smokestak",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "ssam ssam",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "St. JOHN Bread and Wine",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Tamila",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Barbary",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Hero",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Pelican",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Upstairs (at Trinity)",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Westerns Laundry",
+  "town": "London",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sardine Factory",
+  "town": "Looe",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Charlton Arms",
+  "town": "Ludlow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "El Gato Negro",
+  "town": "Manchester",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Erst",
+  "town": "Manchester",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Higher Ground",
+  "town": "Manchester",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Spärrows",
+  "town": "Manchester",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sargasso",
+  "town": "Margate",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Oarsman",
+  "town": "Marlow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Wine & Brine",
+  "town": "Moira",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pulpo Negro",
+  "town": "New Alresford",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Goat On The Roof",
+  "town": "Newbury",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Broad Chare",
+  "town": "Newcastle upon Tyne",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "argoe",
+  "town": "Newlyn",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Post",
+  "town": "Newnham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Counter Culture",
+  "town": "Newquay",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "The Yurt at Nicholsons",
+  "town": "North Aston",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Ibérico World Tapas",
+  "town": "Nottingham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Kushi-Ya",
+  "town": "Nottingham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Piccalilli",
+  "town": "Nottingham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Hitchen's Barn",
+  "town": "Oakham",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Loch & The Tyne",
+  "town": "Old Windsor",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Rick Stein's Café",
+  "town": "Padstow",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Touring Club",
+  "town": "Penarth",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Sculthorpe Mill",
+  "town": "Sculthorpe",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Shwen Shwen",
+  "town": "Sevenoaks",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": true
+ },
+ {
+  "name": "Engine Social Dining",
+  "town": "Sowerby Bridge",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Royal",
+  "town": "St Leonards on Sea",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Wildebeest",
+  "town": "Stoke Holy Cross",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Cornish Arms",
+  "town": "Tavistock",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Twelve",
+  "town": "Thornton",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Gunton Arms",
+  "town": "Thorpe Market",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Pythouse Kitchen Garden",
+  "town": "Tisbury",
+  "stars": 0,
+  "bib": true,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "The Inn at Welland",
+  "town": "Welland",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Root",
+  "town": "Wells",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Six Bells",
+  "town": "Witham on The Hill",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "Skosh",
+  "town": "York",
+  "stars": 0,
+  "bib": true,
+  "green": false,
+  "new2026": false
+ },
+ {
+  "name": "The Free Company",
+  "town": "Balerno",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "Oak",
+  "town": "Bath",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Daylesford Organic Farm",
+  "town": "Daylesford",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "CULTURE",
+  "town": "Falmouth",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Homestead Kitchen",
+  "town": "Goathland",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Marle",
+  "town": "Heckfield",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Knepp Wilding Kitchen",
+  "town": "Horsham",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "The Small Holding",
+  "town": "Kilndown",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Coombeshead Farm",
+  "town": "Lewannick",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Apricity",
+  "town": "London",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Petersham Nurseries Café",
+  "town": "London",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Angela's",
+  "town": "Margate",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "ANNWN",
+  "town": "Narberth",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Jericho",
+  "town": "Plungar",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Eight at Gazegill by Doug Crampton",
+  "town": "Rimington",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "Exmoor Forest Inn",
+  "town": "Simonsbath",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Glebe House",
+  "town": "Southleigh",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": true
+ },
+ {
+  "name": "Where The Light Gets In",
+  "town": "Stockport",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Inver",
+  "town": "Strachur",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ },
+ {
+  "name": "Wild Shropshire",
+  "town": "Whitchurch",
+  "stars": 0,
+  "bib": false,
+  "green": true,
+  "new2026": false
+ }
+]

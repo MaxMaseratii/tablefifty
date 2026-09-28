@@ -181,6 +181,10 @@
   .ps:hover{border-color:var(--line-2)}
   .ps[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:var(--amber-ink)}
   .ps[aria-pressed="true"] span{color:var(--amber-ink)}
+  .mich{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:800;color:#fff;background:#b0102c;border-radius:999px;padding:3px 10px;letter-spacing:.02em}
+  blockquote.own{margin:0;padding:10px 12px;border-inline-start:3px solid var(--amber);background:var(--surface-2);border-radius:8px;color:var(--text);font-style:italic}
+  blockquote.own b{display:block;font-style:normal;font-size:12px;color:var(--amber);margin-bottom:3px}
+  blockquote.own a{font-style:normal;color:var(--muted);font-size:12.5px}
   .insbtn{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(16,185,129,.5);background:transparent;color:var(--accent);border-radius:999px;padding:3px 10px;font-weight:700;font-size:12.5px;cursor:pointer}
   .insbtn:hover{background:var(--accent-soft)}
   #insDialog{width:min(640px,calc(100vw - 24px))}
@@ -546,7 +550,7 @@
         <ul id="suggest" role="listbox" hidden></ul>
       </div>
       </div>
-      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
+      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="michelin" aria-pressed="false"><span data-i18n="tab.michelin"></span> <span class="n" id="n-michelin">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
       <div class="dock-row">
         <div class="filters">
           <div class="loc-status" id="locStatus" aria-live="polite"></div>
@@ -1166,6 +1170,7 @@
     if (!o.h) return o.detail;
     if (o.h === "text") return o.d || "";
     if (/^ft_/.test(o.h)) return t(o.h === "ft_d" ? "d.ft" : "d.ft2");
+    if (o.h === "nodeal") return t("d.nodeal");
     if (o.platform === "thefork") return t("d.fork");
     if (o.platform === "eatclub") return t("d.ec") + (o.sl && o.sl.length ? " " + t("d.ecwhen", { w: slotsText(o.sl) }) : "");
     if (o.platform === "code") return t("d.code");
@@ -1186,6 +1191,7 @@
   }
   const kindOf = o => (o.platform && PLATFORMS[o.platform] && PLATFORMS[o.platform].kind) || o.vk || "dine";
   function ribbonFor(offers) {
+    if (offers.every(o => o.h === "nodeal")) return t("rib.mich");
     if (offers.some(o => o.h === "two41" || /2\s*-?\s*(for|x|×)\s*-?\s*1/i.test(offerHead(o) || ""))) return t("rib.241");
     let best = 0, upto = false;
     offers.forEach(o => {
@@ -1218,7 +1224,7 @@
            : d.imgx && /^https:\/\/eccdn\.com\.au\/images\/[A-Za-z0-9\/_.-]+$/.test(d.imgx) ? d.imgx
            : d.imgl && /^img\/[a-z0-9\/_.-]+$/.test(d.imgl) ? d.imgl : "",
         ftPhoto: !!d.img, ftImg: d.img || "", ownPhoto: !!(d.img || d.imgx || d.imgl), photoSrc: d.img ? "ft" : d.imgx ? "ec" : d.imgl ? "own" : "",
-        pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
+        mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
         ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
         ig: d.ig, tt: d.tt, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
@@ -1274,6 +1280,7 @@
     casual: v => v.k === "dine" && v.style === "casual",
     fancy: v => v.style === "fancy",
     pubs: v => v.pub,
+    michelin: v => !!v.mich,
     delivery: v => v.k === "delivery" || v.offers.some(o => kindOf(o) === "delivery"),
     grocery: v => v.k === "grocery",
     saved: v => favs.has(v.id)
@@ -1300,12 +1307,14 @@
     const toks = tokens(state.q);
     withDistance();
     let list = venues.map(v => ({ v, s: toks.length ? scoreVenue(v, toks) : 0 })).filter(x => x.s >= 0)
+      .filter(x => !x.v.nodeal || toks.length || state.tab === "michelin")
       .filter(x => inArea(x.v) && inRadius(x.v));
     const platCounts = {};
     list.forEach(x => new Set(x.v.offers.map(platKey)).forEach(k => { platCounts[k] = (platCounts[k] || 0) + 1; }));
     if (state.plat !== "all") list = list.filter(x => x.v.offers.some(o => platKey(o) === state.plat));
     const counts = {};
     Object.keys(TABS).forEach(k => counts[k] = list.filter(x => TABS[k](x.v)).length);
+    if (!toks.length && state.tab !== "michelin") counts.michelin = venues.filter(v => v.mich && inArea(v) && inRadius(v)).length;
     list = list.filter(x => TABS[state.tab](x.v));
     const bySort = {
       near: (a, b) => (a.v.dist == null ? 1e9 : a.v.dist) - (b.v.dist == null ? 1e9 : b.v.dist) || dealScore(b.v) - dealScore(a.v),
@@ -1314,8 +1323,9 @@
       az: (a, b) => a.v.name.localeCompare(b.v.name)
     }[state.sort];
     const grp = x => (localFirst() && isNational(x.v) && state.tab !== "delivery" && state.tab !== "grocery" && state.tab !== "saved" ? 1 : 0);
-    list.sort((a, b) => grp(a) - grp(b) || (toks.length ? b.s - a.s : 0) || bySort(a, b) || a.v.name.localeCompare(b.v.name));
-    if (state.sort === "best" && !toks.length && state.plat === "all" && state.tab !== "saved") {
+    const michSort = (a, b) => state.tab !== "michelin" ? 0 : ((a.v.nodeal ? 1 : 0) - (b.v.nodeal ? 1 : 0)) || (b.v.mich[0] - a.v.mich[0]) || (b.v.mich[1] - a.v.mich[1]);
+    list.sort((a, b) => michSort(a, b) || grp(a) - grp(b) || (toks.length ? b.s - a.s : 0) || bySort(a, b) || a.v.name.localeCompare(b.v.name));
+    if (state.sort === "best" && !toks.length && state.plat === "all" && state.tab !== "saved" && state.tab !== "michelin") {
       const buckets = new Map();
       const MAJOR = ["firsttable", "eatclub", "thefork"];
       list.forEach(x => { const pk = platKey(mainOffer(x.v.offers)); const k = MAJOR.includes(pk) ? pk : "other"; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(x); });
@@ -1354,7 +1364,7 @@
       <div class="tear" aria-hidden="true"></div>
       <code class="url${o.custom ? "" : " vh"}" id="${uidStr}">${esc(url)}</code>
       <div class="actions">
-        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${o.affiliate ? " sponsored" : ""}" data-open="${esc(platName(o))}">${esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
+        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${o.affiliate ? " sponsored" : ""}" data-open="${esc(platName(o))}">${o.h === "nodeal" ? `${I.pin} ${esc(t("fb.maps"))}` : esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
         <button type="button" class="btn" data-copy="${esc(url)}" data-what="t.link" data-target="${uidStr}">${I.copy}${esc(t("offer.copy"))}</button>
         <button type="button" class="btn btn-icon" data-altopen="${esc(url)}" data-target="${uidStr}" aria-label="${esc(t("offer.retry"))}" title="${esc(t("offer.retry"))}">${I.retry}</button>
       </div>
@@ -1388,6 +1398,16 @@
     if (live && live.n) { s = Math.round(((s * (n + 20) - 160) + live.sum * 2 + 160) / (n + live.n + 20) * 10) / 10; n += live.n; src.push("t50"); }
     return { s, n, src: src.map(k => SRC_NAMES[k] || k).join(" + ") };
   }
+  function michChip(v) {
+    if (!v.mich) return "";
+    const [st, bib, green, sel] = v.mich;
+    const parts = [];
+    if (st) parts.push(t("mich." + st));
+    if (bib) parts.push(t("mich.bib"));
+    if (green) parts.push(t("mich.green"));
+    if (!parts.length && sel) parts.push(t("mich.sel"));
+    return parts.length ? `<span class="mich" title="MICHELIN Guide Great Britain & Ireland 2026">${st ? "✦".repeat(st) + " " : ""}${esc(parts.join(" · "))}</span>` : "";
+  }
   function scoreChip(v) {
     const p = scoreParts(v);
     const tip = t("score.from", { c: p.n.toLocaleString(lang), p: p.src });
@@ -1400,7 +1420,7 @@
   const SAFE_HOSTS = /^https:\/\/(www\.)?(instagram\.com|tiktok\.com|images\.firsttable\.net)\//;
   function linksHTML(v) {
     const a = [];
-    if (v.menu && SAFE_HOSTS.test(v.menu)) a.push(`<a class="vlink" href="${esc(v.menu)}" target="_blank" rel="noopener noreferrer">${I.menu}${esc(t("link.menu"))}</a>`);
+    if (v.menu && (SAFE_HOSTS.test(v.menu) || /^img\/venues\/[a-z0-9\/_.-]+$/.test(v.menu))) a.push(`<a class="vlink" href="${esc(v.menu)}" target="_blank" rel="noopener noreferrer">${I.menu}${esc(t("link.menu"))}</a>`);
     if (v.ig && SAFE_HOSTS.test(v.ig)) a.push(`<a class="vlink" href="${esc(v.ig)}" target="_blank" rel="noopener noreferrer">${I.ig}${esc(t("link.ig"))}</a>`);
     if (v.tt && SAFE_HOSTS.test(v.tt)) a.push(`<a class="vlink" href="${esc(v.tt)}" target="_blank" rel="noopener noreferrer">${I.tt}TikTok</a>`);
     const web = safeUrl(v.web);
@@ -1445,7 +1465,9 @@
         ${p ? `<div class="ins-score"><b>${esc(p.s.toFixed(1))}</b><span>${esc(t("score.name"))}<br><small>${esc(t("ins.reviews", { n: p.n.toLocaleString(lang) }))}</small></span></div>` : ""}
         <p class="ins-auto">${esc(auto.join(" "))}</p>
       </div>
+      ${v.mich ? `<p>${michChip(v)} <small>${esc(t("mich.src"))}</small></p>` : ""}
       ${v.sumk ? `<p class="t50-sum">${esc(t("sum." + v.sumk))}</p>` : ""}
+      ${v.own ? `<blockquote class="own"><b>${esc(t("ins.own"))}</b>“${esc(v.own)}”${safeUrl(v.web) ? ` <a href="${esc(safeUrl(v.web))}" target="_blank" rel="noopener noreferrer">${esc(new URL(safeUrl(v.web)).hostname.replace(/^www\./, ""))}</a>` : ""}</blockquote>` : ""}
       ${v.ins.length ? insHTML(v) : ""}
       ${rows.length ? `<h4>${esc(t("ins.where"))}</h4><ul class="ins-list">${rows.join("")}</ul>` : ""}
       ${p && v.sub && v.sub[0] ? `<div class="ins-bars">${[["ins.food", v.sub[0]], ["ins.service", v.sub[1]]].map(([k, x]) => `<div><span>${esc(t(k))}</span><i><u style="width:${Math.max(0, Math.min(100, x / 5 * 100))}%"></u></i><b>${esc(String(x))}/5</b></div>`).join("")}</div>` : ""}
@@ -1493,6 +1515,7 @@
         </div>
         <div class="meta-row">
           ${v.czKey ? `<span class="chip">${esc(t("cz." + v.czKey))}</span>` : ""}
+          ${michChip(v)}
           ${v.k === "dine" && !v.custom ? `<button type="button" class="insbtn" data-ins="${esc(v.id)}">${I.spark}${esc(t("t50.btn"))}</button>` : ""}
           ${v.sc ? scoreChip(v) : rt ? `<span class="rating">${star}${esc(String(rt[0]))}<small>${esc(t(rt[2] === "ft" ? "rating.ft" : "rating", { s: rt[0], c: rt[1].toLocaleString(lang) }).replace(/^[^·]*·\s*/, "· "))}</small></span>` : ""}
           ${v.price ? `<span class="price">${esc(t("price", { p: v.price }))}</span>` : ""}

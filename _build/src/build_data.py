@@ -3,7 +3,7 @@ Sources checked 28 Sep 2026: First Table venue pages (title checked live), TheFo
 Code Hospitality offers page, tastecard London page, chain offer pages via becleverwithyourcash.com (updated 28 Sep 2026),
 delivery offers seen on HotUKDeals (Sep 2026), coffee/grocery loyalty schemes (workingfromcoffeeshops.co.uk, advocate-group.co.uk 17 Sep 2026).
 """
-import json, re, glob, statistics, os, datetime
+import json, re, glob, statistics, os, datetime, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 SEEN = "2026-09-28"   # date the hand-added chain / TheFork / Code offers were last checked by hand
@@ -663,6 +663,67 @@ for v in V.values():
     if pick: v['ins'] = pick
 RC['last'] = counts_now
 json.dump(RC, open(RC_FILE, 'w'), separators=(',', ':'))
+
+# ---------- Photos sent to us by the owner of TableFifty (from the restaurants) ----------
+MANUAL_PHOTOS = {
+    'bombil-bristol': ('bombil', 5, 2, None), 'asha-s-birmingham': ('ashas', 4, 1, None),
+    'coco-belfast': ('coco', 5, 2, None), 'dilsk-brighton': ('dilsk', 3, 1, 'menu.jpg'),
+}
+for vid, (folder, n, main, menu) in MANUAL_PHOTOS.items():
+    if vid in V:
+        V[vid].pop('img', None)
+        V[vid]['imgl'] = f'img/venues/{folder}/{main}.jpg'
+        V[vid]['gal'] = [f'img/venues/{folder}/{i}.jpg' for i in range(1, n + 1)]
+        if menu: V[vid]['menu'] = f'img/venues/{folder}/{menu}'
+
+# ---------- MICHELIN Guide GB 2026 (stars, Bib Gourmand, Green Star; from Michelin's guide data, 28 Sep 2026) ----------
+MICH = json.load(open(os.path.join(HERE, 'michelin.json'), encoding='utf-8'))
+MICH_SELECTED = [('Dilsk', 'Brighton')]   # listed in the guide without a star ("Selected"), checked one by one
+def mkey(n):
+    n = re.sub(r'\b(at|by|the|restaurant|and|&)\b', ' ', n.lower().replace("'", '').replace('’', ''))
+    return re.findall(r'[a-z0-9]+', n)
+mich_hits = 0
+for v in V.values():
+    if v.get('k') != 'dine' or v.get('ct') == 'uk': continue
+    vk = mkey(v['n']); va = (v.get('a') or '').lower() + ' ' + (v.get('ct') or '').replace('-', ' ')
+    for m in MICH + [{'name': a, 'town': b, 'stars': 0, 'bib': False, 'green': False, 'sel': True} for a, b in MICH_SELECTED]:
+        mk = mkey(m['name'])
+        if not mk or m['town'].lower().split(',')[0] not in va: continue
+        town = set(re.findall(r'[a-z0-9]+', m['town'].lower()))
+        if vk == mk or (vk[:len(mk)] == mk and set(vk[len(mk):]) <= town):
+            v['mich'] = [m.get('stars', 0), 1 if m.get('bib') else 0, 1 if m.get('green') else 0, 1 if m.get('sel') else 0]
+            mich_hits += 1
+            break
+print('Michelin matches:', mich_hits)
+# Michelin restaurants with no discount anywhere we check: listed so people can still find them (Michelin tab / search only)
+MT = json.load(open(os.path.join(HERE, 'michelin_towns.json'), encoding='utf-8'))
+matched = {(tuple(mkey(v['n']))) for v in V.values() if v.get('mich')}
+mich_info = 0
+for m in MICH:
+    if tuple(mkey(m['name'])) in matched: continue
+    ll = MT.get(m['town'])
+    town = m['town'].split(',')[0]
+    tslug = slug(town)
+    city = tslug if tslug in CITY_NAMES else ('london' if town == 'London' else 'mich-' + tslug)
+    v = venue(m['name'], key='mich-' + slug(m['name'] + '-' + town), a=m['town'], reg=london_reg(ll) if city == 'london' and ll else city, ct=city,
+              c='fine' if m.get('stars') else 'generic', s='fancy' if m.get('stars') else 'smart', m=['l', 'd'])
+    if ll: v['ll'] = ll
+    v['mich'] = [m.get('stars', 0), 1 if m.get('bib') else 0, 1 if m.get('green') else 0, 0]
+    v['nodeal'] = 1
+    q = urllib.parse.quote_plus(m['name'] + ' ' + town)
+    offer(v, p='direct', pn='MICHELIN Guide', u='https://www.google.com/maps/search/?api=1&query=' + q, h='nodeal', n=0)
+    mich_info += 1
+print('Michelin info-only venues:', mich_info)
+
+# ---------- Each restaurant's own words (meta description from its website; see ../webmeta.py) ----------
+WM_FILE = os.path.join(HERE, 'web_meta.jsonl')
+WM = {}
+if os.path.exists(WM_FILE):
+    for l in open(WM_FILE, encoding='utf-8'):
+        r = json.loads(l)
+        if r.get('desc'): WM[r['url']] = r['desc']
+for v in V.values():
+    if v.get('web') in WM: v['own'] = WM[v['web']]
 
 # ---------- drop offers we can no longer re-check (closed venues disappear this way) ----------
 TODAY_D = datetime.date.today()

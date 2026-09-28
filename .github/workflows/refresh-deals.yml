@@ -32,6 +32,10 @@ jobs:
           EC_PAUSE: "0.6"
       - name: Build the site
         run: python _build/build.py
+      - name: Read new restaurant websites (robots.txt respected), then rebuild
+        run: |
+          python _build/webmeta.py || true
+          python _build/build.py
       - name: Commit if anything changed
         run: |
           git config user.name "TableFifty bot"
