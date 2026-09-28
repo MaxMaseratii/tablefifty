@@ -40,8 +40,13 @@ def venue(name, key=None, **kw):
             v[k] = val
     return v
 
+PN = {"Too Good To Go": "Too Good To Go", "Olio": "Olio", "Gander": "Gander", "Approved Food": "Approved Food", "Gourmet Society": "Gourmet Society",
+      "OpenTable special offers": "OpenTable", "Tesco Clubcard dining vouchers": "Tesco Clubcard", "Blue Light Card dining": "Blue Light Card",
+      "Health Service Discounts": "Health Service Discounts", "Student Beans: PizzaExpress": "Student Beans", "UNiDAYS food deals": "UNiDAYS",
+      "Monzo cashback": "Monzo", "O2 Priority: Greggs": "O2 Priority", "Meerkat Meals": "Meerkat Meals"}
 def offer(v, **o):
     o.setdefault('seen', SEEN)
+    if o.get('p') == 'direct' and v['n'] in PN: o['pn'] = PN[v['n']]
     v['o'].append(o)
 
 # ---------------- First Table (title verified live 28 Sep 2026) ----------------
@@ -197,6 +202,16 @@ for path, rec in sorted(PAGES.items()):
     if re.match(r'^https?://(www\.)?instagram\.com/[A-Za-z0-9_.]+/?', ig) and 'ig' not in v: v['ig'] = ig.split('?')[0]
     web = (rec.get('website') or '').strip()
     if re.match(r'^https?://', web) and 'instagram.com' not in web and 'web' not in v: v['web'] = web
+    FX = [('vegan', 'Vegan options'), ('veg', 'Vegetarian options'), ('gf', 'Gluten Free options'), ('halal', 'Halal'), ('dog', 'Dog friendly'),
+          ('outdoor', 'Indoor & outdoor seating'), ('garden', 'Beer garden'), ('wheel', 'Wheelchair accessible'), ('private', 'Private dining'),
+          ('parking', 'Free onsite parking'), ('kids', 'Highchairs available')]
+    tagset = {t for cat, t in rec.get('tags', [])}
+    fx = [k for k, name in FX if name in tagset]
+    if fx and 'fx' not in v: v['fx'] = fx
+    subs = {k.lower(): val for k, val in (rec.get('subs') or [])}
+    if subs and 'sub' not in v: v['sub'] = [round(subs.get('food', 0), 1), round(subs.get('service', 0), 1)]
+    if rec.get('mains') and 'mp' not in v: v['mp'] = rec['mains'].replace('-', '–')
+    if rec.get('hours') and 'hrs' not in v: v['hrs'] = re.sub(r'\s*//\s*', ', ', re.sub(r'\s*\r?\n\s*', ' · ', rec['hours'].strip()))[:160]
     ph = [u for u in (rec.get('photos') or []) if re.match(r'^public/[A-Za-z0-9_./+%-]+$', u or '')]
     if ph and 'img' not in v: v['img'] = ph[0]
     if rec.get('menus') and 'menu' not in v: v['menu'] = 'https://images.firsttable.net/' + rec['menus'][0].lstrip('/')
@@ -364,10 +379,97 @@ chain("McDonald's", "burger", ['b', 'l', 'd'], 'casual', "https://www.mcdonalds.
 chain("Meerkat Meals", "generic", ['d'], 'casual', "https://www.comparethemarket.com/customer-rewards/meerkat-meals/dine-out/",
       "2-for-1 meals, Sunday to Thursday", 50, d="Free for a year with a Compare the Market purchase. Covers many chains, like Prezzo and Côte.")
 
+# ---------------- EatClub (free app, time-slot deals up to 50% off; see ../eatclub.py) ----------------
+EC_FILE = os.path.join(HERE, 'ec_pages.jsonl')
+EC_CITY = {'London': 'london', 'Manchester': 'manchester', 'Bristol': 'bristol', 'Leeds': 'leeds', 'Liverpool': 'liverpool', 'Cardiff': 'cardiff'}
+EC_CZ = CZ_PRIORITY + [('breakfast', {'Breakfast', 'Brunch', 'Bakery', 'Coffee', 'Dessert'}), ('cocktails', {'Bar', 'Cocktails', 'Pub', 'Wine Bar'}),
+                       ('fine', {'Contemporary', 'Modern European'}), ('chicken', {'Chicken'}), ('british', {'Gastropub'})]
+import math
+def km(a, b):
+    return 6371 * 2 * math.asin(math.sqrt(math.sin(math.radians(b[0] - a[0]) / 2) ** 2 + math.cos(math.radians(a[0])) * math.cos(math.radians(b[0])) * math.sin(math.radians(b[1] - a[1]) / 2) ** 2))
+def london_reg(ll):
+    c = (51.5080, -0.1281)
+    if km(c, ll) < 2.6: return 'central'
+    dy, dx = ll[0] - c[0], (ll[1] - c[1]) * 0.62
+    if abs(dy) > abs(dx): return 'north' if dy > 0 else 'south'
+    return 'east' if dx > 0 else 'west'
+def name_key(n):
+    n = re.sub(r'\(.*?\)', ' ', n.lower())
+    n = re.sub(r'\b(restaurant|bar|kitchen|cafe|the|and|london|soho|ltd)\b', ' ', n)
+    return set(re.findall(r'[a-z0-9]{3,}', n))
+ec_rows = [json.loads(l) for l in open(EC_FILE, encoding='utf-8')] if os.path.exists(EC_FILE) else []
+by_city = {}
+for v0 in V.values():
+    if v0.get('ll'): by_city.setdefault(v0.get('ct'), []).append(v0)
+ec_added = ec_merged = 0
+for r in ec_rows:
+    slots = {}
+    for dow, a, b, pct, typ in r.get('deals') or []:
+        if typ and typ != 'dinein': continue
+        slots.setdefault((a, b, pct), set()).add(dow)
+    if not slots or not r.get('lat'): continue
+    ct = EC_CITY.get(r.get('region') or '')
+    if not ct: continue
+    ll = [round(float(r['lat']), 4), round(float(r['lng']), 4)]
+    best = max(p for (_, _, p) in slots)
+    sl = sorted([[sorted(d), a, b, p] for (a, b, p), d in slots.items()], key=lambda x: (x[1], -x[3]))[:6]
+    nk = name_key(r['name'])
+    match = None
+    for cand in by_city.get(ct, []):
+        if km(cand['ll'], ll) < 0.25 and nk & name_key(cand['n']):
+            match = cand; break
+    if match:
+        v = match; ec_merged += 1
+    else:
+        czs = set(r.get('cuisines') or [])
+        c = next((k for k, names in EC_CZ if czs & names), 'generic')
+        casual = bool(czs & {'Cafe', 'Bar', 'Burgers', 'Pizza', 'Fast Food', 'Street Food', 'Coffee', 'Bakery', 'Chicken'})
+        meals = []
+        if any(a < 690 for (a, b, p) in slots): meals.append('b')
+        if any(a < 900 and b > 690 for (a, b, p) in slots): meals.append('l')
+        if any(b > 1020 for (a, b, p) in slots): meals.append('d')
+        area = (r.get('area') or '').strip()
+        cityname = r.get('region')
+        v = venue(r['name'], key='ec-' + slug(r['slug']), a=(f"{area}, {cityname}" if area and area.lower() != cityname.lower() else cityname),
+                  reg=london_reg(ll) if ct == 'london' else ct, ct=ct, c=c, s='casual' if casual else 'smart', m=meals or ['l', 'd'])
+        v['ll'] = ll; ec_added += 1
+    if r.get('image') and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', r['image']) and 'img' not in v and 'imgx' not in v:
+        v['imgx'] = r['image']
+    o = dict(p='eatclub', u='https://eatclub.co.uk/venue/' + r['slug'], h='upto_bill', n=best, sl=sl, seen=r.get('checked') or SEEN, live=True)
+    if r.get('rating') and (r.get('reviews') or 0) >= 5: o['r'] = [round(r['rating'] * 2, 1), r['reviews'], 'ec']
+    offer(v, **o)
+print('EatClub venues:', ec_added, 'new,', ec_merged, 'merged with First Table/TheFork')
+
+# ---------------- Dining cards, loyalty and perks (checked 28 Sep 2026) ----------------
+def perk(name, c, u, x, n, d, end=None, k='dine', m=('l', 'd')):
+    v = venue(name, a="UK-wide", reg='multi', ct='uk', c=c, s='casual', m=list(m), k=k)
+    o = dict(p='direct', u=u, h='text', x=x, n=n, d=d)
+    if end: o['end'] = end
+    offer(v, **o)
+perk("Gourmet Society", 'generic', "https://www.gourmetsociety.co.uk/subscribe", "25% off the bill or 2-for-1 meals", 50,
+     "Dining card for thousands of restaurants, plus 25% off barista drinks and 2-for-1 pizza delivery. £7.99 a month or £79.99 a year.")
+perk("OpenTable special offers", 'generic', "https://www.opentable.co.uk/experiences/72", "Set menus, bottomless brunch and up to 30% off", 30,
+     "Offers chosen by each restaurant, e.g. 25% off the bill or 30% off food on weekdays. Free to book.")
+perk("Tesco Clubcard dining vouchers", 'italian', "https://www.moneysavingexpert.com/reclaim/reclaim-tesco-vouchers/", "Clubcard points worth 3x at 7 chains", 66,
+     "£10 of points = £30 to spend at PizzaExpress, Zizzi, ASK Italian, Bella Italia, Prezzo, Frankie & Benny's and Las Iguanas. Swap in the Clubcard app.")
+perk("Blue Light Card dining", 'generic', "https://www.bluelightcard.co.uk/en/food-and-dining-discounts", "20–40% off at Wagamama, PizzaExpress, Bella Italia and more", 40,
+     "For NHS, emergency services, armed forces, social care and teachers. £4.99 for 2 years. Bella Italia 40% off food until 4 Oct.")
+perk("Health Service Discounts", 'generic', "https://healthservicediscounts.com/shopping/restaurants", "Up to 30% off at Wildwood, Frankie & Benny's, Bella Italia", 30,
+     "Free for NHS and health workers. Wildwood 30% off food Sunday to Thursday.")
+perk("Student Beans: PizzaExpress", 'pizza', "https://www.studentbeans.com/student-discount/uk/pizzaexpress", "30% off for students", 30,
+     "Dine-in Sunday to Friday, or delivery and collection over £15. Verified students.", end="2026-10-11")
+perk("UNiDAYS food deals", 'generic', "https://www.myunidays.com/GB/en-GB/categories/food-drink", "YO! Sushi 25% off, Burger King 20% off", 25,
+     "Free for verified students. Domino's buy one get one free on selected days.")
+perk("Monzo cashback", 'generic', "https://monzo.com/features/cashback", "2–10% cashback at YO! Sushi, Franco Manca and more", 10,
+     "Free for Monzo personal accounts. Switch on each offer in the app.")
+perk("O2 Priority: Greggs", 'breakfast', "https://www.o2.co.uk/priority", "Greggs hot drink or savoury for £1", 50,
+     "Up to 4 times a month for O2 customers, in the Priority app.", k='coffee', m=('b', 'l'))
+
 # ---------------- Independent spotlights (researched 28 Sep 2026) ----------------
 tiki = venue("Grill Shack & Tiki Bar", key='grill-shack-tiki-bar', a="15 The Vale, East Acton, London W3 7SH", reg='west', ct='london',
              c='caribbean', s='smart', m=['d'])
-tiki.update({'ll': [51.5066, -0.247], 'ig': 'https://www.instagram.com/tikibar15/', 'tt': 'https://www.tiktok.com/@tikibarlondon',
+tiki.update({'imgl': 'img/tiki/griot.jpg', 'gal': ['img/tiki/bar-full.jpg', 'img/tiki/seafood-full.jpg', 'img/tiki/griot-full.jpg'], 'logo': 'img/tiki/logo.jpg',
+             'fx': ['halal'], 'll': [51.5066, -0.247], 'ig': 'https://www.instagram.com/tikibar15/', 'tt': 'https://www.tiktok.com/@tikibarlondon',
              'ph': '020 8616 2770', 'hrs': 'Wed–Thu 5–10pm · Fri–Sat 5–11pm · Sun 5–9:30pm · Mon–Tue closed', 'price': 35,
              'ins_fixed': ['gem', 'music', 'bar'],
              'mains': ["Griot – crispy marinated pork, fried plantain, pikliz", "Tasso – seasoned fried goat", "Legim – Haitian vegetable stew",
@@ -443,6 +545,12 @@ deliv("Deliveroo Plus Silver", 'deliveroo', "https://deliveroo.co.uk/plus",
       "Free delivery, free with Amazon Prime", 25, "Free delivery on £15+ restaurant and £25+ grocery orders. Also free for students (UNiDAYS) and Blue Light Card holders.")
 deliv("Deliveroo offers", 'deliveroo', "https://deliveroo.co.uk/",
       "Up to 50% off weekend takeaways", 50, "Selected customers get codes for 30% to 50% off (max £15, min £20). Check the Offers tab in your app.", end="2026-10-11")
+deliv("Deliveroo deals: family meals", 'deliveroo', "https://deliveroo.co.uk/deals/",
+      "Feed the family for £25", 40, "Monday to Thursday, 4:30pm to 6:30pm at selected restaurants. Buy-one-get-one-free deals too. Seen on Deliveroo's deals page, 28 Sep 2026.")
+deliv("Just Eat Cheeky Tuesday", 'justeat', "https://www.just-eat.co.uk/",
+      "20% off at selected restaurants on Tuesdays", 20, "Applied automatically at checkout at taking-part restaurants. Look for the Cheeky Tuesday badge in the app.")
+deliv("Uber Eats promos", 'ubereats', "https://www.ubereats.com/gb/promo",
+      "Buy-one-get-one-free and spend-and-save deals", 50, "Deals change by area. New customers often get £10 off a first order over £15.")
 deliv("Uber One", 'ubereats', "https://www.ubereats.com/gb/uber-one",
       "3 months free, then £4.99 a month", 30, "Unlimited free delivery on eligible restaurant and grocery orders, plus member discounts.")
 deliv("PizzaExpress on Uber Eats", 'ubereats', "https://www.ubereats.com/gb/search?q=PizzaExpress",
@@ -459,7 +567,7 @@ def grocery(name, u, x, n, d, c='grocery'):
     v = venue(name, a="UK-wide", reg='multi', ct='uk', c=c, s='casual', m=[], k='grocery')
     offer(v, p='direct', u=u, h='text', x=x, n=n, d=d)
 
-grocery("Too Good To Go", "https://www.toogoodtogo.com/en-gb", "Surprise bags at about a third of the price", 66,
+grocery("Too Good To Go", "https://www.toogoodtogo.com/en-gb", "Surprise bags at half price or less (from about £3)", 66,
         "Unsold food from cafés, bakeries, restaurants and supermarkets near you, all over the UK. Greggs, Costa, Morrisons and Co-op use it too. Reserve in the app, collect the same day.")
 grocery("Olio", "https://olioapp.com/en/", "Free food from neighbours and shops", 100, "Surplus food shared for free, UK-wide. Collect locally.")
 grocery("Gander", "https://www.gander.co/", "Find reduced-to-clear food near you", 50,
@@ -497,7 +605,7 @@ for v in V.values():
     n = sum(r[1] for r in rs)
     if n >= 10:
         score = (sum(r[0] * r[1] for r in rs) + PRIOR * WEIGHT) / (n + WEIGHT)
-        src = sorted({('ft' if (len(r) > 2 and r[2] == 'ft') else 'tf') for r in rs})
+        src = sorted({(r[2] if len(r) > 2 else 'tf') for r in rs})
         v['sc'] = [round(score, 1), n, ','.join(src)]
         counts_now[v['id']] = n
         if RC['base'].get(v['id']) is not None and n > RC['base'][v['id']]: v['nr'] = n - RC['base'][v['id']]

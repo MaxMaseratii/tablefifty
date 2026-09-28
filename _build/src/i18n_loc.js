@@ -25,7 +25,7 @@ en: {
   "acct.alerts": "Email me new deals near my home postcode", "acct.alertsOn": "Deal alerts are on", "acct.alertsOff": "Deal alerts are off",
   "acct.home": "Home postcode: {p}", "acct.nohome": "Tip: search your postcode to set it as home.", "acct.out": "Sign out", "acct.bye": "You are signed out",
   "cz.caribbean": "Caribbean",
-  "hero.lead2": "Half-price tables, takeaway deals, surplus food bags, coffee rewards and grocery savings across the UK. Type your postcode, and we line up First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat and the big chains near you."
+  "hero.lead2": "Half-price tables, takeaway deals, surplus food bags, coffee rewards and grocery savings across the UK. Type your postcode, and we line up First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat and the big chains near you."
 },
 pl: {
   "tab.saved": "Zapisane", "area.all": "Cała Wielka Brytania", "area.london": "Cały Londyn", "area.cities": "Miasta",
@@ -53,7 +53,7 @@ pl: {
   "acct.alerts": "Wysyłaj mi nowe oferty w pobliżu mojego kodu", "acct.alertsOn": "Powiadomienia włączone", "acct.alertsOff": "Powiadomienia wyłączone",
   "acct.home": "Kod domowy: {p}", "acct.nohome": "Wskazówka: wyszukaj swój kod, aby ustawić go jako domowy.", "acct.out": "Wyloguj się", "acct.bye": "Wylogowano",
   "cz.caribbean": "Karaibska",
-  "hero.lead2": "Stoliki za pół ceny, oferty na dowóz, paczki z nadwyżek jedzenia, nagrody za kawę i zniżki w sklepach w całej Wielkiej Brytanii. Wpisz kod pocztowy, a pokażemy First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat i duże sieci w pobliżu."
+  "hero.lead2": "Stoliki za pół ceny, oferty na dowóz, paczki z nadwyżek jedzenia, nagrody za kawę i zniżki w sklepach w całej Wielkiej Brytanii. Wpisz kod pocztowy, a pokażemy First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat i duże sieci w pobliżu."
 },
 ro: {
   "tab.saved": "Salvate", "area.all": "Tot Regatul Unit", "area.london": "Toată Londra", "area.cities": "Orașe",
@@ -81,7 +81,7 @@ ro: {
   "acct.alerts": "Trimite-mi oferte noi lângă codul meu poștal", "acct.alertsOn": "Alertele sunt pornite", "acct.alertsOff": "Alertele sunt oprite",
   "acct.home": "Cod poștal de acasă: {p}", "acct.nohome": "Sfat: caută codul tău poștal ca să-l setezi ca acasă.", "acct.out": "Deconectare", "acct.bye": "Te-ai deconectat",
   "cz.caribbean": "Caraibiană",
-  "hero.lead2": "Mese la jumătate de preț, oferte la livrare, pungi cu mâncare salvată, recompense la cafea și reduceri la cumpărături în tot Regatul Unit. Scrie codul poștal și îți arătăm First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat și marile lanțuri din apropiere."
+  "hero.lead2": "Mese la jumătate de preț, oferte la livrare, pungi cu mâncare salvată, recompense la cafea și reduceri la cumpărături în tot Regatul Unit. Scrie codul poștal și îți arătăm First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat și marile lanțuri din apropiere."
 },
 pa: {
   "tab.saved": "ਸੇਵ ਕੀਤੇ", "area.all": "ਪੂਰਾ ਯੂਕੇ", "area.london": "ਪੂਰਾ ਲੰਡਨ", "area.cities": "ਸ਼ਹਿਰ",
@@ -109,7 +109,7 @@ pa: {
   "acct.alerts": "ਮੇਰੇ ਘਰ ਦੇ ਪੋਸਟਕੋਡ ਨੇੜੇ ਨਵੀਆਂ ਡੀਲਾਂ ਈਮੇਲ ਕਰੋ", "acct.alertsOn": "ਡੀਲ ਅਲਰਟ ਚਾਲੂ ਹਨ", "acct.alertsOff": "ਡੀਲ ਅਲਰਟ ਬੰਦ ਹਨ",
   "acct.home": "ਘਰ ਦਾ ਪੋਸਟਕੋਡ: {p}", "acct.nohome": "ਸੁਝਾਅ: ਆਪਣਾ ਪੋਸਟਕੋਡ ਖੋਜੋ, ਇਹ ਘਰ ਵਜੋਂ ਸੈੱਟ ਹੋ ਜਾਵੇਗਾ।", "acct.out": "ਸਾਈਨ ਆਊਟ", "acct.bye": "ਤੁਸੀਂ ਸਾਈਨ ਆਊਟ ਹੋ ਗਏ",
   "cz.caribbean": "ਕੈਰੇਬੀਅਨ",
-  "hero.lead2": "ਪੂਰੇ ਯੂਕੇ ਵਿੱਚ ਅੱਧੀ ਕੀਮਤ ਵਾਲੇ ਟੇਬਲ, ਟੇਕਅਵੇ ਡੀਲਾਂ, ਬਚੇ ਖਾਣੇ ਦੇ ਬੈਗ, ਕੌਫ਼ੀ ਇਨਾਮ ਅਤੇ ਰਾਸ਼ਨ 'ਤੇ ਬੱਚਤ। ਆਪਣਾ ਪੋਸਟਕੋਡ ਲਿਖੋ, ਅਸੀਂ ਨੇੜਲੇ First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat ਅਤੇ ਵੱਡੀਆਂ ਚੇਨਾਂ ਵਿਖਾਵਾਂਗੇ।"
+  "hero.lead2": "ਪੂਰੇ ਯੂਕੇ ਵਿੱਚ ਅੱਧੀ ਕੀਮਤ ਵਾਲੇ ਟੇਬਲ, ਟੇਕਅਵੇ ਡੀਲਾਂ, ਬਚੇ ਖਾਣੇ ਦੇ ਬੈਗ, ਕੌਫ਼ੀ ਇਨਾਮ ਅਤੇ ਰਾਸ਼ਨ 'ਤੇ ਬੱਚਤ। ਆਪਣਾ ਪੋਸਟਕੋਡ ਲਿਖੋ, ਅਸੀਂ ਨੇੜਲੇ First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat ਅਤੇ ਵੱਡੀਆਂ ਚੇਨਾਂ ਵਿਖਾਵਾਂਗੇ।"
 },
 ur: {
   "tab.saved": "محفوظ", "area.all": "پورا برطانیہ", "area.london": "پورا لندن", "area.cities": "شہر",
@@ -137,7 +137,7 @@ ur: {
   "acct.alerts": "میرے گھر کے پوسٹ کوڈ کے قریب نئی ڈیلز ای میل کریں", "acct.alertsOn": "ڈیل الرٹس آن ہیں", "acct.alertsOff": "ڈیل الرٹس بند ہیں",
   "acct.home": "گھر کا پوسٹ کوڈ: {p}", "acct.nohome": "مشورہ: اپنا پوسٹ کوڈ تلاش کریں تاکہ وہ گھر کے طور پر سیٹ ہو جائے۔", "acct.out": "سائن آؤٹ", "acct.bye": "آپ سائن آؤٹ ہو گئے",
   "cz.caribbean": "کیریبیئن",
-  "hero.lead2": "پورے برطانیہ میں آدھی قیمت پر میزیں، ٹیک اوے ڈیلز، بچے ہوئے کھانے کے بیگ، کافی انعامات اور گروسری بچت۔ اپنا پوسٹ کوڈ لکھیں، ہم قریب کے First Table، TheFork، Too Good To Go، Deliveroo، Uber Eats، Just Eat اور بڑی چینز دکھائیں گے۔"
+  "hero.lead2": "پورے برطانیہ میں آدھی قیمت پر میزیں، ٹیک اوے ڈیلز، بچے ہوئے کھانے کے بیگ، کافی انعامات اور گروسری بچت۔ اپنا پوسٹ کوڈ لکھیں، ہم قریب کے First Table، EatClub، TheFork، Too Good To Go، Deliveroo، Uber Eats، Just Eat اور بڑی چینز دکھائیں گے۔"
 },
 pt: {
   "tab.saved": "Guardados", "area.all": "Todo o Reino Unido", "area.london": "Toda Londres", "area.cities": "Cidades",
@@ -165,7 +165,7 @@ pt: {
   "acct.alerts": "Enviar-me novas ofertas perto do meu código postal", "acct.alertsOn": "Alertas ativados", "acct.alertsOff": "Alertas desativados",
   "acct.home": "Código postal de casa: {p}", "acct.nohome": "Dica: pesquise o seu código postal para o definir como casa.", "acct.out": "Sair", "acct.bye": "Sessão terminada",
   "cz.caribbean": "Caribenha",
-  "hero.lead2": "Mesas a metade do preço, ofertas de entrega, sacos de comida excedente, recompensas de café e poupanças no supermercado em todo o Reino Unido. Escreva o código postal e mostramos First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat e as grandes cadeias perto de si."
+  "hero.lead2": "Mesas a metade do preço, ofertas de entrega, sacos de comida excedente, recompensas de café e poupanças no supermercado em todo o Reino Unido. Escreva o código postal e mostramos First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat e as grandes cadeias perto de si."
 },
 es: {
   "tab.saved": "Guardados", "area.all": "Todo Reino Unido", "area.london": "Todo Londres", "area.cities": "Ciudades",
@@ -193,7 +193,7 @@ es: {
   "acct.alerts": "Envíame nuevas ofertas cerca de mi código postal", "acct.alertsOn": "Alertas activadas", "acct.alertsOff": "Alertas desactivadas",
   "acct.home": "Código postal de casa: {p}", "acct.nohome": "Consejo: busca tu código postal para guardarlo como casa.", "acct.out": "Cerrar sesión", "acct.bye": "Has cerrado sesión",
   "cz.caribbean": "Caribeña",
-  "hero.lead2": "Mesas a mitad de precio, ofertas a domicilio, bolsas de comida sobrante, premios de café y ahorro en el súper en todo el Reino Unido. Escribe tu código postal y te mostramos First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat y las grandes cadenas cerca de ti."
+  "hero.lead2": "Mesas a mitad de precio, ofertas a domicilio, bolsas de comida sobrante, premios de café y ahorro en el súper en todo el Reino Unido. Escribe tu código postal y te mostramos First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat y las grandes cadenas cerca de ti."
 },
 ar: {
   "tab.saved": "المحفوظة", "area.all": "كل المملكة المتحدة", "area.london": "كل لندن", "area.cities": "المدن",
@@ -221,7 +221,7 @@ ar: {
   "acct.alerts": "أرسل لي عروضًا جديدة قرب رمزي البريدي", "acct.alertsOn": "تنبيهات العروض مفعّلة", "acct.alertsOff": "تنبيهات العروض متوقفة",
   "acct.home": "الرمز البريدي للمنزل: {p}", "acct.nohome": "نصيحة: ابحث عن رمزك البريدي ليُحفظ كمنزل.", "acct.out": "تسجيل الخروج", "acct.bye": "تم تسجيل خروجك",
   "cz.caribbean": "كاريبي",
-  "hero.lead2": "طاولات بنصف السعر، وعروض توصيل، وأكياس طعام فائض، ومكافآت قهوة، وتوفير في البقالة في كل المملكة المتحدة. اكتب رمزك البريدي، ونعرض لك First Table وTheFork وToo Good To Go وDeliveroo وUber Eats وJust Eat والسلاسل الكبرى القريبة منك."
+  "hero.lead2": "طاولات بنصف السعر، وعروض توصيل، وأكياس طعام فائض، ومكافآت قهوة، وتوفير في البقالة في كل المملكة المتحدة. اكتب رمزك البريدي، ونعرض لك First Table وEatClub وTheFork وToo Good To Go وDeliveroo وUber Eats وJust Eat والسلاسل الكبرى القريبة منك."
 },
 bn: {
   "tab.saved": "সেভ করা", "area.all": "পুরো যুক্তরাজ্য", "area.london": "পুরো লন্ডন", "area.cities": "শহর",
@@ -249,29 +249,29 @@ bn: {
   "acct.alerts": "আমার বাড়ির পোস্টকোডের কাছে নতুন ডিল ইমেইল করুন", "acct.alertsOn": "ডিল অ্যালার্ট চালু", "acct.alertsOff": "ডিল অ্যালার্ট বন্ধ",
   "acct.home": "বাড়ির পোস্টকোড: {p}", "acct.nohome": "টিপ: আপনার পোস্টকোড খুঁজুন, এটি বাড়ি হিসেবে সেট হবে।", "acct.out": "সাইন আউট", "acct.bye": "আপনি সাইন আউট হয়েছেন",
   "cz.caribbean": "ক্যারিবিয়ান",
-  "hero.lead2": "পুরো যুক্তরাজ্যে অর্ধেক দামে টেবিল, টেকঅ্যাওয়ে ডিল, বাড়তি খাবারের ব্যাগ, কফি রিওয়ার্ড আর মুদি সঞ্চয়। পোস্টকোড লিখুন, আমরা কাছের First Table, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat আর বড় চেইনগুলো দেখাব।"
+  "hero.lead2": "পুরো যুক্তরাজ্যে অর্ধেক দামে টেবিল, টেকঅ্যাওয়ে ডিল, বাড়তি খাবারের ব্যাগ, কফি রিওয়ার্ড আর মুদি সঞ্চয়। পোস্টকোড লিখুন, আমরা কাছের First Table, EatClub, TheFork, Too Good To Go, Deliveroo, Uber Eats, Just Eat আর বড় চেইনগুলো দেখাব।"
 }
 };
 Object.keys(I18N_LOC).forEach(l => Object.assign(I18N[l], I18N_LOC[l]));
 const I18N_UK = {
 en: { "res.title.all": "Deals across the UK", "foot.tag": "Half-price dining, takeaway and grocery deals across the UK, with direct links to each offer.",
-  "ab.p1": "TableFifty puts the UK's half-price dining, takeaway, surplus food and grocery deals in one place. We check First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat and the big chains, then link you straight to each offer. TableFifty is not linked to, or approved by, any of these platforms or restaurants." },
+  "ab.p1": "TableFifty puts the UK's half-price dining, takeaway, surplus food and grocery deals in one place. We check First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat and the big chains, then link you straight to each offer. TableFifty is not linked to, or approved by, any of these platforms or restaurants." },
 pl: { "res.title.all": "Oferty w całej Wielkiej Brytanii", "foot.tag": "Oferty za pół ceny w restauracjach, na wynos i w sklepach w całej Wielkiej Brytanii, z linkami prosto do każdej oferty.",
-  "ab.p1": "TableFifty zbiera w jednym miejscu brytyjskie oferty za pół ceny w restauracjach, na wynos, z nadwyżek jedzenia i w sklepach. Sprawdzamy First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat i duże sieci, a potem kierujemy Cię prosto do każdej oferty. TableFifty nie jest powiązany z tymi platformami ani restauracjami i nie jest przez nie zatwierdzony." },
+  "ab.p1": "TableFifty zbiera w jednym miejscu brytyjskie oferty za pół ceny w restauracjach, na wynos, z nadwyżek jedzenia i w sklepach. Sprawdzamy First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat i duże sieci, a potem kierujemy Cię prosto do każdej oferty. TableFifty nie jest powiązany z tymi platformami ani restauracjami i nie jest przez nie zatwierdzony." },
 ro: { "res.title.all": "Oferte în tot Regatul Unit", "foot.tag": "Oferte la jumătate de preț la restaurant, la pachet și la cumpărături în tot Regatul Unit, cu linkuri directe spre fiecare ofertă.",
-  "ab.p1": "TableFifty adună într-un singur loc ofertele din Regatul Unit: mese la jumătate de preț, mâncare la pachet, mâncare salvată și cumpărături. Verificăm First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat și marile lanțuri, apoi te trimitem direct la fiecare ofertă. TableFifty nu este afiliat cu aceste platforme sau restaurante și nu este aprobat de ele." },
+  "ab.p1": "TableFifty adună într-un singur loc ofertele din Regatul Unit: mese la jumătate de preț, mâncare la pachet, mâncare salvată și cumpărături. Verificăm First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat și marile lanțuri, apoi te trimitem direct la fiecare ofertă. TableFifty nu este afiliat cu aceste platforme sau restaurante și nu este aprobat de ele." },
 pa: { "res.title.all": "ਪੂਰੇ ਯੂਕੇ ਦੀਆਂ ਆਫ਼ਰਾਂ", "foot.tag": "ਪੂਰੇ ਯੂਕੇ ਵਿੱਚ ਅੱਧੀ ਕੀਮਤ ਵਾਲੀਆਂ ਰੈਸਟੋਰੈਂਟ, ਟੇਕਅਵੇ ਅਤੇ ਰਾਸ਼ਨ ਆਫ਼ਰਾਂ, ਹਰ ਆਫ਼ਰ ਦੇ ਸਿੱਧੇ ਲਿੰਕਾਂ ਨਾਲ।",
-  "ab.p1": "TableFifty ਯੂਕੇ ਦੀਆਂ ਅੱਧੀ ਕੀਮਤ ਵਾਲੀਆਂ ਰੈਸਟੋਰੈਂਟ, ਟੇਕਅਵੇ, ਬਚੇ ਖਾਣੇ ਅਤੇ ਰਾਸ਼ਨ ਆਫ਼ਰਾਂ ਇੱਕ ਥਾਂ ’ਤੇ ਦਿਖਾਉਂਦਾ ਹੈ। ਅਸੀਂ First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat ਅਤੇ ਵੱਡੀਆਂ ਚੇਨਾਂ ਦੇਖਦੇ ਹਾਂ, ਫਿਰ ਤੁਹਾਨੂੰ ਹਰ ਆਫ਼ਰ ’ਤੇ ਸਿੱਧਾ ਭੇਜਦੇ ਹਾਂ। TableFifty ਇਹਨਾਂ ਪਲੇਟਫਾਰਮਾਂ ਜਾਂ ਰੈਸਟੋਰੈਂਟਾਂ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਅਤੇ ਨਾ ਹੀ ਇਹਨਾਂ ਵੱਲੋਂ ਮਨਜ਼ੂਰ ਹੈ।" },
+  "ab.p1": "TableFifty ਯੂਕੇ ਦੀਆਂ ਅੱਧੀ ਕੀਮਤ ਵਾਲੀਆਂ ਰੈਸਟੋਰੈਂਟ, ਟੇਕਅਵੇ, ਬਚੇ ਖਾਣੇ ਅਤੇ ਰਾਸ਼ਨ ਆਫ਼ਰਾਂ ਇੱਕ ਥਾਂ ’ਤੇ ਦਿਖਾਉਂਦਾ ਹੈ। ਅਸੀਂ First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat ਅਤੇ ਵੱਡੀਆਂ ਚੇਨਾਂ ਦੇਖਦੇ ਹਾਂ, ਫਿਰ ਤੁਹਾਨੂੰ ਹਰ ਆਫ਼ਰ ’ਤੇ ਸਿੱਧਾ ਭੇਜਦੇ ਹਾਂ। TableFifty ਇਹਨਾਂ ਪਲੇਟਫਾਰਮਾਂ ਜਾਂ ਰੈਸਟੋਰੈਂਟਾਂ ਨਾਲ ਜੁੜਿਆ ਨਹੀਂ ਅਤੇ ਨਾ ਹੀ ਇਹਨਾਂ ਵੱਲੋਂ ਮਨਜ਼ੂਰ ਹੈ।" },
 ur: { "res.title.all": "پورے برطانیہ کی آفرز", "foot.tag": "پورے برطانیہ میں آدھی قیمت پر ریسٹورنٹ، ٹیک اوے اور گروسری آفرز، ہر آفر کے براہ راست لنکس کے ساتھ۔",
-  "ab.p1": "TableFifty برطانیہ کی آدھی قیمت والی ریسٹورنٹ، ٹیک اوے، بچے ہوئے کھانے اور گروسری آفرز ایک جگہ دکھاتا ہے۔ ہم First Table، TheFork، Code، tastecard، Too Good To Go، Deliveroo، Uber Eats، Just Eat اور بڑی چینز دیکھتے ہیں، پھر آپ کو ہر آفر تک سیدھا پہنچاتے ہیں۔ TableFifty کا ان پلیٹ فارمز یا ریسٹورنٹس سے کوئی تعلق نہیں، نہ ہی یہ ان کا منظور شدہ ہے۔" },
+  "ab.p1": "TableFifty برطانیہ کی آدھی قیمت والی ریسٹورنٹ، ٹیک اوے، بچے ہوئے کھانے اور گروسری آفرز ایک جگہ دکھاتا ہے۔ ہم First Table، EatClub، TheFork، Code، tastecard، Gourmet Society، Too Good To Go، Deliveroo، Uber Eats، Just Eat اور بڑی چینز دیکھتے ہیں، پھر آپ کو ہر آفر تک سیدھا پہنچاتے ہیں۔ TableFifty کا ان پلیٹ فارمز یا ریسٹورنٹس سے کوئی تعلق نہیں، نہ ہی یہ ان کا منظور شدہ ہے۔" },
 pt: { "res.title.all": "Ofertas em todo o Reino Unido", "foot.tag": "Ofertas a metade do preço em restaurantes, takeaway e supermercados em todo o Reino Unido, com links diretos para cada oferta.",
-  "ab.p1": "O TableFifty reúne num só lugar as ofertas do Reino Unido: restaurantes a metade do preço, takeaway, comida excedente e supermercado. Verificamos First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat e as grandes cadeias, e damos o link direto para cada oferta. O TableFifty não está ligado a estas plataformas ou restaurantes, nem é aprovado por eles." },
+  "ab.p1": "O TableFifty reúne num só lugar as ofertas do Reino Unido: restaurantes a metade do preço, takeaway, comida excedente e supermercado. Verificamos First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat e as grandes cadeias, e damos o link direto para cada oferta. O TableFifty não está ligado a estas plataformas ou restaurantes, nem é aprovado por eles." },
 es: { "res.title.all": "Ofertas en todo el Reino Unido", "foot.tag": "Ofertas a mitad de precio en restaurantes, comida para llevar y supermercados en todo el Reino Unido, con enlaces directos a cada oferta.",
-  "ab.p1": "TableFifty reúne en un solo lugar las ofertas del Reino Unido: restaurantes a mitad de precio, comida para llevar, comida sobrante y supermercado. Revisamos First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat y las grandes cadenas, y te llevamos directamente a cada oferta. TableFifty no está vinculado a estas plataformas o restaurantes ni aprobado por ellos." },
+  "ab.p1": "TableFifty reúne en un solo lugar las ofertas del Reino Unido: restaurantes a mitad de precio, comida para llevar, comida sobrante y supermercado. Revisamos First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat y las grandes cadenas, y te llevamos directamente a cada oferta. TableFifty no está vinculado a estas plataformas o restaurantes ni aprobado por ellos." },
 ar: { "res.title.all": "عروض في أنحاء المملكة المتحدة", "foot.tag": "عروض بنصف السعر في المطاعم والطعام الجاهز والبقالة في أنحاء المملكة المتحدة، مع روابط مباشرة لكل عرض.",
-  "ab.p1": "يجمع TableFifty عروض المملكة المتحدة في مكان واحد: مطاعم بنصف السعر، وطعام جاهز، وطعام فائض، وبقالة. نراجع First Table وTheFork وCode وtastecard وToo Good To Go وDeliveroo وUber Eats وJust Eat والسلاسل الكبرى، ثم نوصلك مباشرة إلى كل عرض. TableFifty غير مرتبط بأي من هذه المنصات أو المطاعم ولا يحظى بموافقتها." },
+  "ab.p1": "يجمع TableFifty عروض المملكة المتحدة في مكان واحد: مطاعم بنصف السعر، وطعام جاهز، وطعام فائض، وبقالة. نراجع First Table وEatClub وTheFork وCode وtastecard وGourmet Society وToo Good To Go وDeliveroo وUber Eats وJust Eat والسلاسل الكبرى، ثم نوصلك مباشرة إلى كل عرض. TableFifty غير مرتبط بأي من هذه المنصات أو المطاعم ولا يحظى بموافقتها." },
 bn: { "res.title.all": "সারা যুক্তরাজ্যের অফার", "foot.tag": "সারা যুক্তরাজ্যে অর্ধেক দামের রেস্তোরাঁ, টেকঅ্যাওয়ে ও মুদি অফার, প্রতিটি অফারের সরাসরি লিংকসহ।",
-  "ab.p1": "TableFifty যুক্তরাজ্যের অর্ধেক দামের রেস্তোরাঁ, টেকঅ্যাওয়ে, বাড়তি খাবার আর মুদি অফার এক জায়গায় আনে। আমরা First Table, TheFork, Code, tastecard, Too Good To Go, Deliveroo, Uber Eats, Just Eat আর বড় চেইনগুলো দেখি, তারপর প্রতিটি অফারে সরাসরি নিয়ে যাই। TableFifty এই প্ল্যাটফর্ম বা রেস্তোরাঁগুলোর সাথে যুক্ত নয়, তাদের অনুমোদিতও নয়।" }
+  "ab.p1": "TableFifty যুক্তরাজ্যের অর্ধেক দামের রেস্তোরাঁ, টেকঅ্যাওয়ে, বাড়তি খাবার আর মুদি অফার এক জায়গায় আনে। আমরা First Table, EatClub, TheFork, Code, tastecard, Gourmet Society, Too Good To Go, Deliveroo, Uber Eats, Just Eat আর বড় চেইনগুলো দেখি, তারপর প্রতিটি অফারে সরাসরি নিয়ে যাই। TableFifty এই প্ল্যাটফর্ম বা রেস্তোরাঁগুলোর সাথে যুক্ত নয়, তাদের অনুমোদিতও নয়।" }
 };
 Object.keys(I18N_UK).forEach(l => Object.assign(I18N[l], I18N_UK[l]));
 const I18N_PRIV = {
@@ -404,3 +404,78 @@ bn: { "link.menu": "মেনু", "link.ig": "Instagram", "link.web": "ওয�
 Object.keys(I18N_LINKS).forEach(l => Object.assign(I18N[l], I18N_LINKS[l]));
 (() => { const c = { en: "Photo: First Table", pl: "Zdjęcie: First Table", ro: "Foto: First Table", pa: "ਫੋਟੋ: First Table", ur: "تصویر: First Table", pt: "Foto: First Table", es: "Foto: First Table", ar: "الصورة: First Table", bn: "ছবি: First Table" };
   Object.keys(c).forEach(l => { I18N[l]["media.ft"] = c[l]; }); })();
+const I18N_INS = {
+en: { "t50.btn": "Insights", "ins.reviews": "{n} reviews", "ins.mains": "Mains {p}", "ins.meals": "Serves {m}", "ins.auto1": "{v} scores {s}/10 from {n} diner reviews on {p}.", "ins.auto2": "Diners rate the food {f}/5 and the service {s}/5.", "ins.auto3": "Best for {t}.",
+  "ins.where": "Where the score comes from", "ins.food": "Food", "ins.service": "Service", "ins.good": "Good to know", "ins.deals": "Deals right now", "ins.how": "How the TableFifty Score works",
+  "ins.how1": "The TableFifty Score is out of 10. We blend real diner ratings from First Table, EatClub and TheFork, plus star ratings from signed-in TableFifty users.",
+  "ins.how2": "Each rating counts by how many reviews stand behind it. A place with few reviews starts near 8 and moves as reviews arrive, so 10/10 from 3 people can't beat 9.5 from 800.",
+  "ins.how3": "Google ratings stay on Google, under Google's rules. No restaurant can pay to change its score, and paid spotlights are always labelled Ad.",
+  "fx.vegan": "Vegan options", "fx.veg": "Vegetarian options", "fx.gf": "Gluten-free options", "fx.halal": "Halal", "fx.dog": "Dog friendly", "fx.outdoor": "Outdoor seating", "fx.garden": "Beer garden", "fx.wheel": "Wheelchair accessible", "fx.private": "Private dining", "fx.parking": "Free parking", "fx.kids": "Highchairs",
+  "d.ec": "Free EatClub app. Dine in, pay in the app, and the discount comes off the whole bill, drinks included. Deals change during the day.", "d.ecwhen": "Usual times: {w}.", "d.everyday": "Every day",
+  "media.ec": "Photo: EatClub", "media.own": "Photo: the restaurant", "plat.strip": "We check {n} sources:", "plat.chains": "Chain offers" },
+pl: { "t50.btn": "Insights", "ins.reviews": "{n} opinii", "ins.mains": "Dania główne {p}", "ins.meals": "Podaje: {m}", "ins.auto1": "{v} ma ocenę {s}/10 z {n} opinii gości na {p}.", "ins.auto2": "Goście oceniają jedzenie na {f}/5, a obsługę na {s}/5.", "ins.auto3": "Najlepsze na: {t}.",
+  "ins.where": "Skąd bierze się ocena", "ins.food": "Jedzenie", "ins.service": "Obsługa", "ins.good": "Warto wiedzieć", "ins.deals": "Aktualne oferty", "ins.how": "Jak działa Ocena TableFifty",
+  "ins.how1": "Ocena TableFifty jest w skali do 10. Łączymy prawdziwe oceny gości z First Table, EatClub i TheFork oraz gwiazdki od zalogowanych użytkowników TableFifty.",
+  "ins.how2": "Każda ocena liczy się według liczby opinii. Miejsce z małą liczbą opinii zaczyna blisko 8 i zmienia się z nowymi opiniami, więc 10/10 od 3 osób nie pokona 9,5 od 800.",
+  "ins.how3": "Oceny Google zostają w Google, zgodnie z ich zasadami. Żadna restauracja nie może zapłacić za zmianę oceny, a płatne wyróżnienia zawsze mają etykietę Reklama.",
+  "fx.vegan": "Opcje wegańskie", "fx.veg": "Opcje wegetariańskie", "fx.gf": "Bez glutenu", "fx.halal": "Halal", "fx.dog": "Z psem", "fx.outdoor": "Stoliki na zewnątrz", "fx.garden": "Ogródek piwny", "fx.wheel": "Dla wózków", "fx.private": "Prywatna sala", "fx.parking": "Darmowy parking", "fx.kids": "Krzesełka dla dzieci",
+  "d.ec": "Darmowa aplikacja EatClub. Jesz na miejscu, płacisz w aplikacji, a zniżka obejmuje cały rachunek, także napoje. Oferty zmieniają się w ciągu dnia.", "d.ecwhen": "Zwykle: {w}.", "d.everyday": "Codziennie",
+  "media.ec": "Zdjęcie: EatClub", "media.own": "Zdjęcie: restauracja", "plat.strip": "Sprawdzamy {n} źródeł:", "plat.chains": "Oferty sieci" },
+ro: { "t50.btn": "Insights", "ins.reviews": "{n} recenzii", "ins.mains": "Feluri principale {p}", "ins.meals": "Servește: {m}", "ins.auto1": "{v} are {s}/10 din {n} recenzii pe {p}.", "ins.auto2": "Clienții notează mâncarea cu {f}/5 și servirea cu {s}/5.", "ins.auto3": "Potrivit pentru: {t}.",
+  "ins.where": "De unde vine scorul", "ins.food": "Mâncare", "ins.service": "Servire", "ins.good": "Bine de știut", "ins.deals": "Oferte acum", "ins.how": "Cum funcționează Scorul TableFifty",
+  "ins.how1": "Scorul TableFifty este din 10. Combinăm notele reale ale clienților de pe First Table, EatClub și TheFork, plus stelele de la utilizatorii TableFifty conectați.",
+  "ins.how2": "Fiecare notă contează după câte recenzii o susțin. Un loc cu puține recenzii pornește de la aproape 8 și se schimbă pe măsură ce vin recenzii, deci 10/10 de la 3 oameni nu bate 9,5 de la 800.",
+  "ins.how3": "Notele Google rămân pe Google, după regulile lor. Niciun restaurant nu poate plăti ca să-și schimbe scorul, iar spotlight-urile plătite au mereu eticheta Reclamă.",
+  "fx.vegan": "Opțiuni vegane", "fx.veg": "Opțiuni vegetariene", "fx.gf": "Fără gluten", "fx.halal": "Halal", "fx.dog": "Prietenos cu câinii", "fx.outdoor": "Mese afară", "fx.garden": "Terasă cu bere", "fx.wheel": "Acces scaun cu rotile", "fx.private": "Salon privat", "fx.parking": "Parcare gratuită", "fx.kids": "Scaune pentru copii",
+  "d.ec": "Aplicația gratuită EatClub. Mănânci la local, plătești în aplicație și reducerea se aplică la toată nota, inclusiv băuturile. Ofertele se schimbă în timpul zilei.", "d.ecwhen": "De obicei: {w}.", "d.everyday": "Zilnic",
+  "media.ec": "Foto: EatClub", "media.own": "Foto: restaurantul", "plat.strip": "Verificăm {n} surse:", "plat.chains": "Oferte lanțuri" },
+pa: { "t50.btn": "Insights", "ins.reviews": "{n} ਰਿਵਿਊ", "ins.mains": "ਮੇਨ ਡਿਸ਼ਾਂ {p}", "ins.meals": "ਮਿਲਦਾ ਹੈ: {m}", "ins.auto1": "{v} ਦਾ ਸਕੋਰ {p} ਦੇ {n} ਰਿਵਿਊਆਂ ਤੋਂ {s}/10 ਹੈ।", "ins.auto2": "ਗਾਹਕ ਖਾਣੇ ਨੂੰ {f}/5 ਅਤੇ ਸੇਵਾ ਨੂੰ {s}/5 ਦਿੰਦੇ ਹਨ।", "ins.auto3": "ਇਸ ਲਈ ਵਧੀਆ: {t}।",
+  "ins.where": "ਸਕੋਰ ਕਿੱਥੋਂ ਆਉਂਦਾ ਹੈ", "ins.food": "ਖਾਣਾ", "ins.service": "ਸੇਵਾ", "ins.good": "ਜਾਣਨ ਯੋਗ", "ins.deals": "ਹੁਣ ਦੀਆਂ ਡੀਲਾਂ", "ins.how": "TableFifty ਸਕੋਰ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ",
+  "ins.how1": "TableFifty ਸਕੋਰ 10 ਵਿੱਚੋਂ ਹੈ। ਅਸੀਂ First Table, EatClub ਅਤੇ TheFork ਦੀਆਂ ਅਸਲ ਗਾਹਕ ਰੇਟਿੰਗਾਂ ਅਤੇ ਸਾਈਨ-ਇਨ ਕੀਤੇ TableFifty ਵਰਤੋਂਕਾਰਾਂ ਦੇ ਸਟਾਰ ਮਿਲਾਉਂਦੇ ਹਾਂ।",
+  "ins.how2": "ਹਰ ਰੇਟਿੰਗ ਉਸਦੇ ਪਿੱਛੇ ਰਿਵਿਊਆਂ ਦੀ ਗਿਣਤੀ ਮੁਤਾਬਕ ਗਿਣੀ ਜਾਂਦੀ ਹੈ। ਘੱਟ ਰਿਵਿਊ ਵਾਲੀ ਥਾਂ 8 ਦੇ ਨੇੜੇ ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ, ਇਸ ਲਈ 3 ਲੋਕਾਂ ਦਾ 10/10, 800 ਲੋਕਾਂ ਦੇ 9.5 ਨੂੰ ਨਹੀਂ ਹਰਾ ਸਕਦਾ।",
+  "ins.how3": "Google ਰੇਟਿੰਗਾਂ Google 'ਤੇ ਹੀ ਰਹਿੰਦੀਆਂ ਹਨ। ਕੋਈ ਰੈਸਟੋਰੈਂਟ ਸਕੋਰ ਬਦਲਣ ਲਈ ਪੈਸੇ ਨਹੀਂ ਦੇ ਸਕਦਾ, ਅਤੇ ਪੇਡ ਸਪੌਟਲਾਈਟ 'ਤੇ ਹਮੇਸ਼ਾ ਇਸ਼ਤਿਹਾਰ ਲਿਖਿਆ ਹੁੰਦਾ ਹੈ।",
+  "fx.vegan": "ਵੀਗਨ ਚੋਣਾਂ", "fx.veg": "ਸ਼ਾਕਾਹਾਰੀ ਚੋਣਾਂ", "fx.gf": "ਗਲੂਟਨ-ਫ੍ਰੀ", "fx.halal": "ਹਲਾਲ", "fx.dog": "ਕੁੱਤਿਆਂ ਲਈ ਠੀਕ", "fx.outdoor": "ਬਾਹਰ ਬੈਠਣ ਦੀ ਥਾਂ", "fx.garden": "ਬੀਅਰ ਗਾਰਡਨ", "fx.wheel": "ਵ੍ਹੀਲਚੇਅਰ ਲਈ ਠੀਕ", "fx.private": "ਨਿੱਜੀ ਡਾਇਨਿੰਗ", "fx.parking": "ਮੁਫ਼ਤ ਪਾਰਕਿੰਗ", "fx.kids": "ਬੱਚਿਆਂ ਦੀਆਂ ਕੁਰਸੀਆਂ",
+  "d.ec": "ਮੁਫ਼ਤ EatClub ਐਪ। ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ ਖਾਓ, ਐਪ ਵਿੱਚ ਭੁਗਤਾਨ ਕਰੋ, ਅਤੇ ਛੋਟ ਪੂਰੇ ਬਿੱਲ 'ਤੇ ਲੱਗਦੀ ਹੈ, ਡ੍ਰਿੰਕਸ ਸਮੇਤ। ਡੀਲਾਂ ਦਿਨ ਵਿੱਚ ਬਦਲਦੀਆਂ ਹਨ।", "d.ecwhen": "ਆਮ ਸਮਾਂ: {w}।", "d.everyday": "ਹਰ ਰੋਜ਼",
+  "media.ec": "ਫੋਟੋ: EatClub", "media.own": "ਫੋਟੋ: ਰੈਸਟੋਰੈਂਟ", "plat.strip": "ਅਸੀਂ {n} ਸਰੋਤ ਚੈੱਕ ਕਰਦੇ ਹਾਂ:", "plat.chains": "ਚੇਨ ਆਫ਼ਰਾਂ" },
+ur: { "t50.btn": "Insights", "ins.reviews": "{n} ریویوز", "ins.mains": "مین ڈشز {p}", "ins.meals": "دستیاب: {m}", "ins.auto1": "{v} کا اسکور {p} کے {n} ریویوز سے {s}/10 ہے۔", "ins.auto2": "صارفین کھانے کو {f}/5 اور سروس کو {s}/5 دیتے ہیں۔", "ins.auto3": "بہترین برائے: {t}۔",
+  "ins.where": "اسکور کہاں سے آتا ہے", "ins.food": "کھانا", "ins.service": "سروس", "ins.good": "جاننے کی باتیں", "ins.deals": "ابھی کی ڈیلز", "ins.how": "TableFifty اسکور کیسے کام کرتا ہے",
+  "ins.how1": "TableFifty اسکور 10 میں سے ہے۔ ہم First Table، EatClub اور TheFork کی اصل صارف ریٹنگز اور سائن اِن TableFifty صارفین کے ستارے ملاتے ہیں۔",
+  "ins.how2": "ہر ریٹنگ اپنے پیچھے ریویوز کی تعداد کے حساب سے گنی جاتی ہے۔ کم ریویوز والی جگہ 8 کے قریب سے شروع ہوتی ہے، اس لیے 3 لوگوں کا 10/10، 800 لوگوں کے 9.5 کو نہیں ہرا سکتا۔",
+  "ins.how3": "Google ریٹنگز Google پر ہی رہتی ہیں۔ کوئی ریسٹورنٹ اسکور بدلنے کے لیے ادائیگی نہیں کر سکتا، اور ادا شدہ اسپاٹ لائٹ پر ہمیشہ اشتہار لکھا ہوتا ہے۔",
+  "fx.vegan": "ویگن انتخاب", "fx.veg": "سبزی خور انتخاب", "fx.gf": "گلوٹن فری", "fx.halal": "حلال", "fx.dog": "کتوں کے لیے موزوں", "fx.outdoor": "باہر بیٹھنے کی جگہ", "fx.garden": "بیئر گارڈن", "fx.wheel": "وہیل چیئر کے لیے موزوں", "fx.private": "پرائیویٹ ڈائننگ", "fx.parking": "مفت پارکنگ", "fx.kids": "بچوں کی کرسیاں",
+  "d.ec": "مفت EatClub ایپ۔ ریسٹورنٹ میں کھائیں، ایپ میں ادائیگی کریں، اور رعایت پورے بل پر لگتی ہے، مشروبات سمیت۔ ڈیلز دن میں بدلتی رہتی ہیں۔", "d.ecwhen": "عام اوقات: {w}۔", "d.everyday": "ہر روز",
+  "media.ec": "تصویر: EatClub", "media.own": "تصویر: ریسٹورنٹ", "plat.strip": "ہم {n} ذرائع چیک کرتے ہیں:", "plat.chains": "چین آفرز" },
+pt: { "t50.btn": "Insights", "ins.reviews": "{n} avaliações", "ins.mains": "Pratos principais {p}", "ins.meals": "Serve: {m}", "ins.auto1": "{v} tem {s}/10 a partir de {n} avaliações no {p}.", "ins.auto2": "Os clientes dão {f}/5 à comida e {s}/5 ao serviço.", "ins.auto3": "Ideal para: {t}.",
+  "ins.where": "De onde vem a pontuação", "ins.food": "Comida", "ins.service": "Serviço", "ins.good": "Bom saber", "ins.deals": "Ofertas agora", "ins.how": "Como funciona a Pontuação TableFifty",
+  "ins.how1": "A Pontuação TableFifty é de 0 a 10. Juntamos avaliações reais de clientes do First Table, EatClub e TheFork, mais as estrelas dos utilizadores TableFifty com sessão iniciada.",
+  "ins.how2": "Cada avaliação conta pelo número de opiniões por trás dela. Um local com poucas opiniões começa perto de 8 e muda à medida que chegam novas, por isso 10/10 de 3 pessoas não vence 9,5 de 800.",
+  "ins.how3": "As avaliações do Google ficam no Google, segundo as regras deles. Nenhum restaurante pode pagar para mudar a pontuação, e os destaques pagos têm sempre a etiqueta Anúncio.",
+  "fx.vegan": "Opções veganas", "fx.veg": "Opções vegetarianas", "fx.gf": "Sem glúten", "fx.halal": "Halal", "fx.dog": "Aceita cães", "fx.outdoor": "Esplanada", "fx.garden": "Jardim", "fx.wheel": "Acessível a cadeira de rodas", "fx.private": "Sala privada", "fx.parking": "Estacionamento grátis", "fx.kids": "Cadeiras de bebé",
+  "d.ec": "App EatClub gratuita. Coma no local, pague na app e o desconto aplica-se à conta toda, bebidas incluídas. As ofertas mudam ao longo do dia.", "d.ecwhen": "Horas habituais: {w}.", "d.everyday": "Todos os dias",
+  "media.ec": "Foto: EatClub", "media.own": "Foto: o restaurante", "plat.strip": "Verificamos {n} fontes:", "plat.chains": "Ofertas de cadeias" },
+es: { "t50.btn": "Insights", "ins.reviews": "{n} opiniones", "ins.mains": "Principales {p}", "ins.meals": "Sirve: {m}", "ins.auto1": "{v} tiene {s}/10 según {n} opiniones en {p}.", "ins.auto2": "Los clientes dan {f}/5 a la comida y {s}/5 al servicio.", "ins.auto3": "Ideal para: {t}.",
+  "ins.where": "De dónde sale la puntuación", "ins.food": "Comida", "ins.service": "Servicio", "ins.good": "Conviene saber", "ins.deals": "Ofertas ahora", "ins.how": "Cómo funciona la Puntuación TableFifty",
+  "ins.how1": "La Puntuación TableFifty es sobre 10. Mezclamos valoraciones reales de clientes de First Table, EatClub y TheFork, más las estrellas de usuarios de TableFifty con sesión iniciada.",
+  "ins.how2": "Cada valoración cuenta según cuántas opiniones la respaldan. Un sitio con pocas opiniones empieza cerca de 8 y cambia según llegan más, así que 10/10 de 3 personas no gana a 9,5 de 800.",
+  "ins.how3": "Las valoraciones de Google se quedan en Google, según sus normas. Ningún restaurante puede pagar para cambiar su puntuación, y los destacados de pago siempre llevan la etiqueta Anuncio.",
+  "fx.vegan": "Opciones veganas", "fx.veg": "Opciones vegetarianas", "fx.gf": "Sin gluten", "fx.halal": "Halal", "fx.dog": "Admite perros", "fx.outdoor": "Terraza", "fx.garden": "Terraza cervecera", "fx.wheel": "Accesible en silla de ruedas", "fx.private": "Sala privada", "fx.parking": "Parking gratis", "fx.kids": "Tronas",
+  "d.ec": "App gratuita EatClub. Come en el local, paga en la app y el descuento se aplica a toda la cuenta, bebidas incluidas. Las ofertas cambian durante el día.", "d.ecwhen": "Horas habituales: {w}.", "d.everyday": "Todos los días",
+  "media.ec": "Foto: EatClub", "media.own": "Foto: el restaurante", "plat.strip": "Revisamos {n} fuentes:", "plat.chains": "Ofertas de cadenas" },
+ar: { "t50.btn": "Insights", "ins.reviews": "{n} تقييم", "ins.mains": "الأطباق الرئيسية {p}", "ins.meals": "يقدم: {m}", "ins.auto1": "تقييم {v} هو {s}/10 من {n} تقييمًا على {p}.", "ins.auto2": "يقيّم الزبائن الطعام بـ {f}/5 والخدمة بـ {s}/5.", "ins.auto3": "مثالي لـ: {t}.",
+  "ins.where": "من أين يأتي التقييم", "ins.food": "الطعام", "ins.service": "الخدمة", "ins.good": "معلومات مفيدة", "ins.deals": "العروض الآن", "ins.how": "كيف يعمل تقييم TableFifty",
+  "ins.how1": "تقييم TableFifty من 10. نجمع تقييمات الزبائن الحقيقية من First Table وEatClub وTheFork، مع نجوم مستخدمي TableFifty المسجلين.",
+  "ins.how2": "كل تقييم يُحسب حسب عدد المراجعات خلفه. المكان ذو المراجعات القليلة يبدأ قرب 8 ويتغير مع وصول المراجعات، فلا يمكن لـ 10/10 من 3 أشخاص أن يتفوق على 9.5 من 800.",
+  "ins.how3": "تقييمات Google تبقى على Google حسب قواعدها. لا يمكن لأي مطعم الدفع لتغيير تقييمه، والظهور المدفوع يحمل دائمًا كلمة إعلان.",
+  "fx.vegan": "خيارات نباتية صرفة", "fx.veg": "خيارات نباتية", "fx.gf": "خالٍ من الغلوتين", "fx.halal": "حلال", "fx.dog": "يرحب بالكلاب", "fx.outdoor": "جلسات خارجية", "fx.garden": "حديقة", "fx.wheel": "مناسب للكراسي المتحركة", "fx.private": "قاعة خاصة", "fx.parking": "موقف مجاني", "fx.kids": "كراسي أطفال",
+  "d.ec": "تطبيق EatClub المجاني. تناول الطعام في المطعم وادفع عبر التطبيق، والخصم على كامل الفاتورة بما فيها المشروبات. العروض تتغير خلال اليوم.", "d.ecwhen": "الأوقات المعتادة: {w}.", "d.everyday": "كل يوم",
+  "media.ec": "الصورة: EatClub", "media.own": "الصورة: المطعم", "plat.strip": "نراجع {n} مصدرًا:", "plat.chains": "عروض السلاسل" },
+bn: { "t50.btn": "Insights", "ins.reviews": "{n}টি রিভিউ", "ins.mains": "মেইন ডিশ {p}", "ins.meals": "পাওয়া যায়: {m}", "ins.auto1": "{p}-এর {n}টি রিভিউ থেকে {v}-এর স্কোর {s}/10।", "ins.auto2": "গ্রাহকরা খাবারকে {f}/5 আর সার্ভিসকে {s}/5 দেন।", "ins.auto3": "যার জন্য সেরা: {t}।",
+  "ins.where": "স্কোর কোথা থেকে আসে", "ins.food": "খাবার", "ins.service": "সার্ভিস", "ins.good": "জেনে রাখুন", "ins.deals": "এখনকার ডিল", "ins.how": "TableFifty স্কোর কীভাবে কাজ করে",
+  "ins.how1": "TableFifty স্কোর ১০-এর মধ্যে। আমরা First Table, EatClub আর TheFork-এর আসল গ্রাহক রেটিং আর সাইন-ইন করা TableFifty ব্যবহারকারীদের স্টার মেলাই।",
+  "ins.how2": "প্রতিটি রেটিং তার পেছনের রিভিউ সংখ্যা অনুযায়ী গোনা হয়। কম রিভিউয়ের জায়গা ৮-এর কাছে শুরু করে, তাই ৩ জনের ১০/১০, ৮০০ জনের ৯.৫-কে হারাতে পারে না।",
+  "ins.how3": "Google রেটিং Google-এই থাকে, তাদের নিয়ম অনুযায়ী। কোনো রেস্তোরাঁ টাকা দিয়ে স্কোর বদলাতে পারে না, আর পেইড স্পটলাইটে সবসময় বিজ্ঞাপন লেখা থাকে।",
+  "fx.vegan": "ভেগান বিকল্প", "fx.veg": "নিরামিষ বিকল্প", "fx.gf": "গ্লুটেন-মুক্ত", "fx.halal": "হালাল", "fx.dog": "কুকুর নিয়ে যাওয়া যায়", "fx.outdoor": "বাইরে বসার জায়গা", "fx.garden": "বিয়ার গার্ডেন", "fx.wheel": "হুইলচেয়ার উপযোগী", "fx.private": "প্রাইভেট ডাইনিং", "fx.parking": "ফ্রি পার্কিং", "fx.kids": "শিশুদের চেয়ার",
+  "d.ec": "ফ্রি EatClub অ্যাপ। রেস্তোরাঁয় খান, অ্যাপে পেমেন্ট করুন, আর ছাড় পুরো বিলে লাগে, পানীয়সহ। ডিল দিনের মধ্যে বদলায়।", "d.ecwhen": "সাধারণ সময়: {w}।", "d.everyday": "প্রতিদিন",
+  "media.ec": "ছবি: EatClub", "media.own": "ছবি: রেস্তোরাঁ", "plat.strip": "আমরা {n}টি উৎস দেখি:", "plat.chains": "চেইন অফার" }
+};
+Object.keys(I18N_INS).forEach(l => Object.assign(I18N[l], I18N_INS[l]));
