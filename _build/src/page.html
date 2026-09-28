@@ -219,6 +219,8 @@
   .ribbon{position:absolute;inset-inline-start:12px;top:12px;z-index:1;background:var(--amber);color:var(--amber-ink);font-family:var(--f-display);font-weight:800;font-size:15px;padding:5px 11px;border-radius:9px;box-shadow:0 6px 16px rgba(0,0,0,.35)}
   .src{position:absolute;inset-inline-end:12px;top:12px;z-index:1;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:7px;background:rgba(10,16,32,.78);color:#dfe7f2;backdrop-filter:blur(4px)}
   .src.yours{background:var(--accent);color:var(--accent-ink)}
+  a.media-tag{text-decoration:none}
+  a.media-tag:hover{color:#fff;text-decoration:underline}
   .media-tag{position:absolute;inset-inline-end:10px;bottom:9px;z-index:1;font-size:10.5px;color:rgba(255,255,255,.72)}
   .media-plats{position:absolute;inset-inline-start:12px;bottom:10px;z-index:1;display:flex;gap:5px;flex-wrap:wrap;max-width:62%}
   .media-plats span{font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;background:rgba(10,16,32,.82);color:#fff;direction:ltr}
@@ -1143,6 +1145,8 @@
       }));
       if (!offers.length) return;
       map.set(d.id, { id: d.id, name: d.n, area: d.a, reg: d.reg, city: d.ct || "london", ll: d.ll || null, sc: d.sc || null, ins: d.ins || [], nr: d.nr || 0,
+        img: d.img && /^public\/[A-Za-z0-9_.\/+%-]+$/.test(d.img) ? FT_IMG + "640x360/" + d.img : "", ftPhoto: !!d.img, ftImg: d.img || "",
+        ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
         ig: d.ig, tt: d.tt, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
     });
@@ -1274,6 +1278,18 @@
     const score = o => (o.n || 0) + (o.live ? 2 : 0) + (o.r ? o.r[0] : 0) + (o.custom ? 100 : 0);
     return offers.reduce((best, o) => (score(o) > score(best) ? o : best), offers[0]);
   }
+  const FT_IMG = "https://images.firsttable.net/";
+  function imgTag(v, eager) {
+    const fb = v.cz ? (CUISINES.find(c => c.key === v.czKey) || GENERIC).img : GENERIC.img;
+    if (v.photo) return `<img src="${esc(v.photo)}" alt="${esc(v.name)}" loading="lazy" decoding="async">`;
+    if (v.ftPhoto) return `<img src="${esc(v.img)}" srcset="${esc(v.img)} 640w, ${esc(FT_IMG + "1170x655/" + v.ftImg)} 1170w" sizes="(min-width:1000px) 400px, 100vw" alt="${esc(v.name)}" loading="${eager ? "eager" : "lazy"}" decoding="async" data-fb="${esc(fb)}">`;
+    return `<img src="${esc(v.img)}" alt="${esc(v.alt)}" loading="lazy" decoding="async">`;
+  }
+  function photoCredit(v) {
+    if (v.photo) return "";
+    if (v.ftPhoto) return `<a class="media-tag" href="${esc(safeUrl(v.ftUrl) || "https://www.firsttable.co.uk/")}" target="_blank" rel="noopener noreferrer">${esc(t("media.ft"))}</a>`;
+    return `<span class="media-tag">${esc(t("media.tag"))}</span>`;
+  }
   const SRC_NAMES = { ft: "First Table", tf: "TheFork", t50: "TableFifty" };
   function scoreParts(v) {
     let s = v.sc[0], n = v.sc[1];
@@ -1330,11 +1346,11 @@
     const open = expanded.has(v.id);
     return `<article class="card" id="v-${esc(v.id)}">
       <div class="media">
-        <img src="${esc(img)}" alt="${esc(v.photo ? v.name : v.alt)}" loading="lazy" decoding="async">
+        ${imgTag(v)}
         <span class="ribbon">${esc(ribbonFor(offers))}</span>
         <span class="src ${v.custom ? "yours" : ""}">${esc(t(v.custom ? "src.yours" : "src.curated"))}</span>
         <div class="media-plats">${plats.map(p => `<span>${esc(p)}</span>`).join("")}</div>
-        ${v.photo ? "" : `<span class="media-tag">${esc(t("media.tag"))}</span>`}
+        ${photoCredit(v)}
         <button type="button" class="favbtn" data-fav="${esc(v.id)}" aria-pressed="${favs.has(v.id)}" aria-label="${esc(t(favs.has(v.id) ? "fav.remove" : "fav.add"))}" title="${esc(t(favs.has(v.id) ? "fav.remove" : "fav.add"))}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg></button>
       </div>
       <div class="card-body">
@@ -1949,7 +1965,7 @@
     const dateTxt = (() => { try { return new Intl.DateTimeFormat(lang, { weekday: "short", day: "numeric", month: "short" }).format(new Date(TODAY + "T12:00:00")); } catch (e) { return TODAY; } })();
     box.dataset.vid = v.id;
     box.innerHTML = `<div class="spot-top"><span>${I.trophy} ${esc(t(pick.ad ? "spot.ad" : state.loc ? "spot.near" : "spot.label"))}</span><span class="d">${esc(dateTxt)}</span></div>
-      <div class="spot-media"><img src="${esc(v.img)}" alt="${esc(v.alt)}"><span class="ribbon">${esc(ribbonFor(v.offers))}</span><span class="media-tag">${esc(t("media.tag"))}</span></div>
+      <div class="spot-media">${imgTag(v, true)}<span class="ribbon">${esc(ribbonFor(v.offers))}</span>${photoCredit(v)}</div>
       <div class="spot-body">
         <h2 id="spotName">${esc(v.name)}</h2>
         <p class="area">${I.pin}<span>${esc(v.area || "")}${d != null ? ` <span class="dist">${esc(fmtMi(d))}</span>` : ""}</span></p>
@@ -1964,6 +1980,11 @@
       </div>`;
     box.hidden = false;
   }
+
+  document.addEventListener("error", e => {
+    const im = e.target;
+    if (im && im.tagName === "IMG" && im.dataset.fb && !im.dataset.fbDone) { im.dataset.fbDone = "1"; im.removeAttribute("srcset"); im.src = im.dataset.fb; }
+  }, true);
 
   /* ---------- Toast ---------- */
   let toastTimer;

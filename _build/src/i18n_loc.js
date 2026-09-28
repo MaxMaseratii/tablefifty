@@ -402,3 +402,5 @@ bn: { "link.menu": "মেনু", "link.ig": "Instagram", "link.web": "ওয�
   "sum.tiki": "লন্ডনের একমাত্র হাইতিয়ান রেস্তোরাঁ: ইস্ট অ্যাক্টনে ছোট, প্রাণবন্ত একটি রাম বার, চালান উইল মারুস আর শেফ ড্যানিয়েল ফ্রাঁসোয়া। অতিথিরা গ্রিও, কারি গোট, রিবস, কড়া রাম পাঞ্চ, কোম্পা মিউজিক আর উষ্ণ অভ্যর্থনার প্রশংসা করেন। প্রধান অভিযোগ ভিড়ের রাতে ধীর সার্ভিস, তাই আগে বুক করুন আর সময় নিয়ে যান।" }
 };
 Object.keys(I18N_LINKS).forEach(l => Object.assign(I18N[l], I18N_LINKS[l]));
+(() => { const c = { en: "Photo: First Table", pl: "Zdjęcie: First Table", ro: "Foto: First Table", pa: "ਫੋਟੋ: First Table", ur: "تصویر: First Table", pt: "Foto: First Table", es: "Foto: First Table", ar: "الصورة: First Table", bn: "ছবি: First Table" };
+  Object.keys(c).forEach(l => { I18N[l]["media.ft"] = c[l]; }); })();

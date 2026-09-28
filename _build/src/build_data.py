@@ -197,6 +197,8 @@ for path, rec in sorted(PAGES.items()):
     if re.match(r'^https?://(www\.)?instagram\.com/[A-Za-z0-9_.]+/?', ig) and 'ig' not in v: v['ig'] = ig.split('?')[0]
     web = (rec.get('website') or '').strip()
     if re.match(r'^https?://', web) and 'instagram.com' not in web and 'web' not in v: v['web'] = web
+    ph = [u for u in (rec.get('photos') or []) if re.match(r'^public/[A-Za-z0-9_./+%-]+$', u or '')]
+    if ph and 'img' not in v: v['img'] = ph[0]
     if rec.get('menus') and 'menu' not in v: v['menu'] = 'https://images.firsttable.net/' + rec['menus'][0].lstrip('/')
     o = dict(p='firsttable', u='https://www.firsttable.co.uk/' + path, h='ft_' + typ, n=50, live=True, seen=rec.get('checked') or SEEN)
     rt, cnt = rec.get('rating') or 0, rec.get('reviews') or 0

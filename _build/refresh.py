@@ -42,6 +42,7 @@ def pick(page):
         'tags': [(t.get('category'), t.get('title')) for t in tags if t.get('active', True)],
         'instagram': page.get('instagram'), 'website': page.get('website'), 'tiktok': page.get('tiktok'), 'facebook': page.get('facebook'),
         'phone': page.get('phone'), 'hours': page.get('openHours'),
+        'photos': [u for u in ([page.get('gallery')] + [(e.get('node') or {}).get('url') for e in (page.get('images') or {}).get('edges', [])[:3]]) if u][:3],
         'menus': [img['node']['url'] for m in (page.get('menus') or {}).get('edges', [])
                   for img in ((m.get('node') or {}).get('menuImages') or {}).get('edges', [])[:4] if (img.get('node') or {}).get('url')][:6],
     }
