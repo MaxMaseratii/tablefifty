@@ -80,11 +80,68 @@ privacy=f'''<!doctype html>
 </html>
 '''
 open(os.path.join(ROOT,'privacy.html'),'w',encoding='utf-8').write(privacy)
+# ---------- One small page per restaurant: tablefifty.co.uk/r/<id>/ (shareable link with photo preview) ----------
+import html as _h, json as _j, re as _re, shutil as _sh
+_deals = _j.loads(_re.search(r'const DEALS = (\[.*\]);', open(os.path.join(SRC, 'deals.js'), encoding='utf-8').read(), _re.S).group(1))
+CZIMG = {'korean': 'korean', 'indian': 'indian', 'steak': 'steak-house', 'pizza': 'pizza', 'chicken': 'chicken', 'caribbean': 'caribbean', 'ramen': 'ramen',
+         'sushi': 'sushi', 'chinese': 'dumplings', 'thai': 'thai', 'italian': 'pasta', 'burger': 'burger', 'mezze': 'mezze', 'mexican': 'mexican',
+         'british': 'british', 'fine': 'fine', 'tapas': 'tapas', 'vietnamese': 'vietnamese', 'kebab': 'kebab', 'cocktails': 'cocktails',
+         'breakfast': 'breakfast', 'coffee': 'coffee', 'grocery': 'grocery', 'delivery': 'delivery'}
+PLAT = {'firsttable': 'First Table', 'thefork': 'TheFork', 'eatclub': 'EatClub', 'code': 'Code', 'tastecard': 'tastecard', 'deliveroo': 'Deliveroo',
+        'ubereats': 'Uber Eats', 'justeat': 'Just Eat', 'opentable': 'OpenTable'}
+def head_en(o):
+    h, n = o.get('h'), o.get('n', 0)
+    return {'ft_d': '50% off food', 'ft_l': '50% off lunch', 'ft_b': '50% off breakfast', 'ft_bl': '50% off breakfast & lunch',
+            'pct_food': f'{n}% off food', 'upto_food': f'Up to {n}% off food', 'pct_bill': f'{n}% off the bill', 'upto_bill': f'Up to {n}% off the bill',
+            'pct_drinks': f'{n}% off drinks', 'two41': '2-for-1 or 25% off', 'nodeal': 'In the MICHELIN Guide'}.get(h) or o.get('x') or 'Deal'
+def img_for(v):
+    if v.get('imgl'): return BASE + v['imgl']
+    if v.get('img'): return 'https://images.firsttable.net/1170x655/' + v['img']
+    if v.get('imgx'): return v['imgx']
+    return BASE + 'img/' + CZIMG.get(v.get('c'), 'restaurant') + '.jpg'
+rdir = os.path.join(ROOT, 'r')
+_sh.rmtree(rdir, ignore_errors=True)
+rurls = []
+for v in _deals:
+    if v.get('k') != 'dine' or v.get('ct') == 'uk' and not v.get('pub'): continue
+    o = max(v['o'], key=lambda x: x.get('n') or 0)
+    plat = o.get('pn') or PLAT.get(o.get('p'), '')
+    deal = head_en(o) + (f' with {plat}' if plat and o.get('h') != 'nodeal' else '')
+    sc = f" TableFifty Score {v['sc'][0]}/10 from {v['sc'][1]:,} diner reviews." if v.get('sc') else ''
+    mich = ''
+    if v.get('mich'):
+        st, bib, gr, sel = v['mich']
+        mich = ' ' + ' · '.join(x for x in [f'{st} MICHELIN Star' + ('s' if st > 1 else '') if st else '', 'Bib Gourmand' if bib else '', 'Green Star' if gr else '', 'In the MICHELIN Guide' if sel and not (st or bib or gr) else ''] if x) + '.'
+    title = f"{v['n']} – {deal} | TableFifty"
+    desc = f"{deal} at {v['n']}, {v.get('a', '')}.{sc}{mich} See every deal and book on TableFifty."
+    url = f"{BASE}r/{v['id']}/"
+    ld = {'@context': 'https://schema.org', '@type': 'Restaurant', 'name': v['n'], 'url': url, 'image': img_for(v),
+          'address': {'@type': 'PostalAddress', 'addressLocality': v.get('a', ''), 'addressCountry': 'GB'}}
+    if v.get('ll'): ld['geo'] = {'@type': 'GeoCoordinates', 'latitude': v['ll'][0], 'longitude': v['ll'][1]}
+    E = lambda x: _h.escape(str(x), quote=True)
+    ld_json = _j.dumps(ld, ensure_ascii=False).replace('</', '<\\/')
+    page = f"""<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{E(url)}"><link rel="icon" href="{fav}">
+<meta property="og:type" content="website"><meta property="og:site_name" content="TableFifty"><meta property="og:title" content="{E(v['n'] + ' · ' + deal)}">
+<meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{E(url)}"><meta property="og:image" content="{E(img_for(v))}">
+<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0f172a">
+<script type="application/ld+json">{ld_json}</script>
+<style>body{{margin:0;background:#0f172a;color:#e8eef8;font:16px/1.5 system-ui,sans-serif}}main{{max-width:640px;margin:0 auto;padding:40px 16px}}img{{width:100%;border-radius:16px}}a{{color:#10b981}}</style>
+<script>location.replace("/?r={v['id']}" + location.hash);</script></head>
+<body><main><img src="{E(img_for(v))}" alt="{E(v['n'])}"><h1>{E(v['n'])}</h1><p>{E(v.get('a', ''))}</p><p><strong>{E(deal)}</strong>{E(sc + mich)}</p>
+<p><a href="/?r={E(v['id'])}">See this deal on TableFifty</a></p></main></body></html>
+"""
+    os.makedirs(os.path.join(rdir, v['id']), exist_ok=True)
+    open(os.path.join(rdir, v['id'], 'index.html'), 'w', encoding='utf-8').write(page)
+    rurls.append(url)
+print('restaurant pages:', len(rurls))
+
 open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
 open(os.path.join(ROOT,'sitemap.xml'),'w').write(f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{BASE}</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}privacy.html</loc><lastmod>{TODAY}</lastmod></url>
-</urlset>
+''' + ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n' for u in rurls) + f'''</urlset>
 ''')
 print('site built', len(index))

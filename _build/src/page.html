@@ -89,8 +89,9 @@
       url("img/hero.jpg") center 60%/cover no-repeat, var(--bg-deep)}
   .hero .wrap{padding-block:60px 100px;display:grid;gap:28px}
   .hero-main{display:grid;gap:18px;align-content:center}
-  @media (min-width:1000px){.hero .wrap{grid-template-columns:minmax(0,1.3fr) minmax(320px,1fr);align-items:center;gap:44px}}
-  .spot{background:rgba(19,29,51,.9);border:1px solid rgba(245,158,11,.45);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(8px);display:grid;max-width:460px;width:100%;justify-self:center}
+  @media (min-width:1000px){.hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);align-items:center;gap:36px}.hero .wrap .spot{justify-self:stretch;max-width:none}}
+  @media (min-width:1300px){.hero .wrap{max-width:1320px}}
+  .spot{background:rgba(19,29,51,.9);border:1px solid rgba(245,158,11,.45);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(8px);display:grid;max-width:560px;width:100%;justify-self:center}
   .spot-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:linear-gradient(90deg,rgba(245,158,11,.22),rgba(245,158,11,.05));font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
   .spot-top .d{color:#c9d5e6;font-weight:600;letter-spacing:.02em;text-transform:none}
   .spot-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px 8px 0}
@@ -100,15 +101,16 @@
   .spot-tabs span{display:grid;min-width:0;font-size:11.5px;line-height:1.25}
   .spot-tabs b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
   .spot-tabs small{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .spot-media{position:relative;aspect-ratio:16/8;overflow:hidden;background:var(--surface-2)}
+  .spot-media{position:relative;aspect-ratio:16/8.5;overflow:hidden;background:var(--surface-2)}
   .spot-media img{width:100%;height:100%;object-fit:cover;display:block}
   .spot-media .ribbon{top:10px}
   .spot-body{padding:14px 16px 16px;display:grid;gap:9px}
-  .spot-body h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:23px;line-height:1.15}
+  .spot-body h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.2vw,28px);line-height:1.15}
   .spot-why{margin:0;font-size:13px;color:var(--muted)}
   .spot-deal{margin:0;font-family:var(--f-display);font-weight:800;font-size:19px;color:var(--amber)}
   .spot-actions{display:flex;gap:8px;flex-wrap:wrap}
   .spot-actions .btn{flex:1 1 auto}
+  .spot-actions .btn-icon{flex:none;width:44px}
   @media (min-width:720px){.hero .wrap{padding-block:84px 116px}}
   .hero h1{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(33px,5.2vw,60px);line-height:1.05;letter-spacing:-.025em;max-width:16ch}
   html:is([lang="ar"],[lang="ur"],[lang="pa"],[lang="bn"]) .hero h1{line-height:1.35;font-size:clamp(28px,4.4vw,50px);max-width:20ch}
@@ -185,6 +187,16 @@
   blockquote.own{margin:0;padding:10px 12px;border-inline-start:3px solid var(--amber);background:var(--surface-2);border-radius:8px;color:var(--text);font-style:italic}
   blockquote.own b{display:block;font-style:normal;font-size:12px;color:var(--amber);margin-bottom:3px}
   blockquote.own a{font-style:normal;color:var(--muted);font-size:12.5px}
+  .sharebtn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:999px;padding:4px 11px;font-weight:700;font-size:13px;cursor:pointer}
+  .sharebtn:hover{border-color:var(--accent);color:var(--accent)}
+  @media (max-width:420px){.sharebtn span{display:none}}
+  .ins-share{display:flex;gap:8px;flex-wrap:wrap}
+  .share-prev{margin:0;padding:10px 12px;border-radius:10px;background:var(--surface-2);color:var(--text);font-size:13.5px;word-break:break-word}
+  .share-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+  .share-app{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:var(--surface-2);color:var(--text);text-decoration:none;font-weight:700;font-size:14px}
+  .share-app:hover{border-color:var(--c)}
+  .share-app .dot{width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
+  .share-row{display:flex;gap:8px;flex-wrap:wrap}
   .insbtn{display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(16,185,129,.5);background:transparent;color:var(--accent);border-radius:999px;padding:3px 10px;font-weight:700;font-size:12.5px;cursor:pointer}
   .insbtn:hover{background:var(--accent-soft)}
   #insDialog{width:min(640px,calc(100vw - 24px))}
@@ -841,6 +853,18 @@
   </div>
 </dialog>
 
+<dialog id="shareDialog" aria-labelledby="shareTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div><h2 id="shareTitle">Recommend</h2><p data-i18n="share.sub"></p></div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div id="shareBody" class="ins-body"></div>
+  </div>
+</dialog>
+
 <dialog id="insDialog" aria-labelledby="insTitle">
   <div class="dlg">
     <div class="dlg-head">
@@ -961,6 +985,7 @@
     chev: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
     star: '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg>',
     heart: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg>',
+    share: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>',
     menu: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
     ig: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
     tt: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3c.3 2.2 1.7 3.7 4 4v3c-1.5 0-2.9-.4-4-1.2V15a6 6 0 1 1-6-6v3.1a3 3 0 1 0 3 2.9V3h3z"/></svg>',
@@ -1480,12 +1505,56 @@
       ${v.srcs.length ? `<p class="t50-src">${esc(t("t50.sources"))}: ${v.srcs.map(x => `<a href="${esc(safeUrl(x[1]) || "")}" target="_blank" rel="noopener noreferrer">${esc(x[0])}</a>`).join(" · ")}</p>` : ""}
       <details class="ins-how"><summary>${esc(t("ins.how"))}</summary><p>${esc(t("ins.how1"))}</p><p>${esc(t("ins.how2"))}</p><p>${esc(t("ins.how3"))}</p></details>`;
   }
+  const SITE = "https://tablefifty.co.uk/";
+  const venueUrl = v => SITE + "r/" + encodeURIComponent(v.id) + "/";
+  const onSite = () => /(^|\.)tablefifty\.co\.uk$/.test(location.hostname);
+  function setVenueUrl(v) {
+    try {
+      if (v) history.replaceState(null, "", onSite() ? "/r/" + encodeURIComponent(v.id) + "/" + location.hash : "?r=" + encodeURIComponent(v.id) + location.hash);
+      else history.replaceState(null, "", location.pathname.replace(/\/r\/[^/]*\/?$/, "/").replace(/\?.*$/, "") + location.hash);
+    } catch (e) {}
+  }
   function openInsights(id) {
     const v = venues.find(x => x.id === id); if (!v) return;
     $("#insTitle").textContent = v.name;
     $("#insArea").textContent = v.area || "";
-    $("#insBody").innerHTML = insightsHTML(v);
+    $("#insBody").innerHTML = `<div class="ins-share"><button type="button" class="btn btn-primary" data-share="${esc(v.id)}">${I.share}${esc(t("share.btn"))}</button>
+      <button type="button" class="btn" data-copy="${esc(venueUrl(v))}" data-what="share.copied">${I.copy}${esc(t("share.copy"))}</button></div>` + insightsHTML(v);
     showDialog($("#insDialog"));
+    setVenueUrl(v);
+  }
+  $("#insDialog").addEventListener("close", () => setVenueUrl(null));
+
+  /* ---------- Recommend to a friend ---------- */
+  function shareText(v) {
+    const main = mainOffer(v.offers);
+    const deal = main.h === "nodeal" ? (v.mich ? michChip(v).replace(/<[^>]+>/g, "") : "") : offerHead(main) + " · " + platName(main);
+    return t("share.msg", { v: v.name, a: v.area || "", d: deal });
+  }
+  function openShare(id) {
+    const v = venues.find(x => x.id === id); if (!v) return;
+    const url = venueUrl(v), text = shareText(v), full = text + " " + url;
+    const e = encodeURIComponent;
+    const apps = [
+      ["WhatsApp", `https://wa.me/?text=${e(full)}`, "#25D366"],
+      ["Messenger", /Android|iPhone|iPad/i.test(navigator.userAgent) ? `fb-messenger://share/?link=${e(url)}` : `https://www.facebook.com/sharer/sharer.php?u=${e(url)}`, "#0A7CFF"],
+      ["Telegram", `https://t.me/share/url?url=${e(url)}&text=${e(text)}`, "#229ED9"],
+      [t("share.sms"), `sms:?&body=${e(full)}`, "#34C759"],
+      [t("share.email"), `mailto:?subject=${e(t("share.subject", { v: v.name }))}&body=${e(full)}`, "#EA4335"],
+      ["X", `https://x.com/intent/post?text=${e(text)}&url=${e(url)}`, "#111"],
+      ["Facebook", `https://www.facebook.com/sharer/sharer.php?u=${e(url)}`, "#1877F2"],
+      ["LinkedIn", `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}`, "#0A66C2"]
+    ];
+    $("#shareTitle").textContent = t("share.title", { v: v.name });
+    $("#shareBody").innerHTML = `<p class="share-prev">${esc(full)}</p>
+      <div class="share-grid">${apps.map(([n, href, c]) => `<a class="share-app" href="${esc(href)}" target="_blank" rel="noopener noreferrer" style="--c:${c}"><span class="dot"></span>${esc(n)}</a>`).join("")}</div>
+      <div class="share-row">
+        <button type="button" class="btn btn-primary" data-copy="${esc(url)}" data-what="share.copied">${I.copy}${esc(t("share.copy"))}</button>
+        ${navigator.share ? `<button type="button" class="btn" id="nativeShare">${I.share}${esc(t("share.more"))}</button>` : ""}
+      </div>`;
+    const ns = $("#nativeShare");
+    if (ns) ns.addEventListener("click", () => { navigator.share({ title: v.name, text, url }).catch(() => {}); });
+    showDialog($("#shareDialog"));
   }
   function likeBtn(v) {
     const on = likeStore.mine.has(v.id), n = likeStore.count.get(v.id) || 0;
@@ -1527,6 +1596,7 @@
         ${rest.length ? `<div id="more-${esc(v.id)}" ${open ? "" : "hidden"}><ul class="offers">${rest.map(o => offerHTML(v, o)).join("")}</ul></div>` : ""}
         <div class="card-foot">
           ${likeBtn(v)}
+          <button type="button" class="sharebtn" data-share="${esc(v.id)}" aria-label="${esc(t("share.btn"))}" title="${esc(t("share.btn"))}">${I.share}<span>${esc(t("share.btn"))}</span></button>
           ${rest.length ? `<button type="button" class="morebtn" data-more="${esc(v.id)}" aria-expanded="${open}" aria-controls="more-${esc(v.id)}">${esc(t(open ? "more.hide" : "more.show", { n: rest.length }))} ${I.chev}</button>` : ""}
           ${v.k === "dine" && !v.custom ? `<button type="button" class="ratebtn" data-rate="${esc(v.id)}">${I.star}${esc(t("rate.btn"))}</button>` : `<button type="button" class="addlink" data-addfor="${esc(v.name)}" data-area="${esc(v.area)}">${I.plus}${esc(t("addlink"))}</button>`}
         </div>
@@ -2160,6 +2230,7 @@
         <div class="spot-actions">
           <a class="btn btn-amber" href="${esc(url)}" target="_blank" rel="noopener noreferrer${main.affiliate ? " sponsored" : ""}" data-open="${esc(platName(main))}">${esc(t("spot.see"))} ${I.ext}</a>
           <button type="button" class="btn" data-ins="${esc(v.id)}">${I.spark}${esc(t("t50.btn"))}</button>
+          <button type="button" class="btn btn-icon" data-share="${esc(v.id)}" aria-label="${esc(t("share.btn"))}" title="${esc(t("share.btn"))}">${I.share}</button>
           ${likeBtn(v)}
         </div>
       </div>`;
@@ -2234,6 +2305,13 @@
     if (fv) { toggleFav(fv.dataset.fav); return; }
     const lk = e.target.closest("[data-like]");
     if (lk) { toggleLike(lk.dataset.like); return; }
+    const sh = e.target.closest("[data-share]");
+    if (sh) {
+      const v = venues.find(x => x.id === sh.dataset.share);
+      if (v && navigator.share && matchMedia("(max-width:720px)").matches && !sh.closest("#insDialog")) { navigator.share({ title: v.name, text: shareText(v), url: venueUrl(v) }).catch(() => {}); }
+      else openShare(sh.dataset.share);
+      return;
+    }
     const ib = e.target.closest("[data-ins]");
     if (ib) { openInsights(ib.dataset.ins); return; }
     const rt = e.target.closest("[data-rate]");
@@ -2404,6 +2482,15 @@
   if (state.loc) state.sort = "near";
   setLang(pickInitialLang(), false);
   $("#n-saved").textContent = favs.size;
+  (() => {
+    const rid = new URLSearchParams(location.search).get("r") || (location.pathname.match(/\/r\/([^/]+)\/?$/) || [])[1];
+    const v = rid && venues.find(x => x.id === decodeURIComponent(rid));
+    if (!v) return;
+    if (state.loc) state.rad = 0;
+    state.area = "all";
+    setQuery(v.name);
+    setTimeout(() => { const card = document.getElementById("v-" + v.id); if (card) scrollToEl(card); openInsights(v.id); }, 60);
+  })();
   acctInit();
 })();
 </script>
