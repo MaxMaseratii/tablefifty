@@ -1,0 +1,40 @@
+name: Refresh deals daily
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # every day at 05:17 UTC (about 6am UK)
+  workflow_dispatch: {}      # also lets you press "Run workflow" by hand
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: refresh-deals
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check First Table pages (new, changed, and oldest ones)
+        run: python _build/refresh.py
+      - name: Build the site
+        run: python _build/build.py
+      - name: Commit if anything changed
+        run: |
+          git config user.name "TableFifty bot"
+          git config user.email "hello@tablefifty.co.uk"
+          git add -A
+          if git diff --cached --quiet; then echo "No changes today"; exit 0; fi
+          git commit -m "Daily deal refresh $(date -u +%F)"
+          git push
+      - name: Rebuild GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
