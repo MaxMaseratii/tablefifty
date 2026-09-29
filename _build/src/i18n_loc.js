@@ -480,11 +480,11 @@ bn: { "t50.btn": "Insights", "ins.reviews": "{n}টি রিভিউ", "ins.ma
 };
 Object.keys(I18N_INS).forEach(l => Object.assign(I18N[l], I18N_INS[l]));
 (() => { const c = {
-  en: ["Pubs & bars", "Today's top 3 picks", "Today's top 3 near you"], pl: ["Puby i bary", "3 najlepsze wybory dnia", "3 najlepsze w pobliżu dziś"],
-  ro: ["Puburi și baruri", "Top 3 alegerile zilei", "Top 3 lângă tine azi"], pa: ["ਪੱਬ ਅਤੇ ਬਾਰ", "ਅੱਜ ਦੀਆਂ 3 ਚੋਟੀ ਦੀਆਂ ਚੋਣਾਂ", "ਤੁਹਾਡੇ ਨੇੜੇ ਅੱਜ ਦੀਆਂ 3 ਚੋਣਾਂ"],
-  ur: ["پب اور بار", "آج کے 3 بہترین انتخاب", "آپ کے قریب آج کے 3 انتخاب"], pt: ["Pubs e bares", "As 3 escolhas do dia", "As 3 escolhas do dia perto de si"],
-  es: ["Pubs y bares", "Las 3 elecciones del día", "Las 3 elecciones del día cerca de ti"], ar: ["حانات وبارات", "أفضل 3 اختيارات اليوم", "أفضل 3 اختيارات قربك اليوم"],
-  bn: ["পাব ও বার", "আজকের সেরা ৩টি", "আপনার কাছে আজকের সেরা ৩টি"] };
+  en: ["Pubs & bars", "Today's top 5 picks", "Today's top 5 near you"], pl: ["Puby i bary", "5 najlepszych wyborów dnia", "5 najlepszych w pobliżu dziś"],
+  ro: ["Puburi și baruri", "Top 5 alegerile zilei", "Top 5 lângă tine azi"], pa: ["ਪੱਬ ਅਤੇ ਬਾਰ", "ਅੱਜ ਦੀਆਂ 5 ਚੋਟੀ ਦੀਆਂ ਚੋਣਾਂ", "ਤੁਹਾਡੇ ਨੇੜੇ ਅੱਜ ਦੀਆਂ 5 ਚੋਣਾਂ"],
+  ur: ["پب اور بار", "آج کے 5 بہترین انتخاب", "آپ کے قریب آج کے 5 انتخاب"], pt: ["Pubs e bares", "As 5 escolhas do dia", "As 5 escolhas do dia perto de si"],
+  es: ["Pubs y bares", "Las 5 elecciones del día", "Las 5 elecciones del día cerca de ti"], ar: ["حانات وبارات", "أفضل 5 اختيارات اليوم", "أفضل 5 اختيارات قربك اليوم"],
+  bn: ["পাব ও বার", "আজকের সেরা ৫টি", "আপনার কাছে আজকের সেরা ৫টি"] };
   Object.keys(c).forEach(l => { I18N[l]["tab.pubs"] = c[l][0]; I18N[l]["spot.label3"] = c[l][1]; I18N[l]["spot.near3"] = c[l][2]; }); })();
 const I18N_MICH = {
 en: { "tab.michelin": "Michelin", "mich.1": "MICHELIN Star", "mich.2": "2 MICHELIN Stars", "mich.3": "3 MICHELIN Stars", "mich.bib": "Bib Gourmand", "mich.green": "Green Star", "mich.sel": "In the MICHELIN Guide", "mich.src": "MICHELIN Guide Great Britain & Ireland 2026", "rib.mich": "MICHELIN", "h.nodeal": "No discount found today", "d.nodeal": "We checked First Table, EatClub, TheFork and the dining cards. Book direct, and check back: deals change every day.", "ins.own": "In their own words" },

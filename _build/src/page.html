@@ -94,13 +94,14 @@
   .spot{background:rgba(19,29,51,.9);border:1px solid rgba(245,158,11,.45);border-radius:20px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.5);backdrop-filter:blur(8px);display:grid;max-width:560px;width:100%;justify-self:center}
   .spot-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:linear-gradient(90deg,rgba(245,158,11,.22),rgba(245,158,11,.05));font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
   .spot-top .d{color:#c9d5e6;font-weight:600;letter-spacing:.02em;text-transform:none}
-  .spot-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:8px 8px 0}
+  .spot-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:8px 8px 0}
   .spot-tabs button{display:flex;align-items:center;gap:7px;min-width:0;padding:5px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;text-align:start;color:var(--text)}
   .spot-tabs button[aria-selected="true"]{border-color:var(--amber);background:var(--amber-soft)}
   .spot-tabs img{width:34px;height:34px;border-radius:8px;object-fit:cover;flex:none}
   .spot-tabs span{display:grid;min-width:0;font-size:11.5px;line-height:1.25}
   .spot-tabs b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
   .spot-tabs small{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  @media (max-width:520px){.spot-tabs button{justify-content:center;padding:4px}.spot-tabs span{display:none}.spot-tabs img{width:100%;height:40px}}
   .spot-media{position:relative;aspect-ratio:16/8.5;overflow:hidden;background:var(--surface-2)}
   .spot-media img{width:100%;height:100%;object-fit:cover;display:block}
   .spot-media .ribbon{top:10px}
@@ -2271,7 +2272,7 @@
       picks.push({ v: sp, ad: true });
     }
     const seenCz = new Set(picks.map(p => p.v.czKey)), seenId = new Set(picks.map(p => p.v.id));
-    for (let i = 0; i < 12 && picks.length < 3; i++) {
+    for (let i = 0; i < 20 && picks.length < 5; i++) {
       const p = pickSpot(i, seenCz, seenId);
       if (!p) break;
       picks.push(p); seenCz.add(p.v.czKey); seenId.add(p.v.id);
