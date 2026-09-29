@@ -403,6 +403,8 @@ by_city = {}
 for v0 in V.values():
     if v0.get('ll'): by_city.setdefault(v0.get('ct'), []).append(v0)
 ec_added = ec_merged = 0
+ec_taken = set()
+PLACE_WORDS = {'street', 'road', 'square', 'lane', 'hill', 'market', 'station', 'central', 'city', 'centre', 'center', 'village', 'park', 'place', 'north', 'south', 'east', 'west', 'high', 'lounge', 'club', 'house', 'wine', 'pizza', 'grill', 'bistro', 'deli', 'coffee', 'pub', 'tavern', 'arms', 'inn', 'italian', 'indian', 'thai', 'chinese', 'japanese', 'sushi', 'ramen', 'burger', 'burgers', 'cocktail', 'cocktails', 'dining', 'room', 'eatery', 'co', 'uk'}
 for r in ec_rows:
     slots = {}
     for dow, a, b, pct, typ in r.get('deals') or []:
@@ -414,13 +416,22 @@ for r in ec_rows:
     ll = [round(float(r['lat']), 4), round(float(r['lng']), 4)]
     best = max(p for (_, _, p) in slots)
     sl = sorted([[sorted(d), a, b, p] for (a, b, p), d in slots.items()], key=lambda x: (x[1], -x[3]))[:6]
-    nk = name_key(r['name'])
-    match = None
-    for cand in by_city.get(ct, []):
-        if km(cand['ll'], ll) < 0.25 and nk & name_key(cand['n']):
-            match = cand; break
+    # Match to an existing venue only on the restaurant's own name, never on place words: EatClub names look like
+    # "Mangosteen - North Street", and First Table names often end with the area ("Mangosteen North Street").
+    # One EatClub venue per existing venue (the best match); the rest become their own venues.
+    nk = name_key(r['name'].split(' - ')[0]) - name_key(r.get('area') or '') - name_key(r.get('region') or '') - PLACE_WORDS
+    match, best_score = None, 0
+    for cand in (by_city.get(ct, []) if nk else []):
+        if cand['id'] in ec_taken: continue
+        d_km = km(cand['ll'], ll)
+        if d_km >= 0.25: continue
+        ck = name_key(cand['n']) - name_key(cand.get('a') or '') - PLACE_WORDS
+        common = nk & ck
+        if not common: continue
+        sc_ = len(common) / max(1, min(len(nk), len(ck))) - d_km
+        if sc_ > best_score: match, best_score = cand, sc_
     if match:
-        v = match; ec_merged += 1
+        v = match; ec_merged += 1; ec_taken.add(match['id'])
     else:
         czs = set(r.get('cuisines') or [])
         c = next((k for k, names in EC_CZ if czs & names), 'generic')
@@ -653,8 +664,15 @@ for v in V.values():
         score = (sum(r[0] * r[1] for r in rs) + PRIOR * WEIGHT) / (n + WEIGHT)
         src = sorted({(r[2] if len(r) > 2 else 'tf') for r in rs})
         v['sc'] = [round(score, 1), n, ','.join(src)]
-        counts_now[v['id']] = n
-        if RC['base'].get(v['id']) is not None and n > RC['base'][v['id']]: v['nr'] = n - RC['base'][v['id']]
+        # New reviews since yesterday, counted per source, so a source joining or leaving a venue is not "new reviews".
+        per = {}
+        for r in rs:
+            k = r[2] if len(r) > 2 else 'tf'; per[k] = per.get(k, 0) + r[1]
+        counts_now[v['id']] = per
+        b0 = RC['base'].get(v['id'])
+        if isinstance(b0, dict):
+            nr = sum(max(0, c - b0[k]) for k, c in per.items() if k in b0)
+            if nr: v['nr'] = nr
     tags = v.pop('_tags', set())
     ins = [k for k, names in INS if tags & names] + v.pop('ins_fixed', [])
     rare = [k for k in ins if k not in COMMON]
