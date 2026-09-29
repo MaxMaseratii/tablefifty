@@ -111,7 +111,7 @@
   .disc-nav button.dot[aria-current="true"]{width:24px;background:var(--amber)}
   .disc-arrow{position:absolute;z-index:4;top:30%;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(5,9,20,.6);color:#fff;cursor:pointer;backdrop-filter:blur(6px)}
   .disc-arrow.prev{inset-inline-start:10px} .disc-arrow.next{inset-inline-end:10px}
-  @media (hover:none){.disc-arrow{display:none}}
+  @media (hover:none),(max-width:700px){.disc-arrow{display:none}}
   @media (min-width:1300px){.hero .wrap{max-width:1320px}}
   .spot{background:var(--surface);border:1px solid rgba(245,158,11,.45);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);display:grid;width:100%}
   .spot-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:linear-gradient(90deg,rgba(245,158,11,.22),rgba(245,158,11,.05));font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
@@ -611,6 +611,8 @@
   [hidden]{display:none !important}
   .vh{position:absolute !important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   @media (max-width:440px){.langpick select{max-width:92px;padding-inline:30px 6px}.acct-btn{width:40px;padding:0}.nav .wrap{gap:8px}.brandname{font-size:18px}}
+  @media (max-width:560px){#openAdd{display:none}}
+  @media (max-width:370px){.brandname{display:none}}
 </style>
 
 <nav class="nav" aria-label="Main">
@@ -678,7 +680,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
           <input id="pc" type="text" autocomplete="postal-code" spellcheck="false" enterkeyhint="search" placeholder="Postcode or town" data-i18n-ph="loc.ph" data-i18n-aria="loc.ph" aria-label="Postcode or town">
         </div>
-        <button class="btn btn-amber" type="submit"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl" data-i18n="loc.go">Find deals</span></button>
+        <button class="btn btn-amber" type="submit" data-i18n-aria="loc.go" aria-label="Find deals"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="lbl" data-i18n="loc.go">Find deals</span></button>
         <button class="btn" type="button" id="geoBtn" data-i18n-aria="loc.me" aria-label="Use my location"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="7.5"/></svg><span class="lbl" data-i18n="loc.me">Use my location</span></button>
       </form>
       <div class="search">
@@ -694,7 +696,7 @@
         <ul id="suggest" role="listbox" hidden></ul>
       </div>
       </div>
-      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="michelin" aria-pressed="false"><span data-i18n="tab.michelin"></span> <span class="n" id="n-michelin">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.6 3.3 5 6.8 5c2.1 0 3.6 1.1 5.2 3 1.6-1.9 3.1-3 5.2-3 3.5 0 5.6 3.6 4.3 6.8C19.5 16.4 12 21 12 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
+      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="michelin" aria-pressed="false"><span data-i18n="tab.michelin"></span> <span class="n" id="n-michelin">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
       <div class="dock-row">
         <div class="filters">
           <div class="loc-status" id="locStatus" aria-live="polite"></div>
@@ -1559,6 +1561,7 @@
     });
   }
   function hit(tk, f) { return f.words.some(w => w.startsWith(tk)) || (tk.length >= 3 && f.joined.includes(tk)); }
+  const azKey = n => String(n).replace(/^[^\p{L}\p{N}]+/u, "");
   function scoreVenue(v, toks) {
     let s = 0;
     for (const tk of toks) {
@@ -1622,7 +1625,7 @@
       near: (a, b) => (a.v.dist == null ? 1e9 : a.v.dist) - (b.v.dist == null ? 1e9 : b.v.dist) || dealScore(b.v) - dealScore(a.v),
       best: (a, b) => dealScore(b.v) - dealScore(a.v),
       rating: (a, b) => bestRating(b.v) - bestRating(a.v) || dealScore(b.v) - dealScore(a.v),
-      az: (a, b) => a.v.name.localeCompare(b.v.name)
+      az: (a, b) => azKey(a.v.name).localeCompare(azKey(b.v.name), lang)
     }[state.sort];
     const grp = x => (localFirst() && isNational(x.v) && state.tab !== "delivery" && state.tab !== "grocery" && state.tab !== "saved" ? 1 : 0);
     const michSort = (a, b) => state.tab !== "michelin" ? 0 : ((a.v.nodeal ? 1 : 0) - (b.v.nodeal ? 1 : 0)) || (b.v.mich[0] - a.v.mich[0]) || (b.v.mich[1] - a.v.mich[1]);
@@ -1633,7 +1636,12 @@
       list.forEach(x => { const pk = platKey(mainOffer(x.v.offers)); const k = MAJOR.includes(pk) ? pk : "other"; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(x); });
       const order = [...buckets.values()], woven = [];
       while (woven.length < list.length) order.forEach(b => { if (b.length) woven.push(b.shift()); });
-      list = woven;
+      // UK-wide cards (Tesco Clubcard, Blue Light...) are useful but should not lead a restaurant list: one after every 6 places.
+      if (state.tab !== "delivery" && state.tab !== "grocery") {
+        const nat = woven.filter(x => isNational(x.v)), loc = woven.filter(x => !isNational(x.v)), mixed = [];
+        loc.forEach((x, i) => { mixed.push(x); if ((i + 1) % 6 === 0 && nat.length) mixed.push(nat.shift()); });
+        list = mixed.concat(nat);
+      } else list = woven;
     }
     const shown = list.map(x => ({ v: x.v, offers: state.tab === "delivery" ? x.v.offers.filter(o => kindOf(o) === "delivery").concat() : x.v.offers }))
       .map(x => ({ v: x.v, offers: x.offers.length ? x.offers : x.v.offers }));
@@ -1921,11 +1929,11 @@
     if (!shown.length) {
       more.hidden = true;
       const cz = CUISINES.find(c => toks.some(tk => c.words.some(w => w.startsWith(tk) || tk.startsWith(w))));
-      const why = toks.length && venues.some(v => scoreVenue(v, toks) >= 0) ? t("empty.filtered", { q }) : toks.length ? t("empty.missing", { q }) : t("empty.none");
+      const why = toks.length && venues.some(v => scoreVenue(v, toks) >= 0) ? t("empty.filtered", { q }) : toks.length ? t("empty.missing", { q }) : state.tab === "saved" ? t("empty.saved") : t("empty.none");
       res.innerHTML = `<div class="empty">
         <div class="media"><img src="${esc(cz ? cz.img : GENERIC.img)}" alt="" loading="lazy"></div>
         <div class="empty-body">
-          <h3>${esc(t("empty.title"))}${toks.length ? ` <span>${esc(t("empty.for", { q }))}</span>` : ""}</h3>
+          <h3>${esc(state.tab === "saved" && !toks.length ? t("empty.savedt") : t("empty.title"))}${toks.length ? ` <span>${esc(t("empty.for", { q }))}</span>` : ""}</h3>
           <p>${esc(why)}</p>
           ${toks.length ? `<button type="button" class="btn btn-primary" data-livescroll>${I.search}${esc(t("live.btn"))}</button>` : ""}
         </div>
@@ -2250,12 +2258,12 @@
         let email = null; try { email = localStorage.getItem(EMAIL_KEY); } catch (e) {}
         if (!email) email = prompt(t("acct.email"));
         if (email) {
-          try { await authM.signInWithEmailLink(acct.auth, email, location.href); try { localStorage.removeItem(EMAIL_KEY); } catch (e) {} }
+          try { await authM.signInWithEmailLink(acct.auth, email, location.href); acct.justIn = true; try { localStorage.removeItem(EMAIL_KEY); } catch (e) {} }
           catch (e) { toast(t("acct.err"), "warn"); }
         }
         history.replaceState(null, "", location.pathname + location.hash);
       }
-      try { await authM.getRedirectResult(acct.auth); } catch (e) {}
+      try { const rr = await authM.getRedirectResult(acct.auth); if (rr && rr.user) acct.justIn = true; } catch (e) {}
       authM.onAuthStateChanged(acct.auth, user => { acctSession(user); });
       likeStore.fetched.clear(); fetchCounts();
     } catch (e) { console.warn("Accounts unavailable", e); acct.ready = false; acctRender(); }
@@ -2278,7 +2286,8 @@
       renderAreaOptions(); renderRadius(); renderLocStatus(); render();
       const wasOpen = $("#acctDialog").open;
       closeDialog($("#acctDialog"));
-      toast(t("acct.in", { u: acct.user.email || acct.user.phoneNumber || "" }));
+      if (wasOpen || acct.justIn) toast(t("acct.in", { u: acct.user.email || acct.user.phoneNumber || "" }));
+      acct.justIn = false;
       if (wasOpen) openDiary();
     }
     acct.confirm = null;
@@ -2558,7 +2567,7 @@
     { k: "cuisine5", ic: "🌍", need: 5, got: m => m.cuisines },
     { k: "visits10", ic: "🔟", need: 10, got: m => m.visits },
     { k: "michelin", ic: "🎖️", need: 1, got: m => m.mich },
-    { k: "saved5", ic: "❤️", need: 5, got: m => m.saved }
+    { k: "saved5", ic: "🔖", need: 5, got: m => m.saved }
   ];
   function diaryMetrics() {
     const it = diary.items || [];
@@ -2799,7 +2808,7 @@
     const dateTxt = (() => { try { return new Intl.DateTimeFormat(lang, { weekday: "short", day: "numeric", month: "short" }).format(new Date(TODAY + "T12:00:00")); } catch (e) { return TODAY; } })();
     box.dataset.vid = v.id;
     box.innerHTML = `<div class="spot-top"><span>${I.trophy} ${esc(t(pick.ad ? "spot.ad" : state.loc ? "spot.near3" : "spot.label3"))}</span><span class="d">${esc(dateTxt)}</span></div>
-      <div class="spot-tabs" role="tablist">${spotPicks.map((p, i) => `<button type="button" role="tab" data-spot="${i}" aria-selected="${i === spotIdx}"><img src="${esc(p.v.img)}" alt="" loading="lazy" data-fb="${esc(GENERIC.img)}"><span><b>${esc(p.v.name)}</b><small>${esc(p.v.sc ? p.v.sc[0].toFixed(1) + " · " : "")}${esc(t("cz." + (p.v.czKey || "generic")))}${p.v.area ? " · " + esc(p.v.area) : ""}</small><i class="tdeal">${esc(offerHead(mainOffer(p.v.offers)))}</i></span></button>`).join("")}</div>
+      <div class="spot-tabs" role="tablist">${spotPicks.map((p, i) => `<button type="button" role="tab" data-spot="${i}" aria-selected="${i === spotIdx}" aria-label="${esc(p.v.name)}"><img src="${esc(p.v.img)}" alt="" loading="lazy" data-fb="${esc(GENERIC.img)}"><span><b>${esc(p.v.name)}</b><small>${esc(p.v.sc ? p.v.sc[0].toFixed(1) + " · " : "")}${esc(t("cz." + (p.v.czKey || "generic")))}${p.v.area ? " · " + esc(p.v.area) : ""}</small><i class="tdeal">${esc(offerHead(mainOffer(p.v.offers)))}</i></span></button>`).join("")}</div>
       <div class="spot-media">${imgTag(v, true)}<span class="ribbon">${esc(ribbonFor(v.offers))}</span>${photoCredit(v)}</div>
       <div class="spot-body">
         <h2 id="spotName">${esc(v.name)}</h2>

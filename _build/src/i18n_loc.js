@@ -576,3 +576,15 @@ ar: { "dsc.label": "اكتشف", "dsc.ad": "إعلان · مميز", "dsc.prev":
 bn: { "dsc.label": "খুঁজে দেখুন", "dsc.ad": "বিজ্ঞাপন · বিশেষ", "dsc.prev": "আগের", "dsc.next": "পরের", "dy.cap": "বিবরণ লিখুন (ঐচ্ছিক)" }
 };
 Object.keys(I18N_DISC).forEach(l => Object.assign(I18N[l], I18N_DISC[l]));
+const I18N_FIX1 = {
+en: { "empty.savedt": "No saved places yet", "empty.saved": "Tap the bookmark on any restaurant photo and it will wait for you here." },
+pl: { "empty.savedt": "Brak zapisanych miejsc", "empty.saved": "Kliknij zakładkę na zdjęciu restauracji, a poczeka tu na Ciebie." },
+ro: { "empty.savedt": "Niciun loc salvat încă", "empty.saved": "Apasă semnul de carte de pe poza unui restaurant și te va aștepta aici." },
+pa: { "empty.savedt": "ਹਾਲੇ ਕੋਈ ਸੇਵ ਕੀਤੀ ਥਾਂ ਨਹੀਂ", "empty.saved": "ਕਿਸੇ ਵੀ ਰੈਸਟੋਰੈਂਟ ਦੀ ਫੋਟੋ 'ਤੇ ਬੁੱਕਮਾਰਕ ਦਬਾਓ, ਉਹ ਇੱਥੇ ਤੁਹਾਡੀ ਉਡੀਕ ਕਰੇਗਾ।" },
+ur: { "empty.savedt": "ابھی کوئی محفوظ جگہ نہیں", "empty.saved": "کسی بھی ریسٹورنٹ کی تصویر پر بُک مارک دبائیں، وہ یہاں آپ کا انتظار کرے گا۔" },
+pt: { "empty.savedt": "Ainda sem locais guardados", "empty.saved": "Toque no marcador na foto de qualquer restaurante e ele fica aqui à sua espera." },
+es: { "empty.savedt": "Aún no hay sitios guardados", "empty.saved": "Pulsa el marcador en la foto de cualquier restaurante y te esperará aquí." },
+ar: { "empty.savedt": "لا توجد أماكن محفوظة بعد", "empty.saved": "اضغط على علامة الحفظ في صورة أي مطعم وسينتظرك هنا." },
+bn: { "empty.savedt": "এখনো কোনো সেভ করা জায়গা নেই", "empty.saved": "যেকোনো রেস্টুরেন্টের ছবিতে বুকমার্ক চাপুন, সেটি এখানে আপনার জন্য থাকবে।" }
+};
+Object.keys(I18N_FIX1).forEach(l => Object.assign(I18N[l], I18N_FIX1[l]));

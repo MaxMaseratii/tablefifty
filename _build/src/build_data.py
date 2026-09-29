@@ -404,6 +404,13 @@ for v0 in V.values():
     if v0.get('ll'): by_city.setdefault(v0.get('ct'), []).append(v0)
 ec_added = ec_merged = 0
 ec_taken = set()
+def ec_display_name(r):
+    # EatClub adds the branch area to names ("Kanada-ya - Piccadilly"). We show the area on its own line, so drop it.
+    base, sep, suf = r['name'].partition(' - ')
+    base, suf = base.strip(" '\"").strip(), suf.strip()
+    if not sep or not base or not suf: return r['name'].strip()
+    place = name_key(' '.join(str(r.get(k) or '') for k in ('area', 'region', 'address'))) | {'rd', 'st', 'sq', 'city', 'centre', 'central', 'station', 'street', 'road', 'square', 'market', 'high', 'borough', 'london'}
+    return base if name_key(suf) <= place else r['name'].strip()
 PLACE_WORDS = {'street', 'road', 'square', 'lane', 'hill', 'market', 'station', 'central', 'city', 'centre', 'center', 'village', 'park', 'place', 'north', 'south', 'east', 'west', 'high', 'lounge', 'club', 'house', 'wine', 'pizza', 'grill', 'bistro', 'deli', 'coffee', 'pub', 'tavern', 'arms', 'inn', 'italian', 'indian', 'thai', 'chinese', 'japanese', 'sushi', 'ramen', 'burger', 'burgers', 'cocktail', 'cocktails', 'dining', 'room', 'eatery', 'co', 'uk'}
 for r in ec_rows:
     slots = {}
@@ -442,7 +449,7 @@ for r in ec_rows:
         if any(b > 1020 for (a, b, p) in slots): meals.append('d')
         area = (r.get('area') or '').strip()
         cityname = r.get('region')
-        v = venue(r['name'], key='ec-' + slug(r['slug']), a=(f"{area}, {cityname}" if area and area.lower() != cityname.lower() else cityname),
+        v = venue(ec_display_name(r), key='ec-' + slug(r['slug']), a=(f"{area}, {cityname}" if area and area.lower() != cityname.lower() else cityname),
                   reg=london_reg(ll) if ct == 'london' else ct, ct=ct, c=c, s='casual' if casual else 'smart', m=meals or ['l', 'd'])
         v['ll'] = ll; ec_added += 1
     if r.get('image') and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', r['image']) and 'img' not in v and 'imgx' not in v:
