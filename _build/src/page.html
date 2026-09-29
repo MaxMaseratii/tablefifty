@@ -1064,7 +1064,7 @@
        direct     : shop domain -> full tracking link from the brand's own programme (e.g. "ubereats.com")
        skimlinks  : Skimlinks site ID + the shop domains to send through it */
   const AFF = {
-    awin: { affid: "", on: {} },
+    awin: { affid: "3109908", on: {} },
     cj: { pid: "", on: [] },
     partnerize: {},
     direct: {},
@@ -2242,12 +2242,18 @@
   }
 
   /* ---------- Today's pick (spotlight) ----------
-     Paid spotlight: set SPONSOR = { id: "<venue id>", until: "YYYY-MM-DD" }. It then shows an "Ad" label (ASA/CAP rule 2.1). Paid placement never changes the score. */
-  const SPONSOR = { id: "", until: "" };
+     Paid Spotlight: add { id: "<venue id>", until: "YYYY-MM-DD" } to SPONSORS. The buyer in the visitor's city (or nearest) takes pick 1
+     with an "Ad" label (ASA/CAP rule 2.1). Paid placement never changes the score. */
+  const SPONSORS = [];
   const hashStr = str => [...str].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
   function pickSpots() {
     const picks = [];
-    if (SPONSOR.id && SPONSOR.until >= TODAY) { const sp = venues.find(v => v.id === SPONSOR.id); if (sp) picks.push({ v: sp, ad: true }); }
+    const live = SPONSORS.filter(x => x.id && x.until >= TODAY).map(x => venues.find(v => v.id === x.id)).filter(Boolean);
+    if (live.length) {
+      const here = state.loc ? [state.loc.lat, state.loc.lng] : state.area.startsWith("c:") && CITIES[state.area.slice(2)] ? CITIES[state.area.slice(2)].ll : null;
+      const sp = here ? live.filter(v => v.ll).sort((a, b) => miles(here, a.ll) - miles(here, b.ll))[0] || live[0] : live[hashStr(TODAY) % live.length];
+      picks.push({ v: sp, ad: true });
+    }
     const seenCz = new Set(picks.map(p => p.v.czKey)), seenId = new Set(picks.map(p => p.v.id));
     for (let i = 0; i < 12 && picks.length < 3; i++) {
       const p = pickSpot(i, seenCz, seenId);
