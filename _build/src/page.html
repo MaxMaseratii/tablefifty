@@ -1059,13 +1059,14 @@
        awin.affid : your Awin publisher ID          awin.on  : shop domain -> Awin advertiser ID (only approved ones)
          known IDs: tastecard.co.uk 16164, gourmetsociety.co.uk 16163, groupon.co.uk 116595, wowcher.co.uk 3595,
                     gousto.co.uk 5070, coop.co.uk 17305, dominos.co.uk 31075
-       cj.pid     : your CJ website PID             cj.on    : approved shop domains, e.g. "ocado.com"
+       cj.pid     : your CJ website PID             cj.on    : approved shop domains
+         CJ brands applied: asda.com (ASDA Groceries 6316018), sainsburys.co.uk (5422514), tesco.com (Tesco Stores 7244414), pizzahut.co.uk
        partnerize : shop domain -> Partnerize camref (e.g. "deliveroo.co.uk")
        direct     : shop domain -> full tracking link from the brand's own programme (e.g. "ubereats.com")
        skimlinks  : Skimlinks site ID + the shop domains to send through it */
   const AFF = {
     awin: { affid: "3109908", on: {} },
-    cj: { pid: "", on: [] },
+    cj: { pid: "101893504", on: ["asda.com"] },
     partnerize: {},
     direct: {},
     skimlinks: { id: "", on: [] }
