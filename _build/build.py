@@ -13,8 +13,8 @@ TODAY = datetime.date.today().isoformat()
 BRAND='TableFifty'; DOMAIN='tablefifty.co.uk'; BASE=f'https://{DOMAIN}/'
 CONTACT = 'info@tablefifty.co.uk'
 # Spotlight payment links from Stripe. Empty = the "For restaurants" page shows an email button instead.
-STRIPE_TRIAL = ''      # "Spotlight trial - 1 month", £19, one-off
-STRIPE_MONTHLY = ''    # "Spotlight - monthly", £49, repeats monthly
+STRIPE_TRIAL = 'https://buy.stripe.com/5kQ5kFd6k5hjdUh17X9Ve00'      # "Spotlight trial - 1 month", £19, one-off
+STRIPE_MONTHLY = 'https://buy.stripe.com/9B63cx1nCbFH8zXeYN9Ve01'    # "Spotlight - monthly", £49, repeats monthly
 # Google Search Console "HTML tag" code (only the content="..." part). Empty = no tag.
 GSC_TOKEN = ''
 about=open(os.path.join(SRC, 'about-content.html'),encoding='utf-8').read().replace('hello@tablefifty.co.uk', CONTACT)
@@ -157,7 +157,7 @@ fix_body = "Hello TableFifty,\n\nPlease update our listing.\n\nRestaurant name:\
 if STRIPE_TRIAL or STRIPE_MONTHLY:
     buy = ''.join(f'<a class="btn" href="{_h.escape(u, quote=True)}" target="_blank" rel="noopener">{t}</a>' for u, t in
                   [(STRIPE_TRIAL, 'Start the £19 trial month'), (STRIPE_MONTHLY, 'Pay £49 a month')] if u)
-    buy += f'<p class="small">After paying, reply to the Stripe receipt or email {CONTACT} with your restaurant name. We switch it on within 1 working day.</p>'
+    buy += f'<p class="small">Secure card payment by Stripe. We switch your Spotlight on within 1 working day. Questions: {CONTACT}.</p>'
 else:
     buy = f'<a class="btn" href="{_h.escape(mailto("Spotlight booking", sp_body), quote=True)}">Book Spotlight by email</a><p class="small">We reply within 1 working day with a secure payment link.</p>'
 rest_css = PAGE_CSS.replace('</style>', """  .card{{border:1px solid rgba(157,173,196,.25);border-radius:18px;padding:20px;display:grid;gap:10px}}
