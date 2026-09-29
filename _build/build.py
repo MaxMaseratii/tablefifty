@@ -146,34 +146,35 @@ for v in _deals:
 print('restaurant pages:', len(rurls))
 
 # ---------- "For restaurants" page: tablefifty.co.uk/restaurants/ ----------
-import urllib.parse as _up
+# A short enquiry form only. Prices and payment links (STRIPE_TRIAL / STRIPE_MONTHLY) are sent by email
+# to restaurants that ask, never shown publicly. Form posts go to CONTACT through FormSubmit (formsubmit.co).
 n_offers = sum(len(v.get('o', [])) for v in _deals)
 n_places = sum(1 for v in _deals if v.get('k') == 'dine' and not v.get('nodeal'))
-def mailto(subject, body):
-    return 'mailto:' + CONTACT + '?' + _up.urlencode({'subject': subject, 'body': body}, quote_via=_up.quote)
-sp_body = "Hello TableFifty,\n\nWe would like the Spotlight slot.\n\nRestaurant name:\nTown / city:\nOur TableFifty link (if listed):\nContact name and phone:\nStart date:\n\nThank you"
-ft_body = "Hello TableFifty,\n\nPlease introduce us to First Table. You can share these details with their team.\n\nRestaurant name:\nTown / city:\nOwner or manager name:\nEmail:\nPhone:\n\nThank you"
-fix_body = "Hello TableFifty,\n\nPlease update our listing.\n\nRestaurant name:\nOur TableFifty link:\nWhat to change (photo, text, link, closed...):\n\nThank you"
-if STRIPE_TRIAL or STRIPE_MONTHLY:
-    buy = ''.join(f'<a class="btn" href="{_h.escape(u, quote=True)}" target="_blank" rel="noopener">{t}</a>' for u, t in
-                  [(STRIPE_TRIAL, 'Start the £19 trial month'), (STRIPE_MONTHLY, 'Pay £49 a month')] if u)
-    buy += f'<p class="small">Secure card payment by Stripe. We switch your Spotlight on within 1 working day. Questions: {CONTACT}.</p>'
-else:
-    buy = f'<a class="btn" href="{_h.escape(mailto("Spotlight booking", sp_body), quote=True)}">Book Spotlight by email</a><p class="small">We reply within 1 working day with a secure payment link.</p>'
-rest_css = PAGE_CSS.replace('</style>', """  .card{{border:1px solid rgba(157,173,196,.25);border-radius:18px;padding:20px;display:grid;gap:10px}}
-  .card h2{{margin:0;font-family:var(--f-display);font-size:22px;color:var(--text)}}
-  .price{{font-family:var(--f-display);font-size:28px;font-weight:800;color:var(--text)}} .price small{{font-size:15px;color:var(--muted);font-weight:600}}
-  .btn{{display:inline-block;justify-self:start;background:var(--amber);color:var(--amber-ink);font-weight:800;text-decoration:none;padding:12px 18px;border-radius:12px;margin:4px 8px 0 0}}
-  .small{{font-size:14px;color:var(--faint);margin:0}}
-  .stats{{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--text);font-weight:700}}
-</style>""".replace('{{', '{').replace('}}', '}'))
+rest_css = PAGE_CSS.replace('</style>', """  form{display:grid;gap:14px;margin-top:6px}
+  label{display:grid;gap:6px;font-weight:600;color:var(--text);font-size:15px}
+  label small{font-weight:400;color:var(--faint)}
+  input,select,textarea{font:inherit;font-size:16px;color:var(--text);background:#131d33;border:1px solid #34466b;border-radius:12px;padding:12px 14px;width:100%}
+  textarea{min-height:110px;resize:vertical}
+  input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  fieldset{border:1px solid #34466b;border-radius:12px;padding:12px 14px;display:grid;gap:8px;margin:0}
+  legend{font-weight:600;color:var(--text);padding:0 6px}
+  .chk{display:flex;gap:10px;align-items:flex-start;font-weight:500;color:var(--muted)}
+  .chk input{width:18px;height:18px;margin-top:3px;flex:none}
+  .row2{display:grid;gap:14px} @media (min-width:640px){.row2{grid-template-columns:1fr 1fr}}
+  .btn{justify-self:start;background:var(--amber);color:var(--amber-ink);font:inherit;font-weight:800;border:0;padding:13px 20px;border-radius:12px;cursor:pointer}
+  .btn[disabled]{opacity:.6;cursor:wait}
+  .msg{margin:0;font-weight:600} .msg.ok{color:var(--accent)} .msg.warn{color:var(--amber)}
+  .hp{position:absolute;left:-5000px}
+  .small{font-size:14px;color:var(--faint);margin:0}
+  .stats{display:flex;flex-wrap:wrap;gap:10px 22px;color:var(--text);font-weight:700}
+</style>""")
 restaurants = f"""<!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>For restaurants | {BRAND}</title>
-<meta name="description" content="Get more diners from {BRAND}: the Spotlight slot at the top of the site, a free First Table introduction, and free listing fixes.">
+<meta name="description" content="Restaurant owner or manager? Contact {BRAND} to reach more UK diners, join a deals platform, or update your listing.">
 <link rel="canonical" href="{BASE}restaurants/">
 <link rel="icon" href="{fav}">
 <meta property="og:title" content="{BRAND} for restaurants"><meta property="og:url" content="{BASE}restaurants/"><meta property="og:image" content="{BASE}img/hero.jpg">
@@ -185,41 +186,76 @@ restaurants = f"""<!doctype html>
 <body>
   <main class="wrap">
     <a class="top" href="/"><span class="mark" aria-hidden="true">50</span><b>Table<span>Fifty</span></b></a>
-    <h1>{BRAND} for restaurants</h1>
+    <h1>For restaurants</h1>
     <div class="about">
-      <p>{BRAND} shows UK diners the best restaurant, pub and takeaway deals near them, checked every morning. Diners click through and book with you or your booking platform.</p>
-      <div class="stats"><span>{n_offers:,} live offers</span><span>{n_places:,} restaurants and pubs</span><span>Checked daily</span><span>9 languages</span></div>
+      <p>{BRAND} shows UK diners the best restaurant, pub and takeaway deals near them, checked every morning.</p>
+      <div class="stats"><span>{n_offers:,} live offers</span><span>{n_places:,} restaurants and pubs</span><span>9 languages</span></div>
+      <p>Restaurant owner or manager? Tell us what you need. We reply within 1 working day with the details.</p>
 
-      <div class="card" id="spotlight">
-        <h2>Spotlight: be "Today's pick"</h2>
-        <p>Your restaurant sits in the first of the 5 "Today's picks" at the top of {BRAND}, with a large photo, your deal and a direct booking button. Diners searching your town or postcode see it first.</p>
-        <div class="price">£19 <small>first month (trial)</small> · £49 <small>a month after</small></div>
-        <ul>
-          <li>Clearly labelled <span class="adtag">Ad</span>, as UK advertising rules require.</li>
-          <li><strong>Paying never changes your TableFifty Score or your reviews.</strong></li>
-          <li>You need a live deal on {BRAND} (First Table, EatClub, TheFork or your own offer).</li>
-          <li>No contract. Stop any time before the next month.</li>
-        </ul>
-        {buy}
-      </div>
+      <form id="enq" novalidate>
+        <div class="row2">
+          <label>Restaurant name<input name="restaurant" required maxlength="100" autocomplete="organization"></label>
+          <label>Town or city<input name="town" required maxlength="60" autocomplete="address-level2"></label>
+        </div>
+        <div class="row2">
+          <label>Your name<input name="name" required maxlength="80" autocomplete="name"></label>
+          <label>Your role<select name="role"><option>Owner</option><option>Manager</option><option>Marketing</option><option>Other</option></select></label>
+        </div>
+        <div class="row2">
+          <label>Email<input name="email" type="email" required maxlength="120" autocomplete="email"></label>
+          <label>Phone <small>(optional)</small><input name="phone" type="tel" maxlength="30" autocomplete="tel"></label>
+        </div>
+        <fieldset>
+          <legend>I'm interested in</legend>
+          <label class="chk"><input type="checkbox" name="interest" value="More diners from TableFifty">More diners from {BRAND}</label>
+          <label class="chk"><input type="checkbox" name="interest" value="Joining a deals platform (First Table)">Filling quiet tables with a deals platform</label>
+          <label class="chk"><input type="checkbox" name="interest" value="Update or remove our listing">Updating or removing our listing</label>
+          <label class="chk"><input type="checkbox" name="interest" value="Something else">Something else</label>
+        </fieldset>
+        <label>Message <small>(optional)</small><textarea name="message" maxlength="2000"></textarea></label>
+        <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="chk"><input type="checkbox" name="consent" required>I agree that {BRAND} can contact me about this request.</label>
+        <label class="chk"><input type="checkbox" name="share_first_table">If we're interested in a deals platform, you may share my name, email and phone with First Table.</label>
+        <button class="btn" type="submit" id="send">Send</button>
+        <p class="msg" id="msg" aria-live="polite"></p>
+      </form>
 
-      <div class="card" id="first-table">
-        <h2>Fill your quiet tables</h2>
-        <p>Not on a deals platform yet? First Table sends diners to your early and late tables: they get 50% off food, you choose the days and times. We can introduce you to their team. It costs you nothing to ask.</p>
-        <a class="btn" href="{_h.escape(mailto("First Table introduction", ft_body), quote=True)}">Ask for an introduction</a>
-        <p class="small">By sending this email you agree that we pass your name, email and phone to First Table.</p>
-      </div>
-
-      <div class="card" id="listing">
-        <h2>Fix or remove your listing: free</h2>
-        <p>New photos, a wrong link, a menu, or you have closed? Tell us and we update it, usually within 1 working day.</p>
-        <a class="btn" href="{_h.escape(mailto("Update our listing", fix_body), quote=True)}">Update our listing</a>
-      </div>
-
-      <p class="small">{BRAND} is independent and is not linked to, or approved by, the platforms it lists. Questions: <a href="mailto:{CONTACT}">{CONTACT}</a>. <a href="/privacy.html">About &amp; privacy</a>.</p>
+      <p class="small">{BRAND} is independent and is not linked to, or approved by, the platforms it lists. Your message is sent to {CONTACT} and used only to answer you. <a href="/privacy.html">About &amp; privacy</a>.</p>
     </div>
     <p style="margin-top:32px"><a href="/">← Back to the deals</a></p>
   </main>
+<script>
+(function () {{
+  var f = document.getElementById("enq"), msg = document.getElementById("msg"), btn = document.getElementById("send");
+  function say(t, c) {{ msg.textContent = t; msg.className = "msg " + (c || ""); }}
+  f.addEventListener("submit", function (e) {{
+    e.preventDefault();
+    var d = new FormData(f);
+    if (d.get("_honey")) return;
+    var email = String(d.get("email") || "").trim();
+    if (!String(d.get("restaurant") || "").trim() || !String(d.get("town") || "").trim() || !String(d.get("name") || "").trim()) {{ say("Please fill in the restaurant, town and your name.", "warn"); return; }}
+    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]{{2,}}$/.test(email)) {{ say("Please enter a valid email address.", "warn"); return; }}
+    if (!d.get("consent")) {{ say("Please tick the box so we can reply to you.", "warn"); return; }}
+    var body = {{
+      _subject: "TableFifty restaurant enquiry: " + d.get("restaurant") + " (" + d.get("town") + ")",
+      _template: "table", _captcha: "false",
+      restaurant: d.get("restaurant"), town: d.get("town"), name: d.get("name"), role: d.get("role"),
+      email: email, phone: d.get("phone") || "", interest: d.getAll("interest").join(", ") || "Not ticked",
+      message: d.get("message") || "", share_with_first_table: d.get("share_first_table") ? "Yes" : "No",
+      _replyto: email
+    }};
+    btn.disabled = true; say("Sending...");
+    fetch("https://formsubmit.co/ajax/{CONTACT}", {{ method: "POST", headers: {{ "Content-Type": "application/json", "Accept": "application/json" }}, body: JSON.stringify(body) }})
+      .then(function (r) {{ return r.json().catch(function () {{ return {{}}; }}).then(function (j) {{ return {{ ok: r.ok, j: j }}; }}); }})
+      .then(function (x) {{
+        if (x.ok && String(x.j.success) === "true") {{ f.reset(); say("Thank you! We have your message and will reply within 1 working day.", "ok"); }}
+        else {{ say("Sorry, that didn't send. Please email us at {CONTACT}.", "warn"); }}
+      }})
+      .catch(function () {{ say("Sorry, that didn't send. Please email us at {CONTACT}.", "warn"); }})
+      .then(function () {{ btn.disabled = false; }});
+  }});
+}})();
+</script>
 </body>
 </html>
 """
