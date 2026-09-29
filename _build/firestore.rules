@@ -14,12 +14,13 @@ service cloud.firestore {
         allow read, delete: if request.auth != null && request.auth.uid == uid;
         allow create, update: if request.auth != null && request.auth.uid == uid
           && request.auth.token.firebase.sign_in_provider != 'anonymous'
-          && request.resource.data.keys().hasOnly(['vid', 'name', 'area', 'city', 'date', 'stars', 'dish', 'with', 'note', 'photos', 'best', 'at'])
+          && request.resource.data.keys().hasOnly(['vid', 'name', 'area', 'city', 'date', 'stars', 'dish', 'with', 'note', 'photos', 'caps', 'best', 'at'])
           && request.resource.data.name is string && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 100
           && request.resource.data.date is string && request.resource.data.date.matches('^20[0-9][0-9]-[01][0-9]-[0-3][0-9]$')
           && request.resource.data.stars is int && request.resource.data.stars >= 0 && request.resource.data.stars <= 5
           && request.resource.data.note is string && request.resource.data.note.size() <= 600
           && request.resource.data.photos is list && request.resource.data.photos.size() <= 4
+          && (!('caps' in request.resource.data) || (request.resource.data.caps is list && request.resource.data.caps.size() <= 4))
           && request.resource.data.best is int;
       }
     }

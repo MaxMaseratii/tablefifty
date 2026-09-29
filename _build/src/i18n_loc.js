@@ -564,3 +564,15 @@ bn: { "me.hi": "হ্যালো, {n} 👋", "me.askname": "আমরা আ�
   "b.first": "প্রথম কামড়", "b.first.d": "প্রথম ভিজিট সেভ করুন", "b.photo5": "খাবারের ফটোগ্রাফার", "b.photo5.d": "৫টি খাবারের ছবি যোগ করুন", "b.review5": "সমালোচক", "b.review5.d": "৫টি ভিজিটে তারা দিন", "b.towns3": "অভিযাত্রী", "b.towns3.d": "৩টি শহরে খান", "b.cuisine5": "বিশ্বের প্লেট", "b.cuisine5.d": "৫ ধরনের রান্না চেখে দেখুন", "b.visits10": "নিয়মিত অতিথি", "b.visits10.d": "১০টি ভিজিট সেভ করুন", "b.michelin": "মিশেলিন মুহূর্ত", "b.michelin.d": "MICHELIN গাইডের রেস্টুরেন্টে যান", "b.saved5": "ইচ্ছের তালিকা", "b.saved5.d": "৫টি জায়গা সেভ করুন" }
 };
 Object.keys(I18N_ME).forEach(l => Object.assign(I18N[l], I18N_ME[l]));
+const I18N_DISC = {
+en: { "dsc.label": "Discover", "dsc.ad": "Ad · Featured", "dsc.prev": "Previous", "dsc.next": "Next", "dy.cap": "Add a caption (optional)" },
+pl: { "dsc.label": "Odkryj", "dsc.ad": "Reklama · Polecane", "dsc.prev": "Poprzedni", "dsc.next": "Następny", "dy.cap": "Dodaj opis (opcjonalnie)" },
+ro: { "dsc.label": "Descoperă", "dsc.ad": "Reclamă · Recomandat", "dsc.prev": "Înapoi", "dsc.next": "Înainte", "dy.cap": "Adaugă o descriere (opțional)" },
+pa: { "dsc.label": "ਖੋਜੋ", "dsc.ad": "ਇਸ਼ਤਿਹਾਰ · ਖ਼ਾਸ", "dsc.prev": "ਪਿਛਲਾ", "dsc.next": "ਅਗਲਾ", "dy.cap": "ਵੇਰਵਾ ਲਿਖੋ (ਚੋਣਵਾਂ)" },
+ur: { "dsc.label": "دریافت کریں", "dsc.ad": "اشتہار · نمایاں", "dsc.prev": "پچھلا", "dsc.next": "اگلا", "dy.cap": "تفصیل لکھیں (اختیاری)" },
+pt: { "dsc.label": "Descobrir", "dsc.ad": "Anúncio · Destaque", "dsc.prev": "Anterior", "dsc.next": "Seguinte", "dy.cap": "Adicione uma legenda (opcional)" },
+es: { "dsc.label": "Descubre", "dsc.ad": "Anuncio · Destacado", "dsc.prev": "Anterior", "dsc.next": "Siguiente", "dy.cap": "Añade una descripción (opcional)" },
+ar: { "dsc.label": "اكتشف", "dsc.ad": "إعلان · مميز", "dsc.prev": "السابق", "dsc.next": "التالي", "dy.cap": "أضف وصفًا (اختياري)" },
+bn: { "dsc.label": "খুঁজে দেখুন", "dsc.ad": "বিজ্ঞাপন · বিশেষ", "dsc.prev": "আগের", "dsc.next": "পরের", "dy.cap": "বিবরণ লিখুন (ঐচ্ছিক)" }
+};
+Object.keys(I18N_DISC).forEach(l => Object.assign(I18N[l], I18N_DISC[l]));

@@ -90,6 +90,28 @@
   .hero .wrap{padding-block:60px 100px;display:grid;gap:28px}
   .hero-main{display:grid;gap:18px;align-content:center}
   .spotwrap{padding-block:22px 4px}
+  @media (min-width:1000px){.hero .wrap{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);align-items:center;gap:40px}}
+  .disc{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3.1;background:var(--surface-2);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.5);isolation:isolate}
+  @media (max-width:640px){.disc{aspect-ratio:4/3.6}}
+  .disc-slide{position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .6s ease,transform 6s ease;pointer-events:none}
+  .disc-slide.on{opacity:1;transform:scale(1);pointer-events:auto}
+  .disc-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .disc-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,9,20,.95) 0%,rgba(5,9,20,.55) 42%,rgba(5,9,20,0) 70%)}
+  .disc-top{position:absolute;z-index:3;top:12px;inset-inline:12px;display:flex;justify-content:space-between;align-items:center;gap:8px;pointer-events:none}
+  .disc-tag{background:rgba(5,9,20,.72);color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+  .disc-tag.ad{background:var(--amber);color:var(--amber-ink)}
+  .disc-deal{background:var(--amber);color:var(--amber-ink);font-weight:800;font-size:13px;padding:6px 10px;border-radius:999px}
+  .disc-info{position:absolute;z-index:2;inset:auto 0 0 0;padding:18px 18px 44px;display:grid;gap:6px;color:#fff}
+  .disc-info h3{margin:0;font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.6vw,30px);line-height:1.1}
+  .disc-info p{margin:0;font-size:14px;color:#d6e0ee}
+  .disc-info .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .disc-info .btn{min-height:40px}
+  .disc-nav{position:absolute;z-index:4;inset:auto 0 12px 0;display:flex;justify-content:center;align-items:center;gap:6px}
+  .disc-nav button.dot{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:rgba(255,255,255,.45);cursor:pointer;transition:width .25s}
+  .disc-nav button.dot[aria-current="true"]{width:24px;background:var(--amber)}
+  .disc-arrow{position:absolute;z-index:4;top:30%;width:40px;height:40px;border-radius:50%;border:0;display:grid;place-items:center;background:rgba(5,9,20,.6);color:#fff;cursor:pointer;backdrop-filter:blur(6px)}
+  .disc-arrow.prev{inset-inline-start:10px} .disc-arrow.next{inset-inline-end:10px}
+  @media (hover:none){.disc-arrow{display:none}}
   @media (min-width:1300px){.hero .wrap{max-width:1320px}}
   .spot{background:var(--surface);border:1px solid rgba(245,158,11,.45);border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);display:grid;width:100%}
   .spot-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:linear-gradient(90deg,rgba(245,158,11,.22),rgba(245,158,11,.05));font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
@@ -394,6 +416,13 @@
   .dy-note{font-family:var(--f-body)!important;font-size:14px!important;min-height:80px!important;direction:auto!important}
   .dy-photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
   .dy-photos:empty{display:none}
+  @media (max-width:520px){.dy-photos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .dy-phw{display:grid;gap:6px;min-width:0}
+  .dy-cap{width:100%;min-height:36px!important;padding:6px 9px!important;font-size:13px;border-radius:9px!important;font-family:var(--f-body)}
+  .dy-strip{display:flex;gap:8px;overflow-x:auto;padding:4px 0 2px;scroll-snap-type:x mandatory}
+  .dy-strip figure{margin:0;flex:0 0 118px;display:grid;gap:4px;scroll-snap-align:start}
+  .dy-strip img{width:118px;height:118px;object-fit:cover;border-radius:10px;display:block}
+  .dy-strip figcaption{font-size:12px;color:var(--muted);line-height:1.3}
   .dy-ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;border:2px solid transparent;background:var(--surface-2)}
   .dy-ph.best{border-color:var(--amber)}
   .dy-ph img{width:100%;height:100%;object-fit:cover;display:block}
@@ -636,6 +665,7 @@
       <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5L20 7"/></svg><span data-i18n="trust.c"></span></li>
     </ul>
     </div>
+    <aside class="disc" id="disc" aria-roledescription="carousel" hidden></aside>
   </div>
 </header>
 
@@ -1910,7 +1940,7 @@
     }
     renderCuisines();
     renderFallback();
-    renderSpot();
+    renderSpot(); renderDiscover();
     fetchCounts();
   }
 
@@ -2421,7 +2451,7 @@
      Stored in Firestore profiles/{uid}/diary/{id}. Photos are shrunk in the browser (about 100-250 KB each)
      and kept inside the document, so no paid file storage is needed. Nothing is public; users share a visit
      themselves (the phone's share sheet sends the photo to WhatsApp, Instagram, etc.). */
-  const diary = { items: null, edit: null, v: null, stars: 0, photos: [], best: 0 };
+  const diary = { items: null, edit: null, v: null, stars: 0, photos: [], caps: [], best: 0 };
   const DY_MAX = 4;
   const venueById = id => venues.find(x => x.id === id);
   function fmtDay(iso) { try { return new Intl.DateTimeFormat(lang, { day: "numeric", month: "short", year: "numeric" }).format(new Date(iso + "T12:00:00")); } catch (e) { return iso; } }
@@ -2448,10 +2478,11 @@
   }
   function paintDiaryStars() { document.querySelectorAll("#dStars [data-dstar]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.dstar <= diary.stars))); }
   function paintDiaryPhotos() {
-    $("#dPhotos").innerHTML = diary.photos.map((src, i) => `<div class="dy-ph${i === diary.best ? " best" : ""}">
+    $("#dPhotos").innerHTML = diary.photos.map((src, i) => `<div class="dy-phw"><div class="dy-ph${i === diary.best ? " best" : ""}">
       <img src="${esc(src)}" alt="">
       <button type="button" class="dy-best" data-dbest="${i}" aria-label="${esc(t("dy.fav"))}" aria-pressed="${i === diary.best}">${I.star}</button>
-      <button type="button" class="dy-del" data-ddel="${i}" aria-label="${esc(t("remove"))}">×</button></div>`).join("");
+      <button type="button" class="dy-del" data-ddel="${i}" aria-label="${esc(t("remove"))}">×</button></div>
+      <input class="dy-cap" data-dcap="${i}" maxlength="80" value="${esc(diary.caps[i] || "")}" placeholder="${esc(t("dy.cap"))}" aria-label="${esc(t("dy.cap"))}"></div>`).join("");
     $("#dFileBtn").hidden = diary.photos.length >= DY_MAX;
   }
   async function openDiaryAdd(vid, item) {
@@ -2460,6 +2491,7 @@
     diary.v = v; diary.edit = item ? item.id : null;
     diary.stars = item ? item.stars || 0 : (v && likeStore.rated[v.id]) || 0;
     diary.photos = item ? (item.photos || []).slice() : []; diary.best = item ? item.best || 0 : 0;
+    diary.caps = diary.photos.map((_, i) => (item && item.caps && item.caps[i]) || "");
     $("#dAddTitle").textContent = v || item ? t("rate.title", { v: (v && v.name) || item.name }) : t("dy.new");
     $("#dPickWrap").hidden = !!(v || item);
     if (!v && !item) {
@@ -2477,11 +2509,12 @@
   $("#dPhotos").addEventListener("click", e => {
     const b = e.target.closest("[data-dbest]"), d = e.target.closest("[data-ddel]");
     if (b) { diary.best = +b.dataset.dbest; paintDiaryPhotos(); }
-    if (d) { const i = +d.dataset.ddel; diary.photos.splice(i, 1); if (diary.best >= diary.photos.length) diary.best = 0; else if (i < diary.best) diary.best--; paintDiaryPhotos(); }
+    if (d) { const i = +d.dataset.ddel; diary.photos.splice(i, 1); diary.caps.splice(i, 1); if (diary.best >= diary.photos.length) diary.best = 0; else if (i < diary.best) diary.best--; paintDiaryPhotos(); }
   });
+  $("#dPhotos").addEventListener("input", e => { const c = e.target.closest("[data-dcap]"); if (c) diary.caps[+c.dataset.dcap] = c.value; });
   $("#dFile").addEventListener("change", async e => {
     const files = [...e.target.files].slice(0, DY_MAX - diary.photos.length); e.target.value = "";
-    for (const f of files) { try { diary.photos.push(await shrinkPhoto(f)); } catch (err) { $("#dMsg").textContent = t("dy.photoerr"); } }
+    for (const f of files) { try { diary.photos.push(await shrinkPhoto(f)); diary.caps.push(""); } catch (err) { $("#dMsg").textContent = t("dy.photoerr"); } }
     paintDiaryPhotos();
   });
   $("#dForm").addEventListener("submit", async e => {
@@ -2497,7 +2530,7 @@
     if (diary.edit) { const it = (diary.items || []).find(x => x.id === diary.edit); if (it) { name = it.name; area = it.area; if (!v && it.vid) v = venueById(it.vid); } }
     const row = { vid: v ? v.id : "", name: name.slice(0, 100), area: String(area).slice(0, 80), city: v ? v.city || "" : "",
       date: $("#dDate").value || TODAY, stars: diary.stars, dish: $("#dDish").value.trim().slice(0, 80), with: $("#dWith").value.trim().slice(0, 80),
-      note: $("#dNote").value.trim().slice(0, 600), photos: diary.photos, best: diary.best, at: acct.fb.serverTimestamp() };
+      note: $("#dNote").value.trim().slice(0, 600), photos: diary.photos, caps: diary.photos.map((_, i) => String(diary.caps[i] || "").trim().slice(0, 80)), best: diary.best, at: acct.fb.serverTimestamp() };
     const btn = $("#dSave"); btn.disabled = true;
     try {
       const F = acct.fb, col = F.collection(acct.db, "profiles", user.uid, "diary");
@@ -2551,7 +2584,7 @@
       return `<div class="me-badge${done ? " on" : ""}" title="${esc(t("b." + b.k + ".d"))}"><span class="ic" aria-hidden="true">${b.ic}</span><b>${esc(t("b." + b.k))}</b><small>${done ? "✓" : g + "/" + b.need}</small></div>`; }).join("");
     const plates = (diary.items || []).filter(x => (x.photos || []).length).slice(0, 8);
     $("#mePlatesWrap").hidden = !plates.length;
-    $("#mePlates").innerHTML = plates.map(x => `<button type="button" class="me-plate" data-dedit="${esc(x.id)}"><img src="${esc(x.photos[x.best || 0] || x.photos[0])}" alt="${esc(x.dish || x.name)}"><span>${esc(x.dish || x.name)}</span></button>`).join("");
+    $("#mePlates").innerHTML = plates.map(x => `<button type="button" class="me-plate" data-dedit="${esc(x.id)}"><img src="${esc(x.photos[x.best || 0] || x.photos[0])}" alt="${esc(x.dish || x.name)}"><span>${esc(((x.caps || [])[x.best || 0]) || x.dish || x.name)}</span></button>`).join("");
     const sv = [...favs].map(venueById).filter(Boolean).slice(0, 6);
     $("#meSavedWrap").hidden = !sv.length;
     $("#meSaved").innerHTML = sv.map(v => `<button type="button" class="dy-nx" data-ins="${esc(v.id)}">${imgTag(v)}<b>${esc(v.name)}</b><small>${esc(v.area || "")}${v.sc ? " · " + esc(String(v.sc[0])) + "/10" : ""}</small></button>`).join("");
@@ -2590,6 +2623,7 @@
           ${x.dish ? `<p><b>${esc(t("dy.dish"))}:</b> ${esc(x.dish)}</p>` : ""}
           ${x.with ? `<p class="dy-meta">${esc(t("dy.withshort", { w: x.with }))}</p>` : ""}
           ${x.note ? `<p class="dy-note-t">${esc(x.note)}</p>` : ""}
+          ${(x.photos || []).length > 1 || (x.caps || []).some(Boolean) ? `<div class="dy-strip">${(x.photos || []).map((src, i) => `<figure><img src="${esc(src)}" alt="${esc((x.caps || [])[i] || x.dish || x.name)}" loading="lazy">${(x.caps || [])[i] ? `<figcaption>${esc(x.caps[i])}</figcaption>` : ""}</figure>`).join("")}</div>` : ""}
           <div class="dy-btns">
             <button type="button" class="btn btn-primary" data-dshare="${esc(x.id)}">${I.share}${esc(t("share.btn"))}</button>
             <button type="button" class="btn" data-dedit="${esc(x.id)}">${esc(t("dy.edit"))}</button>
@@ -2689,6 +2723,71 @@
     return { v: top[hashStr(TODAY + key + round) % top.length] };
   }
   let spotIdx = 0, spotPicks = [];
+
+  /* ---------- Discover showcase (hero) ----------
+     A sliding showcase of great deals to try, different from Today's picks. It is also promotional space:
+     add { id: "<venue id>", until: "YYYY-MM-DD" } to FEATURED and that restaurant slides first with an "Ad" label.
+     Paid placement never changes the score. */
+  const FEATURED = [];
+  let discIdx = 0, discTimer = null, discItems = [];
+  function pickDiscover() {
+    const skip = new Set(spotPicks.map(p => p.v.id));
+    const ads = FEATURED.filter(x => x.id && x.until >= TODAY).map(x => venueById(x.id)).filter(Boolean).map(v => ({ v, ad: true }));
+    ads.forEach(a => skip.add(a.v.id));
+    let pool = venues.filter(v => v.k === "dine" && !v.custom && !isNational(v) && v.offers.length && !skip.has(v.id) && v.sc && v.sc[0] >= 8.8 && v.sc[1] >= 15 && v.img && !v.nodeal);
+    if (state.loc) { const here = [state.loc.lat, state.loc.lng]; const near = pool.filter(v => v.ll && miles(here, v.ll) <= Math.max(10, state.rad || 10)); if (near.length >= 6) pool = near; }
+    else if (state.area.startsWith("c:")) { const c = state.area.slice(2); const p2 = pool.filter(v => v.city === c); if (p2.length >= 6) pool = p2; }
+    const val = v => { const o = mainOffer(v.offers); return (o.n || 0) + v.sc[0] * 3; };
+    pool.sort((a, b) => val(b) - val(a));
+    const top = pool.slice(0, 60).sort((a, b) => hashStr(TODAY + a.id) - hashStr(TODAY + b.id));
+    const out = [], cz = new Set(), cities = new Map();
+    for (const v of top) {
+      if (out.length >= 6) break;
+      if (cz.has(v.czKey)) continue;
+      if (!state.loc && (cities.get(v.city) || 0) >= 2) continue;
+      out.push({ v }); cz.add(v.czKey); cities.set(v.city, (cities.get(v.city) || 0) + 1);
+    }
+    return ads.concat(out).slice(0, 8);
+  }
+  function renderDiscover() {
+    const box = $("#disc");
+    discItems = pickDiscover();
+    if (!discItems.length) { box.hidden = true; return; }
+    if (discIdx >= discItems.length) discIdx = 0;
+    box.setAttribute("aria-label", t("dsc.label"));
+    box.innerHTML = discItems.map((d, i) => { const v = d.v, o = mainOffer(v.offers), L = affLink(safeUrl(o.url) || "");
+      return `<div class="disc-slide${i === discIdx ? " on" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} / ${discItems.length}" ${i === discIdx ? "" : 'aria-hidden="true"'}>
+        ${imgTag(v, i === 0)}
+        <div class="disc-top"><span class="disc-tag${d.ad ? " ad" : ""}">${esc(d.ad ? t("dsc.ad") : t("dsc.label"))}</span><span class="disc-deal">${esc(ribbonFor(v.offers))}</span></div>
+        <div class="disc-info">
+          <h3>${esc(v.name)}</h3>
+          <p>${esc(v.area || "")} · ${esc(t("cz." + (v.czKey || "generic")))}${v.sc ? " · " + esc(v.sc[0].toFixed(1)) + "/10" : ""}</p>
+          <p>${esc(offerHead(o))} · ${esc(platName(o))}</p>
+          <div class="row">
+            <a class="btn btn-amber" href="${esc(L.href)}" target="_blank" rel="noopener noreferrer${o.affiliate || L.aff ? " sponsored" : ""}" data-open="${esc(platName(o))}" ${i === discIdx ? "" : 'tabindex="-1"'}>${esc(t("spot.see"))} ${I.ext}</a>
+            <button type="button" class="btn" data-ins="${esc(v.id)}" ${i === discIdx ? "" : 'tabindex="-1"'}>${I.spark}${esc(t("t50.btn"))}</button>
+          </div>
+        </div></div>`; }).join("") +
+      (discItems.length > 1 ? `<button type="button" class="disc-arrow prev" data-disc="-1" aria-label="${esc(t("dsc.prev"))}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" class="flip"><path d="m15 6-6 6 6 6"/></svg></button>
+      <button type="button" class="disc-arrow next" data-disc="1" aria-label="${esc(t("dsc.next"))}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true" class="flip"><path d="m9 6 6 6-6 6"/></svg></button>
+      <div class="disc-nav">${discItems.map((_, i) => `<button type="button" class="dot" data-discgo="${i}" aria-label="${i + 1}" ${i === discIdx ? 'aria-current="true"' : ""}></button>`).join("")}</div>` : "");
+    box.hidden = false;
+    discPlay();
+  }
+  function discShow(i) {
+    const n = discItems.length; if (!n) return;
+    discIdx = (i + n) % n;
+    $("#disc").querySelectorAll(".disc-slide").forEach((el, k) => { const on = k === discIdx; el.classList.toggle("on", on); if (on) el.removeAttribute("aria-hidden"); else el.setAttribute("aria-hidden", "true"); el.querySelectorAll("a,button").forEach(b => { if (on) b.removeAttribute("tabindex"); else b.setAttribute("tabindex", "-1"); }); });
+    $("#disc").querySelectorAll("[data-discgo]").forEach((d, k) => { if (k === discIdx) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); });
+  }
+  function discPlay() { clearInterval(discTimer); if (reduceMotion() || discItems.length < 2) return; discTimer = setInterval(() => { if (!document.hidden) discShow(discIdx + 1); }, 5500); }
+  $("#disc").addEventListener("click", e => { const a = e.target.closest("[data-disc]"), g = e.target.closest("[data-discgo]"); if (a) { discShow(discIdx + +a.dataset.disc); discPlay(); } if (g) { discShow(+g.dataset.discgo); discPlay(); } });
+  $("#disc").addEventListener("mouseenter", () => clearInterval(discTimer));
+  $("#disc").addEventListener("mouseleave", discPlay);
+  $("#disc").addEventListener("focusin", () => clearInterval(discTimer));
+  let discX = null;
+  $("#disc").addEventListener("pointerdown", e => { discX = e.clientX; });
+  $("#disc").addEventListener("pointerup", e => { if (discX == null) return; const dx = e.clientX - discX; discX = null; if (Math.abs(dx) > 40) { discShow(discIdx + (dx < 0 ? 1 : -1) * (document.dir === "rtl" ? -1 : 1)); discPlay(); } });
   function renderSpot() {
     const box = $("#spot");
     spotPicks = pickSpots();
