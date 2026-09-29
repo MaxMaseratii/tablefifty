@@ -394,6 +394,40 @@
   .missing-card li{display:flex;gap:8px;align-items:flex-start}
   .missing-card li svg{flex:none;margin-top:4px;color:var(--accent)}
 
+  /* Food diary */
+  .dy-note{font-family:var(--f-body)!important;font-size:14px!important;min-height:80px!important;direction:auto!important}
+  .dy-photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .dy-photos:empty{display:none}
+  .dy-ph{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;border:2px solid transparent;background:var(--surface-2)}
+  .dy-ph.best{border-color:var(--amber)}
+  .dy-ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .dy-ph button{position:absolute;top:4px;width:28px;height:28px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;background:rgba(3,7,18,.7);color:#fff;font-size:18px;line-height:1}
+  .dy-best{inset-inline-start:4px} .dy-best[aria-pressed="true"]{color:var(--amber)}
+  .dy-del{inset-inline-end:4px}
+  .dy-list{display:grid;gap:12px}
+  .dy-item{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding:10px;border:1px solid var(--line);border-radius:16px;background:var(--surface-2)}
+  @media (max-width:520px){.dy-item{grid-template-columns:1fr}}
+  .dy-pic{position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1;background:var(--surface-3)}
+  @media (max-width:520px){.dy-pic{aspect-ratio:16/10}}
+  .dy-pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .dy-count{position:absolute;bottom:6px;inset-inline-end:6px;background:rgba(3,7,18,.75);color:#fff;font-size:12px;font-weight:700;padding:1px 7px;border-radius:999px}
+  .dy-txt{display:grid;gap:4px;align-content:start;min-width:0}
+  .dy-txt h3{margin:0;font-family:var(--f-display);font-size:18px}
+  .dy-txt p{margin:0;font-size:14px}
+  .dy-meta{color:var(--muted);font-size:13px!important}
+  .dy-stars{color:var(--amber);letter-spacing:1px;white-space:nowrap} .dy-stars i{color:var(--line-2);font-style:normal}
+  .dy-note-t{color:var(--muted);white-space:pre-wrap}
+  .dy-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .dy-btns .btn{min-height:34px;font-size:13px;padding-inline:10px}
+  .dy-btns .btn.confirm{color:var(--amber)}
+  .dy-h{margin:6px 0 0;font-family:var(--f-display);font-size:17px}
+  .dy-next{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .dy-nx{display:grid;gap:4px;text-align:start;padding:0 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface-2);color:var(--text);cursor:pointer}
+  .dy-nx img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .dy-nx b,.dy-nx small{padding-inline:8px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .dy-nx b{font-size:13px} .dy-nx small{font-size:11.5px;color:var(--muted)}
+  #diaryDialog{width:min(680px,calc(100vw - 24px))}
+
   /* Newsletter */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   .news{padding-block:8px 48px}
@@ -541,6 +575,10 @@
       <button class="btn acct-btn" type="button" id="openAcct" data-i18n-aria="nav.signin" aria-label="Sign in">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
         <span class="lbl" id="acctLbl" data-i18n="nav.signin">Sign in</span>
+      </button>
+      <button class="btn acct-btn" type="button" id="openDiary" data-i18n-aria="dy.title" aria-label="My food diary">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/><path d="M9 8h6"/></svg>
+        <span class="lbl" data-i18n="dy.nav">Food diary</span>
       </button>
       <button class="btn btn-primary nav-cta" type="button" id="openAdd" data-i18n-aria="nav.cta" aria-label="Add custom venue URL">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
@@ -905,8 +943,62 @@
       <label class="checkrow" for="acctAlerts"><input id="acctAlerts" type="checkbox"><span data-i18n="acct.alerts"></span></label>
       <label class="checkrow" for="acctFeedback"><input id="acctFeedback" type="checkbox"><span data-i18n="acct.feedback"></span></label>
       <p class="acct-note" id="acctHome"></p>
+      <button class="btn btn-primary" type="button" data-diary-open data-i18n="dy.title">My food diary</button>
       <button class="btn" type="button" id="acctSignOut" data-i18n="acct.out">Sign out</button>
     </div>
+  </div>
+</dialog>
+
+<dialog id="diaryAddDialog" aria-labelledby="dAddTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div><h2 id="dAddTitle">How was it?</h2><p data-i18n="dy.addsub"></p></div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <form id="dForm" class="fields" novalidate>
+      <div class="field full" id="dPickWrap" hidden>
+        <label for="dPick" data-i18n="dy.pick">Restaurant</label>
+        <input id="dPick" list="dPickList" autocomplete="off" maxlength="100">
+        <datalist id="dPickList"></datalist>
+      </div>
+      <div class="field full">
+        <span class="lbl" data-i18n="dy.stars">Your stars</span>
+        <div class="stars" id="dStars" role="group"><button type="button" data-dstar="1" aria-label="1"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg></button><button type="button" data-dstar="2" aria-label="2"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg></button><button type="button" data-dstar="3" aria-label="3"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg></button><button type="button" data-dstar="4" aria-label="4"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg></button><button type="button" data-dstar="5" aria-label="5"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2.8 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3L12 17.3 6.3 20.3l1.1-6.3L2.8 9.5l6.4-.9z"/></svg></button></div>
+      </div>
+      <div class="field"><label for="dDate" data-i18n="dy.date">Date</label><input id="dDate" type="date"></div>
+      <div class="field"><label for="dDish" data-i18n="dy.dish">Best dish</label><input id="dDish" maxlength="80"></div>
+      <div class="field full"><label for="dWith" data-i18n="dy.with">Who with (optional)</label><input id="dWith" maxlength="80"></div>
+      <div class="field full"><label for="dNote" data-i18n="dy.note">Notes</label><textarea id="dNote" class="dy-note" maxlength="600"></textarea></div>
+      <div class="field full">
+        <span class="lbl" data-i18n="dy.photos">Photos (up to 4). Tap the star on your favourite plate.</span>
+        <div class="dy-photos" id="dPhotos"></div>
+        <label class="btn" for="dFile" id="dFileBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span data-i18n="dy.addphoto">Add photos</span></label>
+        <input id="dFile" type="file" accept="image/*" multiple hidden>
+      </div>
+      <label class="checkrow field full" for="dPublic"><input id="dPublic" type="checkbox" checked><span data-i18n="dy.public">Also add my stars to the TableFifty Score</span></label>
+      <p class="acct-msg err field full" id="dMsg"></p>
+      <div class="dlg-actions field full">
+        <button class="btn btn-ghost" type="button" data-close data-i18n="btn.cancel">Cancel</button>
+        <button class="btn btn-primary" type="submit" id="dSave" data-i18n="dy.save">Save to my food diary</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+
+<dialog id="diaryDialog" aria-labelledby="dTitle">
+  <div class="dlg">
+    <div class="dlg-head">
+      <div><h2 id="dTitle" data-i18n="dy.title">My food diary</h2><p id="dStats"></p></div>
+      <button class="btn btn-ghost btn-icon" type="button" data-close data-i18n-aria="btn.close" aria-label="Close">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <button class="btn btn-primary" type="button" id="dNew"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span data-i18n="dy.new">Add a visit</span></button>
+    <div id="dList" class="dy-list"></div>
+    <div id="dNext"></div>
+    <p class="acct-note" data-i18n="dy.private">Only you can see your diary. Share a visit when you want.</p>
   </div>
 </dialog>
 
@@ -2472,6 +2564,18 @@ bn: { "nl.eyebrow": "অর্ধেক দামের শুক্রবার
   "ab.c6": "**অর্ধেক দামের শুক্রবারের ইমেইল শুধু সাইন আপ করলেই আসে।** আমরা আপনার ইমেইল, ভাষা, এলাকা ও সম্মতির তারিখ রাখি। প্রতিটি ইমেইলে আনসাবস্ক্রাইব লিংক থাকে, আর আমরা কখনো আপনার ইমেইল বিক্রি বা শেয়ার করি না।" }
 };
 Object.keys(I18N_NL).forEach(l => Object.assign(I18N[l], I18N_NL[l]));
+const I18N_DY = {
+en: { "dy.nav": "Food diary", "dy.title": "My food diary", "dy.went": "I went here", "dy.new": "Add a visit", "dy.addsub": "Keep your meal in your private food diary: stars, best dish and photos.", "dy.pick": "Restaurant", "dy.stars": "Your stars", "dy.date": "Date", "dy.dish": "Best dish", "dy.with": "Who with (optional)", "dy.note": "Notes", "dy.photos": "Photos (up to 4). Tap the star on your favourite plate.", "dy.addphoto": "Add photos", "dy.public": "Also add my stars to the TableFifty Score", "dy.save": "Save to my food diary", "dy.private": "Only you can see your diary. Share a visit when you want.", "dy.fav": "Favourite plate", "dy.photoerr": "One photo could not be added. Try another one.", "dy.needname": "Please choose the restaurant.", "dy.saved": "Saved to your food diary", "dy.toobig": "Too many big photos. Remove one and try again.", "dy.stats": "Places {p} · Towns {c} · Photos {f}", "dy.edit": "Edit", "dy.empty": "No visits yet. After your next meal out, press \"I went here\" on the restaurant and add your photos.", "dy.withshort": "With {w}", "dy.next": "Try next", "dy.nextliked": "Try next, because you liked similar places", "dy.sharetext": "I ate at {v}{s}.{d} Find the deal on TableFifty:", "dy.sharedish": "Best dish: {d}." },
+pl: { "dy.nav": "Dziennik jedzenia", "dy.title": "Mój dziennik jedzenia", "dy.went": "Byłem tu", "dy.new": "Dodaj wizytę", "dy.addsub": "Zapisz posiłek w prywatnym dzienniku: gwiazdki, najlepsze danie i zdjęcia.", "dy.pick": "Restauracja", "dy.stars": "Twoje gwiazdki", "dy.date": "Data", "dy.dish": "Najlepsze danie", "dy.with": "Z kim (opcjonalnie)", "dy.note": "Notatki", "dy.photos": "Zdjęcia (do 4). Kliknij gwiazdkę na ulubionym talerzu.", "dy.addphoto": "Dodaj zdjęcia", "dy.public": "Dodaj też moje gwiazdki do Oceny TableFifty", "dy.save": "Zapisz w dzienniku", "dy.private": "Tylko Ty widzisz swój dziennik. Udostępniaj wizyty, kiedy chcesz.", "dy.fav": "Ulubiony talerz", "dy.photoerr": "Nie udało się dodać zdjęcia. Spróbuj innego.", "dy.needname": "Wybierz restaurację.", "dy.saved": "Zapisano w dzienniku", "dy.toobig": "Za dużo dużych zdjęć. Usuń jedno i spróbuj ponownie.", "dy.stats": "{p} miejsc · {c} miast · {f} zdjęć", "dy.edit": "Edytuj", "dy.empty": "Brak wizyt. Po następnym wyjściu kliknij „Byłem tu” przy restauracji i dodaj zdjęcia.", "dy.withshort": "Z: {w}", "dy.next": "Spróbuj następnie", "dy.nextliked": "Spróbuj następnie, bo lubisz podobne miejsca", "dy.sharetext": "Jadłem w {v}{s}.{d} Znajdź ofertę na TableFifty:", "dy.sharedish": "Najlepsze danie: {d}." },
+ro: { "dy.nav": "Jurnal culinar", "dy.title": "Jurnalul meu culinar", "dy.went": "Am fost aici", "dy.new": "Adaugă o vizită", "dy.addsub": "Păstrează masa în jurnalul tău privat: stele, cel mai bun fel și poze.", "dy.pick": "Restaurant", "dy.stars": "Stelele tale", "dy.date": "Data", "dy.dish": "Cel mai bun fel", "dy.with": "Cu cine (opțional)", "dy.note": "Notițe", "dy.photos": "Poze (până la 4). Apasă steaua pe farfuria preferată.", "dy.addphoto": "Adaugă poze", "dy.public": "Adaugă stelele mele și la Scorul TableFifty", "dy.save": "Salvează în jurnal", "dy.private": "Doar tu vezi jurnalul. Distribui o vizită când vrei.", "dy.fav": "Farfuria preferată", "dy.photoerr": "O poză nu a putut fi adăugată. Încearcă alta.", "dy.needname": "Alege restaurantul.", "dy.saved": "Salvat în jurnal", "dy.toobig": "Prea multe poze mari. Șterge una și încearcă din nou.", "dy.stats": "{p} locuri · {c} orașe · {f} poze", "dy.edit": "Editează", "dy.empty": "Nicio vizită încă. După următoarea masă în oraș, apasă „Am fost aici” la restaurant și adaugă pozele.", "dy.withshort": "Cu {w}", "dy.next": "Încearcă apoi", "dy.nextliked": "Încearcă apoi, pentru că ți-au plăcut locuri asemănătoare", "dy.sharetext": "Am mâncat la {v}{s}.{d} Găsește oferta pe TableFifty:", "dy.sharedish": "Cel mai bun fel: {d}." },
+pa: { "dy.nav": "ਖਾਣੇ ਦੀ ਡਾਇਰੀ", "dy.title": "ਮੇਰੀ ਖਾਣੇ ਦੀ ਡਾਇਰੀ", "dy.went": "ਮੈਂ ਇੱਥੇ ਗਿਆ", "dy.new": "ਫੇਰੀ ਜੋੜੋ", "dy.addsub": "ਆਪਣਾ ਖਾਣਾ ਨਿੱਜੀ ਡਾਇਰੀ ਵਿੱਚ ਰੱਖੋ: ਤਾਰੇ, ਸਭ ਤੋਂ ਵਧੀਆ ਡਿਸ਼ ਅਤੇ ਫੋਟੋਆਂ।", "dy.pick": "ਰੈਸਟੋਰੈਂਟ", "dy.stars": "ਤੁਹਾਡੇ ਤਾਰੇ", "dy.date": "ਤਾਰੀਖ", "dy.dish": "ਸਭ ਤੋਂ ਵਧੀਆ ਡਿਸ਼", "dy.with": "ਕਿਸ ਨਾਲ (ਚੋਣਵਾਂ)", "dy.note": "ਨੋਟ", "dy.photos": "ਫੋਟੋਆਂ (4 ਤੱਕ)। ਮਨਪਸੰਦ ਪਲੇਟ 'ਤੇ ਤਾਰਾ ਦਬਾਓ।", "dy.addphoto": "ਫੋਟੋਆਂ ਜੋੜੋ", "dy.public": "ਮੇਰੇ ਤਾਰੇ TableFifty ਸਕੋਰ ਵਿੱਚ ਵੀ ਜੋੜੋ", "dy.save": "ਡਾਇਰੀ ਵਿੱਚ ਸੇਵ ਕਰੋ", "dy.private": "ਤੁਹਾਡੀ ਡਾਇਰੀ ਸਿਰਫ਼ ਤੁਸੀਂ ਵੇਖ ਸਕਦੇ ਹੋ। ਜਦੋਂ ਚਾਹੋ ਫੇਰੀ ਸਾਂਝੀ ਕਰੋ।", "dy.fav": "ਮਨਪਸੰਦ ਪਲੇਟ", "dy.photoerr": "ਇੱਕ ਫੋਟੋ ਨਹੀਂ ਜੁੜ ਸਕੀ। ਹੋਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।", "dy.needname": "ਕਿਰਪਾ ਕਰਕੇ ਰੈਸਟੋਰੈਂਟ ਚੁਣੋ।", "dy.saved": "ਡਾਇਰੀ ਵਿੱਚ ਸੇਵ ਹੋ ਗਿਆ", "dy.toobig": "ਬਹੁਤ ਵੱਡੀਆਂ ਫੋਟੋਆਂ। ਇੱਕ ਹਟਾ ਕੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।", "dy.stats": "{p} ਥਾਵਾਂ · {c} ਸ਼ਹਿਰ · {f} ਫੋਟੋਆਂ", "dy.edit": "ਸੋਧੋ", "dy.empty": "ਹਾਲੇ ਕੋਈ ਫੇਰੀ ਨਹੀਂ। ਅਗਲੀ ਵਾਰ ਬਾਹਰ ਖਾਣ ਤੋਂ ਬਾਅਦ ਰੈਸਟੋਰੈਂਟ 'ਤੇ \"ਮੈਂ ਇੱਥੇ ਗਿਆ\" ਦਬਾਓ ਅਤੇ ਫੋਟੋਆਂ ਜੋੜੋ।", "dy.withshort": "{w} ਨਾਲ", "dy.next": "ਅਗਲੀ ਵਾਰ ਅਜ਼ਮਾਓ", "dy.nextliked": "ਅਗਲੀ ਵਾਰ ਅਜ਼ਮਾਓ, ਕਿਉਂਕਿ ਤੁਹਾਨੂੰ ਮਿਲਦੀਆਂ-ਜੁਲਦੀਆਂ ਥਾਵਾਂ ਪਸੰਦ ਆਈਆਂ", "dy.sharetext": "ਮੈਂ {v} ਵਿੱਚ ਖਾਧਾ{s}।{d} TableFifty 'ਤੇ ਡੀਲ ਵੇਖੋ:", "dy.sharedish": "ਸਭ ਤੋਂ ਵਧੀਆ ਡਿਸ਼: {d}।" },
+ur: { "dy.nav": "کھانے کی ڈائری", "dy.title": "میری کھانے کی ڈائری", "dy.went": "میں یہاں گیا", "dy.new": "وزٹ شامل کریں", "dy.addsub": "اپنا کھانا نجی ڈائری میں رکھیں: ستارے، بہترین ڈش اور تصاویر۔", "dy.pick": "ریسٹورنٹ", "dy.stars": "آپ کے ستارے", "dy.date": "تاریخ", "dy.dish": "بہترین ڈش", "dy.with": "کس کے ساتھ (اختیاری)", "dy.note": "نوٹس", "dy.photos": "تصاویر (4 تک)۔ پسندیدہ پلیٹ پر ستارہ دبائیں۔", "dy.addphoto": "تصاویر شامل کریں", "dy.public": "میرے ستارے TableFifty اسکور میں بھی شامل کریں", "dy.save": "ڈائری میں محفوظ کریں", "dy.private": "آپ کی ڈائری صرف آپ دیکھ سکتے ہیں۔ جب چاہیں وزٹ شیئر کریں۔", "dy.fav": "پسندیدہ پلیٹ", "dy.photoerr": "ایک تصویر شامل نہیں ہو سکی۔ کوئی اور آزمائیں۔", "dy.needname": "براہ کرم ریسٹورنٹ منتخب کریں۔", "dy.saved": "ڈائری میں محفوظ ہو گیا", "dy.toobig": "بہت بڑی تصاویر۔ ایک ہٹا کر دوبارہ کوشش کریں۔", "dy.stats": "{p} جگہیں · {c} شہر · {f} تصاویر", "dy.edit": "ترمیم", "dy.empty": "ابھی کوئی وزٹ نہیں۔ اگلی بار باہر کھانے کے بعد ریسٹورنٹ پر \"میں یہاں گیا\" دبائیں اور تصاویر شامل کریں۔", "dy.withshort": "{w} کے ساتھ", "dy.next": "اگلی بار آزمائیں", "dy.nextliked": "اگلی بار آزمائیں، کیونکہ آپ کو ملتی جلتی جگہیں پسند آئیں", "dy.sharetext": "میں نے {v} میں کھانا کھایا{s}۔{d} TableFifty پر ڈیل دیکھیں:", "dy.sharedish": "بہترین ڈش: {d}۔" },
+pt: { "dy.nav": "Diário de comida", "dy.title": "O meu diário de comida", "dy.went": "Estive aqui", "dy.new": "Adicionar visita", "dy.addsub": "Guarde a refeição no seu diário privado: estrelas, melhor prato e fotos.", "dy.pick": "Restaurante", "dy.stars": "As suas estrelas", "dy.date": "Data", "dy.dish": "Melhor prato", "dy.with": "Com quem (opcional)", "dy.note": "Notas", "dy.photos": "Fotos (até 4). Toque na estrela do prato favorito.", "dy.addphoto": "Adicionar fotos", "dy.public": "Adicionar também as minhas estrelas à Pontuação TableFifty", "dy.save": "Guardar no diário", "dy.private": "Só você vê o seu diário. Partilhe uma visita quando quiser.", "dy.fav": "Prato favorito", "dy.photoerr": "Não foi possível adicionar uma foto. Tente outra.", "dy.needname": "Escolha o restaurante.", "dy.saved": "Guardado no seu diário", "dy.toobig": "Demasiadas fotos grandes. Retire uma e tente de novo.", "dy.stats": "{p} locais · {c} cidades · {f} fotos", "dy.edit": "Editar", "dy.empty": "Ainda sem visitas. Depois da próxima refeição fora, toque em \"Estive aqui\" no restaurante e adicione as fotos.", "dy.withshort": "Com {w}", "dy.next": "Experimente a seguir", "dy.nextliked": "Experimente a seguir, porque gostou de sítios parecidos", "dy.sharetext": "Comi no {v}{s}.{d} Veja a oferta no TableFifty:", "dy.sharedish": "Melhor prato: {d}." },
+es: { "dy.nav": "Diario de comida", "dy.title": "Mi diario de comida", "dy.went": "Estuve aquí", "dy.new": "Añadir visita", "dy.addsub": "Guarda tu comida en tu diario privado: estrellas, mejor plato y fotos.", "dy.pick": "Restaurante", "dy.stars": "Tus estrellas", "dy.date": "Fecha", "dy.dish": "Mejor plato", "dy.with": "Con quién (opcional)", "dy.note": "Notas", "dy.photos": "Fotos (hasta 4). Toca la estrella en tu plato favorito.", "dy.addphoto": "Añadir fotos", "dy.public": "Añadir también mis estrellas a la Puntuación TableFifty", "dy.save": "Guardar en mi diario", "dy.private": "Solo tú ves tu diario. Comparte una visita cuando quieras.", "dy.fav": "Plato favorito", "dy.photoerr": "No se pudo añadir una foto. Prueba otra.", "dy.needname": "Elige el restaurante.", "dy.saved": "Guardado en tu diario", "dy.toobig": "Demasiadas fotos grandes. Quita una y vuelve a intentarlo.", "dy.stats": "{p} sitios · {c} ciudades · {f} fotos", "dy.edit": "Editar", "dy.empty": "Aún no hay visitas. Después de tu próxima comida fuera, pulsa \"Estuve aquí\" en el restaurante y añade tus fotos.", "dy.withshort": "Con {w}", "dy.next": "Prueba después", "dy.nextliked": "Prueba después, porque te gustaron sitios parecidos", "dy.sharetext": "Comí en {v}{s}.{d} Mira la oferta en TableFifty:", "dy.sharedish": "Mejor plato: {d}." },
+ar: { "dy.nav": "يوميات الطعام", "dy.title": "يومياتي مع الطعام", "dy.went": "زرت هذا المكان", "dy.new": "أضف زيارة", "dy.addsub": "احفظ وجبتك في يومياتك الخاصة: النجوم وأفضل طبق والصور.", "dy.pick": "المطعم", "dy.stars": "نجومك", "dy.date": "التاريخ", "dy.dish": "أفضل طبق", "dy.with": "مع من (اختياري)", "dy.note": "ملاحظات", "dy.photos": "صور (حتى 4). اضغط النجمة على طبقك المفضل.", "dy.addphoto": "أضف صورًا", "dy.public": "أضف نجومي أيضًا إلى تقييم TableFifty", "dy.save": "احفظ في يومياتي", "dy.private": "أنت فقط ترى يومياتك. شارك زيارة متى أردت.", "dy.fav": "الطبق المفضل", "dy.photoerr": "تعذرت إضافة صورة. جرّب صورة أخرى.", "dy.needname": "اختر المطعم من فضلك.", "dy.saved": "تم الحفظ في يومياتك", "dy.toobig": "صور كبيرة كثيرة. احذف واحدة وحاول مجددًا.", "dy.stats": "{p} أماكن · {c} مدن · {f} صور", "dy.edit": "تعديل", "dy.empty": "لا توجد زيارات بعد. بعد وجبتك القادمة خارج المنزل، اضغط \"زرت هذا المكان\" على المطعم وأضف صورك.", "dy.withshort": "مع {w}", "dy.next": "جرّب بعد ذلك", "dy.nextliked": "جرّب بعد ذلك، لأنك أحببت أماكن مشابهة", "dy.sharetext": "أكلت في {v}{s}.{d} اعثر على العرض في TableFifty:", "dy.sharedish": "أفضل طبق: {d}." },
+bn: { "dy.nav": "খাবারের ডায়েরি", "dy.title": "আমার খাবারের ডায়েরি", "dy.went": "আমি এখানে গিয়েছি", "dy.new": "ভিজিট যোগ করুন", "dy.addsub": "আপনার খাবার ব্যক্তিগত ডায়েরিতে রাখুন: তারা, সেরা পদ আর ছবি।", "dy.pick": "রেস্টুরেন্ট", "dy.stars": "আপনার তারা", "dy.date": "তারিখ", "dy.dish": "সেরা পদ", "dy.with": "কার সাথে (ঐচ্ছিক)", "dy.note": "নোট", "dy.photos": "ছবি (৪টি পর্যন্ত)। প্রিয় প্লেটে তারা চাপুন।", "dy.addphoto": "ছবি যোগ করুন", "dy.public": "আমার তারা TableFifty স্কোরেও যোগ করুন", "dy.save": "ডায়েরিতে সেভ করুন", "dy.private": "আপনার ডায়েরি শুধু আপনি দেখেন। যখন চান ভিজিট শেয়ার করুন।", "dy.fav": "প্রিয় প্লেট", "dy.photoerr": "একটি ছবি যোগ করা যায়নি। অন্যটি চেষ্টা করুন।", "dy.needname": "অনুগ্রহ করে রেস্টুরেন্ট বেছে নিন।", "dy.saved": "আপনার ডায়েরিতে সেভ হয়েছে", "dy.toobig": "অনেক বড় ছবি। একটি সরিয়ে আবার চেষ্টা করুন।", "dy.stats": "{p}টি জায়গা · {c}টি শহর · {f}টি ছবি", "dy.edit": "সম্পাদনা", "dy.empty": "এখনো কোনো ভিজিট নেই। পরের বার বাইরে খাওয়ার পর রেস্টুরেন্টে \"আমি এখানে গিয়েছি\" চাপুন আর ছবি যোগ করুন।", "dy.withshort": "{w}-এর সাথে", "dy.next": "এরপর চেষ্টা করুন", "dy.nextliked": "এরপর চেষ্টা করুন, কারণ আপনার একই রকম জায়গা ভালো লেগেছে", "dy.sharetext": "আমি {v}-এ খেয়েছি{s}।{d} TableFifty-তে ডিল দেখুন:", "dy.sharedish": "সেরা পদ: {d}।" }
+};
+Object.keys(I18N_DY).forEach(l => Object.assign(I18N[l], I18N_DY[l]));
 
 const DEALS_CHECKED = "2026-09-29";
 const CITIES = {"bath":{"n":"Bath","ll":[51.382,-2.3594]},"belfast":{"n":"Belfast","ll":[54.5961,-5.929]},"birmingham":{"n":"Birmingham","ll":[52.4778,-1.9062]},"bournemouth":{"n":"Bournemouth","ll":[50.7223,-1.873]},"brighton":{"n":"Brighton","ll":[50.8244,-0.1507]},"bristol":{"n":"Bristol","ll":[51.4564,-2.5966]},"cambridge":{"n":"Cambridge","ll":[52.2057,0.1217]},"cardiff":{"n":"Cardiff","ll":[51.4805,-3.1772]},"edinburgh":{"n":"Edinburgh","ll":[55.9511,-3.1929]},"glasgow":{"n":"Glasgow","ll":[55.8624,-4.2587]},"leeds":{"n":"Leeds","ll":[53.7968,-1.5444]},"leicester":{"n":"Leicester","ll":[52.6341,-1.1354]},"liverpool":{"n":"Liverpool","ll":[53.4028,-2.9824]},"london":{"n":"London","ll":[51.5074,-0.1278]},"manchester":{"n":"Manchester","ll":[53.4787,-2.2424]},"newcastle-upon-tyne":{"n":"Newcastle upon Tyne","ll":[54.971,-1.6129]},"norwich":{"n":"Norwich","ll":[52.6299,1.2911]},"nottingham":{"n":"Nottingham","ll":[52.9527,-1.1477]},"oxford":{"n":"Oxford","ll":[51.7529,-1.2612]},"sheffield":{"n":"Sheffield","ll":[53.3778,-1.4741]},"southampton":{"n":"Southampton","ll":[50.9077,-1.3927]}};
@@ -3131,7 +3235,8 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     $("#insTitle").textContent = v.name;
     $("#insArea").textContent = v.area || "";
     $("#insBody").innerHTML = `<div class="ins-share"><button type="button" class="btn btn-primary" data-share="${esc(v.id)}">${I.share}${esc(t("share.btn"))}</button>
-      <button type="button" class="btn" data-copy="${esc(venueUrl(v))}" data-what="share.copied">${I.copy}${esc(t("share.copy"))}</button></div>` + insightsHTML(v);
+      <button type="button" class="btn" data-copy="${esc(venueUrl(v))}" data-what="share.copied">${I.copy}${esc(t("share.copy"))}</button>
+      ${v.k === "dine" && !v.custom && !isNational(v) ? `<button type="button" class="btn" data-diary="${esc(v.id)}">${I.star}${esc(t("dy.went"))}</button>` : ""}</div>` + insightsHTML(v);
     showDialog($("#insDialog"));
     setVenueUrl(v);
   }
@@ -3210,7 +3315,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
           ${likeBtn(v)}
           <button type="button" class="sharebtn" data-share="${esc(v.id)}" aria-label="${esc(t("share.btn"))}" title="${esc(t("share.btn"))}">${I.share}<span>${esc(t("share.btn"))}</span></button>
           ${rest.length ? `<button type="button" class="morebtn" data-more="${esc(v.id)}" aria-expanded="${open}" aria-controls="more-${esc(v.id)}">${esc(t(open ? "more.hide" : "more.show", { n: rest.length }))} ${I.chev}</button>` : ""}
-          ${v.k === "dine" && !v.custom ? `<button type="button" class="ratebtn" data-rate="${esc(v.id)}">${I.star}${esc(t("rate.btn"))}</button>` : `<button type="button" class="addlink" data-addfor="${esc(v.name)}" data-area="${esc(v.area)}">${I.plus}${esc(t("addlink"))}</button>`}
+          ${v.k === "dine" && !v.custom && !isNational(v) ? `<button type="button" class="ratebtn" data-diary="${esc(v.id)}">${I.star}${esc(t("dy.went"))}</button>` : isNational(v) ? "" : `<button type="button" class="addlink" data-addfor="${esc(v.name)}" data-area="${esc(v.area)}">${I.plus}${esc(t("addlink"))}</button>`}
         </div>
       </div>
     </article>`;
@@ -3755,26 +3860,198 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     $("#rateSend").disabled = !rateStars;
   }
   $("#rateStars").addEventListener("click", e => { const b = e.target.closest("[data-star]"); if (b) { rateStars = +b.dataset.star; paintStars(); } });
+  async function writeRating(user, id, stars) {
+    const F = acct.fb;
+    const byRef = F.doc(acct.db, "ratings", id, "by", user.uid), aRef = F.doc(acct.db, "ratings", id);
+    const old = await F.getDoc(byRef);
+    const prev = old.exists() ? old.data().stars : 0;
+    const b = F.writeBatch(acct.db);
+    b.set(byRef, { stars, at: F.serverTimestamp() });
+    b.set(aRef, { sum: F.increment(stars - prev), n: F.increment(prev ? 0 : 1) }, { merge: true });
+    await b.commit();
+    likeStore.rated[id] = stars; saveLikesLocal();
+    const cur = likeStore.rating.get(id) || { n: 0, sum: 0 };
+    likeStore.rating.set(id, { n: cur.n + (prev ? 0 : 1), sum: cur.sum + stars - prev });
+    paintScore(id);
+  }
   $("#rateSend").addEventListener("click", async () => {
     if (!rateFor || !rateStars) return;
     const user = await ensureUser(true);
     if (!user) { closeDialog($("#rateDialog")); return; }
-    const F = acct.fb, id = rateFor.id;
-    const byRef = F.doc(acct.db, "ratings", id, "by", user.uid), aRef = F.doc(acct.db, "ratings", id);
-    try {
-      const old = await F.getDoc(byRef);
-      const prev = old.exists() ? old.data().stars : 0;
-      const b = F.writeBatch(acct.db);
-      b.set(byRef, { stars: rateStars, at: F.serverTimestamp() });
-      b.set(aRef, { sum: F.increment(rateStars - prev), n: F.increment(prev ? 0 : 1) }, { merge: true });
-      await b.commit();
-      likeStore.rated[id] = rateStars; saveLikesLocal();
-      const cur = likeStore.rating.get(id) || { n: 0, sum: 0 };
-      likeStore.rating.set(id, { n: cur.n + (prev ? 0 : 1), sum: cur.sum + rateStars - prev });
-      paintScore(id);
-      closeDialog($("#rateDialog")); toast(t("rate.thanks"));
-    } catch (e) { $("#rateMsg").textContent = t("acct.err"); }
+    try { await writeRating(user, rateFor.id, rateStars); closeDialog($("#rateDialog")); toast(t("rate.thanks")); }
+    catch (e) { $("#rateMsg").textContent = t("acct.err"); }
   });
+
+  /* ---------- My food diary ----------
+     Private record of places a signed-in user went: stars, best dish, who with, notes and up to 4 photos.
+     Stored in Firestore profiles/{uid}/diary/{id}. Photos are shrunk in the browser (about 100-250 KB each)
+     and kept inside the document, so no paid file storage is needed. Nothing is public; users share a visit
+     themselves (the phone's share sheet sends the photo to WhatsApp, Instagram, etc.). */
+  const diary = { items: null, edit: null, v: null, stars: 0, photos: [], best: 0 };
+  const DY_MAX = 4;
+  const venueById = id => venues.find(x => x.id === id);
+  function fmtDay(iso) { try { return new Intl.DateTimeFormat(lang, { day: "numeric", month: "short", year: "numeric" }).format(new Date(iso + "T12:00:00")); } catch (e) { return iso; } }
+  function shrinkPhoto(file) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file), img = new Image();
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        let side = 1080, q = 0.72, out = "";
+        for (let i = 0; i < 4; i++) {
+          const k = Math.min(1, side / Math.max(img.naturalWidth, img.naturalHeight));
+          const c = document.createElement("canvas");
+          c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          out = c.toDataURL("image/jpeg", q);
+          if (out.length <= 230000) break;
+          side = Math.round(side * 0.8); q = Math.max(0.5, q - 0.08);
+        }
+        resolve(out);
+      };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("image")); };
+      img.src = url;
+    });
+  }
+  function paintDiaryStars() { document.querySelectorAll("#dStars [data-dstar]").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.dstar <= diary.stars))); }
+  function paintDiaryPhotos() {
+    $("#dPhotos").innerHTML = diary.photos.map((src, i) => `<div class="dy-ph${i === diary.best ? " best" : ""}">
+      <img src="${esc(src)}" alt="">
+      <button type="button" class="dy-best" data-dbest="${i}" aria-label="${esc(t("dy.fav"))}" aria-pressed="${i === diary.best}">${I.star}</button>
+      <button type="button" class="dy-del" data-ddel="${i}" aria-label="${esc(t("remove"))}">×</button></div>`).join("");
+    $("#dFileBtn").hidden = diary.photos.length >= DY_MAX;
+  }
+  async function openDiaryAdd(vid, item) {
+    const user = await ensureUser(true); if (!user) return;
+    const v = vid ? venueById(vid) : null;
+    diary.v = v; diary.edit = item ? item.id : null;
+    diary.stars = item ? item.stars || 0 : (v && likeStore.rated[v.id]) || 0;
+    diary.photos = item ? (item.photos || []).slice() : []; diary.best = item ? item.best || 0 : 0;
+    $("#dAddTitle").textContent = v || item ? t("rate.title", { v: (v && v.name) || item.name }) : t("dy.new");
+    $("#dPickWrap").hidden = !!(v || item);
+    if (!v && !item) {
+      $("#dPick").value = "";
+      $("#dPickList").innerHTML = venues.filter(x => x.k === "dine" && !x.custom && !isNational(x)).slice(0, 4000).map(x => `<option value="${esc(x.name + " · " + (x.area || ""))}"></option>`).join("");
+    }
+    $("#dDate").value = item ? item.date : TODAY; $("#dDate").max = TODAY;
+    $("#dDish").value = item ? item.dish || "" : ""; $("#dWith").value = item ? item.with || "" : ""; $("#dNote").value = item ? item.note || "" : "";
+    $("#dPublic").checked = !item; $("#dPublic").closest("label").hidden = !!item && !v;
+    $("#dMsg").textContent = "";
+    paintDiaryStars(); paintDiaryPhotos();
+    showDialog($("#diaryAddDialog"));
+  }
+  $("#dStars").addEventListener("click", e => { const b = e.target.closest("[data-dstar]"); if (b) { diary.stars = +b.dataset.dstar; paintDiaryStars(); } });
+  $("#dPhotos").addEventListener("click", e => {
+    const b = e.target.closest("[data-dbest]"), d = e.target.closest("[data-ddel]");
+    if (b) { diary.best = +b.dataset.dbest; paintDiaryPhotos(); }
+    if (d) { const i = +d.dataset.ddel; diary.photos.splice(i, 1); if (diary.best >= diary.photos.length) diary.best = 0; else if (i < diary.best) diary.best--; paintDiaryPhotos(); }
+  });
+  $("#dFile").addEventListener("change", async e => {
+    const files = [...e.target.files].slice(0, DY_MAX - diary.photos.length); e.target.value = "";
+    for (const f of files) { try { diary.photos.push(await shrinkPhoto(f)); } catch (err) { $("#dMsg").textContent = t("dy.photoerr"); } }
+    paintDiaryPhotos();
+  });
+  $("#dForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const user = await ensureUser(true); if (!user) return;
+    let v = diary.v, name = v ? v.name : "", area = v ? v.area || "" : "";
+    if (!diary.edit && !v) {
+      const q = $("#dPick").value.trim();
+      v = venues.find(x => (x.name + " · " + (x.area || "")) === q) || null;
+      name = v ? v.name : q.split(" · ")[0].trim(); area = v ? v.area || "" : (q.split(" · ")[1] || "").trim();
+      if (!name) { $("#dMsg").textContent = t("dy.needname"); return; }
+    }
+    if (diary.edit) { const it = (diary.items || []).find(x => x.id === diary.edit); if (it) { name = it.name; area = it.area; if (!v && it.vid) v = venueById(it.vid); } }
+    const row = { vid: v ? v.id : "", name: name.slice(0, 100), area: String(area).slice(0, 80), city: v ? v.city || "" : "",
+      date: $("#dDate").value || TODAY, stars: diary.stars, dish: $("#dDish").value.trim().slice(0, 80), with: $("#dWith").value.trim().slice(0, 80),
+      note: $("#dNote").value.trim().slice(0, 600), photos: diary.photos, best: diary.best, at: acct.fb.serverTimestamp() };
+    const btn = $("#dSave"); btn.disabled = true;
+    try {
+      const F = acct.fb, col = F.collection(acct.db, "profiles", user.uid, "diary");
+      if (diary.edit) await F.setDoc(F.doc(col, diary.edit), row); else await F.addDoc(col, row);
+      if (v && v.k === "dine" && !v.custom && diary.stars && $("#dPublic").checked && !$("#dPublic").closest("label").hidden) { try { await writeRating(user, v.id, diary.stars); } catch (err) {} }
+      closeDialog($("#diaryAddDialog")); toast(t("dy.saved"));
+      diary.items = null;
+      if ($("#diaryDialog").open) renderDiary();
+    } catch (err) { $("#dMsg").textContent = /size|large|exceed/i.test(String(err && err.message)) ? t("dy.toobig") : t("acct.err"); }
+    btn.disabled = false;
+  });
+  async function loadDiary() {
+    const F = acct.fb;
+    const snap = await F.getDocs(F.query(F.collection(acct.db, "profiles", acct.user.uid, "diary"), F.orderBy("date", "desc")));
+    diary.items = snap.docs.map(d => Object.assign({ id: d.id }, d.data()));
+  }
+  async function openDiary() {
+    const user = await ensureUser(true); if (!user) return;
+    $("#dList").innerHTML = `<p class="acct-note">…</p>`; $("#dNext").innerHTML = ""; $("#dStats").textContent = "";
+    showDialog($("#diaryDialog"));
+    renderDiary();
+  }
+  async function renderDiary() {
+    try { if (!diary.items) await loadDiary(); } catch (e) { $("#dList").innerHTML = `<p class="acct-msg err">${esc(t("acct.err"))}</p>`; return; }
+    const it = diary.items;
+    const places = new Set(it.map(x => x.vid || x.name)).size, towns = new Set(it.map(x => x.city || x.area).filter(Boolean)).size, pics = it.reduce((n, x) => n + (x.photos || []).length, 0);
+    $("#dStats").textContent = it.length ? t("dy.stats", { p: places, c: towns, f: pics }) : "";
+    $("#dList").innerHTML = it.length ? it.map(x => {
+      const v = x.vid ? venueById(x.vid) : null, ph = (x.photos || [])[x.best || 0];
+      const pic = ph ? `<img src="${esc(ph)}" alt="${esc(x.dish || x.name)}">` : v ? imgTag(v) : "";
+      const st = x.stars ? `<span class="dy-stars" aria-label="${x.stars}/5">${"★".repeat(x.stars)}<i>${"★".repeat(5 - x.stars)}</i></span>` : "";
+      return `<article class="dy-item">
+        <div class="dy-pic">${pic}${(x.photos || []).length > 1 ? `<span class="dy-count">${x.photos.length}</span>` : ""}</div>
+        <div class="dy-txt">
+          <h3>${esc(x.name)}</h3>
+          <p class="dy-meta">${esc(fmtDay(x.date))}${x.area ? " · " + esc(x.area) : ""} ${st}</p>
+          ${x.dish ? `<p><b>${esc(t("dy.dish"))}:</b> ${esc(x.dish)}</p>` : ""}
+          ${x.with ? `<p class="dy-meta">${esc(t("dy.withshort", { w: x.with }))}</p>` : ""}
+          ${x.note ? `<p class="dy-note-t">${esc(x.note)}</p>` : ""}
+          <div class="dy-btns">
+            <button type="button" class="btn btn-primary" data-dshare="${esc(x.id)}">${I.share}${esc(t("share.btn"))}</button>
+            <button type="button" class="btn" data-dedit="${esc(x.id)}">${esc(t("dy.edit"))}</button>
+            ${v ? `<button type="button" class="btn" data-ins="${esc(v.id)}">${I.spark}${esc(t("t50.btn"))}</button>` : ""}
+            <button type="button" class="btn btn-ghost" data-dremove="${esc(x.id)}">${esc(t("remove"))}</button>
+          </div>
+        </div></article>`;
+    }).join("") : `<p class="acct-note">${esc(t("dy.empty"))}</p>`;
+    renderDiaryNext();
+  }
+  function renderDiaryNext() {
+    const it = diary.items || [], seen = new Set(it.map(x => x.vid));
+    const liked = it.filter(x => x.stars >= 4 && x.vid).map(x => venueById(x.vid)).filter(Boolean);
+    const czs = new Set(liked.map(v => v.czKey));
+    const last = it.map(x => x.vid && venueById(x.vid)).find(v => v && v.ll);
+    const here = state.loc ? [state.loc.lat, state.loc.lng] : last ? last.ll : null;
+    let pool = venues.filter(v => v.k === "dine" && !v.custom && !seen.has(v.id) && v.offers.length && v.sc && v.sc[0] >= 9 && v.sc[1] >= 30);
+    if (czs.size) { const same = pool.filter(v => czs.has(v.czKey)); if (same.length >= 3) pool = same; }
+    if (here) pool = pool.filter(v => v.ll).sort((a, b) => miles(here, a.ll) - miles(here, b.ll)).slice(0, 30);
+    pool.sort((a, b) => b.sc[0] - a.sc[0]);
+    const pick = pool.slice(0, 3);
+    $("#dNext").innerHTML = pick.length ? `<h3 class="dy-h">${esc(t(czs.size ? "dy.nextliked" : "dy.next"))}</h3><div class="dy-next">${pick.map(v => `<button type="button" class="dy-nx" data-ins="${esc(v.id)}">${imgTag(v)}<b>${esc(v.name)}</b><small>${esc(v.area || "")} · ${esc(String(v.sc[0]))}/10</small></button>`).join("")}</div>` : "";
+  }
+  async function shareDiary(x) {
+    const v = x.vid ? venueById(x.vid) : null, link = v ? venueUrl(v) : SITE;
+    const text = t("dy.sharetext", { v: x.name, s: x.stars ? " " + "★".repeat(x.stars) : "", d: x.dish ? " " + t("dy.sharedish", { d: x.dish }) : "" }) + " " + link;
+    const ph = (x.photos || [])[x.best || 0];
+    try {
+      if (ph && navigator.canShare) {
+        const blob = await (await fetch(ph)).blob();
+        const file = new File([blob], (x.name || "tablefifty").replace(/[^a-z0-9]+/gi, "-").toLowerCase() + ".jpg", { type: "image/jpeg" });
+        if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text, title: x.name }); return; }
+      }
+      if (navigator.share) { await navigator.share({ title: x.name, text, url: link }); return; }
+    } catch (err) { if (err && err.name === "AbortError") return; }
+    if (v) { closeDialog($("#diaryDialog")); openShare(v.id); } else copyText(text, t("share.copied"));
+  }
+  $("#dList").addEventListener("click", async e => {
+    const sh = e.target.closest("[data-dshare]"), ed = e.target.closest("[data-dedit]"), rm = e.target.closest("[data-dremove]");
+    const find = id => (diary.items || []).find(x => x.id === id);
+    if (sh) { const x = find(sh.dataset.dshare); if (x) shareDiary(x); }
+    if (ed) { const x = find(ed.dataset.dedit); if (x) openDiaryAdd(x.vid && venueById(x.vid) ? x.vid : null, x); }
+    if (rm) {
+      if (!rm.classList.contains("confirm")) { rm.classList.add("confirm"); rm.textContent = t("remove.confirm"); return; }
+      try { const F = acct.fb; await F.deleteDoc(F.doc(acct.db, "profiles", acct.user.uid, "diary", rm.dataset.dremove)); diary.items = null; renderDiary(); } catch (err) { toast(t("acct.err"), "warn"); }
+    }
+  });
+  $("#dNew").addEventListener("click", () => openDiaryAdd(null, null));
+  $("#openDiary").addEventListener("click", () => openDiary());
   async function logVisit(link) {
     if (!acct.user || !acct.profile || !acct.profile.feedback) return;
     const url = link.getAttribute("href");
@@ -3934,6 +4211,9 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     if (ib) { openInsights(ib.dataset.ins); return; }
     const rt = e.target.closest("[data-rate]");
     if (rt) { openRate(rt.dataset.rate); return; }
+    const dy = e.target.closest("[data-diary]");
+    if (dy) { openDiaryAdd(dy.dataset.diary, null); return; }
+    if (e.target.closest("[data-diary-open]")) { closeDialog($("#acctDialog")); openDiary(); return; }
     const alt = e.target.closest("[data-altopen]");
     if (alt) {
       const url = safeUrl(alt.dataset.altopen);
