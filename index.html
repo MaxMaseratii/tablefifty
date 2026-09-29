@@ -2610,7 +2610,22 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     if ((k = key(AFF.partnerize))) return { href: `https://prf.hn/click/camref:${AFF.partnerize[k]}/destination:${e}`, aff: true };
     if ((k = key(AFF.direct))) return { href: AFF.direct[k], aff: true };
     if (AFF.skimlinks.id && AFF.skimlinks.on.some(hit)) return { href: `https://go.skimresources.com/?id=${AFF.skimlinks.id}&xs=1&url=${e}`, aff: true };
+    // Booking platforms with no affiliate deal yet: tag the link so they see in their own stats how many diners TableFifty sends.
+    if (UTM_HOSTS.some(hit)) {
+      try { const x = new URL(u); if (!x.searchParams.has("utm_source")) { x.searchParams.set("utm_source", "tablefifty"); x.searchParams.set("utm_medium", "referral"); x.searchParams.set("utm_campaign", "deals"); } return { href: x.href, aff: false }; } catch (err) {}
+    }
     return plain;
+  }
+  const UTM_HOSTS = ["firsttable.co.uk", "thefork.co.uk", "opentable.co.uk", "opentable.com", "eatclub.co.uk", "codehospitality.co.uk", "tastecard.co.uk"];
+
+  /* Anonymous click counter: one number per platform per month in Firestore "clicks/{YYYY-MM}".
+     No personal data and no cookies. It is the proof to show platforms how many diners we send them. */
+  function countClick(a) {
+    if (!acct.ready) return;
+    const key = String(a.dataset.open || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 24);
+    if (key.length < 2) return;
+    const F = acct.fb;
+    try { F.setDoc(F.doc(acct.db, "clicks", TODAY.slice(0, 7)), { [key]: F.increment(1) }, { merge: true }).catch(() => {}); } catch (err) {}
   }
 
   /* ---------- Location (UK-wide) ---------- */
@@ -3928,7 +3943,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
       return;
     }
     const open = e.target.closest("a[data-open]");
-    if (open) { toast(t("t.opening", { p: open.dataset.open })); logVisit(open); return; }
+    if (open) { toast(t("t.opening", { p: open.dataset.open })); logVisit(open); countClick(open); return; }
     const add = e.target.closest("[data-addfor]");
     if (add) { openAdd({ name: add.dataset.addfor, area: add.dataset.area || "" }); return; }
     const rm = e.target.closest("[data-remove]");
