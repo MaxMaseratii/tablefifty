@@ -393,6 +393,20 @@
   .missing-card li{display:flex;gap:8px;align-items:flex-start}
   .missing-card li svg{flex:none;margin-top:4px;color:var(--accent)}
 
+  /* Newsletter */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .news{padding-block:8px 48px}
+  .news-card{display:grid;gap:18px;border-radius:20px;border:1px solid var(--line);background:var(--surface);padding:24px}
+  @media (min-width:820px){.news-card{grid-template-columns:1fr 1.1fr;align-items:center;padding:30px}}
+  .news-txt{display:grid;gap:8px} .news-txt p{margin:0;color:var(--muted)}
+  .news-form{display:grid;gap:10px}
+  .news-row{display:flex;gap:8px;flex-wrap:wrap}
+  .news-row input{flex:1 1 220px;min-width:0;height:46px;border-radius:12px;border:1px solid var(--line-2);background:var(--surface-2);color:var(--text);padding:0 14px;font:inherit;font-size:15px}
+  .news-row input:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+  .news-row .btn{height:46px}
+  .news-msg{margin:0;font-size:13.5px;color:var(--muted);min-height:1.2em}
+  .news-msg.ok{color:var(--accent)} .news-msg.warn{color:var(--amber)}
+
   /* Footer */
   footer{border-top:1px solid var(--line);background:var(--bg-deep);padding-block:36px 30px;color:var(--faint);font-size:13px}
   .foot-grid{display:grid;gap:26px;grid-template-columns:1fr}
@@ -400,7 +414,8 @@
   .foot-grid h4{margin:0 0 10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
   .foot-grid ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
   .foot-grid button.lnk{border:0;background:transparent;padding:0;color:var(--faint);cursor:pointer;font-size:13px;text-align:start}
-  .foot-grid button.lnk:hover{color:var(--text)}
+  .foot-grid button.lnk:hover,.foot-grid a.lnk:hover{color:var(--text)}
+  .foot-grid a.lnk{color:var(--faint);font-size:13px;text-decoration:none}
   .foot-grid p{margin:8px 0 0;max-width:46ch}
   .foot-bottom{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
   .foot-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
@@ -644,6 +659,25 @@
   </section>
 </main>
 
+<section class="wrap news" id="news" aria-labelledby="newsTitle">
+  <div class="news-card">
+    <div class="news-txt">
+      <span class="eyebrow" data-i18n="nl.eyebrow">Half-Price Friday</span>
+      <h2 class="sec-title" id="newsTitle" data-i18n="nl.title">The 5 best deals near you, every Friday</h2>
+      <p data-i18n="nl.text">One short email a week. Free. Unsubscribe any time.</p>
+    </div>
+    <form id="newsForm" class="news-form" novalidate>
+      <div class="news-row">
+        <label class="sr-only" for="newsEmail" data-i18n="nl.email">Email</label>
+        <input id="newsEmail" type="email" autocomplete="email" inputmode="email" maxlength="120" required placeholder="you@example.com" dir="ltr">
+        <button class="btn btn-primary" type="submit" id="newsBtn" data-i18n="nl.btn">Sign me up</button>
+      </div>
+      <label class="checkrow" for="newsOk"><input id="newsOk" type="checkbox"><span data-i18n="nl.ok">Yes, email me TableFifty deals. I can unsubscribe any time.</span></label>
+      <p class="news-msg" id="newsMsg" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
 <div class="band">
   <section class="wrap how" id="how" aria-labelledby="howTitle">
     <div>
@@ -701,6 +735,7 @@
           <li><button type="button" class="lnk" data-scroll="how" data-i18n="nav.how">How it works</button></li>
           <li><button type="button" class="lnk" data-addfor="" data-i18n="nav.add">Add a venue</button></li>
           <li><button type="button" class="lnk" data-about data-i18n="foot.about">About &amp; privacy</button></li>
+          <li><a class="lnk" href="/restaurants/" data-i18n="foot.rest">For restaurants</a></li>
         </ul>
       </div>
       <div>
@@ -2415,6 +2450,27 @@ ar: { "share.btn": "أوصِ به", "share.title": "أوصِ بـ {v}", "share.s
 bn: { "share.btn": "সুপারিশ করুন", "share.title": "{v} সুপারিশ করুন", "share.sub": "এই ডিল বন্ধুকে পাঠান। লিংকটি TableFifty-তে এই রেস্তোরাঁ খোলে।", "share.msg": "{v} ({a}) চেষ্টা করুন: {d}। TableFifty-তে পেয়েছি:", "share.copy": "লিংক কপি করুন", "share.copied": "লিংক কপি হয়েছে", "share.more": "অন্যান্য অ্যাপ", "share.sms": "টেক্সট মেসেজ", "share.email": "ইমেইল", "share.subject": "আপনার জন্য রেস্তোরাঁ ডিল: {v}" }
 };
 Object.keys(I18N_SHARE).forEach(l => Object.assign(I18N[l], I18N_SHARE[l]));
+const I18N_NL = {
+en: { "nl.eyebrow": "Half-Price Friday", "nl.title": "The 5 best deals near you, every Friday", "nl.text": "One short email a week. Free. Unsubscribe any time.", "nl.email": "Email", "nl.btn": "Sign me up", "nl.ok": "Yes, email me TableFifty deals. I can unsubscribe any time.", "nl.bad": "Please enter a valid email address.", "nl.tick": "Please tick the box to say yes to our emails.", "nl.done": "You're in. See you on Friday!", "nl.err": "Sorry, that didn't work. Please try again in a moment.", "foot.rest": "For restaurants",
+  "ab.c6": "**Half-Price Friday emails are off unless you sign up.** We keep your email, language, area and the date you said yes. Every email has an unsubscribe link, and we never sell or share your email." },
+pl: { "nl.eyebrow": "Piątek za pół ceny", "nl.title": "5 najlepszych ofert w okolicy, w każdy piątek", "nl.text": "Jeden krótki e-mail tygodniowo. Za darmo. Wypisz się w każdej chwili.", "nl.email": "E-mail", "nl.btn": "Zapisz mnie", "nl.ok": "Tak, wysyłajcie mi oferty TableFifty. Mogę się wypisać w każdej chwili.", "nl.bad": "Wpisz poprawny adres e-mail.", "nl.tick": "Zaznacz pole, aby zgodzić się na e-maile.", "nl.done": "Gotowe. Do zobaczenia w piątek!", "nl.err": "Coś poszło nie tak. Spróbuj ponownie za chwilę.", "foot.rest": "Dla restauracji",
+  "ab.c6": "**E-maile „Piątek za pół ceny” wysyłamy tylko po zapisaniu się.** Przechowujemy Twój e-mail, język, okolicę i datę zgody. Każdy e-mail ma link do wypisania, a Twojego adresu nigdy nie sprzedajemy ani nie udostępniamy." },
+ro: { "nl.eyebrow": "Vinerea la jumătate de preț", "nl.title": "Cele mai bune 5 oferte de lângă tine, în fiecare vineri", "nl.text": "Un e-mail scurt pe săptămână. Gratuit. Te dezabonezi oricând.", "nl.email": "E-mail", "nl.btn": "Mă abonez", "nl.ok": "Da, trimiteți-mi oferte TableFifty. Mă pot dezabona oricând.", "nl.bad": "Introdu o adresă de e-mail validă.", "nl.tick": "Bifează căsuța ca să accepți e-mailurile.", "nl.done": "Gata. Ne vedem vineri!", "nl.err": "Ceva n-a mers. Încearcă din nou peste puțin timp.", "foot.rest": "Pentru restaurante",
+  "ab.c6": "**E-mailurile „Vinerea la jumătate de preț” vin doar dacă te abonezi.** Păstrăm e-mailul, limba, zona și data acordului. Fiecare e-mail are link de dezabonare și nu vindem și nu dăm nimănui adresa ta." },
+pa: { "nl.eyebrow": "ਅੱਧੀ ਕੀਮਤ ਵਾਲਾ ਸ਼ੁੱਕਰਵਾਰ", "nl.title": "ਹਰ ਸ਼ੁੱਕਰਵਾਰ, ਤੁਹਾਡੇ ਨੇੜੇ ਦੀਆਂ 5 ਸਭ ਤੋਂ ਵਧੀਆ ਡੀਲਾਂ", "nl.text": "ਹਫ਼ਤੇ ਵਿੱਚ ਇੱਕ ਛੋਟੀ ਈਮੇਲ। ਮੁਫ਼ਤ। ਕਦੇ ਵੀ ਬੰਦ ਕਰੋ।", "nl.email": "ਈਮੇਲ", "nl.btn": "ਮੈਨੂੰ ਜੋੜੋ", "nl.ok": "ਹਾਂ, ਮੈਨੂੰ TableFifty ਡੀਲਾਂ ਈਮੇਲ ਕਰੋ। ਮੈਂ ਕਦੇ ਵੀ ਬੰਦ ਕਰ ਸਕਦਾ/ਸਕਦੀ ਹਾਂ।", "nl.bad": "ਕਿਰਪਾ ਕਰਕੇ ਸਹੀ ਈਮੇਲ ਲਿਖੋ।", "nl.tick": "ਈਮੇਲਾਂ ਲਈ ਹਾਂ ਕਹਿਣ ਵਾਸਤੇ ਡੱਬੇ 'ਤੇ ਨਿਸ਼ਾਨ ਲਾਓ।", "nl.done": "ਹੋ ਗਿਆ। ਸ਼ੁੱਕਰਵਾਰ ਨੂੰ ਮਿਲਦੇ ਹਾਂ!", "nl.err": "ਮਾਫ਼ ਕਰਨਾ, ਕੰਮ ਨਹੀਂ ਬਣਿਆ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ।", "foot.rest": "ਰੈਸਟੋਰੈਂਟਾਂ ਲਈ",
+  "ab.c6": "**ਅੱਧੀ ਕੀਮਤ ਵਾਲੇ ਸ਼ੁੱਕਰਵਾਰ ਦੀਆਂ ਈਮੇਲਾਂ ਸਿਰਫ਼ ਜੁੜਨ 'ਤੇ ਆਉਂਦੀਆਂ ਹਨ।** ਅਸੀਂ ਤੁਹਾਡੀ ਈਮੇਲ, ਭਾਸ਼ਾ, ਇਲਾਕਾ ਅਤੇ ਹਾਂ ਕਹਿਣ ਦੀ ਤਾਰੀਖ ਰੱਖਦੇ ਹਾਂ। ਹਰ ਈਮੇਲ ਵਿੱਚ ਬੰਦ ਕਰਨ ਦਾ ਲਿੰਕ ਹੈ, ਅਤੇ ਅਸੀਂ ਤੁਹਾਡੀ ਈਮੇਲ ਕਦੇ ਨਹੀਂ ਵੇਚਦੇ ਜਾਂ ਸਾਂਝੀ ਕਰਦੇ।" },
+ur: { "nl.eyebrow": "آدھی قیمت والا جمعہ", "nl.title": "ہر جمعہ، آپ کے قریب 5 بہترین ڈیلز", "nl.text": "ہفتے میں ایک مختصر ای میل۔ مفت۔ جب چاہیں بند کریں۔", "nl.email": "ای میل", "nl.btn": "مجھے شامل کریں", "nl.ok": "ہاں، مجھے TableFifty کی ڈیلز ای میل کریں۔ میں کسی بھی وقت بند کر سکتا/سکتی ہوں۔", "nl.bad": "براہ کرم درست ای میل لکھیں۔", "nl.tick": "ای میلز کے لیے ہاں کہنے کو خانے پر نشان لگائیں۔", "nl.done": "ہو گیا۔ جمعہ کو ملتے ہیں!", "nl.err": "معذرت، یہ کام نہیں ہوا۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔", "foot.rest": "ریسٹورنٹس کے لیے",
+  "ab.c6": "**آدھی قیمت والے جمعہ کی ای میلز صرف سائن اپ کرنے پر آتی ہیں۔** ہم آپ کا ای میل، زبان، علاقہ اور ہاں کہنے کی تاریخ رکھتے ہیں۔ ہر ای میل میں ان سبسکرائب کا لنک ہوتا ہے، اور ہم آپ کا ای میل کبھی نہیں بیچتے یا شیئر کرتے۔" },
+pt: { "nl.eyebrow": "Sexta a meio preço", "nl.title": "As 5 melhores ofertas perto de si, todas as sextas", "nl.text": "Um e-mail curto por semana. Grátis. Cancele quando quiser.", "nl.email": "E-mail", "nl.btn": "Quero receber", "nl.ok": "Sim, enviem-me ofertas do TableFifty. Posso cancelar quando quiser.", "nl.bad": "Escreva um e-mail válido.", "nl.tick": "Marque a caixa para aceitar os e-mails.", "nl.done": "Feito. Até sexta!", "nl.err": "Desculpe, não funcionou. Tente de novo daqui a pouco.", "foot.rest": "Para restaurantes",
+  "ab.c6": "**Os e-mails \"Sexta a meio preço\" só chegam se se inscrever.** Guardamos o seu e-mail, idioma, zona e a data em que aceitou. Todos os e-mails têm link para cancelar, e nunca vendemos nem partilhamos o seu e-mail." },
+es: { "nl.eyebrow": "Viernes a mitad de precio", "nl.title": "Las 5 mejores ofertas cerca de ti, cada viernes", "nl.text": "Un email corto a la semana. Gratis. Date de baja cuando quieras.", "nl.email": "Email", "nl.btn": "Apúntame", "nl.ok": "Sí, enviadme ofertas de TableFifty. Puedo darme de baja cuando quiera.", "nl.bad": "Escribe un email válido.", "nl.tick": "Marca la casilla para aceptar los emails.", "nl.done": "¡Listo! Nos vemos el viernes.", "nl.err": "Lo sentimos, no ha funcionado. Inténtalo de nuevo en un momento.", "foot.rest": "Para restaurantes",
+  "ab.c6": "**Los emails \"Viernes a mitad de precio\" solo llegan si te apuntas.** Guardamos tu email, idioma, zona y la fecha en que aceptaste. Cada email tiene un enlace para darte de baja, y nunca vendemos ni compartimos tu email." },
+ar: { "nl.eyebrow": "جمعة نصف السعر", "nl.title": "أفضل 5 عروض قربك، كل يوم جمعة", "nl.text": "بريد قصير واحد في الأسبوع. مجاني. ألغِ الاشتراك في أي وقت.", "nl.email": "البريد الإلكتروني", "nl.btn": "اشترك", "nl.ok": "نعم، أرسلوا لي عروض TableFifty. يمكنني إلغاء الاشتراك في أي وقت.", "nl.bad": "يرجى كتابة بريد إلكتروني صحيح.", "nl.tick": "ضع علامة في المربع للموافقة على الرسائل.", "nl.done": "تم. نراك يوم الجمعة!", "nl.err": "عذرًا، لم ينجح ذلك. حاول مرة أخرى بعد قليل.", "foot.rest": "للمطاعم",
+  "ab.c6": "**رسائل \"جمعة نصف السعر\" لا تصلك إلا إذا اشتركت.** نحفظ بريدك ولغتك ومنطقتك وتاريخ موافقتك. كل رسالة فيها رابط لإلغاء الاشتراك، ولا نبيع بريدك أو نشاركه أبدًا." },
+bn: { "nl.eyebrow": "অর্ধেক দামের শুক্রবার", "nl.title": "প্রতি শুক্রবার, আপনার কাছের সেরা ৫টি ডিল", "nl.text": "সপ্তাহে একটি ছোট ইমেইল। বিনামূল্যে। যেকোনো সময় বন্ধ করুন।", "nl.email": "ইমেইল", "nl.btn": "আমাকে যুক্ত করুন", "nl.ok": "হ্যাঁ, আমাকে TableFifty ডিল ইমেইল করুন। আমি যেকোনো সময় বন্ধ করতে পারি।", "nl.bad": "অনুগ্রহ করে সঠিক ইমেইল লিখুন।", "nl.tick": "ইমেইলে হ্যাঁ বলতে বাক্সে টিক দিন।", "nl.done": "হয়ে গেছে। শুক্রবার দেখা হবে!", "nl.err": "দুঃখিত, কাজ হয়নি। একটু পরে আবার চেষ্টা করুন।", "foot.rest": "রেস্টুরেন্টের জন্য",
+  "ab.c6": "**অর্ধেক দামের শুক্রবারের ইমেইল শুধু সাইন আপ করলেই আসে।** আমরা আপনার ইমেইল, ভাষা, এলাকা ও সম্মতির তারিখ রাখি। প্রতিটি ইমেইলে আনসাবস্ক্রাইব লিংক থাকে, আর আমরা কখনো আপনার ইমেইল বিক্রি বা শেয়ার করি না।" }
+};
+Object.keys(I18N_NL).forEach(l => Object.assign(I18N[l], I18N_NL[l]));
 
 const DEALS_CHECKED = "2026-09-29";
 const CITIES = {"bath":{"n":"Bath","ll":[51.382,-2.3594]},"belfast":{"n":"Belfast","ll":[54.5961,-5.929]},"birmingham":{"n":"Birmingham","ll":[52.4778,-1.9062]},"bournemouth":{"n":"Bournemouth","ll":[50.7223,-1.873]},"brighton":{"n":"Brighton","ll":[50.8244,-0.1507]},"bristol":{"n":"Bristol","ll":[51.4564,-2.5966]},"cambridge":{"n":"Cambridge","ll":[52.2057,0.1217]},"cardiff":{"n":"Cardiff","ll":[51.4805,-3.1772]},"edinburgh":{"n":"Edinburgh","ll":[55.9511,-3.1929]},"glasgow":{"n":"Glasgow","ll":[55.8624,-4.2587]},"leeds":{"n":"Leeds","ll":[53.7968,-1.5444]},"leicester":{"n":"Leicester","ll":[52.6341,-1.1354]},"liverpool":{"n":"Liverpool","ll":[53.4028,-2.9824]},"london":{"n":"London","ll":[51.5074,-0.1278]},"manchester":{"n":"Manchester","ll":[53.4787,-2.2424]},"newcastle-upon-tyne":{"n":"Newcastle upon Tyne","ll":[54.971,-1.6129]},"norwich":{"n":"Norwich","ll":[52.6299,1.2911]},"nottingham":{"n":"Nottingham","ll":[52.9527,-1.1477]},"oxford":{"n":"Oxford","ll":[51.7529,-1.2612]},"sheffield":{"n":"Sheffield","ll":[53.3778,-1.4741]},"southampton":{"n":"Southampton","ll":[50.9077,-1.3927]}};
@@ -2523,6 +2579,38 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
   const TODAY = (() => { const d = new Date(); return new Date(d.getTime() - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10); })();
   function fmtDate(iso) { try { return new Intl.DateTimeFormat(lang, { day: "numeric", month: "short" }).format(new Date(iso + "T12:00:00")); } catch (e) { return iso; } }
   const googleSite = (q, p) => `https://www.google.com/search?q=${enc(q + " site:" + PLATFORMS[p].hosts[0])}`;
+
+  /* ---------- Affiliate links ----------
+     Empty = a plain link (no tracking). When a programme approves TableFifty, fill in its ID below:
+     matching deal buttons then become tracked links, get rel="sponsored" and show the "Ad" tag.
+       awin.affid : your Awin publisher ID          awin.on  : shop domain -> Awin advertiser ID (only approved ones)
+         known IDs: tastecard.co.uk 16164, gourmetsociety.co.uk 16163, groupon.co.uk 116595, wowcher.co.uk 3595,
+                    gousto.co.uk 5070, coop.co.uk 17305, dominos.co.uk 31075
+       cj.pid     : your CJ website PID             cj.on    : approved shop domains, e.g. "ocado.com"
+       partnerize : shop domain -> Partnerize camref (e.g. "deliveroo.co.uk")
+       direct     : shop domain -> full tracking link from the brand's own programme (e.g. "ubereats.com")
+       skimlinks  : Skimlinks site ID + the shop domains to send through it */
+  const AFF = {
+    awin: { affid: "", on: {} },
+    cj: { pid: "", on: [] },
+    partnerize: {},
+    direct: {},
+    skimlinks: { id: "", on: [] }
+  };
+  function affLink(u) {
+    const plain = { href: u, aff: false };
+    let h; try { h = new URL(u).hostname.toLowerCase().replace(/^www\./, ""); } catch (e) { return plain; }
+    const hit = d => h === d || h.endsWith("." + d);
+    const key = obj => Object.keys(obj).find(hit);
+    const e = encodeURIComponent(u);
+    let k;
+    if (AFF.awin.affid && (k = key(AFF.awin.on))) return { href: `https://www.awin1.com/cread.php?awinmid=${AFF.awin.on[k]}&awinaffid=${AFF.awin.affid}&ued=${e}`, aff: true };
+    if (AFF.cj.pid && AFF.cj.on.some(hit)) return { href: `https://www.anrdoezrs.net/links/${AFF.cj.pid}/type/dlg/${u}`, aff: true };
+    if ((k = key(AFF.partnerize))) return { href: `https://prf.hn/click/camref:${AFF.partnerize[k]}/destination:${e}`, aff: true };
+    if ((k = key(AFF.direct))) return { href: AFF.direct[k], aff: true };
+    if (AFF.skimlinks.id && AFF.skimlinks.on.some(hit)) return { href: `https://go.skimresources.com/?id=${AFF.skimlinks.id}&xs=1&url=${e}`, aff: true };
+    return plain;
+  }
 
   /* ---------- Location (UK-wide) ---------- */
   const LOC_KEY = "tablefifty.loc.v1", FAV_KEY = "tablefifty.favs.v1";
@@ -2872,15 +2960,16 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
   /* ---------- Render ---------- */
   function offerHTML(v, o) {
     const P = PLATFORMS[o.platform];
-    const url = safeUrl(o.url) || "";
-    const lt = linkType(url);
+    const raw = safeUrl(o.url) || "";
+    const lt = linkType(raw);
+    const L = affLink(raw), url = L.href, isAff = o.affiliate || L.aff;
     const uidStr = `u-${esc(v.id)}-${o.idx}`;
     const head = offerHead(o), detail = offerDetail(o);
     const note = lt === "venue" ? "" : t("ltn." + lt);
     return `<li class="offer">
       <div class="offer-top">
         <span class="plat">${esc(platName(o))}</span>
-        ${o.affiliate ? `<span class="adtag" title="${esc(t("ad.title"))}">${esc(t("ad"))}</span>` : ""}
+        ${isAff ? `<span class="adtag" title="${esc(t("ad.title"))}">${esc(t("ad"))}</span>` : ""}
         <span class="kind">${kindOf(o) === "dine" ? I.fork + esc(t("kind.dine")) : I.bag + esc(t(kindOf(o) === "delivery" ? "kind.delivery" : kindOf(o) === "grocery" ? "tab.grocery" : "cz.coffee"))}</span>
         ${o.custom ? `<span class="yours-tag">${esc(t("yours"))}</span>` : ""}
         ${o.custom ? `<span class="lt lt-${lt}">${esc(t("lt." + lt))}</span>` : ""}
@@ -2895,7 +2984,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
       <div class="tear" aria-hidden="true"></div>
       <code class="url${o.custom ? "" : " vh"}" id="${uidStr}">${esc(url)}</code>
       <div class="actions">
-        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${o.affiliate ? " sponsored" : ""}" data-open="${esc(platName(o))}">${o.h === "nodeal" ? `${I.pin} ${esc(t("fb.maps"))}` : esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
+        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${isAff ? " sponsored" : ""}" data-open="${esc(platName(o))}">${o.h === "nodeal" ? `${I.pin} ${esc(t("fb.maps"))}` : esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
         <button type="button" class="btn" data-copy="${esc(url)}" data-what="t.link" data-target="${uidStr}">${I.copy}${esc(t("offer.copy"))}</button>
         <button type="button" class="btn btn-icon" data-altopen="${esc(url)}" data-target="${uidStr}" aria-label="${esc(t("offer.retry"))}" title="${esc(t("offer.retry"))}">${I.retry}</button>
       </div>
@@ -3210,9 +3299,9 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     if (!q) return;
     $("#fbText").innerHTML = state.q.trim() ? t("fb.text2", { q: esc(q) }) : t("fb.textnear", { p: esc(placeWord()) });
     const make = k => {
-      const url = state.mode === "google" ? googleSite(q, k) : PLATFORMS[k].search(q);
+      const L = state.mode === "google" ? { href: googleSite(q, k), aff: false } : affLink(PLATFORMS[k].search(q)), url = L.href;
       return `<div class="launch">
-        <a class="btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer" data-open="${esc(PLATFORMS[k].name)}"><span class="plat">${esc(PLATFORMS[k].name)}</span> ${I.ext}</a>
+        <a class="btn" href="${esc(url)}" target="_blank" rel="noopener noreferrer${L.aff ? " sponsored" : ""}" data-open="${esc(PLATFORMS[k].name)}"><span class="plat">${esc(PLATFORMS[k].name)}</span> ${I.ext}</a>
         <button type="button" class="btn btn-icon" data-copy="${esc(url)}" data-what="t.search" aria-label="${esc(t("fb.copy", { p: PLATFORMS[k].name }))}">${I.copy}</button>
       </div>`;
     };
@@ -3232,7 +3321,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
   function mini(s) {
     return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
       .replace("{ad}", `<span class="adtag">${esc(t("ad"))}</span>`)
-      .replace(/\{email\}/g, '<strong style="direction:ltr;unicode-bidi:isolate">hello@tablefifty.co.uk</strong>');
+      .replace(/\{email\}/g, '<strong style="direction:ltr;unicode-bidi:isolate">info@tablefifty.co.uk</strong>');
   }
   function renderAbout() {
     const note = t("ab.note");
@@ -3240,7 +3329,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
       ${note ? `<p class="note">${mini(note)}</p>` : ""}
       <h3>${mini(t("ab.h1"))}</h3><p>${mini(t("ab.p1"))}</p>
       <h3>${mini(t("ab.h2"))}</h3><ul>${["m1", "m2", "m3", "m4"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
-      <h3>${mini(t("ab.h3"))}</h3><ul>${["c1", "c2", "c3", "c4", "c5"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
+      <h3>${mini(t("ab.h3"))}</h3><ul>${["c1", "c2", "c3", "c4", "c5", "c6"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
       <h3>${mini(t("ab.h4"))}</h3><p>${mini(t("ab.p4"))}</p>
       <p style="color:var(--faint);font-size:13px">${mini(t("ab.upd"))}</p>`;
   }
@@ -3719,7 +3808,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     if (!spotPicks.length) { box.hidden = true; return; }
     if (spotIdx >= spotPicks.length) spotIdx = 0;
     const pick = spotPicks[spotIdx];
-    const v = pick.v, main = mainOffer(v.offers), url = safeUrl(main.url) || "";
+    const v = pick.v, main = mainOffer(v.offers), mainL = affLink(safeUrl(main.url) || ""), url = mainL.href;
     const d = v.ll && state.loc ? miles([state.loc.lat, state.loc.lng], v.ll) : null;
     const dateTxt = (() => { try { return new Intl.DateTimeFormat(lang, { weekday: "short", day: "numeric", month: "short" }).format(new Date(TODAY + "T12:00:00")); } catch (e) { return TODAY; } })();
     box.dataset.vid = v.id;
@@ -3734,7 +3823,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
         <p class="spot-deal">${esc(offerHead(main))} · ${esc(platName(main))}</p>
         <p class="spot-why">${esc(pick.ad ? t("spot.adwhy") : pick.hot ? t("spot.whyNew", { n: v.nr }) : t("spot.why"))}</p>
         <div class="spot-actions">
-          <a class="btn btn-amber" href="${esc(url)}" target="_blank" rel="noopener noreferrer${main.affiliate ? " sponsored" : ""}" data-open="${esc(platName(main))}">${esc(t("spot.see"))} ${I.ext}</a>
+          <a class="btn btn-amber" href="${esc(url)}" target="_blank" rel="noopener noreferrer${main.affiliate || mainL.aff ? " sponsored" : ""}" data-open="${esc(platName(main))}">${esc(t("spot.see"))} ${I.ext}</a>
           <button type="button" class="btn" data-ins="${esc(v.id)}">${I.spark}${esc(t("t50.btn"))}</button>
           <button type="button" class="btn btn-icon" data-share="${esc(v.id)}" aria-label="${esc(t("share.btn"))}" title="${esc(t("share.btn"))}">${I.share}</button>
           ${likeBtn(v)}
@@ -3997,6 +4086,26 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
     setQuery(v.name);
     setTimeout(() => { const card = document.getElementById("v-" + v.id); if (card) scrollToEl(card); openInsights(v.id); }, 60);
   })();
+  /* ---------- Newsletter (Half-Price Friday) ----------
+     Each sign-up is saved in Firestore "subscribers/{uid}" with the consent tick and the date (PECR opt-in).
+     Export the list into the email tool before each send. */
+  $("#newsForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const msg = $("#newsMsg"), email = $("#newsEmail").value.trim().toLowerCase();
+    const say = (k, tone) => { msg.textContent = t(k); msg.className = "news-msg" + (tone ? " " + tone : ""); };
+    if (email.length > 120 || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { say("nl.bad", "warn"); $("#newsEmail").focus(); return; }
+    if (!$("#newsOk").checked) { say("nl.tick", "warn"); return; }
+    const btn = $("#newsBtn"); btn.disabled = true;
+    try {
+      if (!acct.ready) throw new Error("accounts not ready");
+      const F = acct.fb;
+      const user = acct.auth.currentUser || (await F.signInAnonymously(acct.auth)).user;
+      await F.setDoc(F.doc(acct.db, "subscribers", user.uid), { email, lang, area: String((state.loc && state.loc.label) || "").slice(0, 60), consent: true, at: F.serverTimestamp() });
+      say("nl.done", "ok"); $("#newsForm").reset();
+    } catch (err) { console.warn("newsletter", err); say("nl.err", "warn"); }
+    btn.disabled = false;
+  });
+
   acctInit();
 })();
 </script>
