@@ -60,6 +60,8 @@ PAGE_CSS=f'''<style>
   .about{{display:grid;gap:12px;color:var(--muted)}}
   .about h3{{margin:14px 0 0;font-family:var(--f-display);font-size:20px;color:var(--text)}}
   .about p,.about ul{{margin:0}} .about ul{{padding-left:22px;display:grid;gap:6px}} .about strong{{color:var(--text)}}
+  .story{{border:1px solid #27365a;border-radius:16px;padding:16px 18px;background:linear-gradient(160deg,rgba(245,158,11,.10),rgba(16,185,129,.06));display:grid;gap:10px}}
+  .story h3{{margin:0}} .story p{{color:var(--text)}} .story .sig{{color:var(--amber);font-weight:700}}
   .adtag{{font-size:11px;font-weight:800;letter-spacing:.06em;padding:1px 6px;border-radius:5px;background:var(--amber);color:var(--amber-ink)}}
 </style>'''
 privacy=f'''<!doctype html>
@@ -136,7 +138,7 @@ for v in _deals:
 <meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#0f172a">
 <script type="application/ld+json">{ld_json}</script>
 <style>body{{margin:0;background:#0f172a;color:#e8eef8;font:16px/1.5 system-ui,sans-serif}}main{{max-width:640px;margin:0 auto;padding:40px 16px}}img{{width:100%;border-radius:16px}}a{{color:#10b981}}</style>
-<script>location.replace("/?r={v['id']}" + location.hash);</script></head>
+<script>var h="";try{{h=new URL(document.referrer).hostname}}catch(e){{}}location.replace("/?r={v['id']}"+(location.search?"&"+location.search.slice(1):"")+(h&&h!==location.hostname?"&rf="+encodeURIComponent(h):"")+location.hash);</script></head>
 <body><main><img src="{E(img_for(v))}" alt="{E(v['n'])}"><h1>{E(v['n'])}</h1><p>{E(v.get('a', ''))}</p><p><strong>{E(deal)}</strong>{E(sc + mich)}</p>
 <p><a href="/?r={E(v['id'])}">See this deal on TableFifty</a></p></main></body></html>
 """
@@ -262,7 +264,15 @@ restaurants = f"""<!doctype html>
 os.makedirs(os.path.join(ROOT, 'restaurants'), exist_ok=True)
 open(os.path.join(ROOT, 'restaurants', 'index.html'), 'w', encoding='utf-8').write(restaurants)
 
-open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\n\nSitemap: {BASE}sitemap.xml\n')
+# ---------- Private stats page: tablefifty.co.uk/stats/ (not linked, not indexed) ----------
+# Reads the anonymous totals in Firestore "clicks/{YYYY-MM}" (visits per day/source, deal clicks per platform/day/source).
+_stats = open(os.path.join(SRC, 'stats.html'), encoding='utf-8').read()
+_cfg = _re.search(r'apiKey: "([^"]+)"[\s\S]*?projectId: "([^"]+)"', open(os.path.join(SRC, 'page.html'), encoding='utf-8').read())
+_stats = (_stats.replace('__CSS__', PAGE_CSS).replace('__FAV__', fav).replace('__APIKEY__', _cfg.group(1)).replace('__PROJECT__', _cfg.group(2))
+          .replace('__PLAT__', _j.dumps(dict(PLAT, tastecard='tastecard', code='Code'), ensure_ascii=False)))
+os.makedirs(os.path.join(ROOT, 'stats'), exist_ok=True)
+open(os.path.join(ROOT, 'stats', 'index.html'), 'w', encoding='utf-8').write(_stats)
+open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\nDisallow: /stats/\n\nSitemap: {BASE}sitemap.xml\n')
 open(os.path.join(ROOT,'sitemap.xml'),'w').write(f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{BASE}</loc><lastmod>{TODAY}</lastmod></url>

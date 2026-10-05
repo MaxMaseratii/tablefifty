@@ -588,3 +588,105 @@ ar: { "empty.savedt": "لا توجد أماكن محفوظة بعد", "empty.sav
 bn: { "empty.savedt": "এখনো কোনো সেভ করা জায়গা নেই", "empty.saved": "যেকোনো রেস্টুরেন্টের ছবিতে বুকমার্ক চাপুন, সেটি এখানে আপনার জন্য থাকবে।" }
 };
 Object.keys(I18N_FIX1).forEach(l => Object.assign(I18N[l], I18N_FIX1[l]));
+const I18N_STORY = {
+"en": {
+"ab.sh": "Why TableFifty exists",
+"ab.s1": "Eating out is not about hunger. It's about pleasure: a night with friends, a date, a treat. A good deal doesn't make it feel cheap. It makes it even better.",
+"ab.s2": "One night I picked a restaurant and wanted to find an offer. Was it on First Table? No. TheFork? EatClub? tastecard? I opened one app after another. It took ages.",
+"ab.s3": "So I built a small tool just for me: type a restaurant name and see every offer in one place. Then I thought: everyone must have this problem. So I made it free for everyone.",
+"ab.s4": "— Max, founder",
+"ab.c3": "**No tracking or advertising cookies.** We count visits and clicks only as simple totals, for example \"Instagram: 120 visits today\" or \"First Table: 40 clicks\". This counting stores nothing on your device and is never linked to you.",
+"ab.c7": "**Food diary and first name (if you sign in):** your diary notes and photos are private to your account. Your first name is only used to greet you. You can delete them at any time.",
+"ab.upd": "Last updated 5 October 2026.",
+"foot.story": "Our story"
+},
+"pl": {
+"ab.sh": "Dlaczego powstał TableFifty",
+"ab.s1": "Wyjście do restauracji to nie kwestia głodu. To przyjemność: wieczór z przyjaciółmi, randka, nagroda. Dobra oferta nie sprawia, że jest tanio. Sprawia, że jest jeszcze lepiej.",
+"ab.s2": "Pewnego wieczoru wybrałem restaurację i chciałem znaleźć ofertę. Czy jest na First Table? Nie. TheFork? EatClub? tastecard? Otwierałem aplikację za aplikacją. Trwało to wieki.",
+"ab.s3": "Więc zbudowałem małe narzędzie tylko dla siebie: wpisujesz nazwę restauracji i widzisz wszystkie oferty w jednym miejscu. Potem pomyślałem: każdy musi mieć ten problem. Dlatego udostępniłem je wszystkim za darmo.",
+"ab.s4": "— Max, założyciel",
+"ab.c3": "**Żadnych plików cookie do śledzenia ani reklam.** Liczymy wizyty i kliknięcia tylko jako proste sumy, np. „Instagram: 120 wizyt dziś” albo „First Table: 40 kliknięć”. To liczenie nic nie zapisuje na Twoim urządzeniu i nigdy nie jest powiązane z Tobą.",
+"ab.c7": "**Dziennik jedzenia i imię (jeśli się zalogujesz):** notatki i zdjęcia w dzienniku są prywatne, tylko na Twoim koncie. Imię służy tylko do powitania. Możesz je usunąć w każdej chwili.",
+"ab.upd": "Ostatnia aktualizacja: 5 października 2026.",
+"foot.story": "Nasza historia"
+},
+"ro": {
+"ab.sh": "De ce există TableFifty",
+"ab.s1": "Ieșitul la restaurant nu ține de foame. Ține de plăcere: o seară cu prietenii, o întâlnire, un răsfăț. O ofertă bună nu face totul să pară ieftin. Îl face și mai bun.",
+"ab.s2": "Într-o seară am ales un restaurant și am vrut să găsesc o ofertă. Era pe First Table? Nu. TheFork? EatClub? tastecard? Am deschis o aplicație după alta. A durat o veșnicie.",
+"ab.s3": "Așa că mi-am făcut un mic instrument doar pentru mine: scrii numele restaurantului și vezi toate ofertele într-un singur loc. Apoi m-am gândit: toată lumea are problema asta. Așa că l-am făcut gratuit pentru toți.",
+"ab.s4": "— Max, fondator",
+"ab.c3": "**Fără cookie-uri de urmărire sau publicitate.** Numărăm vizitele și clicurile doar ca totaluri simple, de exemplu „Instagram: 120 de vizite azi” sau „First Table: 40 de clicuri”. Numărarea nu salvează nimic pe dispozitivul tău și nu e legată niciodată de tine.",
+"ab.c7": "**Jurnalul culinar și prenumele (dacă te conectezi):** notițele și pozele din jurnal sunt private, doar în contul tău. Prenumele îl folosim doar ca să te salutăm. Le poți șterge oricând.",
+"ab.upd": "Ultima actualizare: 5 octombrie 2026.",
+"foot.story": "Povestea noastră"
+},
+"pa": {
+"ab.sh": "TableFifty ਕਿਉਂ ਬਣਿਆ",
+"ab.s1": "ਰੈਸਟੋਰੈਂਟ ਜਾਣਾ ਭੁੱਖ ਦੀ ਗੱਲ ਨਹੀਂ, ਮਜ਼ੇ ਦੀ ਗੱਲ ਹੈ: ਦੋਸਤਾਂ ਨਾਲ ਇੱਕ ਸ਼ਾਮ, ਇੱਕ ਡੇਟ, ਇੱਕ ਟ੍ਰੀਟ। ਚੰਗੀ ਆਫ਼ਰ ਤਜਰਬੇ ਨੂੰ ਸਸਤਾ ਨਹੀਂ ਬਣਾਉਂਦੀ, ਹੋਰ ਵਧੀਆ ਬਣਾਉਂਦੀ ਹੈ।",
+"ab.s2": "ਇੱਕ ਰਾਤ ਮੈਂ ਇੱਕ ਰੈਸਟੋਰੈਂਟ ਚੁਣਿਆ ਅਤੇ ਆਫ਼ਰ ਲੱਭਣੀ ਚਾਹੀ। ਕੀ ਇਹ First Table ’ਤੇ ਹੈ? ਨਹੀਂ। TheFork? EatClub? tastecard? ਮੈਂ ਇੱਕ ਤੋਂ ਬਾਅਦ ਇੱਕ ਐਪ ਖੋਲ੍ਹਦਾ ਰਿਹਾ। ਬਹੁਤ ਸਮਾਂ ਲੱਗਿਆ।",
+"ab.s3": "ਇਸ ਲਈ ਮੈਂ ਸਿਰਫ਼ ਆਪਣੇ ਲਈ ਇੱਕ ਛੋਟਾ ਟੂਲ ਬਣਾਇਆ: ਰੈਸਟੋਰੈਂਟ ਦਾ ਨਾਂ ਲਿਖੋ ਅਤੇ ਸਾਰੀਆਂ ਆਫ਼ਰਾਂ ਇੱਕ ਥਾਂ ਵੇਖੋ। ਫਿਰ ਸੋਚਿਆ: ਇਹ ਮੁਸ਼ਕਲ ਸਭ ਨੂੰ ਆਉਂਦੀ ਹੋਵੇਗੀ। ਇਸ ਲਈ ਮੈਂ ਇਸ ਨੂੰ ਸਭ ਲਈ ਮੁਫ਼ਤ ਕਰ ਦਿੱਤਾ।",
+"ab.s4": "— ਮੈਕਸ, ਬਾਨੀ",
+"ab.c3": "**ਕੋਈ ਟਰੈਕਿੰਗ ਜਾਂ ਇਸ਼ਤਿਹਾਰੀ ਕੂਕੀਜ਼ ਨਹੀਂ।** ਅਸੀਂ ਵਿਜ਼ਿਟਾਂ ਅਤੇ ਕਲਿੱਕਾਂ ਨੂੰ ਸਿਰਫ਼ ਸਧਾਰਨ ਜੋੜ ਵਜੋਂ ਗਿਣਦੇ ਹਾਂ, ਜਿਵੇਂ “Instagram: ਅੱਜ 120 ਵਿਜ਼ਿਟਾਂ” ਜਾਂ “First Table: 40 ਕਲਿੱਕ”। ਇਹ ਗਿਣਤੀ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ’ਤੇ ਕੁਝ ਨਹੀਂ ਰੱਖਦੀ ਅਤੇ ਕਦੇ ਤੁਹਾਡੇ ਨਾਲ ਨਹੀਂ ਜੁੜਦੀ।",
+"ab.c7": "**ਫੂਡ ਡਾਇਰੀ ਅਤੇ ਪਹਿਲਾ ਨਾਂ (ਜੇ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰੋ):** ਡਾਇਰੀ ਦੇ ਨੋਟ ਅਤੇ ਫੋਟੋਆਂ ਸਿਰਫ਼ ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਨਿੱਜੀ ਰਹਿੰਦੇ ਹਨ। ਪਹਿਲਾ ਨਾਂ ਸਿਰਫ਼ ਤੁਹਾਨੂੰ ਜੀ ਆਇਆਂ ਕਹਿਣ ਲਈ ਹੈ। ਤੁਸੀਂ ਇਹਨਾਂ ਨੂੰ ਕਦੇ ਵੀ ਮਿਟਾ ਸਕਦੇ ਹੋ।",
+"ab.upd": "ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ: 5 ਅਕਤੂਬਰ 2026।",
+"foot.story": "ਸਾਡੀ ਕਹਾਣੀ"
+},
+"ur": {
+"ab.sh": "TableFifty کیوں بنا",
+"ab.s1": "ریسٹورنٹ جانا بھوک کی بات نہیں، مزے کی بات ہے: دوستوں کے ساتھ ایک شام، ایک ڈیٹ، ایک ٹریٹ۔ اچھی آفر تجربے کو سستا نہیں بناتی، اور بہتر بنا دیتی ہے۔",
+"ab.s2": "ایک رات میں نے ایک ریسٹورنٹ چنا اور کوئی آفر ڈھونڈنا چاہی۔ کیا یہ First Table پر ہے؟ نہیں۔ TheFork؟ EatClub؟ tastecard؟ میں ایک کے بعد ایک ایپ کھولتا رہا۔ بہت وقت لگا۔",
+"ab.s3": "تو میں نے صرف اپنے لیے ایک چھوٹا سا ٹول بنایا: ریسٹورنٹ کا نام لکھیں اور ساری آفرز ایک جگہ دیکھیں۔ پھر سوچا: یہ مسئلہ سب کو ہوتا ہوگا۔ اس لیے میں نے اسے سب کے لیے مفت کر دیا۔",
+"ab.s4": "— میکس، بانی",
+"ab.c3": "**کوئی ٹریکنگ یا اشتہاری کوکیز نہیں۔** ہم وزٹس اور کلکس صرف سادہ ٹوٹل کے طور پر گنتے ہیں، جیسے «Instagram: آج 120 وزٹس» یا «First Table: 40 کلکس»۔ یہ گنتی آپ کے آلے پر کچھ محفوظ نہیں کرتی اور کبھی آپ سے نہیں جڑتی۔",
+"ab.c7": "**فوڈ ڈائری اور پہلا نام (اگر آپ سائن ان کریں):** ڈائری کے نوٹس اور تصاویر صرف آپ کے اکاؤنٹ میں نجی رہتے ہیں۔ پہلا نام صرف آپ کو خوش آمدید کہنے کے لیے ہے۔ آپ انہیں کسی بھی وقت مٹا سکتے ہیں۔",
+"ab.upd": "آخری اپ ڈیٹ: 5 اکتوبر 2026۔",
+"foot.story": "ہماری کہانی"
+},
+"pt": {
+"ab.sh": "Porque existe o TableFifty",
+"ab.s1": "Comer fora não tem a ver com fome. Tem a ver com prazer: uma noite com amigos, um encontro, um mimo. Uma boa oferta não torna tudo barato. Torna tudo ainda melhor.",
+"ab.s2": "Uma noite escolhi um restaurante e quis encontrar uma oferta. Estava no First Table? Não. TheFork? EatClub? tastecard? Abri uma app atrás da outra. Demorou imenso.",
+"ab.s3": "Então criei uma pequena ferramenta só para mim: escreve o nome de um restaurante e vê todas as ofertas num só lugar. Depois pensei: toda a gente deve ter este problema. Por isso tornei-a gratuita para todos.",
+"ab.s4": "— Max, fundador",
+"ab.c3": "**Sem cookies de rastreio ou de publicidade.** Contamos visitas e cliques apenas como totais simples, por exemplo «Instagram: 120 visitas hoje» ou «First Table: 40 cliques». Esta contagem não guarda nada no seu dispositivo e nunca fica ligada a si.",
+"ab.c7": "**Diário de comida e primeiro nome (se iniciar sessão):** as notas e fotos do diário são privadas e só aparecem na sua conta. O primeiro nome serve só para o cumprimentar. Pode apagá-los quando quiser.",
+"ab.upd": "Última atualização: 5 de outubro de 2026.",
+"foot.story": "A nossa história"
+},
+"es": {
+"ab.sh": "Por qué existe TableFifty",
+"ab.s1": "Salir a comer no va de hambre. Va de placer: una noche con amigos, una cita, un capricho. Una buena oferta no lo hace parecer barato. Lo hace todavía mejor.",
+"ab.s2": "Una noche elegí un restaurante y quise buscar una oferta. ¿Estaba en First Table? No. ¿TheFork? ¿EatClub? ¿tastecard? Abrí una app tras otra. Tardé una eternidad.",
+"ab.s3": "Así que creé una pequeña herramienta solo para mí: escribes el nombre de un restaurante y ves todas las ofertas en un solo sitio. Luego pensé: todo el mundo debe tener este problema. Así que la hice gratis para todos.",
+"ab.s4": "— Max, fundador",
+"ab.c3": "**Sin cookies de seguimiento ni de publicidad.** Contamos visitas y clics solo como totales simples, por ejemplo «Instagram: 120 visitas hoy» o «First Table: 40 clics». Este recuento no guarda nada en tu dispositivo y nunca se vincula contigo.",
+"ab.c7": "**Diario de comidas y nombre (si inicias sesión):** las notas y fotos del diario son privadas y solo están en tu cuenta. Tu nombre solo sirve para saludarte. Puedes borrarlos cuando quieras.",
+"ab.upd": "Última actualización: 5 de octubre de 2026.",
+"foot.story": "Nuestra historia"
+},
+"ar": {
+"ab.sh": "لماذا وُجد TableFifty",
+"ab.s1": "الخروج إلى المطعم لا يتعلق بالجوع، بل بالمتعة: سهرة مع الأصدقاء، موعد، مكافأة صغيرة. العرض الجيد لا يجعل التجربة رخيصة، بل يجعلها أجمل.",
+"ab.s2": "في إحدى الليالي اخترت مطعمًا وأردت أن أجد عرضًا. هل هو على First Table؟ لا. TheFork؟ EatClub؟ tastecard؟ فتحت تطبيقًا تلو الآخر، واستغرق ذلك وقتًا طويلًا.",
+"ab.s3": "فصنعت أداة صغيرة لنفسي فقط: تكتب اسم المطعم فترى كل العروض في مكان واحد. ثم فكرت: لا بد أن الجميع يواجه المشكلة نفسها. فجعلتها مجانية للجميع.",
+"ab.s4": "— ماكس، المؤسس",
+"ab.c3": "**لا ملفات تعريف ارتباط للتتبع أو الإعلانات.** نحسب الزيارات والنقرات كمجاميع بسيطة فقط، مثل «Instagram: ‏120 زيارة اليوم» أو «First Table: ‏40 نقرة». هذا العدّ لا يحفظ شيئًا على جهازك ولا يرتبط بك أبدًا.",
+"ab.c7": "**يوميات الطعام والاسم الأول (إذا سجّلت الدخول):** ملاحظات اليوميات وصورها خاصة بحسابك وحدك. نستخدم اسمك الأول للترحيب بك فقط. يمكنك حذفها في أي وقت.",
+"ab.upd": "آخر تحديث: 5 أكتوبر 2026.",
+"foot.story": "قصتنا"
+},
+"bn": {
+"ab.sh": "TableFifty কেন তৈরি হলো",
+"ab.s1": "রেস্তোরাঁয় খেতে যাওয়া খিদের ব্যাপার নয়, আনন্দের ব্যাপার: বন্ধুদের সঙ্গে একটা সন্ধ্যা, একটা ডেট, একটু ট্রিট। ভালো অফার অভিজ্ঞতাকে সস্তা করে না, আরও ভালো করে তোলে।",
+"ab.s2": "এক রাতে আমি একটা রেস্তোরাঁ বেছে নিয়ে অফার খুঁজতে চাইলাম। এটা কি First Table-এ আছে? না। TheFork? EatClub? tastecard? একটার পর একটা অ্যাপ খুললাম। অনেক সময় লাগল।",
+"ab.s3": "তাই শুধু নিজের জন্য একটা ছোট টুল বানালাম: রেস্তোরাঁর নাম লিখুন আর সব অফার এক জায়গায় দেখুন। তারপর ভাবলাম: সবারই নিশ্চয়ই এই সমস্যা হয়। তাই সবার জন্য এটা বিনামূল্যে করে দিলাম।",
+"ab.s4": "— ম্যাক্স, প্রতিষ্ঠাতা",
+"ab.c3": "**কোনো ট্র্যাকিং বা বিজ্ঞাপন কুকি নেই।** আমরা ভিজিট আর ক্লিক শুধু সাধারণ মোট সংখ্যা হিসেবে গুনি, যেমন “Instagram: আজ 120 ভিজিট” বা “First Table: 40 ক্লিক”। এই গণনা আপনার ডিভাইসে কিছু রাখে না এবং কখনো আপনার সঙ্গে যুক্ত হয় না।",
+"ab.c7": "**খাবারের ডায়েরি ও প্রথম নাম (সাইন ইন করলে):** ডায়েরির নোট আর ছবি শুধু আপনার অ্যাকাউন্টে ব্যক্তিগত থাকে। প্রথম নাম শুধু আপনাকে স্বাগত জানাতে ব্যবহার হয়। যেকোনো সময় এগুলো মুছে দিতে পারেন।",
+"ab.upd": "সর্বশেষ আপডেট: 5 অক্টোবর 2026।",
+"foot.story": "আমাদের গল্প"
+}
+};
+Object.keys(I18N_STORY).forEach(l => Object.assign(I18N[l], I18N_STORY[l]));

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Stats | TableFifty</title>
+<link rel="icon" href="__FAV__">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+__CSS__
+<style>
+  .wrap{max-width:960px}
+  .bar-top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}
+  .bar-top h1{margin:0}
+  select,button{font:inherit;color:var(--text);background:#131d33;border:1px solid #34466b;border-radius:10px;padding:9px 12px}
+  button{cursor:pointer;font-weight:700}
+  button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:22px}
+  .tile{background:#131d33;border:1px solid #27365a;border-radius:14px;padding:14px 16px}
+  .tile small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+  .tile b{display:block;font-family:var(--f-display);font-size:30px;line-height:1.15;font-variant-numeric:tabular-nums}
+  .tile span{color:var(--faint);font-size:12.5px}
+  .card{background:#131d33;border:1px solid #27365a;border-radius:16px;padding:16px 18px;margin-bottom:18px}
+  .card h2{font-family:var(--f-display);font-size:20px;margin:0 0 4px}
+  .card .hint{margin:0 0 12px;color:var(--faint);font-size:13.5px}
+  .chart{position:relative}
+  .chart svg{display:block;width:100%;height:auto;overflow:visible}
+  .chart .tip{position:absolute;pointer-events:none;background:#0b1222;border:1px solid #34466b;border-radius:10px;padding:7px 10px;font-size:13px;white-space:nowrap;transform:translate(-50%,-100%);margin-top:-8px}
+  .chart .tip b{display:block;font-size:12px;color:var(--muted);font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #222f4d}
+  th{color:var(--muted);font-weight:600;font-size:13px}
+  td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+  .tbl{overflow-x:auto}
+  .goal{display:grid;gap:4px;margin:10px 0}
+  .goal .row{display:flex;justify-content:space-between;gap:10px;font-size:14.5px}
+  .goal .row b{font-variant-numeric:tabular-nums}
+  .track{height:10px;border-radius:6px;background:#0b1222;border:1px solid #27365a;overflow:hidden}
+  .track i{display:block;height:100%;background:#0f9f70;border-radius:6px}
+  .track.done i{background:var(--amber)}
+  .links{display:grid;gap:8px}
+  .link{display:grid;grid-template-columns:150px 1fr auto;gap:10px;align-items:center}
+  .link code{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+  @media (max-width:600px){.link{grid-template-columns:1fr auto}.link code{grid-column:1/-1;grid-row:2}}
+  .empty{color:var(--faint);margin:0}
+  .grid2{display:grid;gap:18px} @media (min-width:860px){.grid2{grid-template-columns:1fr 1fr}.grid2 .card{margin:0}}
+  .err{color:var(--amber);font-weight:600}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="top" href="/"><span class="mark" aria-hidden="true">50</span><b>Table<span>Fifty</span></b></a>
+  <div class="bar-top">
+    <h1>Your stats</h1>
+    <div style="display:flex;gap:8px">
+      <label class="sr" for="month" style="position:absolute;left:-9999px">Month</label>
+      <select id="month" aria-label="Month"></select>
+      <button type="button" id="reload">Refresh</button>
+    </div>
+  </div>
+  <p id="status" class="hint" style="color:var(--faint);margin:-6px 0 16px">Loading…</p>
+
+  <div class="tiles" id="tiles"></div>
+
+  <section class="card">
+    <h2>Visits per day</h2>
+    <p class="hint">Each bar is one day. Hover or tap a bar to see visits and deal clicks.</p>
+    <div class="chart" id="chart"></div>
+  </section>
+
+  <div class="grid2">
+    <section class="card">
+      <h2>Where visitors come from</h2>
+      <p class="hint">"direct" = typed the address or no source known.</p>
+      <div class="tbl" id="sources"></div>
+    </section>
+    <section class="card">
+      <h2>Deal clicks per platform</h2>
+      <p class="hint">How many diners you sent to each platform this month.</p>
+      <div class="tbl" id="plats"></div>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:18px">
+    <h2>Goals before emailing the platforms</h2>
+    <p class="hint">When a bar turns amber, you have the numbers for Email A.</p>
+    <div id="goals"></div>
+  </section>
+
+  <section class="card">
+    <h2>Last 6 months</h2>
+    <div class="tbl" id="months"></div>
+  </section>
+
+  <section class="card">
+    <h2>Your links for bios and ads</h2>
+    <p class="hint">Use these instead of the plain address, so every visit shows where it came from. To test two ads, give each its own name, like <code>metaads1</code> and <code>metaads2</code>.</p>
+    <div class="links" id="links"></div>
+  </section>
+
+  <p class="small" style="color:var(--faint);font-size:13px">Visits are counted each time the main page opens (bots skipped). Visit and source counting started on 5 October 2026. Platform clicks go back further. Numbers hold no personal data.</p>
+</main>
+<script>
+(() => {
+  const API = "__APIKEY__", PROJECT = "__PROJECT__";
+  const PLAT = __PLAT__;
+  const GOALS = [["firsttable", "First Table", 300], ["eatclub", "EatClub", 300], ["thefork", "TheFork", 100], ["*", "All deal clicks (Spotlight sales restart)", 1000]];
+  const LINKS = [["Instagram bio", "instagram"], ["TikTok bio", "tiktok"], ["Facebook page", "facebook"], ["X bio", "x"], ["YouTube", "youtube"],
+    ["Meta ads (Instagram + Facebook)", "metaads", "paid"], ["TikTok ads", "tiktokads", "paid"], ["Google ads", "googleads", "paid"], ["WhatsApp shares", "whatsapp"], ["Email / newsletter", "newsletter", "email"]];
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const fmt = n => Number(n).toLocaleString("en-GB");
+  const pct = (a, b) => b ? (100 * a / b).toFixed(1) + "%" : "–";
+  const now = new Date(), pad = n => String(n).padStart(2, "0");
+  const thisMonth = `${now.getFullYear()}-${pad(now.getMonth() + 1)}`;
+  const monthName = m => new Date(m + "-01T12:00:00").toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+  let docs = {};
+
+  function split(f) {
+    const r = { vd: {}, cd: {}, vs: {}, cs: {}, plat: {}, visits: 0, clicks: 0 };
+    Object.entries(f || {}).forEach(([k, v]) => {
+      const n = Number(v); if (!n) return;
+      let m;
+      if ((m = k.match(/^xvd(\d\d)$/))) { r.vd[+m[1]] = n; r.visits += n; }
+      else if ((m = k.match(/^xcd(\d\d)$/))) r.cd[+m[1]] = n;
+      else if (k.startsWith("xvs")) r.vs[k.slice(3)] = n;
+      else if (k.startsWith("xcs")) r.cs[k.slice(3)] = n;
+      else if (!k.startsWith("x")) { r.plat[k] = n; r.clicks += n; }
+    });
+    return r;
+  }
+
+  async function load() {
+    $("#status").textContent = "Loading…";
+    try {
+      const res = await fetch(`https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/(default)/documents/clicks?pageSize=100&key=${API}`);
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const j = await res.json();
+      docs = {};
+      (j.documents || []).forEach(d => {
+        const id = d.name.split("/").pop(), f = {};
+        Object.entries(d.fields || {}).forEach(([k, v]) => { f[k] = v.integerValue ?? v.doubleValue ?? 0; });
+        docs[id] = f;
+      });
+      const months = [...new Set([thisMonth, ...Object.keys(docs)])].sort().reverse();
+      const sel = $("#month"), keep = sel.value || thisMonth;
+      sel.innerHTML = months.map(m => `<option value="${m}">${esc(monthName(m))}</option>`).join("");
+      sel.value = months.includes(keep) ? keep : thisMonth;
+      render();
+      $("#status").textContent = "Updated " + new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+    } catch (e) {
+      $("#status").innerHTML = `<span class="err">Could not load the numbers (${esc(e.message)}). Check your internet and press Refresh.</span>`;
+    }
+  }
+
+  function render() {
+    const m = $("#month").value, r = split(docs[m]);
+    const isNow = m === thisMonth, today = now.getDate();
+    const days = new Date(+m.slice(0, 4), +m.slice(5, 7), 0).getDate();
+    const dayClicks = Object.values(r.cd).reduce((a, b) => a + b, 0);
+    const best = Object.entries(r.vd).sort((a, b) => b[1] - a[1])[0];
+    $("#tiles").innerHTML = [
+      ["Visits", fmt(r.visits), monthName(m)],
+      ["Deal clicks", fmt(r.clicks), "sent to platforms"],
+      ["Click rate", pct(r.clicks, r.visits), "visits that clicked a deal"],
+      isNow ? ["Today", fmt(r.vd[today] || 0), `${fmt(r.cd[today] || 0)} deal clicks`] : ["Best day", best ? fmt(best[1]) : "0", best ? `on day ${best[0]}` : "no visits"]
+    ].map(([a, b, c]) => `<div class="tile"><small>${esc(a)}</small><b>${esc(b)}</b><span>${esc(c)}</span></div>`).join("");
+
+    drawChart(days, r, isNow ? today : days);
+
+    const srcs = [...new Set([...Object.keys(r.vs), ...Object.keys(r.cs)])].sort((a, b) => (r.vs[b] || 0) - (r.vs[a] || 0) || (r.cs[b] || 0) - (r.cs[a] || 0));
+    $("#sources").innerHTML = srcs.length ? `<table><thead><tr><th>Source</th><th class="n">Visits</th><th class="n">Deal clicks</th><th class="n">Rate</th></tr></thead><tbody>${
+      srcs.map(s => `<tr><td>${esc(s)}</td><td class="n">${fmt(r.vs[s] || 0)}</td><td class="n">${fmt(r.cs[s] || 0)}</td><td class="n">${pct(r.cs[s] || 0, r.vs[s] || 0)}</td></tr>`).join("")}</tbody></table>`
+      : `<p class="empty">No visits counted yet this month.</p>`;
+
+    const plats = Object.entries(r.plat).sort((a, b) => b[1] - a[1]);
+    $("#plats").innerHTML = plats.length ? `<table><thead><tr><th>Platform</th><th class="n">Clicks</th><th class="n">Share</th></tr></thead><tbody>${
+      plats.map(([k, n]) => `<tr><td>${esc(PLAT[k] || k)}</td><td class="n">${fmt(n)}</td><td class="n">${pct(n, r.clicks)}</td></tr>`).join("")}</tbody></table>`
+      : `<p class="empty">No deal clicks yet this month.</p>`;
+
+    $("#goals").innerHTML = GOALS.map(([k, label, goal]) => {
+      const n = k === "*" ? r.clicks : (r.plat[k] || 0), done = n >= goal, w = Math.min(100, 100 * n / goal);
+      return `<div class="goal"><div class="row"><span>${esc(label)}</span><b>${fmt(n)} / ${fmt(goal)}${done ? " ✓" : ""}</b></div>
+        <div class="track${done ? " done" : ""}" role="progressbar" aria-label="${esc(label)}" aria-valuemin="0" aria-valuemax="${goal}" aria-valuenow="${n}"><i style="width:${w}%"></i></div></div>`;
+    }).join("");
+
+    const last = Object.keys(docs).concat(thisMonth).filter((x, i, a) => a.indexOf(x) === i).sort().reverse().slice(0, 6);
+    $("#months").innerHTML = `<table><thead><tr><th>Month</th><th class="n">Visits</th><th class="n">Deal clicks</th><th class="n">First Table</th><th class="n">TheFork</th><th class="n">EatClub</th></tr></thead><tbody>${
+      last.map(mm => { const x = split(docs[mm]); return `<tr><td>${esc(monthName(mm))}</td><td class="n">${fmt(x.visits)}</td><td class="n">${fmt(x.clicks)}</td><td class="n">${fmt(x.plat.firsttable || 0)}</td><td class="n">${fmt(x.plat.thefork || 0)}</td><td class="n">${fmt(x.plat.eatclub || 0)}</td></tr>`; }).join("")}</tbody></table>`;
+  }
+
+  function drawChart(days, r, upto) {
+    const W = 900, H = 240, L = 36, R = 8, T = 12, B = 26, iw = W - L - R, ih = H - T - B;
+    const max = Math.max(4, ...Object.values(r.vd));
+    const step = Math.pow(10, Math.floor(Math.log10(max))), nice = Math.ceil(max / step) * step;
+    const ticks = [0, nice / 2, nice];
+    const bw = iw / days, gap = 2;
+    let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Visits per day">`;
+    ticks.forEach(tv => { const y = T + ih - ih * tv / nice;
+      svg += `<line x1="${L}" x2="${W - R}" y1="${y}" y2="${y}" stroke="#27365a" stroke-width="1"/><text x="${L - 6}" y="${y + 4}" text-anchor="end" fill="#9dadc4" font-size="12">${fmt(tv)}</text>`; });
+    for (let d = 1; d <= days; d++) {
+      const v = r.vd[d] || 0, h = ih * v / nice, x = L + (d - 1) * bw + gap / 2, w = Math.max(1, bw - gap), y = T + ih - h, rr = Math.min(4, w / 2, h);
+      if (h > 0) svg += `<path d="M${x},${T + ih} V${y + rr} Q${x},${y} ${x + rr},${y} H${x + w - rr} Q${x + w},${y} ${x + w},${y + rr} V${T + ih} Z" fill="#0f9f70"/>`;
+      svg += `<rect class="hit" data-d="${d}" x="${L + (d - 1) * bw}" y="${T}" width="${bw}" height="${ih}" fill="transparent" tabindex="${d <= upto ? 0 : -1}" aria-label="Day ${d}: ${v} visits, ${r.cd[d] || 0} deal clicks"/>`;
+      if (d === 1 || d % 5 === 0) svg += `<text x="${L + (d - 0.5) * bw}" y="${H - 6}" text-anchor="middle" fill="#9dadc4" font-size="12">${d}</text>`;
+    }
+    svg += `<line x1="${L}" x2="${W - R}" y1="${T + ih}" y2="${T + ih}" stroke="#4a5d84" stroke-width="1"/></svg><div class="tip" hidden></div>`;
+    const box = $("#chart"); box.innerHTML = svg;
+    const tip = box.querySelector(".tip"), m = $("#month").value;
+    const show = el => {
+      const d = +el.dataset.d, sb = box.getBoundingClientRect(), eb = el.getBoundingClientRect();
+      tip.innerHTML = `<b>${esc(new Date(`${m}-${pad(d)}T12:00:00`).toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" }))}</b>${fmt(r.vd[d] || 0)} visits · ${fmt(r.cd[d] || 0)} deal clicks`;
+      tip.hidden = false;
+      const x = Math.min(Math.max(eb.left - sb.left + eb.width / 2, 90), sb.width - 90);
+      tip.style.left = x + "px"; tip.style.top = (eb.top - sb.top + 12) + "px";
+    };
+    box.querySelectorAll(".hit").forEach(el => {
+      el.addEventListener("mouseenter", () => show(el)); el.addEventListener("focus", () => show(el)); el.addEventListener("click", () => show(el));
+    });
+    box.addEventListener("mouseleave", () => { tip.hidden = true; });
+  }
+
+  $("#links").innerHTML = LINKS.map(([label, src, med]) => {
+    const u = `https://tablefifty.co.uk/?utm_source=${src}` + (med ? `&utm_medium=${med}&utm_campaign=launch` : "");
+    return `<div class="link"><span>${esc(label)}</span><code>${esc(u)}</code><button type="button" data-copy="${esc(u)}">Copy</button></div>`;
+  }).join("");
+  $("#links").addEventListener("click", async e => {
+    const b = e.target.closest("[data-copy]"); if (!b) return;
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = "Copied ✓"; } catch (err) { prompt("Copy this link:", b.dataset.copy); }
+    setTimeout(() => { b.textContent = "Copy"; }, 1600);
+  });
+  $("#month").addEventListener("change", render);
+  $("#reload").addEventListener("click", load);
+  load();
+})();
+</script>
+</body>
+</html>

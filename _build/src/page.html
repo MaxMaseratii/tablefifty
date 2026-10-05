@@ -521,6 +521,8 @@
   dialog{width:min(580px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border:1px solid var(--line-2);border-radius:20px;background:var(--surface);color:var(--text);padding:0;box-shadow:0 30px 80px rgba(0,0,0,.6)}
   dialog::backdrop{background:rgba(3,7,18,.72);backdrop-filter:blur(3px)}
   #aboutDialog{width:min(680px,calc(100vw - 24px))}
+  .story{border:1px solid var(--line,#2a3a5c);border-radius:16px;padding:16px 18px;background:linear-gradient(160deg,rgba(245,158,11,.10),rgba(16,185,129,.06));display:grid;gap:10px}
+  .story h3{margin:0!important} .story p{margin:0;color:var(--text)} .story .sig{color:var(--amber,#f59e0b);font-weight:700}
   .dlg{display:grid;gap:14px;padding:22px}
   .dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
   .dlg-head h2{margin:0;font-family:var(--f-display);font-weight:800;font-size:22px}
@@ -836,6 +838,7 @@
           <li><button type="button" class="lnk" data-scroll="deals" data-i18n="nav.deals">Deals</button></li>
           <li><button type="button" class="lnk" data-scroll="how" data-i18n="nav.how">How it works</button></li>
           <li><button type="button" class="lnk" data-addfor="" data-i18n="nav.add">Add a venue</button></li>
+          <li><button type="button" class="lnk" data-about data-i18n="foot.story">Our story</button></li>
           <li><button type="button" class="lnk" data-about data-i18n="foot.about">About &amp; privacy</button></li>
           <li><a class="lnk" href="/restaurants/" data-i18n="foot.rest">For restaurants</a></li>
         </ul>
@@ -1289,12 +1292,56 @@
 
   /* Anonymous click counter: one number per platform per month in Firestore "clicks/{YYYY-MM}".
      No personal data and no cookies. It is the proof to show platforms how many diners we send them. */
+  function bump(keys) {
+    const F = acct.fb, ref = F.doc(acct.db, "clicks", TODAY.slice(0, 7));
+    keys.forEach(k => { try { F.setDoc(ref, { [k]: F.increment(1) }, { merge: true }).catch(() => {}); } catch (err) {} });
+  }
   function countClick(a) {
-    if (!acct.ready) return;
+    if (!acct.ready || isBot()) return;
     const key = String(a.dataset.open || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 24);
     if (key.length < 2) return;
-    const F = acct.fb;
-    try { F.setDoc(F.doc(acct.db, "clicks", TODAY.slice(0, 7)), { [key]: F.increment(1) }, { merge: true }).catch(() => {}); } catch (err) {}
+    // Platform total + clicks per day ("xcd05") + clicks per visitor source ("xcsinstagram")
+    bump([key, "xcd" + TODAY.slice(8, 10), "xcs" + VISIT_SRC]);
+  }
+  /* Anonymous visit counter, in the same "clicks/{YYYY-MM}" document: visits per day ("xvd05") and per source ("xvsinstagram").
+     Only totals. No cookies, no storage, nothing about the person. Source = ?utm_source=... on our ad links, else the site they came from. */
+  const isBot = () => navigator.webdriver || /bot|crawl|spider|slurp|lighthouse|headless|prerender|preview/i.test(navigator.userAgent);
+  function srcKey(s, isHost) {
+    s = String(s || "").toLowerCase().trim();
+    if (!s) return "direct";
+    if (isHost) {
+      s = s.replace(/^www\./, "");
+      const M = [["google", "google"], ["bing.", "bing"], ["duckduckgo", "duckduckgo"], ["yahoo", "yahoo"], ["ecosia", "ecosia"], ["instagram", "instagram"],
+        ["facebook", "facebook"], ["fb.", "facebook"], ["tiktok", "tiktok"], ["twitter", "x"], ["youtube", "youtube"], ["reddit", "reddit"],
+        ["linkedin", "linkedin"], ["whatsapp", "whatsapp"], ["pinterest", "pinterest"], ["chatgpt", "chatgpt"], ["openai", "chatgpt"],
+        ["perplexity", "perplexity"], ["claude.ai", "claude"], ["threads", "threads"], ["snapchat", "snapchat"]];
+      if (s === "t.co" || s === "x.com") return "x";
+      const m = M.find(([w]) => s.includes(w));
+      s = m ? m[1] : s.split(".")[0];
+    }
+    s = s.replace(/[^a-z0-9]/g, "").slice(0, 21);
+    return s.length >= 2 ? s : "other";
+  }
+  const VISIT_SRC = (() => {
+    let src = "direct";
+    try {
+      const q = new URLSearchParams(location.search), ref = document.referrer;
+      let host = ""; try { host = ref ? new URL(ref).hostname : ""; } catch (e) {}
+      if (q.get("utm_source")) src = srcKey(q.get("utm_source"));
+      else if (q.get("rf")) src = srcKey(q.get("rf"), true);
+      else if (host && host !== location.hostname) src = srcKey(host, true);
+      else if (q.has("fbclid")) src = "meta";
+      else if (q.has("ttclid")) src = "tiktok";
+      else if (q.has("gclid")) src = "googleads";
+      // Clean the address bar so shared links stay short
+      const junk = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "rf", "fbclid", "ttclid", "gclid"];
+      if (junk.some(k => q.has(k))) { junk.forEach(k => q.delete(k)); const qs = q.toString(); history.replaceState(history.state, "", location.pathname + (qs ? "?" + qs : "") + location.hash); }
+    } catch (e) {}
+    return src;
+  })();
+  function countVisit() {
+    if (!acct.ready || isBot()) return;
+    bump(["xvd" + TODAY.slice(8, 10), "xvs" + VISIT_SRC]);
   }
 
   /* ---------- Location (UK-wide) ---------- */
@@ -2019,9 +2066,10 @@
     const note = t("ab.note");
     $("#aboutBody").innerHTML = `
       ${note ? `<p class="note">${mini(note)}</p>` : ""}
+      <div class="story" id="aboutStory"><h3>${mini(t("ab.sh"))}</h3>${["s1", "s2", "s3"].map(k => `<p>${mini(t("ab." + k))}</p>`).join("")}<p class="sig">${mini(t("ab.s4"))}</p></div>
       <h3>${mini(t("ab.h1"))}</h3><p>${mini(t("ab.p1"))}</p>
       <h3>${mini(t("ab.h2"))}</h3><ul>${["m1", "m2", "m3", "m4"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
-      <h3>${mini(t("ab.h3"))}</h3><ul>${["c1", "c2", "c3", "c4", "c5", "c6"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
+      <h3>${mini(t("ab.h3"))}</h3><ul>${["c1", "c2", "c3", "c7", "c4", "c5", "c6"].map(k => `<li>${mini(t("ab." + k))}</li>`).join("")}</ul>
       <h3>${mini(t("ab.h4"))}</h3><p>${mini(t("ab.p4"))}</p>
       <p style="color:var(--faint);font-size:13px">${mini(t("ab.upd"))}</p>`;
   }
@@ -2253,6 +2301,7 @@
       acct.db = fsM.getFirestore(app);
       acct.ready = true;
       acctRender();
+      countVisit();
       // Finish an email-link sign-in when the user comes back from their inbox
       if (authM.isSignInWithEmailLink(acct.auth, location.href)) {
         let email = null; try { email = localStorage.getItem(EMAIL_KEY); } catch (e) {}
