@@ -4,7 +4,7 @@ a website or social page, then each of our venues is matched by name and distanc
 Output: src/osm_links.json. Runs at most once a week, or sooner when 20+ new venues still need links.
 Run: python _build/osm_links.py   (after build.py has written src/deals.js)
 """
-import csv, datetime, io, json, math, os, re, subprocess, sys, unicodedata
+import csv, datetime, io, json, math, os, re, subprocess, sys, time, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, 'src')
@@ -16,11 +16,22 @@ MIRRORS = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.
 COLS = ['::type', '::id', '::lat', '::lon', 'name', 'brand', 'website', 'contact:website', 'url', 'instagram', 'contact:instagram',
         'facebook', 'contact:facebook', 'phone', 'contact:phone']
 AMEN = '^(restaurant|pub|bar|cafe|fast_food|biergarten|food_court)$'
-QUERY = ('[out:csv(' + ','.join(c if c.startswith('::') else f'"{c}"' for c in COLS) + ';true;"\\t")][timeout:900][maxsize:1073741824];\n'
-         'area["ISO3166-1"="GB"][admin_level=2]->.gb;\n(\n' +
-         ''.join(f'  nwr["amenity"~"{AMEN}"]["name"]["{k}"](area.gb);\n'
-                 for k in ['website', 'contact:website', 'url', 'instagram', 'contact:instagram', 'facebook', 'contact:facebook']) +
-         ');\nout center;\n')
+HEAD = '[out:csv(' + ','.join(c if c.startswith('::') else f'"{c}"' for c in COLS) + ';true;"\\t")][timeout:180];\n'
+KEYS = ['website', 'contact:website', 'url', 'instagram', 'contact:instagram', 'facebook', 'contact:facebook']
+
+
+def query(bbox):
+    b = ','.join(f'{x:.3f}' for x in bbox)
+    return HEAD + '(\n' + ''.join(f'  nwr["amenity"~"{AMEN}"]["name"]["{k}"]({b});\n' for k in KEYS) + ');\nout center;\n'
+
+
+def cells(venues, size=0.5):
+    """Small map squares (about 55 x 35 km) around our venues, so each Overpass question stays quick."""
+    out = {}
+    for v in venues:
+        k = (math.floor(v['ll'][0] / size), math.floor(v['ll'][1] / size))
+        out.setdefault(k, 0); out[k] += 1
+    return [(a * size - 0.01, b * size - 0.01, (a + 1) * size + 0.01, (b + 1) * size + 0.01) for (a, b) in sorted(out)]
 
 STOP = {'the', 'restaurant', 'restaurants', 'bar', 'kitchen', 'cafe', 'and', 'ltd', 'limited', 'co', 'grill', 'dining', 'room', 'by', 'at', 'of',
         'london', 'uk', 'eatery', 'house', 'bistro'}
@@ -83,16 +94,25 @@ def clean_ph(p):
     return d[:3] + ' ' + d[3:7] + ' ' + d[7:] if d.startswith('02') else d[:5] + ' ' + d[5:]
 
 
-def download():
-    for m in MIRRORS:
-        print('Overpass:', m, flush=True)
-        r = subprocess.run(['curl', '-sS', '--max-time', '1000', '-A', UA, '--data-urlencode', 'data@-', m],
-                           input=QUERY, capture_output=True, text=True, errors='replace')
-        if r.returncode == 0 and r.stdout.startswith('@type') and r.stdout.count('\n') > 1000:
-            return r.stdout
-        print('  failed:', r.returncode, (r.stderr or r.stdout)[:200].replace('\n', ' '), flush=True)
-    return None
-
+def download(boxes):
+    header, rows, bad = None, [], 0
+    for n, bbox in enumerate(boxes, 1):
+        got = None
+        for m in MIRRORS:
+            r = subprocess.run(['curl', '-sS', '--max-time', '240', '-A', UA, '--data-urlencode', 'data@-', m],
+                               input=query(bbox), capture_output=True, text=True, errors='replace')
+            if r.returncode == 0 and r.stdout.startswith('@type'):
+                got = r.stdout; break
+            last = (r.stderr or r.stdout)[:160].replace('\n', ' ')
+            time.sleep(5)
+        if got is None:
+            bad += 1; print(f'  square {n}/{len(boxes)} failed: {last}', flush=True); continue
+        lines = got.rstrip('\n').split('\n')
+        header = header or lines[0]; rows += lines[1:]
+        print(f'  square {n}/{len(boxes)}: {len(lines) - 1} places', flush=True)
+        time.sleep(2)
+    if bad: print(f'::warning title=OpenStreetMap lookup::{bad} of {len(boxes)} map squares failed. Last error: {last}')
+    return (header + '\n' + '\n'.join(rows) + '\n') if header else None, bad
 
 def parse(text):
     rows = []
@@ -147,13 +167,15 @@ def main():
     print(f'{len(want)} venues miss a website or Instagram; {len(fresh)} never looked up; last download {age} days ago')
     if age < 7 and len(fresh) < 20 and '--force' not in sys.argv:
         print('Nothing to do today.'); return
-    text = download()
+    boxes = cells(want)
+    print(len(boxes), 'map squares to ask')
+    text, bad = download(boxes)
     if not text:
-        print('Overpass unavailable, keeping old links.'); return
+        print('::warning title=OpenStreetMap lookup::Overpass unavailable, keeping old links.'); return
     rows = parse(text)
     print(len(rows), 'OpenStreetMap food places with a website or social page')
     links = {**old.get('links', {}), **match(want, rows)}
-    out = {'checked': TODAY.isoformat(), 'osm_places': len(rows), 'tried': sorted(v['id'] for v in want),
+    out = {'checked': TODAY.isoformat() if not bad else old['checked'], 'osm_places': len(rows), 'tried': sorted(v['id'] for v in want),
            'links': dict(sorted(links.items()))}
     json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
     print('matched', len(links), '| website', sum(1 for x in links.values() if x.get('web')), '| instagram', sum(1 for x in links.values() if x.get('ig')),

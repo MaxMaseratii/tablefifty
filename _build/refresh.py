@@ -49,12 +49,24 @@ def pick(page):
     }
 
 
-def restaurant_paths(xml):
+def restaurant_paths(xml, depth=0):
+    """Restaurant pages from the sitemap. Handles a sitemap index (list of child sitemaps), a missing <lastmod>,
+    CDATA, extra spaces and the address with or without "www"."""
     out = {}
-    for loc, lastmod in re.findall(r'<loc>https://www\.firsttable\.co\.uk/([^<]+)</loc>\s*<lastmod>([^<]*)</lastmod>', xml):
-        p = loc.strip('/').split('/')
+    if '<sitemapindex' in xml[:2000] and depth < 2:
+        for child in re.findall(r'<loc>\s*(?:<!\[CDATA\[)?\s*([^<\]\s]+)', xml):
+            if re.search(r'(?i)(magazine|blog|news|image)', child): continue
+            try: out.update(restaurant_paths(get(child), depth + 1))
+            except Exception as e: print('  child sitemap failed:', child, str(e)[:80])
+            time.sleep(PAUSE)
+        return out
+    for block in re.findall(r'<url>(.*?)</url>', xml, re.S):
+        m = re.search(r'<loc>\s*(?:<!\[CDATA\[)?\s*https://(?:www\.)?firsttable\.co\.uk/([^<\]\s]+)', block)
+        if not m: continue
+        lm = re.search(r'<lastmod>\s*([^<\s]+)', block)
+        p = m.group(1).split('?')[0].strip('/').split('/')
         if (p[0] == 'london' and len(p) == 4) or (p[0] not in ('london', 'magazine') and len(p) == 3):
-            out['/'.join(p)] = lastmod
+            out['/'.join(p)] = lm.group(1) if lm else ''
     return out
 
 
@@ -64,9 +76,11 @@ def main():
         for line in open(DATA, encoding='utf-8'):
             r = json.loads(line)
             old[r['path']] = r
-    sm = restaurant_paths(get('https://www.firsttable.co.uk/sitemap.xml'))
+    xml = get('https://www.firsttable.co.uk/sitemap.xml')
+    sm = restaurant_paths(xml)
     if len(sm) < 500:
-        sys.exit(f'Sitemap looks wrong ({len(sm)} restaurants) - keeping yesterday\'s data.')
+        head = re.sub(r'\s+', ' ', xml[:400])
+        sys.exit(f'Sitemap looks wrong ({len(sm)} restaurants, {len(xml)} bytes) - keeping yesterday\'s data. Start: {head}')
 
     new = [p for p in sm if p not in old]
     changed = [p for p in sm if p in old and old[p].get('lastmod') != sm[p]]

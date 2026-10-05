@@ -3,7 +3,12 @@ name: Refresh deals daily
 on:
   schedule:
     - cron: "17 5 * * *"   # every day at 05:17 UTC (about 6am UK)
-  workflow_dispatch: {}      # also lets you press "Run workflow" by hand
+  workflow_dispatch:         # also lets you press "Run workflow" by hand
+    inputs:
+      skip_eatclub:
+        description: "Skip the slow EatClub check (quick test run)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -29,6 +34,7 @@ jobs:
           python _build/refresh.py 2>&1 | tee ft.log || echo "::warning title=First Table check failed::$(tail -4 ft.log | tr '\n' ' ' | cut -c1-600)"
           rm -f ft.log
       - name: Check EatClub venues and deals
+        if: ${{ !inputs.skip_eatclub }}
         run: python _build/eatclub.py
         continue-on-error: true
         env:
