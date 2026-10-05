@@ -39,6 +39,7 @@ head=f'''<!doctype html>
 <meta property="og:image" content="{BASE}img/hero.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{{"@context":"https://schema.org","@type":"WebSite","name":"{BRAND}","url":"{BASE}","description":"{desc}"}}</script>
+<script type="application/ld+json">{{"@context":"https://schema.org","@type":"Organization","name":"{BRAND}","url":"{BASE}","logo":"{BASE}img/hero.jpg","sameAs":["https://www.instagram.com/tablefifty50/","https://www.facebook.com/tablefifty50"]}}</script>
 <style>:root{{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}}body{{margin:0}}[hidden]{{display:none!important}}</style>
 '''
 i=s.index('</style>')+len('</style>')

@@ -32,7 +32,13 @@ jobs:
           EC_PAUSE: "0.6"
       - name: Build the site
         run: python _build/build.py
-      - name: Read new restaurant websites (robots.txt respected), then rebuild
+      - name: Find missing websites and Instagram on OpenStreetMap (weekly), then rebuild
+        run: |
+          python _build/osm_links.py || true
+          python _build/build.py
+      - name: Read restaurant websites for Instagram, menu and dead links (robots.txt respected), then rebuild
+        env:
+          WM_WORKERS: "10"
         run: |
           python _build/webmeta.py || true
           python _build/build.py

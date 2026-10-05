@@ -23,6 +23,17 @@ def area_from_ft(path):
 
 GEO = json.load(open(os.path.join(HERE, 'geo_cache.json')))
 V = {}  # key -> venue
+def uk_phone(p):
+    """A real-looking UK phone number in the usual spacing, else None (drops 0000000000 and similar)."""
+    d = re.sub(r'[^0-9+]', '', str(p or ''))
+    if d.startswith('+44'): d = '0' + d[3:].lstrip('0')
+    elif d.startswith('44') and len(d) == 12: d = '0' + d[2:]
+    if not re.fullmatch(r'0[1-37-9]\d{8,9}', d) or len(set(d[1:])) < 4: return None
+    if d.startswith('02'): return f'{d[:3]} {d[3:7]} {d[7:]}'
+    if re.match(r'01(1\d|\d1)', d) and len(d) == 11: return f'{d[:4]} {d[4:7]} {d[7:]}'
+    return f'{d[:5]} {d[5:]}'
+
+
 def venue(name, key=None, **kw):
     key = key or slug(name)
     v = V.get(key)
@@ -202,6 +213,11 @@ for path, rec in sorted(PAGES.items()):
     if re.match(r'^https?://(www\.)?instagram\.com/[A-Za-z0-9_.]+/?', ig) and 'ig' not in v: v['ig'] = ig.split('?')[0]
     web = (rec.get('website') or '').strip()
     if re.match(r'^https?://', web) and 'instagram.com' not in web and 'web' not in v: v['web'] = web
+    tt = (rec.get('tiktok') or '').strip()
+    if re.match(r'^https?://(www\.)?tiktok\.com/@[A-Za-z0-9_.]+', tt) and 'tt' not in v: v['tt'] = tt.split('?')[0]
+    fbm = re.match(r'^https?://(?:www\.|m\.)?facebook\.com/([A-Za-z0-9.\-]{3,60})/?$', (rec.get('facebook') or '').strip())
+    if fbm and re.search(r'[A-Za-z]', fbm.group(1)) and fbm.group(1).lower() not in ('people', 'pages', 'profile.php') and 'fb' not in v: v['fb'] = fbm.group(1)
+    if uk_phone(rec.get('phone')) and 'ph' not in v: v['ph'] = uk_phone(rec.get('phone'))
     FX = [('vegan', 'Vegan options'), ('veg', 'Vegetarian options'), ('gf', 'Gluten Free options'), ('halal', 'Halal'), ('dog', 'Dog friendly'),
           ('outdoor', 'Indoor & outdoor seating'), ('garden', 'Beer garden'), ('wheel', 'Wheelchair accessible'), ('private', 'Private dining'),
           ('parking', 'Free onsite parking'), ('kids', 'Highchairs available')]
@@ -456,6 +472,8 @@ for r in ec_rows:
         v['imgx'] = r['image']
     if set(r.get('cuisines') or []) & {'Bar', 'Drinks Focused', 'Nightclub'} or re.search(r"\b(arms|inn|tavern|pub|taproom|brewery)\b", r['name'].lower()):
         v['pub'] = 1
+    if r.get('menu') and re.match(r'^https://eccdn\.com\.au/menuPdfs/[A-Za-z0-9/_.-]+\.pdf$', r['menu']) and 'menu' not in v: v['menu'] = r['menu']
+    if uk_phone(r.get('phone')) and 'ph' not in v: v['ph'] = uk_phone(r.get('phone'))
     o = dict(p='eatclub', u='https://eatclub.co.uk/venue/' + r['slug'], h='upto_bill', n=best, sl=sl, seen=r.get('checked') or SEEN, live=True)
     if r.get('rating') and (r.get('reviews') or 0) >= 5: o['r'] = [round(r['rating'] * 2, 1), r['reviews'], 'ec']
     offer(v, **o)
@@ -741,14 +759,33 @@ for m in MICH:
 print('Michelin info-only venues:', mich_info)
 
 # ---------- Each restaurant's own words (meta description from its website; see ../webmeta.py) ----------
+# Missing website / Instagram / Facebook / phone, found on OpenStreetMap (see ../osm_links.py)
+OSM_FILE = os.path.join(HERE, 'osm_links.json')
+OSM = json.load(open(OSM_FILE, encoding='utf-8')).get('links', {}) if os.path.exists(OSM_FILE) else {}
+osm_used = 0
+for v in V.values():
+    L = OSM.get(v['id'])
+    if not L: continue
+    for k in ('web', 'ig', 'fb', 'ph'):
+        if L.get(k) and k not in v: v[k] = L[k]; osm_used += 1
+print('Links added from OpenStreetMap:', osm_used)
 WM_FILE = os.path.join(HERE, 'web_meta.jsonl')
 WM = {}
 if os.path.exists(WM_FILE):
     for l in open(WM_FILE, encoding='utf-8'):
-        r = json.loads(l)
-        if r.get('desc'): WM[r['url']] = r['desc']
+        r = json.loads(l); WM[r['url']] = r
+wm_used, wm_dead = 0, 0
 for v in V.values():
-    if v.get('web') in WM: v['own'] = WM[v['web']]
+    r = WM.get(v.get('web'))
+    if not r: continue
+    if r.get('home'):   # the page moved but the homepage works: link the homepage
+        v['web'] = r['home']
+    if r.get('fail', 0) >= 2:   # the website failed two checks in a row: hide it
+        v.pop('web'); wm_dead += 1; continue
+    if r.get('desc'): v['own'] = r['desc']
+    for k in ('ig', 'tt', 'fb', 'menu'):
+        if r.get(k) and k not in v: v[k] = r[k]; wm_used += 1
+print('Links added from restaurant websites:', wm_used, '| dead websites hidden:', wm_dead)
 
 # ---------- drop offers we can no longer re-check (closed venues disappear this way) ----------
 TODAY_D = datetime.date.today()

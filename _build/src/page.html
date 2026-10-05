@@ -303,6 +303,10 @@
   .card:hover{border-color:var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.35)}
   .card.flash{animation:flash 1.6s ease}
   @keyframes flash{0%,45%{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}100%{}}
+  [data-insimg]{cursor:pointer}
+  footer .social{display:flex;align-items:center;gap:6px;margin:12px 0 0;font-weight:700;color:var(--text)}
+  footer .social a{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);color:var(--text)}
+  footer .social a:hover{border-color:var(--accent);color:var(--accent)}
   .media{position:relative;aspect-ratio:16/10;max-width:100%;background:var(--surface-2);overflow:hidden;flex:none}
   .media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
   .card:hover .media img{transform:scale(1.04)}
@@ -831,6 +835,10 @@
       <div>
         <span class="brand"><span class="mark" aria-hidden="true">50</span><b class="brandname" style="color:var(--text)">Table<span>Fifty</span></b></span>
         <p data-i18n="foot.tag"></p>
+        <p class="social"><span dir="ltr">@TableFifty50</span>
+          <a href="https://www.instagram.com/tablefifty50/" target="_blank" rel="noopener me" aria-label="TableFifty on Instagram" title="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.facebook.com/tablefifty50" target="_blank" rel="noopener me" aria-label="TableFifty on Facebook" title="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a>
+        </p>
       </div>
       <div>
         <h4 data-i18n="foot.explore">Explore</h4>
@@ -1223,6 +1231,7 @@
     menu: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>',
     ig: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
     tt: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 3c.3 2.2 1.7 3.7 4 4v3c-1.5 0-2.9-.4-4-1.2V15a6 6 0 1 1-6-6v3.1a3 3 0 1 0 3 2.9V3h3z"/></svg>',
+    fb: '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>',
     globe: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>',
     phone: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>',
     spark: '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.3L20 10l-5.8 1.7L12 18l-2.2-6.3L4 10l5.8-1.7z"/></svg>',
@@ -1577,7 +1586,7 @@
         ftPhoto: !!d.img, ftImg: d.img || "", ownPhoto: !!(d.img || d.imgx || d.imgl), photoSrc: d.img ? "ft" : d.imgx ? "ec" : d.imgl ? "own" : "",
         mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
         ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
-        ig: d.ig, tt: d.tt, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
+        ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
     });
     custom.forEach(c => {
@@ -1778,9 +1787,11 @@
   const SAFE_HOSTS = /^https:\/\/(www\.)?(instagram\.com|tiktok\.com|images\.firsttable\.net)\//;
   function linksHTML(v) {
     const a = [];
-    if (v.menu && (SAFE_HOSTS.test(v.menu) || /^img\/venues\/[a-z0-9\/_.-]+$/.test(v.menu))) a.push(`<a class="vlink" href="${esc(v.menu)}" target="_blank" rel="noopener noreferrer">${I.menu}${esc(t("link.menu"))}</a>`);
+    const menu = /^img\/venues\/[a-z0-9\/_.-]+$/.test(v.menu || "") ? v.menu : safeUrl(v.menu);
+    if (menu) a.push(`<a class="vlink" href="${esc(menu)}" target="_blank" rel="noopener noreferrer">${I.menu}${esc(t("link.menu"))}</a>`);
     if (v.ig && SAFE_HOSTS.test(v.ig)) a.push(`<a class="vlink" href="${esc(v.ig)}" target="_blank" rel="noopener noreferrer">${I.ig}${esc(t("link.ig"))}</a>`);
     if (v.tt && SAFE_HOSTS.test(v.tt)) a.push(`<a class="vlink" href="${esc(v.tt)}" target="_blank" rel="noopener noreferrer">${I.tt}TikTok</a>`);
+    if (v.fb && /^[A-Za-z0-9.\-]{3,60}$/.test(v.fb)) a.push(`<a class="vlink" href="https://www.facebook.com/${esc(v.fb)}" target="_blank" rel="noopener noreferrer">${I.fb}Facebook</a>`);
     const web = safeUrl(v.web);
     if (web) a.push(`<a class="vlink" href="${esc(web)}" target="_blank" rel="noopener noreferrer">${I.globe}${esc(t("link.web"))}</a>`);
     if (v.ph) a.push(`<a class="vlink" href="tel:${esc(v.ph.replace(/[^+0-9]/g, ""))}">${I.phone}${esc(v.ph)}</a>`);
@@ -1903,7 +1914,7 @@
     const rest = offers.filter(o => o !== main);
     const open = expanded.has(v.id);
     return `<article class="card" id="v-${esc(v.id)}">
-      <div class="media">
+      <div class="media"${v.k === "dine" && !v.custom ? ` data-insimg="${esc(v.id)}"` : ""}>
         ${imgTag(v)}
         <span class="ribbon">${esc(ribbonFor(offers))}</span>
         <span class="src ${v.custom ? "yours" : ""}">${esc(t(v.custom ? "src.yours" : "src.curated"))}</span>
@@ -2814,7 +2825,7 @@
     if (discIdx >= discItems.length) discIdx = 0;
     box.setAttribute("aria-label", t("dsc.label"));
     box.innerHTML = discItems.map((d, i) => { const v = d.v, o = mainOffer(v.offers), L = affLink(safeUrl(o.url) || "");
-      return `<div class="disc-slide${i === discIdx ? " on" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} / ${discItems.length}" ${i === discIdx ? "" : 'aria-hidden="true"'}>
+      return `<div class="disc-slide${i === discIdx ? " on" : ""}" role="group" aria-roledescription="slide" aria-label="${i + 1} / ${discItems.length}" ${i === discIdx ? "" : 'aria-hidden="true"'} data-insimg="${esc(v.id)}">
         ${imgTag(v, i === 0)}
         <div class="disc-top"><span class="disc-tag${d.ad ? " ad" : ""}">${esc(d.ad ? t("dsc.ad") : t("dsc.label"))}</span><span class="disc-deal">${esc(ribbonFor(v.offers))}</span></div>
         <div class="disc-info">
@@ -2843,9 +2854,9 @@
   $("#disc").addEventListener("mouseenter", () => clearInterval(discTimer));
   $("#disc").addEventListener("mouseleave", discPlay);
   $("#disc").addEventListener("focusin", () => clearInterval(discTimer));
-  let discX = null;
+  let discX = null, discSwipedAt = 0;
   $("#disc").addEventListener("pointerdown", e => { discX = e.clientX; });
-  $("#disc").addEventListener("pointerup", e => { if (discX == null) return; const dx = e.clientX - discX; discX = null; if (Math.abs(dx) > 40) { discShow(discIdx + (dx < 0 ? 1 : -1) * (document.dir === "rtl" ? -1 : 1)); discPlay(); } });
+  $("#disc").addEventListener("pointerup", e => { if (discX == null) return; const dx = e.clientX - discX; discX = null; if (Math.abs(dx) > 40) { discSwipedAt = Date.now(); discShow(discIdx + (dx < 0 ? 1 : -1) * (document.dir === "rtl" ? -1 : 1)); discPlay(); } });
   function renderSpot() {
     const box = $("#spot");
     spotPicks = pickSpots();
@@ -2858,7 +2869,7 @@
     box.dataset.vid = v.id;
     box.innerHTML = `<div class="spot-top"><span>${I.trophy} ${esc(t(pick.ad ? "spot.ad" : state.loc ? "spot.near3" : "spot.label3"))}</span><span class="d">${esc(dateTxt)}</span></div>
       <div class="spot-tabs" role="tablist">${spotPicks.map((p, i) => `<button type="button" role="tab" data-spot="${i}" aria-selected="${i === spotIdx}" aria-label="${esc(p.v.name)}"><img src="${esc(p.v.img)}" alt="" loading="lazy" data-fb="${esc(GENERIC.img)}"><span><b>${esc(p.v.name)}</b><small>${esc(p.v.sc ? p.v.sc[0].toFixed(1) + " · " : "")}${esc(t("cz." + (p.v.czKey || "generic")))}${p.v.area ? " · " + esc(p.v.area) : ""}</small><i class="tdeal">${esc(offerHead(mainOffer(p.v.offers)))}</i></span></button>`).join("")}</div>
-      <div class="spot-media">${imgTag(v, true)}<span class="ribbon">${esc(ribbonFor(v.offers))}</span>${photoCredit(v)}</div>
+      <div class="spot-media" data-insimg="${esc(v.id)}">${imgTag(v, true)}<span class="ribbon">${esc(ribbonFor(v.offers))}</span>${photoCredit(v)}</div>
       <div class="spot-body">
         <h2 id="spotName">${esc(v.name)}</h2>
         <p class="area">${I.pin}<span>${esc(v.area || "")}${d != null ? ` <span class="dist">${esc(fmtMi(d))}</span>` : ""}</span></p>
@@ -2953,6 +2964,9 @@
     }
     const ib = e.target.closest("[data-ins]");
     if (ib) { openInsights(ib.dataset.ins); return; }
+    // Tap a restaurant photo (card, Today's pick, Discover) = open its insights. Links and buttons on the photo keep their own job.
+    const im = e.target.closest("[data-insimg]");
+    if (im && !e.target.closest("a, button") && Date.now() - discSwipedAt > 400) { openInsights(im.dataset.insimg); return; }
     const rt = e.target.closest("[data-rate]");
     if (rt) { openRate(rt.dataset.rate); return; }
     const dy = e.target.closest("[data-diary]");
