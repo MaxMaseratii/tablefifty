@@ -1121,7 +1121,8 @@
       <div class="acct-grid">
         <p class="acct-msg" id="acctWho"></p>
         <label class="checkrow" for="acctAlerts"><input id="acctAlerts" type="checkbox"><span data-i18n="acct.alerts"></span></label>
-        <label class="checkrow" for="acctFeedback"><input id="acctFeedback" type="checkbox"><span data-i18n="acct.feedback"></span></label>
+        <!-- "How was your visit?" emails: switched off until the email sender exists (no data is collected meanwhile) -->
+        <label class="checkrow" for="acctFeedback" hidden><input id="acctFeedback" type="checkbox"><span data-i18n="acct.feedback"></span></label>
         <label class="checkrow" for="acctNews"><input id="acctNews" type="checkbox"><span data-i18n="acct.news">Half-Price Friday emails</span></label>
         <p class="acct-note" id="acctHome"></p>
         <button class="btn" type="button" id="acctSignOut" data-i18n="acct.out">Sign out</button>
@@ -4076,11 +4077,9 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
       } catch (e) { acct.profile = { favs: [], home: null, alerts: false }; }
       (acct.profile.favs || []).forEach(id => favs.add(id));
       try { acct.news = (await F.getDoc(F.doc(acct.db, "subscribers", acct.user.uid))).exists(); } catch (e) { acct.news = false; }
-      // Privacy promise: deals you opened (for "how was your visit?" emails) are kept 30 days at most.
-      F.getDocs(F.collection(acct.db, "profiles", acct.user.uid, "visits")).then(sn => sn.docs.forEach(d => {
-        const at = d.data().at, ms = at && at.toMillis ? at.toMillis() : 0;
-        if (ms && Date.now() - ms > 30 * 864e5) F.deleteDoc(d.ref).catch(() => {});
-      })).catch(() => {});
+      // We no longer keep a list of deals people opened: clear any old records from before 6 Oct 2026.
+      F.getDocs(F.collection(acct.db, "profiles", acct.user.uid, "visits")).then(sn => sn.docs.forEach(d => F.deleteDoc(d.ref).catch(() => {}))).catch(() => {});
+      if (acct.profile.feedback) { acct.profile.feedback = false; }
       if (acct.nlConfirm && acct.justIn) { acct.nlConfirm = false; if (await newsSet(true)) setTimeout(() => toast(t("nl.confirmed")), 1200); }
       try { localStorage.setItem(FAV_KEY, JSON.stringify([...favs])); } catch (e) {}
       if (!state.loc && acct.profile.home) { const r = await resolvePlace(acct.profile.home); if (r && !r.error) { state.loc = r; saveLoc(r); state.sort = "near"; } }
@@ -4780,7 +4779,7 @@ const DEALS = [{"id":"the-george-at-woolley-bath","n":"The George at Woolley","a
       return;
     }
     const open = e.target.closest("a[data-open]");
-    if (open) { toast(t("t.opening", { p: open.dataset.open })); logVisit(open); countClick(open); return; }
+    if (open) { toast(t("t.opening", { p: open.dataset.open })); countClick(open); return; }
     const add = e.target.closest("[data-addfor]");
     if (add) { openAdd({ name: add.dataset.addfor, area: add.dataset.area || "" }); return; }
     const rm = e.target.closest("[data-remove]");
