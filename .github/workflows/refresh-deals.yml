@@ -43,10 +43,16 @@ jobs:
       - name: Build the site
         run: python _build/build.py
       - name: Find missing websites and Instagram on OpenStreetMap (weekly), then rebuild
+        timeout-minutes: 25
+        continue-on-error: true
+        env:
+          OSM_BUDGET: "900"
         run: |
           python _build/osm_links.py || true
           python _build/build.py
       - name: Read restaurant websites for Instagram, menu and dead links (robots.txt respected), then rebuild
+        timeout-minutes: 30
+        continue-on-error: true
         env:
           WM_WORKERS: "10"
         run: |

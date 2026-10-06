@@ -29,14 +29,9 @@ def cells(venues, size=0.5):
     """Small map squares (about 55 x 35 km) around our venues, so each Overpass question stays quick."""
     out = {}
     for v in venues:
-        k = (math.floor(v['ll'][0] / size), math.floor(v['ll'][1] / size))
-        out.setdefault(k, 0); out[k] += 1
-    return [(a * size - 0.01, b * size - 0.01, (a + 1) * size + 0.01, (b + 1) * size + 0.01) for (a, b) in sorted(out)]
-
-STOP = {'the', 'restaurant', 'restaurants', 'bar', 'kitchen', 'cafe', 'and', 'ltd', 'limited', 'co', 'grill', 'dining', 'room', 'by', 'at', 'of',
-        'london', 'uk', 'eatery', 'house', 'bistro'}
-BAD_WEB = re.compile(r'(?i)(facebook\.com|instagram\.com|tiktok\.com|twitter\.com|x\.com|tripadvisor|linktr\.ee|deliveroo|just-eat|ubereats|'
-                     r'opentable|thefork|firsttable|google\.|yell\.com|bit\.ly)')
+        a, b = math.floor(v['ll'][0] / size), math.floor(v['ll'][1] / size)
+        out.setdefault(f'{a},{b}', ((a * size - 0.01, b * size - 0.01, (a + 1) * size + 0.01, (b + 1) * size + 0.01), []))[1].append(v)
+    return out
 
 
 def norm_tokens(name):
@@ -94,25 +89,18 @@ def clean_ph(p):
     return d[:3] + ' ' + d[3:7] + ' ' + d[7:] if d.startswith('02') else d[:5] + ' ' + d[5:]
 
 
-def download(boxes):
-    header, rows, bad = None, [], 0
-    for n, bbox in enumerate(boxes, 1):
-        got = None
-        for m in MIRRORS:
-            r = subprocess.run(['curl', '-sS', '--max-time', '240', '-A', UA, '--data-urlencode', 'data@-', m],
-                               input=query(bbox), capture_output=True, text=True, errors='replace')
-            if r.returncode == 0 and r.stdout.startswith('@type'):
-                got = r.stdout; break
-            last = (r.stderr or r.stdout)[:160].replace('\n', ' ')
-            time.sleep(5)
-        if got is None:
-            bad += 1; print(f'  square {n}/{len(boxes)} failed: {last}', flush=True); continue
-        lines = got.rstrip('\n').split('\n')
-        header = header or lines[0]; rows += lines[1:]
-        print(f'  square {n}/{len(boxes)}: {len(lines) - 1} places', flush=True)
-        time.sleep(2)
-    if bad: print(f'::warning title=OpenStreetMap lookup::{bad} of {len(boxes)} map squares failed. Last error: {last}')
-    return (header + '\n' + '\n'.join(rows) + '\n') if header else None, bad
+def fetch_square(bbox):
+    """One map square from Overpass. Returns CSV text or None (after trying each mirror once)."""
+    last = ''
+    for m in MIRRORS:
+        r = subprocess.run(['curl', '-sS', '--max-time', '120', '-A', UA, '--data-urlencode', 'data@-', m],
+                           input=query(bbox), capture_output=True, text=True, errors='replace')
+        if r.returncode == 0 and r.stdout.startswith('@type'):
+            return r.stdout, ''
+        last = (r.stderr or r.stdout)[:160].replace('\n', ' ')
+        time.sleep(3)
+    return None, last
+
 
 def parse(text):
     rows = []
@@ -159,27 +147,32 @@ def needy(deals):
 
 
 def main():
+    """Works through the map squares a few at a time (time budget per run), saving after each one, so slow Overpass
+    days still make progress. Each square is asked again after 7 days to catch new restaurants."""
+    budget = int(os.environ.get('OSM_BUDGET', '900'))
     deals = json.loads(re.search(r'const DEALS = (\[.*\]);', open(os.path.join(SRC, 'deals.js'), encoding='utf-8').read(), re.S).group(1))
-    old = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else {'checked': '2000-01-01', 'tried': [], 'links': {}}
-    want = needy(deals)
-    fresh = [v for v in want if v['id'] not in set(old.get('tried', []))]
-    age = (TODAY - datetime.date.fromisoformat(old['checked'])).days
-    print(f'{len(want)} venues miss a website or Instagram; {len(fresh)} never looked up; last download {age} days ago')
-    if age < 7 and len(fresh) < 20 and '--force' not in sys.argv:
-        print('Nothing to do today.'); return
-    boxes = cells(want)
-    print(len(boxes), 'map squares to ask')
-    text, bad = download(boxes)
-    if not text:
-        print('::warning title=OpenStreetMap lookup::Overpass unavailable, keeping old links.'); return
-    rows = parse(text)
-    print(len(rows), 'OpenStreetMap food places with a website or social page')
-    links = {**old.get('links', {}), **match(want, rows)}
-    out = {'checked': TODAY.isoformat() if not bad else old['checked'], 'osm_places': len(rows), 'tried': sorted(v['id'] for v in want),
-           'links': dict(sorted(links.items()))}
-    json.dump(out, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
-    print('matched', len(links), '| website', sum(1 for x in links.values() if x.get('web')), '| instagram', sum(1 for x in links.values() if x.get('ig')),
-          '| facebook', sum(1 for x in links.values() if x.get('fb')))
+    old = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else {}
+    links, done = old.get('links', {}), old.get('squares', {})
+    groups = cells(needy(deals))
+    todo = sorted((k for k in groups if (TODAY - datetime.date.fromisoformat(done.get(k, '2000-01-01'))).days >= 7),
+                  key=lambda k: (done.get(k, ''), -len(groups[k][1])))
+    print(f'{sum(len(v) for _, v in groups.values())} venues miss a website or Instagram, in {len(groups)} map squares; {len(todo)} squares due', flush=True)
+    t0, ok, bad, last = time.time(), 0, 0, ''
+    for k in todo:
+        if time.time() - t0 > budget: break
+        text, err = fetch_square(groups[k][0])
+        if text is None:
+            bad += 1; last = err; continue
+        found = match(groups[k][1], parse(text))
+        links.update(found); done[k] = TODAY.isoformat(); ok += 1
+        print(f'  square {k}: {len(groups[k][1])} venues, {len(found)} matched', flush=True)
+        json.dump({'checked': TODAY.isoformat(), 'squares': dict(sorted(done.items())), 'links': dict(sorted(links.items()))},
+                  open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
+        time.sleep(2)
+    left = len(todo) - ok
+    print(f'::notice title=OpenStreetMap lookup::{ok} squares done today, {left} left for the next runs | matched so far {len(links)}: website {sum(1 for x in links.values() if x.get("web"))}, '
+          f'instagram {sum(1 for x in links.values() if x.get("ig"))}, facebook {sum(1 for x in links.values() if x.get("fb"))}')
+    if bad: print(f'::warning title=OpenStreetMap lookup::{bad} map squares failed today (they will be retried). Last error: {last}')
 
 
 if __name__ == '__main__':
