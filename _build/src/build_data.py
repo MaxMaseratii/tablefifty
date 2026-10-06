@@ -209,6 +209,7 @@ for path, rec in sorted(PAGES.items()):
     v = venue(name, key=key, a=area, reg=reg, ct=city, c=c, s=st, m=meals)
     if ll: v['ll'] = ll
     v.setdefault('_tags', set()).update(t for cat, t in rec.get('tags', []) if cat != 'Cuisine')
+    v.setdefault('_czs', []).extend(t for cat, t in rec.get('tags', []) if cat == 'Cuisine' and t not in v['_czs'])
     ig = (rec.get('instagram') or '').strip()
     if re.match(r'^https?://(www\.)?instagram\.com/[A-Za-z0-9_.]+/?', ig) and 'ig' not in v: v['ig'] = ig.split('?')[0]
     web = (rec.get('website') or '').strip()
@@ -468,6 +469,7 @@ for r in ec_rows:
         v = venue(ec_display_name(r), key='ec-' + slug(r['slug']), a=(f"{area}, {cityname}" if area and area.lower() != cityname.lower() else cityname),
                   reg=london_reg(ll) if ct == 'london' else ct, ct=ct, c=c, s='casual' if casual else 'smart', m=meals or ['l', 'd'])
         v['ll'] = ll; ec_added += 1
+    v.setdefault('_czs', []).extend(t for t in (r.get('cuisines') or []) if t not in v['_czs'])
     if r.get('image') and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', r['image']) and 'img' not in v and 'imgx' not in v:
         v['imgx'] = r['image']
     if set(r.get('cuisines') or []) & {'Bar', 'Drinks Focused', 'Nightclub'} or re.search(r"\b(arms|inn|tavern|pub|taproom|brewery)\b", r['name'].lower()):
@@ -796,10 +798,89 @@ for k in [k for k, v in V.items() if not v['o']]: del V[k]
 for nm in ('toby-carvery', 'harvester', 'tgi-fridays', 'hungry-horse'):
     if nm in V: V[nm]['pub'] = 1
 
+# ---------- Short description: what kind of food they serve (shown under the address and in Insights) ----------
+# 1) the restaurant's own words from its website, trimmed to one or two clean sentences (often names its best dishes);
+# 2) otherwise a plain sentence built from its cuisine tags on First Table / EatClub. Nothing is invented.
+DISH = {'Pizza': 'pizza', 'Burgers': 'burgers', 'Tapas': 'tapas', 'Small plates': 'small plates', 'Steak': 'steak', 'Steakhouse': 'steak',
+        'Seafood': 'seafood', 'Sushi': 'sushi', 'Ramen': 'ramen', 'Dim Sum': 'dim sum', 'Dumplings': 'dumplings', 'Fried Chicken': 'fried chicken',
+        'Brunch': 'brunch', 'Breakfast': 'breakfast', 'Salads': 'salads', 'Dessert': 'desserts', 'Desserts / bakeries': 'cakes and bakes',
+        'Bakery': 'fresh bakes', 'Grill & barbeque': 'grills and BBQ', 'BBQ': 'BBQ', 'Street food': 'street food', 'Afternoon Tea': 'afternoon tea',
+        'Hot Pot': 'hot pot', 'Hotpot': 'hot pot', 'Bubble Tea': 'bubble tea', 'Ice Cream': 'ice cream', 'Pub Food': 'pub classics'}
+ADJ_FIX = {'SouthEast Asian': 'South-East Asian', 'Bangladesh': 'Bangladeshi', 'Afghanistan': 'Afghan', 'Ukranian': 'Ukrainian', 'Hong Kong': 'Hong Kong-style',
+           'Contemporary': 'Modern', 'Fusion': 'Fusion', 'International': 'International'}
+SKIP = {'Vegan', 'Vegetarian', 'Halal', 'Gluten Free', 'Drinks Focused', 'Bar', 'Nightclub', 'Cafe', 'Casual dining', 'Fine dining', 'Family', 'Other',
+        'Brasserie', 'Fast food', 'Indo-Chinese'}
+JUNK_SENT = re.compile(r'(?i)(book (now|today|online|a table|your table)|reserve|view (our|the) menu|click|call us|order (now|online)|gift (card|voucher)|'
+                       r'cookie|newsletter|sign up|official (site|website)|welcome to (our )?(website|site)|all rights reserved|we use)')
+ABROAD = re.compile(r'\b(Miami|New York|NYC|Dubai|Abu Dhabi|Doha|Riyadh|Paris|Los Angeles|Las Vegas|Singapore|Hong Kong|Sydney|Melbourne|Toronto|'
+                    r'Lisbon|Madrid|Barcelona|Milan|Rome|Istanbul|Bangkok|Tokyo|Mumbai|Delhi|Amsterdam|Berlin|Dublin|Ibiza|Mykonos|Marbella|Monaco|Cannes)\b')
+SEO_HEAD = re.compile(r'(?i)^(directions, menus? (&|and) opening times for [^,]+,\s*|restaurants? in [^:]+:\s*|home\s*[|-]\s*)')
+def own_desc(t, name):
+    t = re.sub(r'\s+', ' ', t or '').strip()
+    if not t or ABROAD.search(t): return None   # text about another branch abroad, not this restaurant
+    t = SEO_HEAD.sub('', t)
+    if t: t = t[0].upper() + t[1:]
+    sents = re.split(r'(?<=[.!?])\s+(?=[A-Z])', t)
+    keep = []
+    for x in sents:
+        x = x.strip(' -–|')
+        if len(x) < 25 or JUNK_SENT.search(x): continue
+        keep.append(x)
+        if sum(len(k) for k in keep) > 120: break
+    out = ' '.join(keep)
+    if len(out) > 190:
+        cut = out[:190].rsplit(' ', 1)[0].rstrip(',;:–- ')
+        out = cut + '…'
+    if len(out) < 30: return None
+    if out[-1] not in '.!?…': out += '.'
+    return out
+def tag_desc(v):
+    czs = v.get('_czs') or []
+    dishes, adjs = [], []
+    for c in czs:
+        if c in DISH:
+            d = DISH[c]
+            if d not in dishes: dishes.append(d)
+        elif c not in SKIP:
+            a = ADJ_FIX.get(c, c)
+            if a not in adjs: adjs.append(a)
+    tags = v.get('_tags') or set()
+    if 'Gastropub' in tags: kind = 'gastropub'
+    elif ('Bars & pubs' in tags or 'Pub Food' in czs or re.search(r"\b(arms|inn|tavern|pub)\b", (v.get('n') or '').lower())) and not ('Restaurant' in tags and adjs): kind = 'pub'
+    elif tags & {'Cocktail bar', 'Wine bar'} or 'Drinks Focused' in czs or 'Bar' in czs and not adjs: kind = 'bar'
+    elif v.get('k') == 'coffee' or 'Cafe' in czs or 'Cafe' in tags: kind = 'café'
+    elif 'Fine dining' in czs: kind = 'fine dining restaurant'
+    else: kind = 'restaurant'
+    adjs = adjs[:2]; dishes = dishes[:3]
+    if not adjs and not dishes: return None
+    head = (' and '.join(adjs) + ' ' + kind) if adjs else kind.capitalize()
+    head = head[0].upper() + head[1:]
+    if dishes:
+        head += ' serving ' + (dishes[0] if len(dishes) == 1 else ', '.join(dishes[:-1]) + ' and ' + dishes[-1])
+    extra = []
+    fx = v.get('fx') or []
+    diet = [w for k, w in (('vegan', 'vegan'), ('veg', 'vegetarian'), ('gf', 'gluten-free'), ('halal', 'halal')) if k in fx]
+    if not diet:
+        diet = [w.lower() for w in ('Vegan', 'Vegetarian', 'Halal') if w in czs]
+    if diet: extra.append((' and '.join(diet[:2]) + ' options').capitalize())
+    if v.get('mp'): extra.append('Mains ' + v['mp'])
+    return head + '.' + (' ' + '. '.join(extra) + '.' if extra else '')
+ds_own = ds_tag = 0
+for v in V.values():
+    if v.get('own') and ABROAD.search(v['own']): v.pop('own')   # website text about a branch abroad
+    if v.get('k') not in ('dine', 'coffee') or v.get('ct') == 'uk': continue
+    d = own_desc(v.get('own'), v.get('n'))
+    if d: v['ds'] = d; v['dso'] = 1; ds_own += 1
+    else:
+        d = tag_desc(v)
+        if d: v['ds'] = d; ds_tag += 1
+    v.pop('_czs', None)
+print('Descriptions: from restaurant websites', ds_own, '| from cuisine tags', ds_tag)
+
 # ---------- finalise ----------
 out = []
 for v in V.values():
-    v.pop('_tags', None)
+    v.pop('_tags', None); v.pop('_czs', None)
     if not v['m'] and v['k'] in ('dine', 'coffee'): v['m'] = ['l', 'd']
     out.append(v)
 CITIES = {}

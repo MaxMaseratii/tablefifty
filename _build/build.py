@@ -10,6 +10,11 @@ for tag, f in [('/*__I18N__*/', 'i18n.js'), ('/*__I18N_EXTRA__*/', 'i18n_extra.j
     assert tag in s, tag
     s = s.replace(tag, open(os.path.join(SRC, f), encoding='utf-8').read())
 TODAY = datetime.date.today().isoformat()
+# Browser safety settings for every page (GitHub Pages can't send headers, so they go in <meta> tags):
+# no plugins, no <base> hijack, forms may only post to us or FormSubmit, always HTTPS, and other sites only see our domain.
+SEC_META = ('<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="object-src \'none\'; base-uri \'self\'; '
+            'form-action \'self\' https://formsubmit.co; upgrade-insecure-requests">\n<meta name="referrer" content="strict-origin-when-cross-origin">')
+def secure(h): return h.replace('<meta charset="utf-8">', SEC_META, 1)
 BRAND='TableFifty'; DOMAIN='tablefifty.co.uk'; BASE=f'https://{DOMAIN}/'
 CONTACT = 'info@tablefifty.co.uk'
 # Spotlight payment links from Stripe. Empty = the "For restaurants" page shows an email button instead.
@@ -44,7 +49,7 @@ head=f'''<!doctype html>
 '''
 i=s.index('</style>')+len('</style>')
 index=head+s[:i].replace(f'<title>{BRAND}</title>',f'<title>{title}</title>')+'\n</head>\n<body>\n'+s[i:]+'\n</body>\n</html>\n'
-open(os.path.join(ROOT,'index.html'),'w',encoding='utf-8').write(index)
+open(os.path.join(ROOT,'index.html'),'w',encoding='utf-8').write(secure(index))
 PAGE_CSS=f'''<style>
   :root{{color-scheme:dark;--bg:#0f172a;--text:#e8eef8;--muted:#9dadc4;--faint:#6f809b;--accent:#10b981;--amber:#f59e0b;--amber-ink:#2b1a01;
     --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;--f-body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
@@ -74,9 +79,7 @@ privacy=f'''<!doctype html>
 <meta name="description" content="How {BRAND} works, how it makes money, and what it does with your data.">
 <link rel="canonical" href="{BASE}privacy.html">
 <link rel="icon" href="{fav}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="/fonts/main.css" rel="stylesheet">
 {PAGE_CSS}
 </head>
 <body>
@@ -90,7 +93,13 @@ privacy=f'''<!doctype html>
 </body>
 </html>
 '''
-open(os.path.join(ROOT,'privacy.html'),'w',encoding='utf-8').write(privacy)
+open(os.path.join(ROOT,'privacy.html'),'w',encoding='utf-8').write(secure(privacy))
+terms_body = open(os.path.join(SRC, 'terms-content.html'), encoding='utf-8').read().replace('hello@tablefifty.co.uk', CONTACT)
+terms = (privacy.replace('<title>Privacy policy | ', '<title>Terms of use | ').replace(f'href="{BASE}privacy.html"', f'href="{BASE}terms.html"')
+         .replace(f'content="How {BRAND} works, how it makes money, and what it does with your data."', f'content="The rules for using {BRAND}."')
+         .replace('<h1>About &amp; privacy</h1>', '<h1>Terms of use</h1>').replace(about, terms_body))
+assert terms_body in terms
+open(os.path.join(ROOT,'terms.html'),'w',encoding='utf-8').write(secure(terms))
 # ---------- One small page per restaurant: tablefifty.co.uk/r/<id>/ (shareable link with photo preview) ----------
 import html as _h, json as _j, re as _re, shutil as _sh
 _deals = _j.loads(_re.search(r'const DEALS = (\[.*\]);', open(os.path.join(SRC, 'deals.js'), encoding='utf-8').read(), _re.S).group(1))
@@ -181,9 +190,7 @@ restaurants = f"""<!doctype html>
 <link rel="canonical" href="{BASE}restaurants/">
 <link rel="icon" href="{fav}">
 <meta property="og:title" content="{BRAND} for restaurants"><meta property="og:url" content="{BASE}restaurants/"><meta property="og:image" content="{BASE}img/hero.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="/fonts/main.css" rel="stylesheet">
 {rest_css}
 </head>
 <body>
@@ -263,7 +270,7 @@ restaurants = f"""<!doctype html>
 </html>
 """
 os.makedirs(os.path.join(ROOT, 'restaurants'), exist_ok=True)
-open(os.path.join(ROOT, 'restaurants', 'index.html'), 'w', encoding='utf-8').write(restaurants)
+open(os.path.join(ROOT, 'restaurants', 'index.html'), 'w', encoding='utf-8').write(secure(restaurants))
 
 # ---------- Private stats page: tablefifty.co.uk/stats/ (not linked, not indexed) ----------
 # Reads the anonymous totals in Firestore "clicks/{YYYY-MM}" (visits per day/source, deal clicks per platform/day/source).
@@ -272,12 +279,22 @@ _cfg = _re.search(r'apiKey: "([^"]+)"[\s\S]*?projectId: "([^"]+)"', open(os.path
 _stats = (_stats.replace('__CSS__', PAGE_CSS).replace('__FAV__', fav).replace('__APIKEY__', _cfg.group(1)).replace('__PROJECT__', _cfg.group(2))
           .replace('__PLAT__', _j.dumps(dict(PLAT, tastecard='tastecard', code='Code'), ensure_ascii=False)))
 os.makedirs(os.path.join(ROOT, 'stats'), exist_ok=True)
-open(os.path.join(ROOT, 'stats', 'index.html'), 'w', encoding='utf-8').write(_stats)
-open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\nDisallow: /stats/\n\nSitemap: {BASE}sitemap.xml\n')
+open(os.path.join(ROOT, 'stats', 'index.html'), 'w', encoding='utf-8').write(secure(_stats))
+# ---------- Owner-only admin page: tablefifty.co.uk/admin/ (newsletter + member lists; Firestore rules allow only the owner) ----------
+_pg = open(os.path.join(SRC, 'page.html'), encoding='utf-8').read()
+_fbcfg = _re.search(r'firebase: (\{[^}]*\})', _pg).group(1)
+_fbcfg = _j.dumps(dict(_re.findall(r'(\w+): "([^"]*)"', _fbcfg)))
+_fbver = _re.search(r'const FB_VER = "([^"]+)"', _pg).group(1)
+_admin = (open(os.path.join(SRC, 'admin.html'), encoding='utf-8').read().replace('__CSS__', PAGE_CSS).replace('__FAV__', fav)
+          .replace('__FBCFG__', _fbcfg).replace('__FBVER__', _fbver))
+os.makedirs(os.path.join(ROOT, 'admin'), exist_ok=True)
+open(os.path.join(ROOT, 'admin', 'index.html'), 'w', encoding='utf-8').write(secure(_admin))
+open(os.path.join(ROOT,'robots.txt'),'w').write(f'User-agent: *\nAllow: /\nDisallow: /stats/\nDisallow: /admin/\n\nSitemap: {BASE}sitemap.xml\n')
 open(os.path.join(ROOT,'sitemap.xml'),'w').write(f'''<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>{BASE}</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}privacy.html</loc><lastmod>{TODAY}</lastmod></url>
+  <url><loc>{BASE}terms.html</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}restaurants/</loc><lastmod>{TODAY}</lastmod></url>
 ''' + ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n' for u in rurls) + f'''</urlset>
 ''')

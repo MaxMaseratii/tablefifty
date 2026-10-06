@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin | TableFifty</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f59e0b'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%232b1a01'%3E50%3C/text%3E%3C/svg%3E">
+<link href="/fonts/main.css" rel="stylesheet">
+<style>
+  :root{color-scheme:dark;--bg:#0f172a;--text:#e8eef8;--muted:#9dadc4;--faint:#6f809b;--accent:#10b981;--amber:#f59e0b;--amber-ink:#2b1a01;
+    --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;--f-body:"Figtree","Segoe UI",system-ui,-apple-system,sans-serif;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  *{box-sizing:border-box}
+  html,body{background:var(--bg);color:var(--text)}
+  body{margin:0;font-family:var(--f-body);font-size:16px;line-height:1.6}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+  a{color:var(--accent)}
+  .top{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);margin-bottom:28px}
+  .mark{width:34px;height:34px;border-radius:50%;background:var(--amber);color:var(--amber-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:15px;letter-spacing:-.02em}
+  .top b{font-family:var(--f-display);font-weight:800;font-size:20px} .top b span{color:var(--accent)}
+  h1{font-family:var(--f-display);font-weight:800;font-size:clamp(30px,5vw,40px);line-height:1.1;margin:0 0 8px}
+  .about{display:grid;gap:12px;color:var(--muted)}
+  .about h3{margin:14px 0 0;font-family:var(--f-display);font-size:20px;color:var(--text)}
+  .about p,.about ul{margin:0} .about ul{padding-left:22px;display:grid;gap:6px} .about strong{color:var(--text)}
+  .story{border:1px solid #27365a;border-radius:16px;padding:16px 18px;background:linear-gradient(160deg,rgba(245,158,11,.10),rgba(16,185,129,.06));display:grid;gap:10px}
+  .story h3{margin:0} .story p{color:var(--text)} .story .sig{color:var(--amber);font-weight:700}
+  .adtag{font-size:11px;font-weight:800;letter-spacing:.06em;padding:1px 6px;border-radius:5px;background:var(--amber);color:var(--amber-ink)}
+</style>
+<style>
+  .wrap{max-width:1040px}
+  .bar-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+  .bar-top h1{margin:0}
+  button,input,select{font:inherit;color:var(--text);background:#131d33;border:1px solid #34466b;border-radius:10px;padding:9px 12px}
+  button{cursor:pointer;font-weight:700}
+  button.primary{background:var(--amber);color:var(--amber-ink);border-color:var(--amber)}
+  button.ghost{background:transparent}
+  button.danger{border-color:#7f1d1d;color:#fecaca;padding:5px 10px;font-size:13px}
+  button:disabled{opacity:.6;cursor:wait}
+  button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .card{background:#131d33;border:1px solid #27365a;border-radius:16px;padding:16px 18px;margin-bottom:18px}
+  .card h2{font-family:var(--f-display);font-size:20px;margin:0 0 6px}
+  .hint{margin:0 0 12px;color:var(--faint);font-size:13.5px}
+  .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:18px}
+  .tile{background:#131d33;border:1px solid #27365a;border-radius:14px;padding:14px 16px}
+  .tile small{display:block;color:var(--muted);font-size:13px;font-weight:600}
+  .tile b{display:block;font-family:var(--f-display);font-size:30px;line-height:1.15;font-variant-numeric:tabular-nums}
+  .tile span{color:var(--faint);font-size:12.5px}
+  .tbl{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th,td{text-align:left;padding:8px 6px;border-bottom:1px solid #222f4d;vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px;white-space:nowrap}
+  td.email{overflow-wrap:anywhere}
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;margin:0 4px 4px 0}
+  .pill.nl{background:#10b98122;color:#6ee7b7}
+  .pill.al{background:#f59e0b22;color:#fcd34d}
+  .pill.mb{background:#33415588;color:#cbd5e1}
+  .msg{font-weight:600;margin:8px 0 0} .msg.ok{color:var(--accent)} .msg.warn{color:var(--amber)}
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+  .tabs button[aria-pressed="true"]{background:var(--accent);color:#04241a;border-color:var(--accent)}
+  ol{margin:0;padding-left:20px;display:grid;gap:6px;color:var(--muted)}
+  ol b{color:var(--text)}
+  .sr{position:absolute;left:-9999px}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <a class="top" href="/"><span class="mark" aria-hidden="true">50</span><b>Table<span>Fifty</span></b></a>
+  <div class="bar-top">
+    <h1>Admin</h1>
+    <div class="row"><a href="/stats/">Visitor stats</a><button type="button" class="ghost" id="out" hidden>Sign out</button></div>
+  </div>
+
+  <section class="card" id="login">
+    <h2>Owner sign-in</h2>
+    <p class="hint">This page is only for the TableFifty owner. Other accounts see nothing: the database itself refuses them.</p>
+    <div class="row">
+      <button type="button" class="primary" id="google">Sign in with Google</button>
+      <form id="mailForm" class="row" novalidate>
+        <label class="sr" for="mail">Email</label>
+        <input id="mail" type="email" autocomplete="email" placeholder="Your owner email" required>
+        <button type="submit">Email me a sign-in link</button>
+      </form>
+    </div>
+    <p class="msg" id="loginMsg" role="status" aria-live="polite"></p>
+  </section>
+
+  <div id="app" hidden>
+    <p class="hint" id="who"></p>
+    <div class="tiles" id="tiles"></div>
+
+    <section class="card">
+      <h2>People who said yes to emails</h2>
+      <p class="hint">Only email the list that matches what they signed up for. Every address here was confirmed by its owner (they opened our link or signed in).</p>
+      <div class="tabs" role="group" aria-label="Which list">
+        <button type="button" data-list="nl" aria-pressed="true">Half-Price Friday newsletter</button>
+        <button type="button" data-list="al" aria-pressed="false">Deal alerts near home</button>
+        <button type="button" data-list="mb" aria-pressed="false">All members (service messages only)</button>
+      </div>
+      <div class="row" style="margin-bottom:10px">
+        <button type="button" id="copy">Copy emails</button>
+        <button type="button" id="csv">Download CSV</button>
+        <button type="button" class="ghost" id="reload">Refresh</button>
+      </div>
+      <p class="msg" id="listMsg" role="status" aria-live="polite"></p>
+      <div class="tbl" id="table"></div>
+    </section>
+
+    <section class="card">
+      <h2>How to send an email to your list</h2>
+      <ol>
+        <li><b>Use a free email tool</b> such as Brevo or MailerLite, not Gmail BCC. They add the unsubscribe link the law asks for and stop your Gmail being marked as spam.</li>
+        <li><b>Download CSV</b> for the right list above, then import it into the tool. Tick "these people gave consent".</li>
+        <li><b>Every email must say who you are</b> (TableFifty, info@tablefifty.co.uk) and have an unsubscribe link.</li>
+        <li><b>When someone unsubscribes in the tool</b> or asks you by email, press <b>Remove</b> next to their address here too.</li>
+        <li><b>"All members"</b> is only for account messages (for example a change to the privacy policy). Never send offers to that list.</li>
+      </ol>
+    </section>
+  </div>
+  <p class="hint" style="margin-top:24px">Personal data on this page is protected by UK GDPR. Don't share screenshots or the CSV files, and delete old CSV files after you import them.</p>
+</main>
+<script type="module">
+  const CFG = {"apiKey": "AIzaSyAKDnvYNEjCnWbbJPDUZdXo68cowZL7MeM", "authDomain": "tablefifty-df4d9.firebaseapp.com", "projectId": "tablefifty-df4d9", "storageBucket": "tablefifty-df4d9.firebasestorage.app", "messagingSenderId": "480631173664", "appId": "1:480631173664:web:5e40a9b801074d16cc0245"};
+  const VER = "12.19.0";
+  const imp = async n => { try { return await import(`https://www.gstatic.com/firebasejs/${VER}/firebase-${n}.js`); } catch (e) { return await import(`https://cdn.jsdelivr.net/npm/firebase@${VER}/${n}/+esm`); } };
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const day = v => { try { const d = v && v.toDate ? v.toDate() : v ? new Date(v) : null; return d && !isNaN(d) ? d.toISOString().slice(0, 10) : ""; } catch (e) { return ""; } };
+  const KEY = "tablefifty.adminEmail";
+  const [appM, authM, fsM] = await Promise.all([imp("app"), imp("auth"), imp("firestore")]);
+  const app = appM.initializeApp(CFG), auth = authM.getAuth(app), db = fsM.getFirestore(app);
+  let rows = { nl: [], al: [], mb: [] }, list = "nl";
+  const say = (el, t, tone) => { el.textContent = t; el.className = "msg" + (tone ? " " + tone : ""); };
+
+  if (authM.isSignInWithEmailLink(auth, location.href)) {
+    let em = null; try { em = localStorage.getItem(KEY); } catch (e) {}
+    if (!em) em = (document.getElementById("mail").value || "").trim();
+    if (em) { try { await authM.signInWithEmailLink(auth, em, location.href); } catch (e) { say($("#loginMsg"), "That link has expired. Ask for a new one.", "warn"); } }
+    else say($("#loginMsg"), "Open the link on the same device you asked for it on, or ask for a new link.", "warn");
+    history.replaceState(null, "", location.pathname);
+  }
+  $("#google").addEventListener("click", async () => {
+    try { await authM.signInWithPopup(auth, new authM.GoogleAuthProvider()); }
+    catch (e) { if (e.code === "auth/popup-blocked" || e.code === "auth/operation-not-supported-in-this-environment") await authM.signInWithRedirect(auth, new authM.GoogleAuthProvider()); else say($("#loginMsg"), "Sign-in did not work. Try again.", "warn"); }
+  });
+  $("#mailForm").addEventListener("submit", async e => {
+    e.preventDefault();
+    const em = $("#mail").value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) { say($("#loginMsg"), "Type a valid email.", "warn"); return; }
+    try { await authM.sendSignInLinkToEmail(auth, em, { url: location.origin + location.pathname, handleCodeInApp: true }); try { localStorage.setItem(KEY, em); } catch (e2) {} say($("#loginMsg"), "Link sent. Open it on this device.", "ok"); }
+    catch (err) { say($("#loginMsg"), "Could not send the link. Try Google sign-in.", "warn"); }
+  });
+  $("#out").addEventListener("click", () => authM.signOut(auth));
+
+  authM.onAuthStateChanged(auth, async u => {
+    $("#out").hidden = !u;
+    if (!u || u.isAnonymous) { $("#login").hidden = false; $("#app").hidden = true; return; }
+    $("#login").hidden = true;
+    await load(u);
+  });
+
+  async function load(u) {
+    const msg = $("#listMsg");
+    try {
+      const [subs, profs] = await Promise.all([fsM.getDocs(fsM.collection(db, "subscribers")), fsM.getDocs(fsM.collection(db, "profiles"))]);
+      const P = new Map(profs.docs.map(d => [d.id, d.data()]));
+      rows.nl = subs.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => r.vf === true && r.email)
+        .map(r => ({ id: r.id, email: r.email, name: (P.get(r.id) || {}).name || "", lang: r.lang || "", area: r.area || "", since: day(r.at), kind: "nl" }));
+      rows.al = profs.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => r.alerts === true && r.email)
+        .map(r => ({ id: r.id, email: r.email, name: r.name || "", lang: r.lang || "", area: r.home || "", since: r.alertsAt || day(r.updated), kind: "al" }));
+      rows.mb = profs.docs.map(d => ({ id: d.id, ...d.data() })).filter(r => r.email)
+        .map(r => ({ id: r.id, email: r.email, name: r.name || "", lang: r.lang || "", area: r.home || "", since: day(r.updated), kind: "mb" }));
+      const old = subs.docs.filter(d => d.data().vf !== true).length;
+      $("#who").textContent = `Signed in as ${u.email}.` + (old ? ` ${old} older newsletter sign-up(s) were never confirmed, so they are hidden and must not be emailed.` : "");
+      $("#tiles").innerHTML = [["Newsletter", rows.nl.length, "confirmed sign-ups"], ["Deal alerts", rows.al.length, "members who said yes"], ["Members", P.size, "accounts with a profile"]]
+        .map(([a, b, c]) => `<div class="tile"><small>${esc(a)}</small><b>${esc(b)}</b><span>${esc(c)}</span></div>`).join("");
+      $("#app").hidden = false; say(msg, "");
+      draw();
+    } catch (e) {
+      $("#app").hidden = true; $("#login").hidden = false;
+      say($("#loginMsg"), e.code === "permission-denied" ? `${u.email} is not the owner account. Sign in with info@tablefifty.co.uk or infotrade@maxmaserati.com.` : "Could not load the lists. Check your internet and try again.", "warn");
+    }
+  }
+  function draw() {
+    const r = rows[list];
+    document.querySelectorAll("[data-list]").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.list === list)));
+    $("#table").innerHTML = r.length ? `<table><thead><tr><th>Email</th><th>Name</th><th>Language</th><th>Area</th><th>Since</th><th></th></tr></thead><tbody>${r.map((x, i) => `<tr>
+      <td class="email">${esc(x.email)}</td><td>${esc(x.name)}</td><td>${esc(x.lang)}</td><td>${esc(x.area)}</td><td>${esc(x.since)}</td>
+      <td>${list === "mb" ? `<span class="pill mb">member</span>` : `<button type="button" class="danger" data-rm="${i}">Remove</button>`}</td></tr>`).join("")}</tbody></table>`
+      : `<p class="hint">Nobody on this list yet.</p>`;
+  }
+  document.addEventListener("click", async e => {
+    const b = e.target.closest("[data-list]"); if (b) { list = b.dataset.list; draw(); return; }
+    const rm = e.target.closest("[data-rm]");
+    if (rm) {
+      const x = rows[list][+rm.dataset.rm];
+      if (rm.dataset.sure !== "1") { rm.dataset.sure = "1"; rm.textContent = "Tap again to remove"; return; }
+      rm.disabled = true;
+      try {
+        if (x.kind === "nl") await fsM.deleteDoc(fsM.doc(db, "subscribers", x.id));
+        else await fsM.updateDoc(fsM.doc(db, "profiles", x.id), { alerts: false });
+        rows[list] = rows[list].filter(y => y !== x); draw(); say($("#listMsg"), `${x.email} removed from this list.`, "ok");
+      } catch (err) { rm.disabled = false; say($("#listMsg"), "Could not remove. Try again.", "warn"); }
+    }
+  });
+  $("#copy").addEventListener("click", async () => {
+    const t = rows[list].map(r => r.email).join(", ");
+    if (!t) { say($("#listMsg"), "This list is empty.", "warn"); return; }
+    try { await navigator.clipboard.writeText(t); say($("#listMsg"), `${rows[list].length} email(s) copied.`, "ok"); }
+    catch (e) { say($("#listMsg"), t, ""); }
+  });
+  $("#csv").addEventListener("click", () => {
+    const r = rows[list]; if (!r.length) { say($("#listMsg"), "This list is empty.", "warn"); return; }
+    const q = v => `"${String(v ?? "").replace(/"/g, '""').replace(/^[=+\-@\t\r]/, "'$&")}"`;
+    const csv = "email,name,language,area,since\n" + r.map(x => [x.email, x.name, x.lang, x.area, x.since].map(q).join(",")).join("\n") + "\n";
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+    a.download = `tablefifty-${{ nl: "newsletter", al: "deal-alerts", mb: "members-service-only" }[list]}-${new Date().toISOString().slice(0, 10)}.csv`;
+    document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+  $("#reload").addEventListener("click", () => auth.currentUser && load(auth.currentUser));
+</script>
+</body>
+</html>

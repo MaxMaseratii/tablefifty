@@ -6,9 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Stats | TableFifty</title>
 <link rel="icon" href="__FAV__">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="/fonts/main.css" rel="stylesheet">
 __CSS__
 <style>
   .wrap{max-width:960px}
@@ -100,7 +98,7 @@ __CSS__
     <div class="links" id="links"></div>
   </section>
 
-  <p class="small" style="color:var(--faint);font-size:13px">Visits are counted each time the main page opens (bots skipped). Visit and source counting started on 5 October 2026. Platform clicks go back further. Numbers hold no personal data.</p>
+  <p class="small" style="color:var(--faint);font-size:13px">Visits are counted each time the main page opens (bots skipped). Visit and source counting started on 6 October 2026. Platform clicks go back further. Numbers hold no personal data.</p>
 </main>
 <script>
 (() => {
@@ -119,7 +117,7 @@ __CSS__
   let docs = {};
 
   function split(f) {
-    const r = { vd: {}, cd: {}, vs: {}, cs: {}, plat: {}, visits: 0, clicks: 0 };
+    const r = { vd: {}, cd: {}, vs: {}, cs: {}, plat: {}, visits: 0, clicks: 0, maps: 0 };
     Object.entries(f || {}).forEach(([k, v]) => {
       const n = Number(v); if (!n) return;
       let m;
@@ -127,6 +125,7 @@ __CSS__
       else if ((m = k.match(/^xcd(\d\d)$/))) r.cd[+m[1]] = n;
       else if (k.startsWith("xvs")) r.vs[k.slice(3)] = n;
       else if (k.startsWith("xcs")) r.cs[k.slice(3)] = n;
+      else if (k === "googlemaps") r.maps += n;
       else if (!k.startsWith("x")) { r.plat[k] = n; r.clicks += n; }
     });
     return r;
@@ -135,19 +134,31 @@ __CSS__
   async function load() {
     $("#status").textContent = "Loading…";
     try {
-      const res = await fetch(`https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/(default)/documents/clicks?pageSize=100&key=${API}`);
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const j = await res.json();
+      const base = `https://firestore.googleapis.com/v1/projects/${PROJECT}/databases/(default)/documents/clicks`;
+      const months = [];
+      for (let i = 0; i < 12; i++) { const d = new Date(now.getFullYear(), now.getMonth() - i, 1); months.push(`${d.getFullYear()}-${pad(d.getMonth() + 1)}`); }
+      const num = v => Number(v.integerValue ?? v.doubleValue ?? 0);
       docs = {};
-      (j.documents || []).forEach(d => {
-        const id = d.name.split("/").pop(), f = {};
-        Object.entries(d.fields || {}).forEach(([k, v]) => { f[k] = v.integerValue ?? v.doubleValue ?? 0; });
-        docs[id] = f;
-      });
-      const months = [...new Set([thisMonth, ...Object.keys(docs)])].sort().reverse();
+      // Old format (before 6 Oct 2026): one document per month with one field per counter
+      const old = await fetch(`${base}?pageSize=100&key=${API}`);
+      if (!old.ok) throw new Error("HTTP " + old.status);
+      ((await old.json()).documents || []).forEach(d => { const f = {}; Object.entries(d.fields || {}).forEach(([k, v]) => { f[k] = num(v); }); docs[d.name.split("/").pop()] = f; });
+      // New format: clicks/{month}/k/{counter} = {n}
+      await Promise.all(months.map(async m => {
+        let token = "", f = docs[m] || {};
+        do {
+          const r = await fetch(`${base}/${m}/k?pageSize=300&key=${API}${token ? "&pageToken=" + encodeURIComponent(token) : ""}`);
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          const j = await r.json();
+          (j.documents || []).forEach(d => { const k = d.name.split("/").pop(); f[k] = (f[k] || 0) + num((d.fields || {}).n || {}); });
+          token = j.nextPageToken || "";
+        } while (token);
+        if (Object.keys(f).length) docs[m] = f;
+      }));
+      const list = [...new Set([thisMonth, ...Object.keys(docs)])].sort().reverse();
       const sel = $("#month"), keep = sel.value || thisMonth;
-      sel.innerHTML = months.map(m => `<option value="${m}">${esc(monthName(m))}</option>`).join("");
-      sel.value = months.includes(keep) ? keep : thisMonth;
+      sel.innerHTML = list.map(m => `<option value="${m}">${esc(monthName(m))}</option>`).join("");
+      sel.value = list.includes(keep) ? keep : thisMonth;
       render();
       $("#status").textContent = "Updated " + new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
     } catch (e) {
@@ -164,7 +175,7 @@ __CSS__
     $("#tiles").innerHTML = [
       ["Visits", fmt(r.visits), monthName(m)],
       ["Deal clicks", fmt(r.clicks), "sent to platforms"],
-      ["Click rate", pct(r.clicks, r.visits), "visits that clicked a deal"],
+      ["Click rate", pct(r.clicks, r.visits), `visits that clicked a deal · ${fmt(r.maps)} map opens`],
       isNow ? ["Today", fmt(r.vd[today] || 0), `${fmt(r.cd[today] || 0)} deal clicks`] : ["Best day", best ? fmt(best[1]) : "0", best ? `on day ${best[0]}` : "no visits"]
     ].map(([a, b, c]) => `<div class="tile"><small>${esc(a)}</small><b>${esc(b)}</b><span>${esc(c)}</span></div>`).join("");
 
