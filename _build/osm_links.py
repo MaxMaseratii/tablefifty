@@ -173,7 +173,15 @@ def main():
     print(f'::notice title=OpenStreetMap lookup::{ok} squares done today, {left} left for the next runs | matched so far {len(links)}: website {sum(1 for x in links.values() if x.get("web"))}, '
           f'instagram {sum(1 for x in links.values() if x.get("ig"))}, facebook {sum(1 for x in links.values() if x.get("fb"))}')
     if bad: print(f'::warning title=OpenStreetMap lookup::{bad} map squares failed today (they will be retried). Last error: {last}')
+    json.dump({'date': TODAY.isoformat(), 'squares_done_today': ok, 'squares_failed': bad, 'squares_left': left, 'matched_total': len(links),
+               'last_error': last[:300]}, open(os.path.join(SRC, 'osm_status.json'), 'w'), indent=1)
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except Exception as e:   # never break the daily job, but leave a note we can read
+        import traceback
+        tb = traceback.format_exc()
+        print('::warning title=OpenStreetMap lookup crashed::' + ' | '.join(tb.strip().splitlines()[-3:])[:600])
+        json.dump({'date': TODAY.isoformat(), 'error': tb[-1500:]}, open(os.path.join(SRC, 'osm_status.json'), 'w'), indent=1)
