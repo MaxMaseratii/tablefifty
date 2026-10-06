@@ -233,6 +233,7 @@ restaurants = f"""<!doctype html>
       <p class="small">{BRAND} is independent and is not linked to, or approved by, the platforms it lists. Your message is sent to {CONTACT} and used only to answer you. <a href="/privacy.html">About &amp; privacy</a>.</p>
     </div>
     <p style="margin-top:32px"><a href="/">← Back to the deals</a></p>
+    <p class="small">TableFifty · Pavilion, 64 Knightsbridge, London SW1X 7JF · {CONTACT}</p>
   </main>
 <script>
 (function () {{
