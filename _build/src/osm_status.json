@@ -1,4 +1,4 @@
 {
- "date": "2026-10-08",
+ "date": "2026-10-09",
  "error": "Traceback (most recent call last):\n  File \"/home/runner/work/tablefifty/tablefifty/_build/osm_links.py\", line 182, in <module>\n    main()\n  File \"/home/runner/work/tablefifty/tablefifty/_build/osm_links.py\", line 166, in main\n    found = match(groups[k][1], parse(text))\n                                ^^^^^^^^^^^\n  File \"/home/runner/work/tablefifty/tablefifty/_build/osm_links.py\", line 110, in parse\n    web = clean_web(r.get('website')) or clean_web(r.get('contact:website')) or clean_web(r.get('url'))\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/tablefifty/tablefifty/_build/osm_links.py\", line 66, in clean_web\n    if not m or '.' not in m.group(1) or ' ' in u or BAD_WEB.search(m.group(1)): return None\n                                                     ^^^^^^^\nNameError: name 'BAD_WEB' is not defined\n"
 }
