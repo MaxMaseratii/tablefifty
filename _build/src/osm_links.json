@@ -1,22 +1,44 @@
 {
 "checked":"2026-10-28",
 "squares":{
+"100,-11":"2026-10-28",
 "101,-1":"2026-10-28",
+"101,-10":"2026-10-28",
+"101,-4":"2026-10-28",
 "102,-1":"2026-10-28",
+"102,-2":"2026-10-28",
 "102,-5":"2026-10-28",
 "102,-6":"2026-10-28",
 "102,-7":"2026-10-28",
+"102,0":"2026-10-28",
+"102,2":"2026-10-28",
 "103,-1":"2026-10-28",
+"103,-2":"2026-10-28",
+"103,-3":"2026-10-28",
+"103,-5":"2026-10-28",
+"103,-7":"2026-10-28",
 "103,0":"2026-10-28",
+"104,-4":"2026-10-28",
 "104,-5":"2026-10-28",
+"104,-6":"2026-10-28",
 "105,-3":"2026-10-28",
+"105,-5":"2026-10-28",
+"105,2":"2026-10-28",
+"106,-3":"2026-10-28",
 "106,-5":"2026-10-28",
 "106,-6":"2026-10-28",
+"106,-7":"2026-10-28",
 "107,-4":"2026-10-28",
 "107,-5":"2026-10-28",
+"107,-6":"2026-10-28",
+"107,-7":"2026-10-28",
+"108,-2":"2026-10-28",
 "108,-6":"2026-10-28",
 "109,-12":"2026-10-28",
-"111,-7":"2026-10-28"
+"109,-4":"2026-10-28",
+"111,-7":"2026-10-28",
+"111,-9":"2026-10-28",
+"112,-8":"2026-10-28"
 },
 "links":{
 "1915-lanz-noodle-edinburgh":{
@@ -31,6 +53,13 @@
 "web":"http://89social.co.uk/",
 "osm":"n393464353",
 "m":4
+},
+"al-andalus-oxford":{
+"web":"https://tapasoxford.co.uk/",
+"fb":"alandalustapasbar",
+"ph":"01865 516688",
+"osm":"n12926547620",
+"m":7
 },
 "alla-salute-trattoria":{
 "web":"https://allasalute.co.uk/",
@@ -49,6 +78,13 @@
 "ph":"07535 682487",
 "osm":"n5600831859",
 "m":6
+},
+"cafe-coco-oxford":{
+"ig":"https://www.instagram.com/cafecocooxford/",
+"fb":"CafeCocoOxford",
+"ph":"01865 200232",
+"osm":"n322721514",
+"m":3
 },
 "city-lounge":{
 "web":"https://www.hyattrestaurants.com/en/dining/uk/london/coffee-restaurant-in-london-blackfriars-station-city-lounge",
@@ -84,6 +120,11 @@
 "web":"https://www.thebridgetearooms.co.uk/",
 "osm":"w352150087",
 "m":56
+},
+"cl-the-magpie-caf-whitby":{
+"web":"https://www.magpiecafe.co.uk/",
+"osm":"n2031078723",
+"m":14
 },
 "cl-the-pump-room-restaurant-bath":{
 "web":"https://www.romanbaths.co.uk/pump-room-restaurant",
@@ -521,6 +562,12 @@
 "osm":"n10053244748",
 "m":11
 },
+"ec-crosby-coffee-hightown":{
+"web":"https://www.crosbycoffee.co.uk/",
+"ph":"01515 385454",
+"osm":"w1536137114",
+"m":2
+},
 "ec-curry-paradise-brixton":{
 "web":"https://www.curryparadiserestaurant.co.uk/reflux/",
 "osm":"n705259877",
@@ -605,6 +652,12 @@
 "web":"https://elcamion.co.uk/",
 "osm":"w156614974",
 "m":10
+},
+"ec-emilys":{
+"web":"https://emilysformby.com/",
+"ph":"01704 490109",
+"osm":"n13613894201",
+"m":4
 },
 "ec-en-root-clapham":{
 "web":"https://enrootldn.co.uk/clapham/",
@@ -1443,6 +1496,12 @@
 "osm":"w1087276209",
 "m":4
 },
+"ec-penelopes-birkdale":{
+"web":"https://penelopesbirkdale.com/",
+"ph":"01704 490044",
+"osm":"n3744120864",
+"m":7
+},
 "ec-perilla":{
 "web":"http://www.perilladining.co.uk/",
 "ph":"020 7359 0779",
@@ -1636,6 +1695,13 @@
 "ph":"020 7937 0000",
 "osm":"n7443829831",
 "m":26
+},
+"ec-salkaara-station-rd":{
+"web":"https://salkaara.co.uk",
+"fb":"salkaara",
+"ph":"029 2056 7100",
+"osm":"n5626561386",
+"m":24
 },
 "ec-salkaara-wellfield-rd":{
 "web":"https://www.salkaara.co.uk/",
@@ -1838,6 +1904,12 @@
 "fb":"SupercuteBrewhouse",
 "osm":"n11089170006",
 "m":6
+},
+"ec-sushi-life-whitchurch-ltd":{
+"web":"https://www.sushilife.co.uk/",
+"ph":"029 2233 7542",
+"osm":"n14214430991",
+"m":9
 },
 "ec-sutton-and-sons-islington":{
 "web":"http://www.suttonandsons.co.uk/",
@@ -2394,6 +2466,12 @@
 "osm":"n14178896025",
 "m":4
 },
+"eda-turkish-restaurant-glasgow":{
+"web":"https://www.edarestaurant.co.uk/",
+"ph":"01415 522843",
+"osm":"n9627121117",
+"m":12
+},
 "indian-rasoi-restaurant":{
 "web":"https://www.indian-rasoi.co.uk",
 "ph":"020 8883 9093",
@@ -2432,6 +2510,11 @@
 51.493,
 -0.14054
 ]
+},
+"mich-adam-s-birmingham":{
+"web":"https://www.adamsrestaurant.co.uk/",
+"osm":"n11620192172",
+"m":5
 },
 "mich-agora-london":{
 "web":"https://www.agora.london/",
@@ -2517,6 +2600,16 @@
 -3.17594
 ]
 },
+"mich-artichoke-amersham":{
+"web":"https://www.artichokerestaurant.co.uk",
+"ph":"01494 726611",
+"osm":"n1351593550",
+"m":1302,
+"ll":[
+51.66652,
+-0.61633
+]
+},
 "mich-avery-edinburgh":{
 "web":"https://www.averyedi.co.uk/",
 "osm":"n2096817812",
@@ -2581,6 +2674,15 @@
 -0.08602
 ]
 },
+"mich-cail-bruich-glasgow":{
+"web":"https://www.cailbruich.co.uk/",
+"osm":"n11980748261",
+"m":3613,
+"ll":[
+55.87751,
+-4.28924
+]
+},
 "mich-caract-re-london":{
 "web":"https://www.caractererestaurant.com/",
 "ph":"020 8181 3850",
@@ -2589,6 +2691,15 @@
 "ll":[
 51.51785,
 -0.20081
+]
+},
+"mich-charlton-arms-ludlow":{
+"web":"https://www.thecharltonarms.co.uk",
+"osm":"w1572186235",
+"m":463,
+"ll":[
+52.36347,
+-2.71816
 ]
 },
 "mich-chishuru-london":{
@@ -2670,6 +2781,16 @@
 -0.12203
 ]
 },
+"mich-gaga-glasgow":{
+"web":"https://www.gagaglasgow.com/",
+"ph":"01413 349407",
+"osm":"n12673905801",
+"m":4961,
+"ll":[
+55.87084,
+-4.31536
+]
+},
 "mich-galvin-green-man-howe-street":{
 "web":"https://galvinrestaurants.com/pub-restaurant-chelmsford-essex-galvin-green-man/",
 "ph":"01245 408820",
@@ -2736,6 +2857,16 @@
 -0.1318
 ]
 },
+"mich-jai-ho-bishop-s-cleeve":{
+"web":"https://jaihorestaurant.co.uk/",
+"ph":"01242 808667",
+"osm":"n13301990601",
+"m":954,
+"ll":[
+51.9528,
+-2.06931
+]
+},
 "mich-jamavar-london":{
 "web":"https://www.jamavarrestaurants.com/",
 "osm":"w342406638",
@@ -2743,6 +2874,16 @@
 "ll":[
 51.51035,
 -0.1484
+]
+},
+"mich-ka-pao-glasgow":{
+"web":"https://www.kapaogla.com/",
+"ph":"01414 836990",
+"osm":"n7130842684",
+"m":3660,
+"ll":[
+55.87714,
+-4.29037
 ]
 },
 "mich-kitchen-w8-london":{
@@ -2796,6 +2937,12 @@
 -2.96219
 ]
 },
+"mich-le-champignon-sauvage-cheltenham":{
+"web":"https://www.lechampignonsauvage.co.uk/",
+"ph":"01242 573449",
+"osm":"n2222414417",
+"m":89
+},
 "mich-legare-london":{
 "web":"https://legarelondon.com/",
 "osm":"n11962318238",
@@ -2813,6 +2960,11 @@
 55.9568,
 -3.18067
 ]
+},
+"mich-m-se-hovingham":{
+"web":"https://www.restaurantmyse.co.uk/",
+"osm":"w168771637",
+"m":7
 },
 "mich-mana-manchester":{
 "web":"https://manarestaurant.co.uk/",
@@ -2899,6 +3051,23 @@
 -2.45349
 ]
 },
+"mich-outlaw-s-fish-kitchen-port-isaac":{
+"web":"https://outlaws.co.uk/restaurants/fish-kitchen/",
+"osm":"w567523177",
+"m":9
+},
+"mich-ox-and-finch-glasgow":{
+"web":"https://www.oxandfinch.com/",
+"ig":"https://www.instagram.com/oxandfinch/",
+"fb":"OxAndFinch",
+"ph":"01413 398627",
+"osm":"n5808961453",
+"m":2996,
+"ll":[
+55.86579,
+-4.28475
+]
+},
 "mich-ox-belfast":{
 "web":"https://oxbelfast.com/",
 "osm":"n3626668563",
@@ -2933,6 +3102,15 @@
 "ll":[
 51.51978,
 -0.1428
+]
+},
+"mich-post-newnham":{
+"web":"https://www.postprovisions.co.uk/",
+"osm":"w981874607",
+"m":15,
+"ll":[
+51.80314,
+-2.4499
 ]
 },
 "mich-prashad-drighlington":{
@@ -2995,6 +3173,27 @@
 -0.13967
 ]
 },
+"mich-sargasso-margate":{
+"web":"https://www.sargasso.bar/",
+"fb":"sargassomargate",
+"ph":"01843 229270",
+"osm":"n1285012107",
+"m":450,
+"ll":[
+51.39135,
+1.3794
+]
+},
+"mich-sebb-s-glasgow":{
+"web":"https://sebbs.com",
+"ph":"01414 042690",
+"osm":"n913678188",
+"m":996,
+"ll":[
+55.85917,
+-4.25076
+]
+},
 "mich-singburi-london":{
 "web":"https://singburi.london/",
 "osm":"n13124756012",
@@ -3002,6 +3201,15 @@
 "ll":[
 51.52432,
 -0.07836
+]
+},
+"mich-solstice-by-kenny-atkinson-newcastle-upon-tyne":{
+"web":"https://www.solsticencl.com/",
+"osm":"n1832158846",
+"m":992,
+"ll":[
+54.96915,
+-1.60817
 ]
 },
 "mich-starling-esher":{
@@ -3041,6 +3249,16 @@
 -0.07916
 ]
 },
+"mich-the-fat-duck-bray":{
+"web":"https://thefatduck.co.uk/",
+"ph":"01628 580333",
+"osm":"n60491186",
+"m":16,
+"ll":[
+51.50792,
+-0.70171
+]
+},
 "mich-the-inn-at-welland-welland":{
 "web":"https://theinnatwelland.co.uk/",
 "osm":"w562597290",
@@ -3070,6 +3288,11 @@
 -0.20006
 ]
 },
+"mich-the-loch-the-tyne-old-windsor":{
+"web":"https://www.lochandtyne.com/",
+"osm":"w1352628398",
+"m":10
+},
 "mich-the-ninth-london":{
 "web":"https://www.theninthlondon.com/",
 "osm":"n12265896702",
@@ -3089,6 +3312,16 @@
 -3.21457
 ]
 },
+"mich-the-wildebeest-stoke-holy-cross":{
+"web":"https://www.thewildebeest.co.uk/",
+"ph":"01508 492497",
+"osm":"w360022904",
+"m":341,
+"ll":[
+52.56922,
+1.29672
+]
+},
 "mich-timberyard-edinburgh":{
 "web":"https://www.timberyard.co/",
 "osm":"n1951364889",
@@ -3105,6 +3338,16 @@
 "ll":[
 51.51834,
 -0.15307
+]
+},
+"mich-tropea-birmingham":{
+"web":"https://www.tropea.uk/restaurant",
+"ph":"01214 279777",
+"osm":"w120796140",
+"m":4414,
+"ll":[
+52.45868,
+-1.95859
 ]
 },
 "mich-umu-london":{

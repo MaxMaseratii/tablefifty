@@ -1173,6 +1173,12 @@
 "page":"https://www.frogbyadamhandling.com/",
 "t":"2026-10-28"
 },
+"mich-gaga-glasgow":{
+"none":"too few colours (logo or graphic)",
+"t":"2026-10-28",
+"from_tried":true,
+"wd":false
+},
 "mich-galvin-green-man-howe-street":{
 "f":"img/ph/mich-galvin-green-man-howe-street.webp",
 "from":"web",
@@ -2269,6 +2275,12 @@
 "by":"sollip.co.uk",
 "page":"https://www.sollip.co.uk/",
 "t":"2026-10-28"
+},
+"mich-solstice-by-kenny-atkinson-newcastle-upon-tyne":{
+"none":"http 404",
+"t":"2026-10-28",
+"from_tried":true,
+"wd":false
 },
 "mich-sosban-the-old-butchers-menai-bridge":{
 "f":"img/ph/mich-sosban-the-old-butchers-menai-bridge.webp",
