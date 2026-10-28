@@ -18,6 +18,10 @@ COLS = ['::type', '::id', '::lat', '::lon', 'name', 'brand', 'website', 'contact
 AMEN = '^(restaurant|pub|bar|cafe|fast_food|biergarten|food_court)$'
 HEAD = '[out:csv(' + ','.join(c if c.startswith('::') else f'"{c}"' for c in COLS) + ';true;"\\t")][timeout:180];\n'
 KEYS = ['website', 'contact:website', 'url', 'instagram', 'contact:instagram', 'facebook', 'contact:facebook']
+STOP = {'the', 'restaurant', 'restaurants', 'bar', 'kitchen', 'cafe', 'and', 'ltd', 'limited', 'co', 'grill', 'dining', 'room', 'by', 'at', 'of',
+        'london', 'uk', 'eatery', 'house', 'bistro'}
+BAD_WEB = re.compile(r'(?i)(facebook\.com|instagram\.com|tiktok\.com|twitter\.com|x\.com|tripadvisor|linktr\.ee|deliveroo|just-eat|ubereats|'
+                     r'opentable|thefork|firsttable|google\.|yell\.com|bit\.ly)')
 
 
 def query(bbox):
@@ -126,18 +130,21 @@ def match(venues, rows):
     found = {}
     for v in venues:
         ll = v['ll']; vt = norm_tokens(v['n']); best = None
-        for dy in (-0.01, 0, 0.01):
-            for dx in (-0.01, 0, 0.01):
+        rough = bool(v.get('llx'))   # we only know the town: search the whole area by exact name
+        span = (-0.06, -0.05, -0.04, -0.03, -0.02, -0.01, 0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06) if rough else (-0.01, 0, 0.01)
+        for dy in span:
+            for dx in span + ((-0.09, -0.08, -0.07, 0.07, 0.08, 0.09) if rough else ()):
                 for r in grid.get((round(ll[0] + dy, 2), round(ll[1] + dx, 2)), []):
                     s = sim(vt, r['tok'])
-                    if s < 0.6: continue
+                    if s < (0.95 if rough else 0.6): continue
                     d = metres(ll, r['ll'])
-                    if d > (150 if s >= 0.95 else 80): continue
+                    if d > (6000 if rough else 150 if s >= 0.95 else 80): continue
                     key = (s, -d)
                     if best is None or key > best[0]: best = (key, r, d)
         if best:
             r = best[1]
             found[v['id']] = {k: r[k] for k in ('web', 'ig', 'fb', 'ph') if r[k]} | {'osm': r['osm'], 'm': round(best[2])}
+            if rough: found[v['id']]['ll'] = [round(r['ll'][0], 5), round(r['ll'][1], 5)]
     return found
 
 

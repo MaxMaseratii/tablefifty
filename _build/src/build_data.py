@@ -752,7 +752,7 @@ for m in MICH:
     city = tslug if tslug in CITY_NAMES else ('london' if town == 'London' else 'mich-' + tslug)
     v = venue(m['name'], key='mich-' + slug(m['name'] + '-' + town), a=m['town'], reg=london_reg(ll) if city == 'london' and ll else city, ct=city,
               c='fine' if m.get('stars') else 'generic', s='fancy' if m.get('stars') else 'smart', m=['l', 'd'])
-    if ll: v['ll'] = ll
+    if ll: v['ll'] = ll; v['llx'] = 1   # town centre only: osm_links.py finds the real spot
     v['mich'] = [m.get('stars', 0), 1 if m.get('bib') else 0, 1 if m.get('green') else 0, 0]
     v['nodeal'] = 1
     q = urllib.parse.quote_plus(m['name'] + ' ' + town)
@@ -768,6 +768,9 @@ osm_used = 0
 for v in V.values():
     L = OSM.get(v['id'])
     if not L: continue
+    if L.get('ll') and v.get('llx'):   # real map position instead of the town centre
+        v['ll'] = L['ll']; v.pop('llx')
+        if v.get('ct') == 'london': v['reg'] = london_reg(v['ll'])
     for k in ('web', 'ig', 'fb', 'ph'):
         if L.get(k) and k not in v: v[k] = L[k]; osm_used += 1
 print('Links added from OpenStreetMap:', osm_used)
