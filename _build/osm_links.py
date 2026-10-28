@@ -93,15 +93,19 @@ def clean_ph(p):
     return d[:3] + ' ' + d[3:7] + ' ' + d[7:] if d.startswith('02') else d[:5] + ' ' + d[5:]
 
 
+SLOW = {}   # mirror -> timeouts this run; a mirror that times out twice is skipped for the rest of the run
+
+
 def fetch_square(bbox):
-    """One map square from Overpass. Returns CSV text or None (after trying each mirror once)."""
+    """One map square from Overpass. Returns CSV text or None (after trying each working mirror once)."""
     last = ''
-    for m in MIRRORS:
+    for m in [x for x in MIRRORS if SLOW.get(x, 0) < 2] or MIRRORS[:1]:
         r = subprocess.run(['curl', '-sS', '--max-time', '120', '-A', UA, '--data-urlencode', 'data@-', m],
                            input=query(bbox), capture_output=True, text=True, errors='replace')
         if r.returncode == 0 and r.stdout.startswith('@type'):
             return r.stdout, ''
         last = (r.stderr or r.stdout)[:160].replace('\n', ' ')
+        if r.returncode == 28: SLOW[m] = SLOW.get(m, 0) + 1
         time.sleep(3)
     return None, last
 
@@ -156,7 +160,7 @@ def needy(deals):
 def main():
     """Works through the map squares a few at a time (time budget per run), saving after each one, so slow Overpass
     days still make progress. Each square is asked again after 7 days to catch new restaurants."""
-    budget = int(os.environ.get('OSM_BUDGET', '900'))
+    budget = int(os.environ.get('OSM_BUDGET', '1500'))
     deals = json.loads(re.search(r'const DEALS = (\[.*\]);', open(os.path.join(SRC, 'deals.js'), encoding='utf-8').read(), re.S).group(1))
     old = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else {}
     links, done = old.get('links', {}), old.get('squares', {})

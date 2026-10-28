@@ -876,6 +876,11 @@ for v in V.values():
     if d: v['ds'] = d; v['dso'] = 1; ds_own += 1
     else:
         d = tag_desc(v)
+        if not d and v.get('mich'):   # MICHELIN-listed place we know nothing else about yet: say what the Guide says
+            st, bib, gr, sel = (v['mich'] + [0, 0, 0, 0])[:4]
+            town = (v.get('a') or '').split(',')[0]
+            d = (f"{['', 'One', 'Two', 'Three'][st]}-MICHELIN-Star restaurant" if st else 'Bib Gourmand restaurant (good food at a fair price)' if bib
+                 else 'Restaurant listed in the MICHELIN Guide') + (f' in {town}' if town else '') + '.' + (' MICHELIN Green Star for sustainable cooking.' if gr else '')
         if d: v['ds'] = d; ds_tag += 1
     v.pop('_czs', None)
 print('Descriptions: from restaurant websites', ds_own, '| from cuisine tags', ds_tag)
