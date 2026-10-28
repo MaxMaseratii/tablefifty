@@ -136,18 +136,6 @@
 "page":"https://www.caferoyaledinburgh.com/",
 "t":"2026-10-28"
 },
-"cl-e-pellicci-london":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
-},
-"cl-f-cooke-london":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":false,
-"wd":true
-},
 "cl-fitzbillies-cambridge":{
 "f":"img/ph/cl-fitzbillies-cambridge.webp",
 "from":"web",
@@ -219,12 +207,6 @@
 "by":"theoriginalmaidsofhonour.co.uk",
 "page":"https://theoriginalmaidsofhonour.co.uk",
 "t":"2026-10-28"
-},
-"cl-philps-bakery-hayle":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":false,
-"wd":true
 },
 "cl-poppies-fish-chips-spitalfields-london":{
 "f":"img/ph/cl-poppies-fish-chips-spitalfields-london.webp",
@@ -313,12 +295,6 @@
 "by":"nationaltrust.org.uk",
 "page":"https://www.nationaltrust.org.uk/visit/london/george-inn",
 "t":"2026-10-28"
-},
-"cl-the-golden-hind-london":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
 },
 "cl-the-grenadier-london":{
 "f":"img/ph/cl-the-grenadier-london.webp",
@@ -900,12 +876,6 @@
 "from_tried":true,
 "wd":false
 },
-"mich-chez-bruce-london":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
-},
 "mich-chishuru-london":{
 "f":"img/ph/mich-chishuru-london.webp",
 "from":"web",
@@ -1053,7 +1023,7 @@
 "mich-elephant-torquay":{
 "f":"img/ph/mich-elephant-torquay.webp",
 "from":"web",
-"src":"https://www.elephantrestaurant.co.uk/wp-content/uploads/2025/09/©JodiHinds_250904_TheElephant_Lobster_55.jpg",
+"src":"https://www.elephantrestaurant.co.uk/wp-content/uploads/2025/09/\u00a9JodiHinds_250904_TheElephant_Lobster_55.jpg",
 "by":"elephantrestaurant.co.uk",
 "page":"http://www.elephantrestaurant.co.uk/",
 "t":"2026-10-28"
@@ -1876,12 +1846,6 @@
 "page":"https://www.piccalillinottingham.co.uk/",
 "t":"2026-10-28"
 },
-"mich-pied-terre-london":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
-},
 "mich-pipe-and-glass-south-dalton":{
 "f":"img/ph/mich-pipe-and-glass-south-dalton.webp",
 "from":"web",
@@ -2524,12 +2488,6 @@
 "page":"https://3hs.pub",
 "t":"2026-10-28"
 },
-"mich-the-three-oaks-gerrards-cross":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
-},
 "mich-the-white-swan-fence":{
 "none":"too small 37x25",
 "t":"2026-10-28",
@@ -2681,12 +2639,6 @@
 "t":"2026-10-28",
 "from_tried":true,
 "wd":false
-},
-"mich-winteringham-fields-winteringham":{
-"none":"http 429",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":true
 },
 "mich-ynyshir-machynlleth":{
 "none":"odd shape 923x1999",

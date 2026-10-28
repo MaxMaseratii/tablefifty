@@ -311,8 +311,11 @@ def main():
                 state[v['id']] = {**prev, 'none': prev.get('none', 'no free photo'), 't': TODAY.isoformat(), 'from_tried': bool(v.get('web')), 'wd': True}; continue
             data, err = download(ci['thumb']); time.sleep(1)
             bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp'), portrait_ok=v['id'] in PICKED) if data else err
-            if bad:
-                state[v['id']] = {'none': bad, 't': TODAY.isoformat(), 'from_tried': bool(v.get('web')), 'wd': True}; continue
+            if bad:   # a refused download (busy server) is tried again next run; a bad picture waits 14 days
+                state[v['id']] = {'none': bad, 't': TODAY.isoformat(), 'from_tried': bool(v.get('web'))}
+                if data: state[v['id']]['wd'] = True
+                else: commons_seen.discard(v['id']); time.sleep(4)
+                continue
             state[v['id']] = {'f': f'img/ph/{v["id"]}.webp', 'from': 'commons', 'src': ci['thumb'], 'by': f'{ci["by"]}, {ci["lic"]}',
                               'page': ci['page'], 't': TODAY.isoformat()}
             commons_ok += 1
