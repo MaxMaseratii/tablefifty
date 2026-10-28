@@ -881,6 +881,14 @@ for v in V.values():
             town = (v.get('a') or '').split(',')[0]
             d = (f"{['', 'One', 'Two', 'Three'][st]}-MICHELIN-Star restaurant" if st else 'Bib Gourmand restaurant (good food at a fair price)' if bib
                  else 'Restaurant listed in the MICHELIN Guide') + (f' in {town}' if town else '') + '.' + (' MICHELIN Green Star for sustainable cooking.' if gr else '')
+        if not d:   # last resort: the cuisine we file it under
+            d = {'cocktails': 'Cocktail bar', 'breakfast': 'Breakfast and brunch café', 'indian': 'Indian restaurant', 'mezze': 'Middle Eastern and Mediterranean restaurant',
+                 'italian': 'Italian restaurant', 'sushi': 'Japanese restaurant serving sushi', 'british': 'British restaurant', 'fine': 'Fine dining restaurant',
+                 'thai': 'Thai restaurant', 'burger': 'Burger restaurant', 'tapas': 'Restaurant serving tapas', 'pizza': 'Pizza restaurant', 'steak': 'Steak restaurant',
+                 'mexican': 'Mexican restaurant', 'ramen': 'Japanese restaurant serving ramen', 'chinese': 'Chinese restaurant', 'kebab': 'Kebab and grill restaurant',
+                 'caribbean': 'Caribbean restaurant', 'korean': 'Korean restaurant', 'vietnamese': 'Vietnamese restaurant', 'chicken': 'Chicken restaurant',
+                 'pasta': 'Italian restaurant serving pasta', 'coffee': 'Café'}.get(v.get('c'), '')
+            if d: d += '.'
         if d: v['ds'] = d; ds_tag += 1
     v.pop('_czs', None)
 print('Descriptions: from restaurant websites', ds_own, '| from cuisine tags', ds_tag)
