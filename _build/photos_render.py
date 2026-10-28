@@ -27,6 +27,7 @@ def main():
             and v.get('ct') != 'uk' and v.get('reg') != 'multi' and not P.rejected(v['id']) and v['id'] not in P.REMOVE
             and RETRY.search(str(state.get(v['id'], {}).get('none', 'no preview image'))) and not state.get(v['id'], {}).get('rendered')]
     print(len(todo), 'websites to open in a browser')
+    used = {s['src'] for s in state.values() if s.get('f') and s.get('src')}
     got = 0
     with sync_playwright() as pw:
         br = pw.chromium.launch()
@@ -51,13 +52,14 @@ def main():
             for u in urls:
                 if P.BAD_IMG.search(u): continue
                 if not P.same_site(u, final) and not P.CDN.search(urlparse(u).netloc): why = 'image on another website'; continue
+                if u in used: why = 'same photo as another place'; continue
                 data, err = P.download(u)
                 if not data: why = err; continue
                 bad = P.to_webp(data, os.path.join(P.PH_DIR, v['id'] + '.webp'))
                 if bad: why = bad; continue
                 state[v['id']] = {'f': f'img/ph/{v["id"]}.webp', 'from': 'web', 'src': u, 'by': urlparse(final).netloc.lower().removeprefix('www.'),
                                   'page': v['web'], 't': P.TODAY.isoformat()}
-                got += 1; why = ''; break
+                used.add(u); got += 1; why = ''; break
             if why: state[v['id']] = {**rec, 'none': why, 'rendered': 1, 't': P.TODAY.isoformat()}
         br.close()
     json.dump(dict(sorted(state.items())), open(P.OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))

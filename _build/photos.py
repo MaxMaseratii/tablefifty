@@ -39,7 +39,8 @@ REJECT_WEB = {   # exact venue ids
     'mich-hitchen-s-barn-oakham': 'guide logo', 'mich-loch-bay-isle-of-skye': 'logo', 'mich-lyla-edinburgh': 'sky photo', 'mich-mountain-london': 'field photo',
     'mich-noto-edinburgh': 'logo', 'mich-plaquemine-lock-london': 'illustration', 'mich-sketch-the-lecture-room-library-london': 'graphic',
     'mich-tamila-london': 'graphic', 'mich-the-samling-ambleside': 'hotel bedroom', 'mich-tropea-birmingham': 'logo',
-    'mich-where-the-light-gets-in-stockport': 'logo', 'stereo-covent-garden': 'text banner'}
+    'mich-where-the-light-gets-in-stockport': 'logo', 'stereo-covent-garden': 'text banner', 'amor-gastronomia': 'city skyline',
+    'mich-pulpo-negro-new-alresford': 'brick wall', 'mich-ugly-butterfly-by-adam-handling-newquay': 'same photo as Frog'}
 SPAM = re.compile(r'(?i)(casino|betting|bookmaker|slot games|free spins|login bonus|poker|viagra|payday loan|escort)')
 CDN = re.compile(r'(?i)(imgix\.net|squarespace(-cdn)?\.com|wixstatic\.com|cloudinary\.com|shopify\.com|website-files\.com|amazonaws\.com|'
                  r'cloudfront\.net|googleusercontent\.com|ctfassets\.net|sanity\.io|storyblok\.com|prismic\.io|wp\.com|b-cdn\.net|'
@@ -148,6 +149,9 @@ def page_images(h, base):
     return out[:6]
 
 
+USED_SRC = set()
+
+
 def from_website(v):
     site = v['web']
     if not allowed(site): return None, 'robots'
@@ -157,6 +161,7 @@ def from_website(v):
     why = 'no preview image'
     for u in page_images(h, final):
         if not same_site(u, final) and not CDN.search(urlparse(u).netloc): why = 'image on another website'; continue
+        if u in USED_SRC: why = 'same photo as another place'; continue   # e.g. a group site showing one picture for every branch
         if urlparse(u).netloc == urlparse(final).netloc and not allowed(u): why = 'image blocked by robots'; continue
         data, err = download(u)
         if not data: why = err; continue
@@ -164,6 +169,7 @@ def from_website(v):
         bad = to_webp(data, dest)
         if bad: why = bad; continue
         dom = urlparse(final).netloc.lower().removeprefix('www.')
+        USED_SRC.add(u)
         return {'f': f'img/ph/{v["id"]}.webp', 'from': 'web', 'src': u, 'by': dom, 'page': site, 't': TODAY.isoformat()}, ''
     return None, why
 
@@ -275,6 +281,7 @@ def main():
         if s.get('from_tried') != bool(v.get('web')) or (s.get('wd') != bool(WM.get(v['id'], {}).get('img'))): return True   # new source since
         return (TODAY - datetime.date.fromisoformat(s.get('t', '2000-01-01'))).days >= 14
 
+    USED_SRC.update(s['src'] for s in state.values() if s.get('f') and s.get('src'))
     todo = [v for v in need if due(v)]
     print(f'{len(need)} venues have no platform photo; {len(todo)} to try today', flush=True)
 
