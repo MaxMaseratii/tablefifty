@@ -113,7 +113,7 @@ def head_en(o):
     h, n = o.get('h'), o.get('n', 0)
     return {'ft_d': '50% off food', 'ft_l': '50% off lunch', 'ft_b': '50% off breakfast', 'ft_bl': '50% off breakfast & lunch',
             'pct_food': f'{n}% off food', 'upto_food': f'Up to {n}% off food', 'pct_bill': f'{n}% off the bill', 'upto_bill': f'Up to {n}% off the bill',
-            'pct_drinks': f'{n}% off drinks', 'two41': '2-for-1 or 25% off', 'nodeal': 'In the MICHELIN Guide'}.get(h) or o.get('x') or 'Deal'
+            'pct_drinks': f'{n}% off drinks', 'two41': '2-for-1 or 25% off', 'nodeal': 'In the MICHELIN Guide', 'classic': 'A British classic'}.get(h) or o.get('x') or 'Deal'
 def img_for(v):
     if v.get('imgl'): return BASE + v['imgl']
     if v.get('img'): return 'https://images.firsttable.net/1170x655/' + v['img']
@@ -126,7 +126,7 @@ for v in _deals:
     if v.get('k') != 'dine' or v.get('ct') == 'uk' and not v.get('pub'): continue
     o = max(v['o'], key=lambda x: x.get('n') or 0)
     plat = o.get('pn') or PLAT.get(o.get('p'), '')
-    deal = head_en(o) + (f' with {plat}' if plat and o.get('h') != 'nodeal' else '')
+    deal = head_en(o) + (f' with {plat}' if plat and o.get('h') not in ('nodeal', 'classic') else '')
     sc = f" TableFifty Score {v['sc'][0]}/10 from {v['sc'][1]:,} diner reviews." if v.get('sc') else ''
     mich = ''
     if v.get('mich'):
@@ -281,6 +281,113 @@ _stats = (_stats.replace('__CSS__', PAGE_CSS).replace('__FAV__', fav).replace('_
           .replace('__PLAT__', _j.dumps(dict(PLAT, tastecard='tastecard', code='Code'), ensure_ascii=False)))
 os.makedirs(os.path.join(ROOT, 'stats'), exist_ok=True)
 open(os.path.join(ROOT, 'stats', 'index.html'), 'w', encoding='utf-8').write(secure(_stats))
+# ---------- Guide pages: tablefifty.co.uk/michelin/ and tablefifty.co.uk/british-classics/ (shareable, found on Google) ----------
+GUIDE_CSS = PAGE_CSS.replace('</style>', """  .wrap{max-width:860px}
+  .lead{color:var(--muted);font-size:17px;margin:0 0 8px}
+  h2{font-family:var(--f-display);font-size:22px;margin:30px 0 10px}
+  .list{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+  .item{background:#131d33;border:1px solid #27365a;border-radius:14px;padding:14px 16px;display:grid;gap:6px}
+  .item h3{margin:0;font-family:var(--f-display);font-size:18px} .item h3 a{color:var(--text);text-decoration:none} .item h3 a:hover{text-decoration:underline}
+  .item p{margin:0;color:var(--muted)} .item .where{font-size:14px;color:var(--faint)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px}
+  .chip{font-size:12px;font-weight:800;border-radius:999px;padding:3px 10px;background:#22304f;color:var(--text)}
+  .chip.mich{background:#b0102c;color:#fff} .chip.cl{background:#1d4d36;color:#f5ecd2} .chip.deal{background:var(--amber);color:var(--amber-ink)}
+  .item .links{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;font-weight:600}
+  .toc{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0} .toc a{font-size:14px;font-weight:700;padding:6px 12px;border:1px solid #34466b;border-radius:999px;text-decoration:none}
+  .small{font-size:13px;color:var(--faint)}
+</style>""")
+def _esc(x): return _h.escape(str(x), quote=True)
+def guide_page(slug_, title, desc, h1, body):
+    return secure(f"""<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{_esc(title)}</title>
+<meta name="description" content="{_esc(desc)}">
+<link rel="canonical" href="{BASE}{slug_}/">
+<link rel="icon" href="{fav}">
+<meta property="og:title" content="{_esc(title)}"><meta property="og:description" content="{_esc(desc)}"><meta property="og:url" content="{BASE}{slug_}/"><meta property="og:image" content="{BASE}img/hero.jpg">
+<link href="/fonts/main.css" rel="stylesheet">
+{GUIDE_CSS}
+</head>
+<body>
+  <main class="wrap">
+    <a class="top" href="/"><span class="mark" aria-hidden="true">50</span><b>Table<span>Fifty</span></b></a>
+    <h1>{h1}</h1>
+{body}
+    <p style="margin-top:32px"><a href="/">← All deals on TableFifty</a></p>
+    <p class="small">TableFifty · Pavilion, 64 Knightsbridge, London SW1X 7JF · {CONTACT}</p>
+  </main>
+</body>
+</html>
+""")
+def _town(v): return (v.get('a') or '').split(',')[0].strip() or (v.get('ct') or '').title()
+def _deal_of(v):
+    real = [o for o in v['o'] if o.get('h') not in ('nodeal', 'classic')]
+    if not real: return ''
+    o = max(real, key=lambda x: x.get('n') or 0)
+    plat = o.get('pn') or PLAT.get(o.get('p'), '')
+    return head_en(o) + (f' with {plat}' if plat else '')
+def _mich_label(v):
+    st, bib, gr, sel = (v['mich'] + [0, 0, 0, 0])[:4]
+    out = []
+    if st: out.append(f"{'✦' * st} {st} MICHELIN Star{'s' if st > 1 else ''}")
+    if bib: out.append('Bib Gourmand')
+    if gr: out.append('Green Star')
+    if not out and sel: out.append('In the MICHELIN Guide')
+    return out
+def _item(v, chips, text=''):
+    deal = _deal_of(v)
+    links = [f'<a href="/r/{_esc(v["id"])}/">See on TableFifty</a>']
+    if v.get('web'): links.append(f'<a href="{_esc(v["web"])}" rel="noopener" target="_blank">Website</a>')
+    links.append(f'<a href="https://www.google.com/maps/search/?api=1&query={_esc(urllib.parse.quote_plus(v["n"] + " " + (v.get("a") or "")))}" rel="noopener" target="_blank">Map</a>')
+    ch = ''.join(f'<span class="chip {c}">{_esc(t)}</span>' for c, t in chips) + (f'<span class="chip deal">{_esc(deal)}</span>' if deal else '')
+    return f"""      <li class="item"><h3><a href="/r/{_esc(v['id'])}/">{_esc(v['n'])}</a></h3><p class="where">{_esc(v.get('a') or '')}</p>
+        <div class="chips">{ch}</div>{f'<p>{_esc(text)}</p>' if text else ''}<div class="links">{' · '.join(links)}</div></li>"""
+import urllib.parse
+_mv = [v for v in _deals if v.get('mich') and v.get('k') == 'dine']
+_mv.sort(key=lambda v: (-(v['mich'][0]), -(v['mich'][1]), _town(v), v['n']))
+_with = [v for v in _mv if _deal_of(v)]
+groups = [('three', 'Three MICHELIN Stars', lambda v: v['mich'][0] == 3), ('two', 'Two MICHELIN Stars', lambda v: v['mich'][0] == 2),
+          ('one', 'One MICHELIN Star', lambda v: v['mich'][0] == 1), ('bib', 'Bib Gourmand: good food at a fair price', lambda v: not v['mich'][0] and v['mich'][1]),
+          ('guide', 'Also in the Guide', lambda v: not v['mich'][0] and not v['mich'][1])]
+body = [f"""    <p class="lead">{len(_mv)} restaurants from the MICHELIN Guide Great Britain &amp; Ireland 2026, and the ones you can book with a discount today. We check First Table, EatClub and TheFork every morning.</p>
+    <div class="toc">{'<a href="#deals">With a deal today</a>' if _with else ''}{''.join(f'<a href="#{k}">{_esc(t.split(":")[0])}</a>' for k, t, f in groups if any(f(v) for v in _mv))}</div>"""]
+if _with:
+    body.append(f'    <h2 id="deals">MICHELIN with a deal today ({len(_with)})</h2>\n    <ul class="list">\n' + '\n'.join(_item(v, [('mich', x) for x in _mich_label(v)], v.get('ds') if not str(v.get('ds', '')).startswith(('One-MICHELIN', 'Two-MICHELIN', 'Three-MICHELIN', 'Bib Gourmand restaurant', 'Restaurant listed in')) else '') for v in _with) + '\n    </ul>')
+for k, t, f in groups:
+    vs = [v for v in _mv if f(v) and v not in _with]
+    if not vs: continue
+    body.append(f'    <h2 id="{k}">{_esc(t)} ({len(vs)})</h2>\n    <ul class="list">\n' + '\n'.join(_item(v, [('mich', x) for x in _mich_label(v)]) for v in vs) + '\n    </ul>')
+body.append('    <p class="small" style="margin-top:24px">Stars, Bib Gourmands and Green Stars come from the MICHELIN Guide Great Britain &amp; Ireland 2026. MICHELIN is a trademark of Michelin; TableFifty is not linked to the Guide.</p>')
+os.makedirs(os.path.join(ROOT, 'michelin'), exist_ok=True)
+open(os.path.join(ROOT, 'michelin', 'index.html'), 'w', encoding='utf-8').write(guide_page('michelin', 'MICHELIN restaurants in the UK, with today\'s deals | TableFifty',
+    f'All {len(_mv)} MICHELIN-starred and Bib Gourmand restaurants we track in the UK, with the ones you can book at a discount today first.',
+    'MICHELIN restaurants, for less', '\n'.join(body)))
+CL_TYPES = [('hist', 'Historic dining rooms'), ('pie', 'Pie and mash'), ('fish', 'Fish and chips'), ('tea', 'Tea rooms'), ('caff', 'Classic caffs'),
+            ('pub', 'Historic pubs'), ('bakery', 'Bakeries')]
+CL_LABEL = {'hist': 'Historic dining room', 'pie': 'Pie and mash', 'fish': 'Fish and chips', 'tea': 'Tea room', 'caff': 'Classic caff', 'pub': 'Historic pub', 'bakery': 'Bakery'}
+_cv = [v for v in _deals if v.get('cl')]
+if _cv:
+    _cv.sort(key=lambda v: (v.get('fd') or 3000, v['n']))
+    body = [f"""    <p class="lead">{len(_cv)} much-loved places for proper British food: pie and mash, fish and chips, cream teas, full English breakfasts and roast dinners. Most aren't on any deal app. We list them because they're worth a visit at full price.</p>
+    <div class="toc">{''.join(f'<a href="#{k}">{_esc(t)}</a>' for k, t in CL_TYPES if any(v['cl'] == k for v in _cv))}</div>"""]
+    for k, t in CL_TYPES:
+        vs = [v for v in _cv if v['cl'] == k]
+        if not vs: continue
+        def _txt(v):
+            sig = v.get('sig') or []
+            return (v.get('ds') or '') + (f" Known for: {', '.join(sig)}." if sig else '')
+        body.append(f'    <h2 id="{k}">{_esc(t)} ({len(vs)})</h2>\n    <ul class="list">\n' + '\n'.join(
+            _item(v, [('cl', CL_LABEL[k] + (f" · since {v['fd']}" if v.get('fd') else ''))], _txt(v)) for v in vs) + '\n    </ul>')
+    body.append('    <p class="small" style="margin-top:24px">Opening times and prices change. Check the place\'s own website before you go. Know a classic we should add? Email ' + CONTACT + '.</p>')
+    os.makedirs(os.path.join(ROOT, 'british-classics'), exist_ok=True)
+    open(os.path.join(ROOT, 'british-classics', 'index.html'), 'w', encoding='utf-8').write(guide_page('british-classics', 'Traditional British food: classic places to eat | TableFifty',
+        f'{len(_cv)} classic British places to eat: pie and mash, fish and chips, tea rooms, caffs and historic dining rooms, and what makes each one special.',
+        'British classics', '\n'.join(body)))
+print('guide pages: michelin', len(_mv), '| british classics', len(_cv))
+
 # ---------- Owner-only admin page: tablefifty.co.uk/admin/ (newsletter + member lists; Firestore rules allow only the owner) ----------
 _pg = open(os.path.join(SRC, 'page.html'), encoding='utf-8').read()
 _fbcfg = _re.search(r'firebase: (\{[^}]*\})', _pg).group(1)
@@ -296,6 +403,8 @@ open(os.path.join(ROOT,'sitemap.xml'),'w').write(f'''<?xml version="1.0" encodin
   <url><loc>{BASE}</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}privacy.html</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}terms.html</loc><lastmod>{TODAY}</lastmod></url>
+  <url><loc>{BASE}michelin/</loc><lastmod>{TODAY}</lastmod></url>
+  <url><loc>{BASE}british-classics/</loc><lastmod>{TODAY}</lastmod></url>
   <url><loc>{BASE}restaurants/</loc><lastmod>{TODAY}</lastmod></url>
 ''' + ''.join(f'  <url><loc>{u}</loc><lastmod>{TODAY}</lastmod></url>\n' for u in rurls) + f'''</urlset>
 ''')

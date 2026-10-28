@@ -1,0 +1,1135 @@
+[
+ {
+  "n": "The Muffin Man Tea Shop",
+  "type": "tea",
+  "a": "12 Wrights Lane, Kensington, London W8 6TA",
+  "city": "London",
+  "ct": "london",
+  "sig": [
+   "Devon cream tea",
+   "Warm scones with jam and cream",
+   "English muffins",
+   "Full English breakfast"
+  ],
+  "ds": "An old-school English tea room on a quiet lane just off Kensington High Street. People come for the warm toasted scones with jam and Devon cream, and it does a proper full English in the morning too.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.50048,
+   -0.19332
+  ]
+ },
+ {
+  "n": "E. Pellicci",
+  "type": "caff",
+  "a": "332 Bethnal Green Road, Bethnal Green, London E2 0AG",
+  "city": "London",
+  "ct": "london",
+  "fd": 1900,
+  "web": "https://epellicci.co.uk",
+  "ig": "https://www.instagram.com/pelliccicafe/",
+  "sig": [
+   "Full English fry-up",
+   "Steak pie and chips",
+   "Homemade lasagne"
+  ],
+  "ds": "The Pellicci family has run this East End café since 1900. The tiny room is Grade II listed, with Art Deco wood panels, and the welcome is as famous as the big fry-ups and homemade Italian dishes.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.52626,
+   -0.0647
+  ]
+ },
+ {
+  "n": "Regency Café",
+  "type": "caff",
+  "a": "17-19 Regency Street, Westminster, London SW1P 4BY",
+  "city": "London",
+  "ct": "london",
+  "fd": 1946,
+  "sig": [
+   "Full English breakfast",
+   "Steak pie, chips and gravy",
+   "Bread and butter pudding",
+   "Mug of builder's tea"
+  ],
+  "ds": "A 1946 London caff with a black-tiled Art Deco front, Formica tables and boxing photos on the walls. You order at the counter. You may know the room from films like Layer Cake and Pride.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.49419,
+   -0.13219
+  ]
+ },
+ {
+  "n": "Fortnum & Mason Diamond Jubilee Tea Salon",
+  "type": "tea",
+  "a": "4th Floor, Fortnum & Mason, 181 Piccadilly, London W1A 1ER",
+  "city": "London",
+  "ct": "london",
+  "fd": 1707,
+  "web": "https://www.fortnumandmason.com",
+  "sig": [
+   "Classic afternoon tea",
+   "Scones with clotted cream",
+   "Savoury afternoon tea",
+   "Fortnum's own tea"
+  ],
+  "ds": "Fortnum & Mason has sold tea on Piccadilly since 1707. Its tea salon was opened by Queen Elizabeth II in 2012, and it is one of the most famous places in London for a full afternoon tea.",
+  "s": "fancy",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.50853,
+   -0.13891
+  ]
+ },
+ {
+  "n": "M. Manze",
+  "type": "pie",
+  "a": "87 Tower Bridge Road, Bermondsey, London SE1 4TW",
+  "city": "London",
+  "ct": "london",
+  "fd": 1902,
+  "web": "https://www.manze.co.uk",
+  "ig": "https://www.instagram.com/manzespieandmash/",
+  "sig": [
+   "Pie, mash and liquor",
+   "Stewed eels",
+   "Jellied eels",
+   "Vegan pie"
+  ],
+  "ds": "Often called London's oldest surviving pie and mash shop. The green-tiled room is Grade II listed, and the Manze family still runs it, now into the fourth generation.",
+  "s": "casual",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.49653,
+   -0.08273
+  ]
+ },
+ {
+  "n": "G. Kelly",
+  "type": "pie",
+  "a": "526 Roman Road, Bow, London E3 5ES",
+  "city": "London",
+  "ct": "london",
+  "web": "http://gkellypieandmash.co.uk",
+  "sig": [
+   "Pie, mash and liquor",
+   "Minced beef pie",
+   "Fruit crumble and custard"
+  ],
+  "ds": "A Roman Road Market favourite from the Kelly pie and mash family, which started in Bethnal Green in 1915. Expect marble tables, Art Deco fittings and pies with buttery pastry.",
+  "s": "casual",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.53271,
+   -0.03027
+  ]
+ },
+ {
+  "n": "F. Cooke",
+  "type": "pie",
+  "a": "150 Hoxton Street, Hoxton, London N1 6SH",
+  "city": "London",
+  "ct": "london",
+  "fd": 1862,
+  "sig": [
+   "Pie, mash and liquor",
+   "Minced beef pie"
+  ],
+  "ds": "The Cooke family has made pie and mash since 1862, and the recipe is said to be unchanged. It is liquor only here, never gravy, served at marble-topped tables.",
+  "s": "casual",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.53177,
+   -0.07998
+  ]
+ },
+ {
+  "n": "Goddards at Greenwich",
+  "type": "pie",
+  "a": "22 King William Walk, Greenwich, London SE10 9HU",
+  "city": "London",
+  "ct": "london",
+  "fd": 1890,
+  "web": "http://www.goddardsatgreenwich.co.uk/",
+  "sig": [
+   "Pie, mash and liquor",
+   "Handmade minced beef pie",
+   "Eels",
+   "Gluten-free pies"
+  ],
+  "ds": "A family pie and mash business since 1890, on a cobbled street facing the National Maritime Museum. The big dining hall has classic bench seats for over 100 people.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.4818,
+   -0.00879
+  ]
+ },
+ {
+  "n": "Poppies Fish & Chips Spitalfields",
+  "type": "fish",
+  "a": "6-8 Hanbury Street, Spitalfields, London E1 6QR",
+  "city": "London",
+  "ct": "london",
+  "web": "https://poppiesfishandchips.co.uk/poppies-spitalfields/",
+  "ig": "https://www.instagram.com/popsfishnchips/",
+  "sig": [
+   "Fish and chips",
+   "Jellied eels",
+   "Homemade fish cakes",
+   "Sticky toffee pudding"
+  ],
+  "ds": "The first Poppies, started by East End fryer Pat 'Pop' Newland, who began in the trade aged 11. A retro diner with British fish delivered daily and chips cooked twice.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.52023,
+   -0.0731
+  ]
+ },
+ {
+  "n": "The Rock & Sole Plaice",
+  "type": "fish",
+  "a": "47 Endell Street, Covent Garden, London WC2H 9AJ",
+  "city": "London",
+  "ct": "london",
+  "fd": 1871,
+  "sig": [
+   "Cod, haddock or plaice and chips",
+   "Mushy peas",
+   "Spotted dick"
+  ],
+  "ds": "Said to be London's oldest surviving fish and chip shop, frying since 1871. It was badly hit by a bomb in the Second World War and rebuilt. A handy stop near the theatres.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "web": "https://www.rockandsoleplaice.com",
+  "ll": [
+   51.51504,
+   -0.12573
+  ]
+ },
+ {
+  "n": "The Golden Hind",
+  "type": "fish",
+  "a": "71a-73 Marylebone Lane, Marylebone, London W1U 2PN",
+  "city": "London",
+  "ct": "london",
+  "fd": 1914,
+  "sig": [
+   "Cod or haddock and chips",
+   "Mushy peas",
+   "Fish cakes",
+   "Sticky toffee pudding"
+  ],
+  "ds": "Fish and chips on Marylebone Lane since 1914. The old enamelled fryer is still in the room, now holding menus. Family-run, and you can bring your own drinks.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "web": "https://www.goldenhindrestaurant.com",
+  "ig": "https://www.instagram.com/goldenhindrestaurant/",
+  "ll": [
+   51.51799,
+   -0.15099
+  ]
+ },
+ {
+  "n": "The Fryer's Delight",
+  "type": "fish",
+  "a": "19 Theobalds Road, Holborn, London WC1X 8SL",
+  "city": "London",
+  "ct": "london",
+  "fd": 1958,
+  "web": "https://thefryersdelight.co.uk",
+  "ig": "https://www.instagram.com/thefryers_delight",
+  "sig": [
+   "Cod and chips in beef dripping",
+   "Rock and chips",
+   "Chip butty"
+  ],
+  "ds": "Opened in 1958 by two Italian brothers, and it still fries in beef dripping, the old way. Retro Formica tables, shared booths and no fuss.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.52036,
+   -0.11719
+  ]
+ },
+ {
+  "n": "Toff's of Muswell Hill",
+  "type": "fish",
+  "a": "38 Muswell Hill Broadway, Muswell Hill, London N10 3RT",
+  "city": "London",
+  "ct": "london",
+  "sig": [
+   "Haddock and chips",
+   "Cod and chips",
+   "House fish cakes",
+   "Grilled plaice"
+  ],
+  "ds": "A Muswell Hill chip shop for over fifty years, named after its first owner. A sit-down dining room or takeaway, with fish cooked fresh to order.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.58948,
+   -0.14447
+  ]
+ },
+ {
+  "n": "The Palm Court at The Ritz",
+  "type": "tea",
+  "a": "The Ritz London, 150 Piccadilly, London W1J 9BR",
+  "city": "London",
+  "ct": "london",
+  "fd": 1906,
+  "web": "https://www.theritzlondon.com",
+  "sig": [
+   "Finger sandwiches",
+   "Scones with Cornish clotted cream",
+   "Afternoon tea pastries",
+   "20 loose-leaf teas"
+  ],
+  "ds": "Afternoon tea at The Ritz, open since 1906, in a gilded room full of mirrors and chandeliers. It is a true special-occasion treat: book ahead, and gentlemen need a jacket and tie.",
+  "s": "fancy",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.50717,
+   -0.1414
+  ]
+ },
+ {
+  "n": "The George Inn",
+  "type": "pub",
+  "a": "77 Borough High Street, Southwark, London SE1 1NH",
+  "city": "London",
+  "ct": "london",
+  "pub": 1,
+  "web": "https://www.nationaltrust.org.uk/visit/london/george-inn",
+  "sig": [
+   "Cask real ales",
+   "Pub classics"
+  ],
+  "ds": "London's last galleried coaching inn, rebuilt in the 1670s after a fire. It is owned by the National Trust and gets a mention in Dickens' Little Dorrit.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.50431,
+   -0.09035
+  ]
+ },
+ {
+  "n": "Arments Pie & Mash",
+  "type": "pie",
+  "a": "7-9 Westmoreland Road, Walworth, London SE17 2AX",
+  "city": "London",
+  "ct": "london",
+  "fd": 1914,
+  "web": "https://armentspieandmash.com",
+  "ig": "https://www.instagram.com/armentspieandmash/",
+  "sig": [
+   "Beef pie, mash and liquor",
+   "Liquor with chilli vinegar",
+   "Stewed and jellied eels"
+  ],
+  "ds": "The Arment family has run this shop since 1914, now in its fourth generation. Pies are made with 100% beef steak, and the mash is just potatoes and salt.",
+  "s": "casual",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.48433,
+   -0.09259
+  ]
+ },
+ {
+  "n": "Newens The Original Maids of Honour",
+  "type": "tea",
+  "a": "288 Kew Road, Kew, Richmond TW9 3DU",
+  "city": "London",
+  "ct": "london",
+  "fd": 1860,
+  "web": "https://theoriginalmaidsofhonour.co.uk",
+  "ig": "https://www.instagram.com/theoriginalmaidsofhonour/",
+  "sig": [
+   "Maids of Honour tarts",
+   "Afternoon tea",
+   "Cream tea",
+   "Homemade pies"
+  ],
+  "ds": "A family bakery and tea room at Kew since 1860, opposite Kew Gardens. Its warm Maids of Honour tart is said to go back to Henry VIII's court at Richmond.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.48141,
+   -0.28775
+  ]
+ },
+ {
+  "n": "Rules",
+  "type": "hist",
+  "a": "34-35 Maiden Lane, Covent Garden, London WC2E 7LB",
+  "city": "London",
+  "ct": "london",
+  "fd": 1798,
+  "web": "https://www.rules.co.uk",
+  "ig": "https://www.instagram.com/rules_restaurant/",
+  "sig": [
+   "Seasonal game",
+   "Steak and kidney pie",
+   "Oysters",
+   "Sticky toffee pudding"
+  ],
+  "ds": "London's oldest restaurant, opened by Thomas Rule as an oyster bar in 1798. It is famous for British game, pies and puddings. Dickens, Chaplin and Graham Greene all ate here, and in 2026 the building was given to the National Trust.",
+  "s": "fancy",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51087,
+   -0.12322
+  ]
+ },
+ {
+  "n": "Simpson's in the Strand",
+  "type": "hist",
+  "a": "100 Strand, London WC2R 0EZ",
+  "city": "London",
+  "ct": "london",
+  "fd": 1828,
+  "web": "https://simpsonsinthestrand.co.uk",
+  "ig": "https://www.instagram.com/simpsons1828/",
+  "sig": [
+   "Roast rib of beef from the trolley",
+   "Ten Deadly Sins breakfast",
+   "Boiled ham with parsley sauce",
+   "Bubble and squeak"
+  ],
+  "ds": "Opened in 1828 as a chess club and cigar room, and famous for roast beef carved at your table from silver-domed trolleys. Jeremy King reopened it in March 2026 after five years shut.",
+  "s": "fancy",
+  "m": [
+   "b",
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51034,
+   -0.12108
+  ]
+ },
+ {
+  "n": "Wiltons",
+  "type": "hist",
+  "a": "55 Jermyn Street, St James's, London SW1Y 6LX",
+  "city": "London",
+  "ct": "london",
+  "fd": 1742,
+  "web": "https://www.wiltons.co.uk",
+  "ig": "https://www.instagram.com/wiltons1742/",
+  "sig": [
+   "Oysters",
+   "Dover sole",
+   "Fish pie",
+   "Stilton soufflé"
+  ],
+  "ds": "Began as an oyster stall on Haymarket in 1742 and has been on Jermyn Street since 1984. A smart, old-fashioned dining room for oysters, Dover sole and game in season.",
+  "s": "fancy",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.50767,
+   -0.13936
+  ]
+ },
+ {
+  "n": "Sweetings",
+  "type": "hist",
+  "a": "39 Queen Victoria Street, City of London EC4N 4SF",
+  "city": "London",
+  "ct": "london",
+  "fd": 1889,
+  "web": "https://www.sweetingsrestaurant.co.uk",
+  "sig": [
+   "Fish pie",
+   "Potted shrimps",
+   "Dover sole",
+   "Black Velvet"
+  ],
+  "ds": "A City fish restaurant at the same address since 1889. It opens for weekday lunch only and takes no bookings, so arrive early for fish pie, potted shrimps and a Black Velvet in a pewter tankard.",
+  "s": "smart",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   51.51245,
+   -0.09282
+  ]
+ },
+ {
+  "n": "St. JOHN",
+  "type": "hist",
+  "a": "26 St John Street, Smithfield, London EC1M 4AY",
+  "city": "London",
+  "ct": "london",
+  "fd": 1994,
+  "web": "https://stjohnrestaurant.com",
+  "ig": "https://www.instagram.com/st.john.restaurant/",
+  "sig": [
+   "Roast bone marrow and parsley salad",
+   "Eccles cake with Lancashire cheese",
+   "Welsh rarebit"
+  ],
+  "ds": "Fergus Henderson's 'nose to tail' restaurant, opened in 1994 in an old smokehouse by Smithfield Market. It changed how Britain cooks. Order the roast bone marrow, then an Eccles cake with Lancashire cheese.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.52032,
+   -0.10143
+  ]
+ },
+ {
+  "n": "Quality Chop House",
+  "type": "hist",
+  "a": "88-94 Farringdon Road, Farringdon, London EC1R 3EA",
+  "city": "London",
+  "ct": "london",
+  "fd": 1869,
+  "web": "https://thequalitychophouse.com",
+  "ig": "https://www.instagram.com/qualitychop/",
+  "sig": [
+   "Confit potatoes",
+   "Mince on toast",
+   "Aged steaks and chops"
+  ],
+  "ds": "On Farringdon Road since 1869, and the windows still say 'Progressive working class caterer'. Sit in the original Grade II listed wooden booths for chops, steaks and its famous confit potatoes.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.52485,
+   -0.11012
+  ]
+ },
+ {
+  "n": "Ye Olde Cheshire Cheese",
+  "type": "pub",
+  "a": "145 Fleet Street, London EC4A 2BU",
+  "city": "London",
+  "ct": "london",
+  "fd": 1667,
+  "pub": 1,
+  "sig": [
+   "Steak and kidney pudding"
+  ],
+  "ds": "Rebuilt in 1667, the year after the Great Fire of London. Dark wood rooms, sawdust floors and an old Chop Room. Charles Dickens and Mark Twain drank here.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51433,
+   -0.10735
+  ]
+ },
+ {
+  "n": "The Guinea Grill",
+  "type": "pub",
+  "a": "30 Bruton Place, Mayfair, London W1J 6NL",
+  "city": "London",
+  "ct": "london",
+  "fd": 1952,
+  "pub": 1,
+  "web": "https://www.theguinea.co.uk",
+  "ig": "https://www.instagram.com/guineagrill/",
+  "sig": [
+   "Dry-aged British steaks",
+   "Steak and kidney pie",
+   "Devilled kidneys"
+  ],
+  "ds": "An inn has stood here since 1423, and the grill room, opened in 1952, is billed as London's oldest steakhouse. Come for dry-aged British steaks and its award-winning steak and kidney pie.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51108,
+   -0.145
+  ]
+ },
+ {
+  "n": "The Windmill Mayfair",
+  "type": "pub",
+  "a": "6-8 Mill Street, Mayfair, London W1S 2AZ",
+  "city": "London",
+  "ct": "london",
+  "pub": 1,
+  "web": "https://www.windmillmayfair.co.uk",
+  "ig": "https://www.instagram.com/windmill_pub/",
+  "sig": [
+   "Homemade British pies",
+   "Guinness and short rib pie",
+   "Chicken, bacon and leek pie"
+  ],
+  "ds": "A Victorian Mayfair pub known for its award-winning homemade pies. Each one comes with greens, gravy and chips or mash. Sister pub to The Guinea Grill.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51239,
+   -0.14227
+  ]
+ },
+ {
+  "n": "Lamb & Flag",
+  "type": "pub",
+  "a": "33 Rose Street, Covent Garden, London WC2E 9EB",
+  "city": "London",
+  "ct": "london",
+  "fd": 1772,
+  "pub": 1,
+  "web": "https://www.lambandflagcoventgarden.co.uk",
+  "sig": [
+   "Sunday roast",
+   "Fish and chips",
+   "Steak and ale pie"
+  ],
+  "ds": "A pub since at least 1772, down a small Covent Garden alley. It was once nicknamed the 'Bucket of Blood' for its bare-knuckle fights, and Charles Dickens drank here.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.51166,
+   -0.12552
+  ]
+ },
+ {
+  "n": "The Grenadier",
+  "type": "pub",
+  "a": "18 Wilton Row, Belgravia, London SW1X 7NR",
+  "city": "London",
+  "ct": "london",
+  "fd": 1818,
+  "pub": 1,
+  "web": "https://www.grenadierbelgravia.com",
+  "ig": "https://www.instagram.com/grenadierpub/",
+  "sig": [
+   "Beef Wellington"
+  ],
+  "ds": "A pub since 1818 in a quiet Belgravia mews, once the officers' mess of the Foot Guards. The Duke of Wellington drank here. Said to be London's most haunted pub, it is known for its beef Wellington.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.50128,
+   -0.15471
+  ]
+ },
+ {
+  "n": "The Harwood Arms",
+  "type": "pub",
+  "a": "27 Walham Grove, Fulham, London SW6 1QP",
+  "city": "London",
+  "ct": "london",
+  "fd": 1866,
+  "pub": 1,
+  "web": "https://harwoodarms.com",
+  "sig": [
+   "Venison Scotch egg",
+   "Sunday roast",
+   "Seasonal British game"
+  ],
+  "ds": "One of London's few pubs with a MICHELIN Star. The cooking is all about British game, much of the deer comes from the owners, and the venison Scotch egg is famous.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.48243,
+   -0.19783
+  ]
+ },
+ {
+  "n": "Bettys Café Tea Rooms Harrogate",
+  "type": "tea",
+  "a": "1 Parliament Street, Harrogate HG1 2QU",
+  "city": "Harrogate",
+  "fd": 1919,
+  "web": "https://www.bettys.co.uk/bettys_harrogate.aspx",
+  "ig": "https://www.instagram.com/bettys/",
+  "sig": [
+   "Yorkshire Fat Rascal",
+   "Afternoon tea in the Imperial Room",
+   "Fondant fancies"
+  ],
+  "ds": "The very first Bettys, founded in Harrogate in 1919 by Swiss confectioner Frederick Belmont. Try a Yorkshire Fat Rascal, a big fruity scone, or have afternoon tea in the Imperial Room.",
+  "s": "smart",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   53.99324,
+   -1.54295
+  ]
+ },
+ {
+  "n": "Bettys Café Tea Rooms York",
+  "type": "tea",
+  "a": "6-8 St Helen's Square, York YO1 8QP",
+  "city": "York",
+  "fd": 1937,
+  "web": "https://www.bettys.co.uk/",
+  "ig": "https://www.instagram.com/bettys/",
+  "sig": [
+   "Afternoon tea in the Belmont Room",
+   "Yorkshire Fat Rascal"
+  ],
+  "ds": "Opened in 1937, with rooms inspired by the Queen Mary ocean liner. In the Oak Room you can still see a mirror signed by Second World War airmen with a diamond pen.",
+  "s": "smart",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   53.96003,
+   -1.08425
+  ]
+ },
+ {
+  "n": "The Magpie Café",
+  "type": "fish",
+  "a": "14 Pier Road, Whitby YO21 3PU",
+  "city": "Whitby",
+  "fd": 1939,
+  "web": "https://www.magpiecafe.co.uk/",
+  "sig": [
+   "Haddock and chips",
+   "Lobster thermidor",
+   "Seafood chowder"
+  ],
+  "ds": "Whitby's famous harbourside fish restaurant, in a merchant's house built in 1750. The late critic AA Gill called its fish and chips the best anywhere.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   54.48919,
+   -0.61491
+  ]
+ },
+ {
+  "n": "Sally Lunn's Historic Eating House",
+  "type": "hist",
+  "a": "4 North Parade Passage, Bath BA1 1NX",
+  "city": "Bath",
+  "ct": "bath",
+  "web": "https://www.sallylunns.co.uk/",
+  "sig": [
+   "Sally Lunn bun",
+   "Cinnamon butter bun",
+   "Welsh rarebit"
+  ],
+  "ds": "One of the oldest houses in Bath, and home of the Sally Lunn bun: a big, light bun served with sweet or savoury toppings. There is a small kitchen museum in the cellar.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l",
+   "d"
+  ],
+  "ll": [
+   51.38071,
+   -2.35855
+  ]
+ },
+ {
+  "n": "The Pump Room Restaurant",
+  "type": "hist",
+  "a": "Stall Street, Bath BA1 1LZ",
+  "city": "Bath",
+  "ct": "bath",
+  "fd": 1795,
+  "web": "https://thepumproombath.co.uk/",
+  "sig": [
+   "Jane Austen Afternoon Tea",
+   "Bath bun",
+   "Spa water tasting"
+  ],
+  "ds": "A grand Georgian room from 1795 that Jane Austen wrote into her novels. Have afternoon tea to live music from the Pump Room Trio, and taste the warm spa water from the fountain.",
+  "s": "smart",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.38112,
+   -2.3601
+  ]
+ },
+ {
+  "n": "Anstruther Fish Bar",
+  "type": "fish",
+  "a": "42-44 Shore Street, Anstruther KY10 3AQ",
+  "city": "Anstruther",
+  "web": "https://www.anstrutherfishbar.co.uk/",
+  "ig": "https://www.instagram.com/anstrutherfishbar/",
+  "sig": [
+   "Haddock supper",
+   "Catch of the day",
+   "Lemon sole"
+  ],
+  "ds": "A harbour-front chip shop in the fishing village of Anstruther, and a past winner of UK Fish and Chip Shop of the Year. Get a haddock supper and eat it by the boats.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   56.22243,
+   -2.69849
+  ]
+ },
+ {
+  "n": "Mr Fitzpatrick's Temperance Bar",
+  "type": "caff",
+  "a": "5 Bank Street, Rawtenstall BB4 6QS",
+  "city": "Rawtenstall",
+  "web": "https://mrfitzpatricks.com/",
+  "sig": [
+   "Sarsaparilla",
+   "Dandelion and burdock",
+   "Blood tonic",
+   "Cordial milkshakes"
+  ],
+  "ds": "Said to be Britain's last original temperance bar, serving alcohol-free drinks since the 1890s. The cordials are still brewed from herbs the old way. Try a sarsaparilla or dandelion and burdock.",
+  "s": "casual",
+  "m": [
+   "l"
+  ],
+  "ll": [
+   53.7012,
+   -2.28692
+  ]
+ },
+ {
+  "n": "The Bridge Tea Rooms",
+  "type": "tea",
+  "a": "24a Bridge Street, Bradford on Avon BA15 1BY",
+  "city": "Bradford on Avon",
+  "web": "https://www.thebridgetearooms.co.uk/",
+  "sig": [
+   "Afternoon tea",
+   "Cream tea",
+   "Homemade cakes"
+  ],
+  "ds": "A cosy tea room in an old blacksmith's cottage, where staff serve in Victorian dress. The Tea Guild named it its Top Tea Place in 2009.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   51.34631,
+   -2.25035
+  ]
+ },
+ {
+  "n": "Fitzbillies",
+  "type": "bakery",
+  "a": "51-53 Trumpington Street, Cambridge CB2 1RG",
+  "city": "Cambridge",
+  "ct": "cambridge",
+  "fd": 1920,
+  "web": "https://www.fitzbillies.com/",
+  "ig": "https://www.instagram.com/fitzbillies/",
+  "sig": [
+   "Chelsea bun",
+   "Cream tea",
+   "Afternoon tea"
+  ],
+  "ds": "Cambridge's famous bakery, opened in 1920 by the Mason brothers, whose names are still on the shop front. People come for the sticky Chelsea buns, and the café does cream teas too.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   52.20246,
+   0.11813
+  ]
+ },
+ {
+  "n": "Sam's Chop House",
+  "type": "hist",
+  "a": "Back Pool Fold, Chapel Walks, Manchester M2 1HN",
+  "city": "Manchester",
+  "ct": "manchester",
+  "web": "http://www.samschophouse.com/",
+  "sig": [
+   "Corned beef hash",
+   "Steak and kidney pudding",
+   "Barnsley chop"
+  ],
+  "ds": "A Victorian chop house where the painter L.S. Lowry was a regular, and a life-size bronze of him now sits at the bar. Order the corned beef hash, the house dish.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   53.48171,
+   -2.2435
+  ]
+ },
+ {
+  "n": "Mr Thomas's Chop House",
+  "type": "hist",
+  "a": "52 Cross Street, Manchester M2 7AR",
+  "city": "Manchester",
+  "ct": "manchester",
+  "fd": 1867,
+  "web": "http://tomschophouse.com/",
+  "sig": [
+   "Corned beef hash",
+   "Steak and kidney pudding",
+   "Daily pie"
+  ],
+  "ds": "Opened in 1867 by Thomas Studd, in a Grade II listed building with green-tiled arches. A Manchester classic for steak and kidney pudding and proper pies.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   53.48124,
+   -2.24497
+  ]
+ },
+ {
+  "n": "Ye Olde Trip to Jerusalem",
+  "type": "pub",
+  "a": "1 Brewhouse Yard, Nottingham NG1 6AD",
+  "city": "Nottingham",
+  "ct": "nottingham",
+  "pub": 1,
+  "web": "https://www.greeneking.co.uk/pubs/nottinghamshire/ye-olde-trip-to-jerusalem",
+  "ig": "https://www.instagram.com/yeoldetriptojerusalemnotts/",
+  "sig": [
+   "Steak and ale pie",
+   "Fish and chips",
+   "Sunday roast"
+  ],
+  "ds": "Claims to date from 1189 and to be England's oldest inn. The pub is built against the sandstone rock under Nottingham Castle, and its caves have been used as cellars for centuries.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   52.94934,
+   -1.15264
+  ]
+ },
+ {
+  "n": "Ye Olde Pork Pie Shoppe (Dickinson & Morris)",
+  "type": "bakery",
+  "a": "8-10 Nottingham Street, Melton Mowbray LE13 1NW",
+  "city": "Melton Mowbray",
+  "fd": 1851,
+  "web": "https://www.porkpie.co.uk/",
+  "ig": "https://www.instagram.com/yeoldeporkpieshoppe1851/",
+  "sig": [
+   "Melton Mowbray pork pie",
+   "Melton Hunt Cake",
+   "Stilton"
+  ],
+  "ds": "Hand-raising Melton Mowbray pork pies on Nottingham Street since 1851, in a Grade II* listed building. Take one away or sit down in the Tasting Room.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   52.76579,
+   -0.88765
+  ]
+ },
+ {
+  "n": "Philps Bakery",
+  "type": "bakery",
+  "a": "1 East Quay, Hayle TR27 4BJ",
+  "city": "Hayle",
+  "fd": 1958,
+  "sig": [
+   "Traditional Cornish pasty",
+   "Cheese and onion pasty",
+   "Saffron cake"
+  ],
+  "ds": "A family pasty bakery on Hayle's East Quay since 1958, still run by the Philp family. The traditional Cornish pasty is the one to get.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   50.18809,
+   -5.42368
+  ]
+ },
+ {
+  "n": "The Mackintosh Tearooms",
+  "type": "tea",
+  "a": "215-217 Sauchiehall Street, Glasgow G2 3EX",
+  "city": "Glasgow",
+  "ct": "glasgow",
+  "fd": 1903,
+  "web": "https://www.nts.org.uk/visit/places/the-mackintosh-tearooms",
+  "sig": [
+   "Afternoon tea",
+   "Scones with clotted cream",
+   "Tea and cake"
+  ],
+  "ds": "Designed by Charles Rennie Mackintosh for Kate Cranston in 1903, and the last of his tearooms still in its original home. Come for afternoon tea and see the famous Salon de Luxe.",
+  "s": "casual",
+  "m": [
+   "b",
+   "l"
+  ],
+  "ll": [
+   55.86493,
+   -4.26108
+  ]
+ },
+ {
+  "n": "Café Royal",
+  "type": "hist",
+  "a": "19 West Register Street, Edinburgh EH2 2AA",
+  "city": "Edinburgh",
+  "ct": "edinburgh",
+  "fd": 1826,
+  "web": "https://www.caferoyaledinburgh.com/",
+  "sig": [
+   "Scottish rock oysters",
+   "Seafood platter",
+   "Cullen skink"
+  ],
+  "ds": "Edinburgh's original oyster bar, founded in 1826 and 200 years old in 2026. The 1861 building is famous for its Doulton tile pictures and stained-glass windows.",
+  "s": "smart",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   55.95375,
+   -3.19085
+  ]
+ },
+ {
+  "n": "Bardsley's",
+  "type": "fish",
+  "a": "22-23a Baker Street, Brighton BN1 4JN",
+  "city": "Brighton",
+  "ct": "brighton",
+  "fd": 1926,
+  "sig": [
+   "Cod and chips",
+   "Huss and chips",
+   "Skate"
+  ],
+  "ds": "Frying fish in Brighton since 1926, and still run by the Bardsley family, now in its fourth generation. Try cod, huss or skate.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   50.83174,
+   -0.13524
+  ]
+ },
+ {
+  "n": "Whitelock's Ale House",
+  "type": "pub",
+  "a": "6-8 Turk's Head Yard, off Briggate, Leeds LS1 6HB",
+  "city": "Leeds",
+  "ct": "leeds",
+  "fd": 1715,
+  "pub": 1,
+  "web": "http://www.whitelocksleeds.com",
+  "sig": [
+   "Beef and ale pie",
+   "Sunday roast",
+   "Yorkshire ales"
+  ],
+  "ds": "Leeds' oldest pub, first licensed as the Turk's Head in 1715. It hides down a narrow yard off Briggate, with a Victorian interior from 1895.",
+  "s": "casual",
+  "m": [
+   "l",
+   "d"
+  ],
+  "ll": [
+   53.79718,
+   -1.5429
+  ]
+ }
+]

@@ -133,18 +133,21 @@ def match(venues, rows):
         grid.setdefault((round(r['ll'][0], 2), round(r['ll'][1], 2)), []).append(r)
     found = {}
     for v in venues:
-        ll = v['ll']; vt = norm_tokens(v['n']); best = None
-        rough = bool(v.get('llx'))   # we only know the town: search the whole area by exact name
+        ll = v['ll']; vt = norm_tokens(v['n']); best = None; same = set()
+        rough = bool(v.get('llx'))   # we only know the town: search the whole area by the exact same name
         span = (-0.06, -0.05, -0.04, -0.03, -0.02, -0.01, 0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06) if rough else (-0.01, 0, 0.01)
         for dy in span:
             for dx in span + ((-0.09, -0.08, -0.07, 0.07, 0.08, 0.09) if rough else ()):
                 for r in grid.get((round(ll[0] + dy, 2), round(ll[1] + dx, 2)), []):
+                    if rough and vt[1] != r['tok'][1]: continue   # whole name must be identical ("Trinity" is not "The Trinity")
                     s = sim(vt, r['tok'])
-                    if s < (0.95 if rough else 0.6): continue
+                    if s < 0.6: continue
                     d = metres(ll, r['ll'])
                     if d > (6000 if rough else 150 if s >= 0.95 else 80): continue
+                    if rough: same.add((round(r['ll'][0], 3), round(r['ll'][1], 3)))
                     key = (s, -d)
                     if best is None or key > best[0]: best = (key, r, d)
+        if rough and len(same) > 1: best = None   # two places with this name in town (branches): can't tell which one
         if best:
             r = best[1]
             found[v['id']] = {k: r[k] for k in ('web', 'ig', 'fb', 'ph') if r[k]} | {'osm': r['osm'], 'm': round(best[2])}

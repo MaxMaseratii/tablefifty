@@ -3,7 +3,7 @@ Sources checked 28 Sep 2026: First Table venue pages (title checked live), TheFo
 Code Hospitality offers page, tastecard London page, chain offer pages via becleverwithyourcash.com (updated 28 Sep 2026),
 delivery offers seen on HotUKDeals (Sep 2026), coffee/grocery loyalty schemes (workingfromcoffeeshops.co.uk, advocate-group.co.uk 17 Sep 2026).
 """
-import json, re, glob, statistics, os, datetime, urllib.parse
+import json, math, re, glob, statistics, os, datetime, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 SEEN = "2026-09-28"   # date the hand-added chain / TheFork / Code offers were last checked by hand
@@ -801,6 +801,53 @@ for k in [k for k, v in V.items() if not v['o']]: del V[k]
 for nm in ('toby-carvery', 'harvester', 'tgi-fridays', 'hungry-horse'):
     if nm in V: V[nm]['pub'] = 1
 
+# ---------- Traditional British classics (see classics.json): much-loved places worth a visit even with no deal ----------
+# Hand-checked list: tea rooms, caffs, pie & mash, fish & chips, historic dining rooms and pubs. Each has our own short
+# description of what makes it special. If the place is already listed (it has a deal), it just gets the "British classic" badge.
+CL_FILE = os.path.join(HERE, 'classics.json')
+CLASSICS = json.load(open(CL_FILE, encoding='utf-8')) if os.path.exists(CL_FILE) else []
+def _km(a, b):
+    return 6371 * 2 * math.asin(math.sqrt(math.sin(math.radians(b[0] - a[0]) / 2) ** 2 + math.cos(math.radians(a[0])) * math.cos(math.radians(b[0])) * math.sin(math.radians(b[1] - a[1]) / 2) ** 2))
+_city_mid = {c: (statistics.median(p[0] for p in pts), statistics.median(p[1] for p in pts)) for c, pts in CITY_PTS.items() if pts}
+cl_new = cl_merged = 0
+for c in CLASSICS:
+    ll = c.get('ll')
+    cands = []
+    ck = mkey(c['n'])
+    for v in V.values():
+        if v.get('k') != 'dine' or not v.get('ll') or not ll or v.get('ct') == 'uk' or v['id'].startswith('cl-'): continue
+        vk = mkey(v['n']); d = _km(v['ll'], ll)
+        # same name: nearby, or a guide-only listing whose map spot is only roughly known
+        if vk == ck and (d < 0.4 or (v.get('nodeal') and d < 20)): cands.append((0, d, v))
+        elif vk[:len(ck)] == ck and d < 0.25: cands.append((1, d, v))
+    match = min(cands, key=lambda x: x[:2])[2] if cands else None
+    if match:
+        v = match; cl_merged += 1
+        if v.get('nodeal') and ll:   # our checked address wins over a rough or guessed spot
+            v['ll'] = ll; v.pop('llx', None)
+            if v.get('ct') == 'london': v['reg'] = london_reg(ll)
+            v['a'] = c['a']
+    else:
+        ct = c.get('ct')
+        if not ct or ct not in CITY_NAMES:
+            near = min(_city_mid.items(), key=lambda kv: _km(kv[1], ll)) if ll and _city_mid else None
+            ct = near[0] if near and _km(near[1], ll) < 30 else 'cl-' + slug(c.get('city') or c['n'])
+        v = venue(c['n'], key='cl-' + slug(c['n'] + '-' + (c.get('city') or '')), a=c['a'], ct=ct,
+                  reg=london_reg(ll) if ct == 'london' and ll else ct, c='british', s=c.get('s', 'casual'), m=c.get('m') or ['l'])
+        if ll: v['ll'] = ll
+        v['nodeal'] = 1
+        offer(v, p='direct', pn=c['n'], u=c.get('web') or 'https://www.google.com/maps/search/?api=1&query=' + urllib.parse.quote_plus(c['n'] + ' ' + c['a']),
+              h='classic', n=0)
+        cl_new += 1
+    v['cl'] = c['type']
+    if c.get('fd'): v['fd'] = c['fd']
+    if c.get('sig'): v['sig'] = c['sig'][:4]
+    v['ds'] = c['ds']; v['dsc'] = 1
+    for k in ('web', 'ig', 'ph'):
+        if c.get(k): v[k] = c[k]   # hand-checked links win
+    if c.get('pub'): v['pub'] = 1
+print('British classics:', cl_new, 'added,', cl_merged, 'already listed')
+
 # ---------- Short description: what kind of food they serve (shown under the address and in Insights) ----------
 # 1) the restaurant's own words from its website, trimmed to one or two clean sentences (often names its best dishes);
 # 2) otherwise a plain sentence built from its cuisine tags on First Table / EatClub. Nothing is invented.
@@ -871,7 +918,7 @@ def tag_desc(v):
 ds_own = ds_tag = 0
 for v in V.values():
     if v.get('own') and ABROAD.search(v['own']): v.pop('own')   # website text about a branch abroad
-    if v.get('k') not in ('dine', 'coffee') or v.get('ct') == 'uk': continue
+    if v.get('k') not in ('dine', 'coffee') or v.get('ct') == 'uk' or v.pop('dsc', None): continue   # curated text stays
     d = own_desc(v.get('own'), v.get('n'))
     if d: v['ds'] = d; v['dso'] = 1; ds_own += 1
     else:

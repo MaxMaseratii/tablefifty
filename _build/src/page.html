@@ -219,6 +219,7 @@
   .ps[aria-pressed="true"]{background:var(--amber);border-color:var(--amber);color:var(--amber-ink)}
   .ps[aria-pressed="true"] span{color:var(--amber-ink)}
   .mich{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:800;color:#fff;background:#b0102c;border-radius:999px;padding:3px 10px;letter-spacing:.02em}
+  .clchip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:800;color:#f5ecd2;background:#1d4d36;border:1px solid #2f6b4d;border-radius:999px;padding:3px 10px;letter-spacing:.02em}
   blockquote.own{margin:0;padding:10px 12px;border-inline-start:3px solid var(--amber);background:var(--surface-2);border-radius:8px;color:var(--text);font-style:italic}
   blockquote.own b{display:block;font-style:normal;font-size:12px;color:var(--amber);margin-bottom:3px}
   blockquote.own a{font-style:normal;color:var(--muted);font-size:12.5px}
@@ -283,6 +284,25 @@
   .gbtn:hover{border-color:var(--accent)}
   .seen{margin:0;font-size:11.5px;color:var(--faint)}
   .seen.ends{color:var(--amber)}
+
+  /* Collections */
+  .collections{padding-block:30px 0;display:grid;gap:14px}
+  .collections h2{margin:0;font-family:var(--f-display);font-size:19px;font-weight:700}
+  .col-grid{display:grid;gap:12px;grid-template-columns:minmax(0,1fr)}
+  @media (min-width:700px){.col-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  .col-card{position:relative;display:block;min-height:150px;border-radius:18px;overflow:hidden;border:1px solid var(--line);padding:0;cursor:pointer;background:var(--surface);text-align:start;color:#fff;font:inherit}
+  .col-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+  .col-card:hover img{transform:scale(1.04)}
+  .col-card::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,10,20,.92) 0%,rgba(6,10,20,.65) 55%,rgba(6,10,20,.2) 100%)}
+  .col-txt{position:relative;z-index:1;display:grid;gap:5px;padding:20px 22px;max-width:78%}
+  .col-txt b{font-family:var(--f-display);font-size:22px;line-height:1.15}
+  .col-txt small{font-size:14px;color:#d7dfee;line-height:1.4}
+  .col-tag{justify-self:start;font-size:11.5px;font-weight:800;letter-spacing:.06em;border-radius:999px;padding:3px 10px}
+  .col-tag.mich{background:#b0102c} .col-tag.cl{background:#1d4d36;border:1px solid #2f6b4d;color:#f5ecd2}
+  .col-n{position:absolute;z-index:1;inset-inline-end:16px;bottom:14px;font-weight:800;font-size:13px;background:rgba(255,255,255,.16);border-radius:999px;padding:3px 10px}
+  .col-n:empty{display:none}
+  .col-card:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  [dir="rtl"] .col-card::after{background:linear-gradient(270deg,rgba(6,10,20,.92) 0%,rgba(6,10,20,.65) 55%,rgba(6,10,20,.2) 100%)}
 
   /* Cuisines */
   .cuisines{padding-block:34px 4px;display:grid;gap:14px}
@@ -712,7 +732,7 @@
         <ul id="suggest" role="listbox" hidden></ul>
       </div>
       </div>
-      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="michelin" aria-pressed="false"><span data-i18n="tab.michelin"></span> <span class="n" id="n-michelin">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
+      <div class="tabs" role="group" id="tabs"><button class="pill" type="button" data-tab="all" aria-pressed="true"><span data-i18n="tab.all"></span> <span class="n" id="n-all">0</span></button><button class="pill" type="button" data-tab="dinner" aria-pressed="false"><span data-i18n="tab.dinner"></span> <span class="n" id="n-dinner">0</span></button><button class="pill" type="button" data-tab="lunch" aria-pressed="false"><span data-i18n="tab.lunch"></span> <span class="n" id="n-lunch">0</span></button><button class="pill" type="button" data-tab="breakfast" aria-pressed="false"><span data-i18n="tab.breakfast"></span> <span class="n" id="n-breakfast">0</span></button><button class="pill" type="button" data-tab="casual" aria-pressed="false"><span data-i18n="tab.casual"></span> <span class="n" id="n-casual">0</span></button><button class="pill" type="button" data-tab="fancy" aria-pressed="false"><span data-i18n="tab.fancy"></span> <span class="n" id="n-fancy">0</span></button><button class="pill" type="button" data-tab="michelin" aria-pressed="false"><span data-i18n="tab.michelin"></span> <span class="n" id="n-michelin">0</span></button><button class="pill" type="button" data-tab="classic" aria-pressed="false"><span data-i18n="tab.classic">British classics</span> <span class="n" id="n-classic">0</span></button><button class="pill" type="button" data-tab="pubs" aria-pressed="false"><span data-i18n="tab.pubs"></span> <span class="n" id="n-pubs">0</span></button><button class="pill" type="button" data-tab="delivery" aria-pressed="false"><span data-i18n="tab.delivery"></span> <span class="n" id="n-delivery">0</span></button><button class="pill" type="button" data-tab="grocery" aria-pressed="false"><span data-i18n="tab.grocery"></span> <span class="n" id="n-grocery">0</span></button><button class="pill" type="button" data-tab="saved" aria-pressed="false"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg><span data-i18n="tab.saved"></span> <span class="n" id="n-saved">0</span></button></div>
       <div class="dock-row">
         <div class="filters">
           <div class="loc-status" id="locStatus" aria-live="polite"></div>
@@ -733,6 +753,22 @@
 
 <section class="wrap spotwrap">
   <aside class="spot" id="spot" aria-labelledby="spotName" hidden></aside>
+</section>
+
+<section class="wrap collections" aria-labelledby="colTitle">
+  <h2 id="colTitle" data-i18n="col.title">Collections</h2>
+  <div class="col-grid">
+    <button type="button" class="col-card" data-coltab="michelin">
+      <img src="img/fine.jpg" alt="" loading="lazy">
+      <span class="col-txt"><span class="col-tag mich">✦ MICHELIN</span><b data-i18n="col.mich">MICHELIN restaurants</b><small data-i18n="col.michsub">Stars and Bib Gourmands, with today's deals first</small></span>
+      <span class="col-n" id="col-n-michelin"></span>
+    </button>
+    <button type="button" class="col-card" data-coltab="classic">
+      <img src="img/british.jpg" alt="" loading="lazy">
+      <span class="col-txt"><span class="col-tag cl" id="col-cltag"></span><b data-i18n="tab.classic">British classics</b><small data-i18n="col.clsub">Tea rooms, pie and mash, fish and chips and historic dining rooms</small></span>
+      <span class="col-n" id="col-n-classic"></span>
+    </button>
+  </div>
 </section>
 
 <section class="wrap cuisines" aria-labelledby="czTitle">
@@ -859,6 +895,8 @@
           <li><button type="button" class="lnk" data-about data-i18n="foot.story">Our story</button></li>
           <li><button type="button" class="lnk" data-about data-i18n="foot.about">About &amp; privacy</button></li>
           <li><a class="lnk" href="/terms.html" data-i18n="foot.terms">Terms of use</a></li>
+          <li><a class="lnk" href="/michelin/" data-i18n="foot.michelin">MICHELIN guide</a></li>
+          <li><a class="lnk" href="/british-classics/" data-i18n="foot.classics">British classics guide</a></li>
           <li><a class="lnk" href="/restaurants/" data-i18n="foot.rest">For restaurants</a></li>
         </ul>
       </div>
@@ -1569,6 +1607,7 @@
     if (o.h === "text") return o.d || "";
     if (/^ft_/.test(o.h)) return t(o.h === "ft_d" ? "d.ft" : "d.ft2");
     if (o.h === "nodeal") return t("d.nodeal");
+    if (o.h === "classic") return t("d.classic");
     if (o.platform === "thefork") return t("d.fork");
     if (o.platform === "eatclub") return t("d.ec") + (o.sl && o.sl.length ? " " + t("d.ecwhen", { w: slotsText(o.sl) }) : "");
     if (o.platform === "code") return t("d.code");
@@ -1589,6 +1628,7 @@
   }
   const kindOf = o => (o.platform && PLATFORMS[o.platform] && PLATFORMS[o.platform].kind) || o.vk || "dine";
   function ribbonFor(offers) {
+    if (offers.every(o => o.h === "classic")) return t("rib.classic");
     if (offers.every(o => o.h === "nodeal")) return t("rib.mich");
     if (offers.some(o => o.h === "two41" || /2\s*-?\s*(for|x|×)\s*-?\s*1/i.test(offerHead(o) || ""))) return t("rib.241");
     let best = 0, upto = false;
@@ -1624,7 +1664,7 @@
         ftPhoto: !!d.img, ftImg: d.img || "", ownPhoto: !!(d.img || d.imgx || d.imgl), photoSrc: d.img ? "ft" : d.imgx ? "ec" : d.imgl ? "own" : "",
         mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
         ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
-        ds: d.ds, dso: !!d.dso, ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
+        ds: d.ds, dso: !!d.dso, cl: d.cl || "", fd: d.fd || null, sig: d.sig || [], ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
     });
     custom.forEach(c => {
@@ -1680,6 +1720,7 @@
     fancy: v => v.style === "fancy",
     pubs: v => v.pub,
     michelin: v => !!v.mich,
+    classic: v => !!v.cl,
     delivery: v => v.k === "delivery" || v.offers.some(o => kindOf(o) === "delivery"),
     grocery: v => v.k === "grocery",
     saved: v => favs.has(v.id)
@@ -1706,7 +1747,7 @@
     const toks = tokens(state.q);
     withDistance();
     let list = venues.map(v => ({ v, s: toks.length ? scoreVenue(v, toks) : 0 })).filter(x => x.s >= 0)
-      .filter(x => !x.v.nodeal || toks.length || state.tab === "michelin")
+      .filter(x => !x.v.nodeal || toks.length || state.tab === "michelin" || state.tab === "classic")
       .filter(x => inArea(x.v) && inRadius(x.v));
     const platCounts = {};
     list.forEach(x => new Set(x.v.offers.map(platKey)).forEach(k => { platCounts[k] = (platCounts[k] || 0) + 1; }));
@@ -1714,6 +1755,7 @@
     const counts = {};
     Object.keys(TABS).forEach(k => counts[k] = list.filter(x => TABS[k](x.v)).length);
     if (!toks.length && state.tab !== "michelin") counts.michelin = venues.filter(v => v.mich && inArea(v) && inRadius(v)).length;
+    if (!toks.length && state.tab !== "classic") counts.classic = venues.filter(v => v.cl && inArea(v) && inRadius(v)).length;
     list = list.filter(x => TABS[state.tab](x.v));
     const bySort = {
       near: (a, b) => (a.v.dist == null ? 1e9 : a.v.dist) - (b.v.dist == null ? 1e9 : b.v.dist) || dealScore(b.v) - dealScore(a.v),
@@ -1723,8 +1765,11 @@
     }[state.sort];
     const grp = x => (localFirst() && isNational(x.v) && state.tab !== "delivery" && state.tab !== "grocery" && state.tab !== "saved" ? 1 : 0);
     const michSort = (a, b) => state.tab !== "michelin" ? 0 : ((a.v.nodeal ? 1 : 0) - (b.v.nodeal ? 1 : 0)) || (b.v.mich[0] - a.v.mich[0]) || (b.v.mich[1] - a.v.mich[1]);
-    list.sort((a, b) => michSort(a, b) || grp(a) - grp(b) || (toks.length ? b.s - a.s : 0) || bySort(a, b) || a.v.name.localeCompare(b.v.name));
-    if (state.sort === "best" && !toks.length && state.plat === "all" && state.tab !== "saved" && state.tab !== "michelin") {
+    // British classics: places with a deal today first, then the nearest (with a location) or the oldest
+    const clSort = (a, b) => state.tab !== "classic" ? 0 : ((a.v.nodeal ? 1 : 0) - (b.v.nodeal ? 1 : 0)) ||
+      (state.loc ? (a.v.dist == null ? 1e9 : a.v.dist) - (b.v.dist == null ? 1e9 : b.v.dist) : (a.v.fd || 3000) - (b.v.fd || 3000));
+    list.sort((a, b) => michSort(a, b) || clSort(a, b) || grp(a) - grp(b) || (toks.length ? b.s - a.s : 0) || bySort(a, b) || a.v.name.localeCompare(b.v.name));
+    if (state.sort === "best" && !toks.length && state.plat === "all" && state.tab !== "saved" && state.tab !== "michelin" && state.tab !== "classic") {
       const buckets = new Map();
       const MAJOR = ["firsttable", "eatclub", "thefork"];
       list.forEach(x => { const pk = platKey(mainOffer(x.v.offers)); const k = MAJOR.includes(pk) ? pk : "other"; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(x); });
@@ -1769,7 +1814,7 @@
       <div class="tear" aria-hidden="true"></div>
       <code class="url${o.custom ? "" : " vh"}" id="${uidStr}">${esc(url)}</code>
       <div class="actions">
-        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${isAff ? " sponsored" : ""}" data-open="${esc(platName(o))}">${o.h === "nodeal" ? `${I.pin} ${esc(t("fb.maps"))}` : esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
+        <a class="btn btn-primary" href="${esc(url)}" target="_blank" rel="noopener noreferrer${isAff ? " sponsored" : ""}" data-open="${esc(platName(o))}">${o.h === "nodeal" || (o.h === "classic" && /google\.com\/maps/.test(url)) ? `${I.pin} ${esc(t("fb.maps"))}` : o.h === "classic" ? esc(t("cl.visit")) : esc(t("offer.open", { p: o.platform === "direct" ? v.name : P.name }))} ${I.ext}</a>
         <button type="button" class="btn" data-copy="${esc(url)}" data-what="t.link" data-target="${uidStr}">${I.copy}${esc(t("offer.copy"))}</button>
         <button type="button" class="btn btn-icon" data-altopen="${esc(url)}" data-target="${uidStr}" aria-label="${esc(t("offer.retry"))}" title="${esc(t("offer.retry"))}">${I.retry}</button>
       </div>
@@ -1812,6 +1857,10 @@
     if (green) parts.push(t("mich.green"));
     if (!parts.length && sel) parts.push(t("mich.sel"));
     return parts.length ? `<span class="mich" title="MICHELIN Guide Great Britain & Ireland 2026">${st ? "✦".repeat(st) + " " : ""}${esc(parts.join(" · "))}</span>` : "";
+  }
+  function classicChip(v) {
+    if (!v.cl) return "";
+    return `<span class="clchip" title="${esc(t("tab.classic"))}"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 18h18l-1.5-9-4.5 4-3-7-3 7-4.5-4z"/></svg>${esc(t("cl." + v.cl))}${v.fd ? " · " + esc(t("cl.since", { y: v.fd })) : ""}</span>`;
   }
   function scoreChip(v) {
     const p = scoreParts(v);
@@ -1866,7 +1915,7 @@
     else if (p) auto.push(t("ins.auto1", { v: v.name, s: p.s.toFixed(1), n: p.n.toLocaleString(lang), p: p.src }));
     const bestFor = v.ins.filter(k => k !== "loved").slice(0, 3);
     if (bestFor.length) auto.push(t("ins.auto3", { t: bestFor.map(k => t("ins." + k).toLowerCase()).join(", ") }));
-    const deals = v.offers.map(o => `<li><b>${esc(platName(o))}:</b> ${esc(offerHead(o))}${o.platform === "eatclub" && o.sl ? ` <small>(${esc(slotsText(o.sl))})</small>` : ""}</li>`).join("");
+    const deals = v.offers.map(o => o.h === "classic" ? `<li>${esc(t("d.classic"))}</li>` : `<li><b>${esc(platName(o))}:</b> ${esc(offerHead(o))}${o.platform === "eatclub" && o.sl ? ` <small>(${esc(slotsText(o.sl))})</small>` : ""}</li>`).join("");
     return `
       ${v.gal.length ? `<div class="ins-gal">${v.gal.map(g => `<img src="${esc(g)}" alt="${esc(v.name)}" loading="lazy">`).join("")}</div>` : v.ownPhoto ? `<div class="ins-gal one">${imgTag(v)}</div>` : ""}
       <div class="ins-top">
@@ -1874,6 +1923,7 @@
         <p class="ins-auto">${esc(auto.join(" "))}</p>
       </div>
       ${v.mich ? `<p>${michChip(v)} <small>${esc(t("mich.src"))}</small></p>` : ""}
+      ${v.cl ? `<p>${classicChip(v)}</p>${v.sig.length ? `<h4>${esc(t("cl.known"))}</h4><ul class="ins-list">${v.sig.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}` : ""}
       ${v.sumk ? `<p class="t50-sum">${esc(t("sum." + v.sumk))}</p>` : ""}
       ${v.own && !(lang === "en" && v.dso) ? `<blockquote class="own"><b>${esc(t("ins.own"))}</b>“${esc(v.own)}”${safeUrl(v.web) ? ` <a href="${esc(safeUrl(v.web))}" target="_blank" rel="noopener noreferrer">${esc(new URL(safeUrl(v.web)).hostname.replace(/^www\./, ""))}</a>` : ""}</blockquote>` : ""}
       ${v.ins.length ? insHTML(v) : ""}
@@ -1970,6 +2020,7 @@
         <div class="meta-row">
           ${v.czKey ? `<span class="chip">${esc(t("cz." + v.czKey))}</span>` : ""}
           ${michChip(v)}
+          ${classicChip(v)}
           ${v.k === "dine" && !v.custom ? `<button type="button" class="insbtn" data-ins="${esc(v.id)}">${I.spark}${esc(t("t50.btn"))}</button>` : ""}
           ${v.sc ? scoreChip(v) : rt ? `<span class="rating">${star}${esc(String(rt[0]))}<small>${esc(t(rt[2] === "ft" ? "rating.ft" : "rating", { s: rt[0], c: rt[1].toLocaleString(lang) }).replace(/^[^·]*·\s*/, "· "))}</small></span>` : ""}
           ${v.price ? `<span class="price">${esc(t("price", { p: v.price }))}</span>` : ""}
@@ -2014,6 +2065,9 @@
     const { toks, counts, shown, platCounts } = query();
     renderPlatStrip(platCounts);
     Object.keys(counts).forEach(k => { const el = $("#n-" + k); if (el) el.textContent = counts[k]; });
+    ["michelin", "classic"].forEach(k => { const el = $("#col-n-" + k); if (el) el.textContent = counts[k] || ""; });
+    { const ys = venues.filter(v => v.cl && v.fd).map(v => v.fd), el = $("#col-cltag");
+      if (el) { el.textContent = ys.length ? t("col.cltag", { y: Math.min(...ys) }) : ""; el.hidden = !ys.length; } }
     const q = state.q.trim();
     const where = state.loc ? state.loc.label : state.area.startsWith("c:") ? (CITIES[state.area.slice(2)] || {}).n : state.area.startsWith("r:") ? t("area." + state.area.slice(2)) + ", London" : "";
     $("#resEyebrow").textContent = toks.length ? t("res.eyebrow.search") : t("tab." + state.tab);
@@ -2229,6 +2283,13 @@
   $("#liveBtn").addEventListener("click", () => scrollToEl($("#fallback")));
   $("#spot").addEventListener("click", e => { const b = e.target.closest("[data-spot]"); if (b) { spotIdx = +b.dataset.spot; renderSpot(); fetchCounts(); } });
   $("#platStrip").addEventListener("click", e => { const b = e.target.closest("[data-plat]"); if (!b) return; state.plat = b.dataset.plat === state.plat ? "all" : b.dataset.plat; state.limit = 24; render(); });
+  /* Collections: MICHELIN and British classics cards open that tab */
+  document.querySelectorAll("[data-coltab]").forEach(b => b.addEventListener("click", () => {
+    const pill = document.querySelector(`#tabs .pill[data-tab="${b.dataset.coltab}"]`);
+    if (state.q) setQuery("");
+    if (pill) pill.click();
+    scrollToDeals();
+  }));
   $("#czRow").addEventListener("click", e => {
     const b = e.target.closest("[data-cz]");
     if (!b) return;

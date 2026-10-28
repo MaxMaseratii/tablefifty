@@ -49,6 +49,11 @@ def pick(page):
     }
 
 
+# Last part of First Table listing pages (lists of restaurants, not a restaurant): never fetch these
+LISTING_PAGES = {'lunch', 'breakfast', 'dinner', 'brunch', 'last-table', 'first-table', 'late-table', 'cuisine', 'restaurants', 'offers',
+                 'all', 'near-me', 'gift-cards', 'experiences'}
+
+
 def restaurant_paths(xml, depth=0):
     """Restaurant pages from the sitemap. Handles a sitemap index (list of child sitemaps), a missing <lastmod>,
     CDATA, extra spaces and the address with or without "www"."""
@@ -65,6 +70,7 @@ def restaurant_paths(xml, depth=0):
         if not m: continue
         lm = re.search(r'<lastmod>\s*([^<\s]+)', block)
         p = m.group(1).split('?')[0].strip('/').split('/')
+        if p[1:2] == ['cuisine'] or p[-1] in LISTING_PAGES: continue   # city/area listing pages, not restaurants
         if (p[0] == 'london' and len(p) == 4) or (p[0] not in ('london', 'magazine') and len(p) == 3):
             out['/'.join(p)] = lm.group(1) if lm else ''
     return out
@@ -82,6 +88,9 @@ def main():
         head = re.sub(r'\s+', ' ', xml[:400])
         sys.exit(f'Sitemap looks wrong ({len(sm)} restaurants, {len(xml)} bytes) - keeping yesterday\'s data. Start: {head}')
 
+    # Pages we already know are not restaurants: remember them (so they are never fetched again) but don't check them
+    known_not = {p for p in sm if (old.get(p, {}).get('err') or '').startswith('not restaurant')}
+    sm = {p: lm for p, lm in sm.items() if p not in known_not}
     new = [p for p in sm if p not in old]
     changed = [p for p in sm if p in old and old[p].get('lastmod') != sm[p]]
     rest = sorted((p for p in sm if p in old and p not in changed), key=lambda p: old[p].get('checked') or '')
@@ -89,6 +98,7 @@ def main():
     print(f'sitemap {len(sm)} | new {len(new)} | changed {len(changed)} | checking {len(todo)}')
 
     result = {p: old[p] for p in sm if p in old}       # pages gone from the sitemap are dropped
+    result.update({p: old[p] for p in known_not})
     ok = fail = 0
     for p in todo:
         rec = {'path': p, 'lastmod': sm[p], 'checked': TODAY}
