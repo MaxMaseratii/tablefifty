@@ -75,7 +75,7 @@ def nk(n):
 
 
 # ---------- picture checks ----------
-def to_webp(data, dest):
+def to_webp(data, dest, portrait_ok=False):
     """Checks the image is a real photo and saves it cropped/shrunk. Returns None if fine, else the reason."""
     try:
         im = Image.open(io.BytesIO(data)); im.load()
@@ -83,7 +83,7 @@ def to_webp(data, dest):
         return 'not an image'
     w, h = im.size
     if w < 480 or h < 280: return f'too small {w}x{h}'
-    if not 0.9 <= w / h <= 2.8: return f'odd shape {w}x{h}'
+    if not (0.5 if portrait_ok else 0.9) <= w / h <= 2.8: return f'odd shape {w}x{h}'   # hand-picked shop fronts may be tall
     if im.mode in ('RGBA', 'LA') or (im.mode == 'P' and 'transparency' in im.info):
         a = im.convert('RGBA').getchannel('A').resize((64, 64))
         if sum(1 for x in a.tobytes() if x < 250) > 64 * 64 * 0.03: return 'see-through (logo)'
@@ -94,7 +94,7 @@ def to_webp(data, dest):
     g = small.convert('L')
     if ImageStat.Stat(g).stddev[0] < 22: return 'flat image'
     if sum(1 for x in g.tobytes() if x > 235) > 48 * 48 * 0.45: return 'mostly blank'
-    out = ImageOps.fit(rgb, SIZE, Image.LANCZOS, centering=(0.5, 0.45))
+    out = ImageOps.fit(rgb, SIZE, Image.LANCZOS, centering=(0.5, 0.42 if w / h < 1 else 0.45))
     out.save(dest, 'WEBP', quality=72, method=6)
     return None
 
@@ -264,7 +264,8 @@ def main():
             print('::warning title=Photos::Wikidata did not answer today')
     WM = {k: dict(x) for k, x in wd.get('m', {}).items()}
     pf = os.path.join(SRC, 'photo_files.json')   # Commons photos we picked by hand for a venue (file name)
-    for k, f in (json.load(open(pf, encoding='utf-8')) if os.path.exists(pf) else {}).items():
+    PICKED = json.load(open(pf, encoding='utf-8')) if os.path.exists(pf) else {}
+    for k, f in PICKED.items():
         WM.setdefault(k, {})['img'] = f
 
     def due(v):
@@ -309,7 +310,7 @@ def main():
             if not ci or not ci.get('thumb'):
                 state[v['id']] = {**prev, 'none': prev.get('none', 'no free photo'), 't': TODAY.isoformat(), 'from_tried': bool(v.get('web')), 'wd': True}; continue
             data, err = download(ci['thumb']); time.sleep(1)
-            bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp')) if data else err
+            bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp'), portrait_ok=v['id'] in PICKED) if data else err
             if bad:
                 state[v['id']] = {'none': bad, 't': TODAY.isoformat(), 'from_tried': bool(v.get('web')), 'wd': True}; continue
             state[v['id']] = {'f': f'img/ph/{v["id"]}.webp', 'from': 'commons', 'src': ci['thumb'], 'by': f'{ci["by"]}, {ci["lic"]}',
