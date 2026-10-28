@@ -30,10 +30,16 @@ TODAY = datetime.date.today()
 BUDGET = int(os.environ.get('PH_BUDGET', '900'))
 REMOVE = set()          # venue ids whose owner asked us not to show a photo
 # website photo checked by eye and not right (poster, logo, job ad, not the place): we try other sources instead
-REJECT_WEB = {'arments-pie-mash': 'Halloween poster', 'e-pellicci': 'mostly blank collage', 'the-rock-sole-plaice': 'sea photo, not the shop',
-              'cadet': 'job advert', 'elsa': 'logo', 'kolae': 'logo', 'dinner-by-heston-blumenthal': 'a fan, not the restaurant',
-              'the-harwood-arms': 'a deer, not the pub', 'walnut-tree': 'awards photo', 'the-sushi-co-lewisham': 'promo banner',
-              'condita': 'close-up texture'}
+REJECT_WEB = {   # exact venue ids
+    'cl-arments-pie-mash-london': 'Halloween poster', 'cl-e-pellicci-london': 'mostly blank collage', 'cl-the-rock-sole-plaice-london': 'sea photo',
+    'mich-cadet-london': 'job advert', 'mich-elsa-london': 'logo', 'mich-kolae-london': 'logo', 'mich-dinner-by-heston-blumenthal-london': 'a fan',
+    'mich-the-harwood-arms-london': 'a deer', 'mich-walnut-tree-llanddewi-skirrid': 'awards photo', 'the-sushi-co-lewisham': 'promo banner',
+    'mich-condita-edinburgh': 'close-up texture', 'ana-turkish-restaurant-and-bar': 'logo', 'el-inca-plebeyo': 'text banner', 'mich-ardfern-leith': 'book cover',
+    'mich-charlton-arms-ludlow': 'text banner', 'mich-ed-belfast': 'website banner', 'mich-el-gato-negro-manchester': 'text banner',
+    'mich-hitchen-s-barn-oakham': 'guide logo', 'mich-loch-bay-isle-of-skye': 'logo', 'mich-lyla-edinburgh': 'sky photo', 'mich-mountain-london': 'field photo',
+    'mich-noto-edinburgh': 'logo', 'mich-plaquemine-lock-london': 'illustration', 'mich-sketch-the-lecture-room-library-london': 'graphic',
+    'mich-tamila-london': 'graphic', 'mich-the-samling-ambleside': 'hotel bedroom', 'mich-tropea-birmingham': 'logo',
+    'mich-where-the-light-gets-in-stockport': 'logo', 'stereo-covent-garden': 'text banner'}
 SPAM = re.compile(r'(?i)(casino|betting|bookmaker|slot games|free spins|login bonus|poker|viagra|payday loan|escort)')
 CDN = re.compile(r'(?i)(imgix\.net|squarespace(-cdn)?\.com|wixstatic\.com|cloudinary\.com|shopify\.com|website-files\.com|amazonaws\.com|'
                  r'cloudfront\.net|googleusercontent\.com|ctfassets\.net|sanity\.io|storyblok\.com|prismic\.io|wp\.com|b-cdn\.net|'
@@ -41,9 +47,7 @@ CDN = re.compile(r'(?i)(imgix\.net|squarespace(-cdn)?\.com|wixstatic\.com|cloudi
 
 
 def rejected(vid):
-    """REJECT_WEB keys are written without the town; venue ids end with it (e.g. 'cadet-london', 'mich-cadet-london')."""
-    core = re.sub(r'^(mich|cl)-', '', vid)
-    return any(core == k or core.startswith(k + '-') for k in REJECT_WEB)
+    return vid in REJECT_WEB
 
 
 def same_site(a, b):
