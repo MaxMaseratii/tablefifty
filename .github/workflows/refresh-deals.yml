@@ -64,8 +64,15 @@ jobs:
           git config user.email "hello@tablefifty.co.uk"
           git add -A
           if git diff --cached --quiet; then echo "No changes today"; exit 0; fi
-          git commit -m "Daily deal refresh $(date -u +%F)"
-          git push
+          git commit -q -m "Daily deal refresh $(date -u +%F)"
+          # if someone pushed while we ran: put today's data on top of their change, rebuild, try again
+          for i in 1 2 3; do
+            if git push; then exit 0; fi
+            git fetch -q origin main
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
+            python _build/build.py && git add -A && git commit -q --amend --no-edit || true
+          done
+          exit 1
       - name: Rebuild GitHub Pages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
