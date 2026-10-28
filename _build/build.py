@@ -295,6 +295,10 @@ GUIDE_CSS = PAGE_CSS.replace('</style>', """  .wrap{max-width:860px}
   .item .links{display:flex;flex-wrap:wrap;gap:14px;font-size:14px;font-weight:600}
   .toc{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0} .toc a{font-size:14px;font-weight:700;padding:6px 12px;border:1px solid #34466b;border-radius:999px;text-decoration:none}
   .small{font-size:13px;color:var(--faint)}
+  .item.ph{grid-template-columns:150px minmax(0,1fr);column-gap:16px;align-items:start} .item.ph>.txt{display:grid;gap:6px;min-width:0}
+  .item .th{display:block;width:150px;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#22304f}
+  .item .th img{width:100%;height:100%;object-fit:cover;display:block} .item .cr{font-size:11px;color:var(--faint);margin-top:3px;overflow-wrap:anywhere}
+  @media (max-width:520px){.item.ph{grid-template-columns:96px minmax(0,1fr);column-gap:12px} .item .th{width:96px}}
 </style>""")
 def _esc(x): return _h.escape(str(x), quote=True)
 def guide_page(slug_, title, desc, h1, body):
@@ -343,8 +347,17 @@ def _item(v, chips, text=''):
     if v.get('web'): links.append(f'<a href="{_esc(v["web"])}" rel="noopener" target="_blank">Website</a>')
     links.append(f'<a href="https://www.google.com/maps/search/?api=1&query={_esc(urllib.parse.quote_plus(v["n"] + " " + (v.get("a") or "")))}" rel="noopener" target="_blank">Map</a>')
     ch = ''.join(f'<span class="chip {c}">{_esc(t)}</span>' for c, t in chips) + (f'<span class="chip deal">{_esc(deal)}</span>' if deal else '')
-    return f"""      <li class="item"><h3><a href="/r/{_esc(v['id'])}/">{_esc(v['n'])}</a></h3><p class="where">{_esc(v.get('a') or '')}</p>
-        <div class="chips">{ch}</div>{f'<p>{_esc(text)}</p>' if text else ''}<div class="links">{' · '.join(links)}</div></li>"""
+    src = _photo_of(v)
+    th = (f'<div><a class="th" href="/r/{_esc(v["id"])}/" tabindex="-1" aria-hidden="true"><img src="{_esc(src)}" alt="" loading="lazy" decoding="async"></a>'
+          + (f'<div class="cr">Photo: {_esc(v["pcr"])}</div>' if v.get('pcr') and v.get('imgl', '').startswith('img/ph/') else '') + '</div>') if src else ''
+    inner = f"""<h3><a href="/r/{_esc(v['id'])}/">{_esc(v['n'])}</a></h3><p class="where">{_esc(v.get('a') or '')}</p>
+        <div class="chips">{ch}</div>{f'<p>{_esc(text)}</p>' if text else ''}<div class="links">{' · '.join(links)}</div>"""
+    return f'      <li class="item ph">{th}<div class="txt">{inner}</div></li>' if th else f'      <li class="item">{inner}</li>'
+def _photo_of(v):
+    if v.get('img') and _re.match(r'^public/[A-Za-z0-9_./+%-]+$', v['img']): return 'https://images.firsttable.net/640x360/' + v['img']
+    if v.get('imgx') and _re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', v['imgx']): return v['imgx']
+    if v.get('imgl') and _re.match(r'^img/[a-z0-9/_.-]+$', v['imgl']): return '/' + v['imgl']
+    return ''
 import urllib.parse
 _mv = [v for v in _deals if v.get('mich') and v.get('k') == 'dine']
 _mv.sort(key=lambda v: (-(v['mich'][0]), -(v['mich'][1]), _town(v), v['n']))

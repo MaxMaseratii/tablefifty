@@ -58,6 +58,15 @@ jobs:
         run: |
           python _build/webmeta.py || true
           python _build/build.py
+      - name: Own photo for places with no platform photo (restaurant website or Wikimedia Commons), then rebuild
+        timeout-minutes: 20
+        continue-on-error: true
+        env:
+          PH_BUDGET: "900"
+        run: |
+          pip install -q pillow || true
+          python _build/photos.py || true
+          python _build/build.py
       - name: Commit if anything changed
         run: |
           git config user.name "TableFifty bot"

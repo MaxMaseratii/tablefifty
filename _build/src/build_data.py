@@ -848,6 +848,29 @@ for c in CLASSICS:
     if c.get('pub'): v['pub'] = 1
 print('British classics:', cl_new, 'added,', cl_merged, 'already listed')
 
+# ---------- Own photo for venues with no platform photo, plus Wikidata facts (see ../photos.py) ----------
+_ROOT = os.path.dirname(os.path.dirname(HERE))
+_ph = os.path.join(HERE, 'photos.json'); _wd = os.path.join(HERE, 'wikidata.json')
+PH = json.load(open(_ph, encoding='utf-8')) if os.path.exists(_ph) else {}
+WD = (json.load(open(_wd, encoding='utf-8')) if os.path.exists(_wd) else {}).get('m', {})
+_bad_web = re.compile(r'(?i)(facebook\.com|instagram\.com|tiktok\.com|twitter\.com|x\.com|tripadvisor|linktr\.ee|deliveroo|just-eat|ubereats|opentable|thefork|firsttable)')
+_wx = os.path.join(HERE, 'web_extra.json')   # official websites we looked up by hand (search), for places with none
+WEB_X = json.load(open(_wx, encoding='utf-8')) if os.path.exists(_wx) else {}
+ph_used = wd_web = wd_ll = 0
+for v in V.values():
+    if WEB_X.get(v['id']) and not v.get('web'): v['web'] = WEB_X[v['id']]
+    w = WD.get(v['id'])
+    if w:
+        if w.get('ll') and v.get('llx'):   # exact spot instead of the town centre
+            v['ll'] = w['ll']; v.pop('llx'); v['llw'] = 1; wd_ll += 1   # llw: photos.py still treats it as town-only
+            if v.get('ct') == 'london': v['reg'] = london_reg(v['ll'])
+        if w.get('web') and not v.get('web') and not _bad_web.search(w['web']): v['web'] = w['web']; wd_web += 1
+    p = PH.get(v['id'])
+    if p and p.get('spam') and v.get('web') == p['spam']: v.pop('web')   # old domain now a spam site
+    if p and p.get('f') and not (v.get('img') or v.get('imgx') or v.get('imgl')) and os.path.exists(os.path.join(_ROOT, p['f'])):
+        v['imgl'] = p['f']; v['pcr'] = p.get('by', ''); v['pcu'] = p.get('page', ''); ph_used += 1
+print('Own photos:', ph_used, '| from Wikidata: websites', wd_web, 'map spots', wd_ll)
+
 # ---------- Short description: what kind of food they serve (shown under the address and in Insights) ----------
 # 1) the restaurant's own words from its website, trimmed to one or two clean sentences (often names its best dishes);
 # 2) otherwise a plain sentence built from its cuisine tags on First Table / EatClub. Nothing is invented.

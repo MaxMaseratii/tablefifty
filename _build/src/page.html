@@ -340,7 +340,7 @@
   .src.yours{background:var(--accent);color:var(--accent-ink)}
   a.media-tag{text-decoration:none}
   a.media-tag:hover{color:#fff;text-decoration:underline}
-  .media-tag{position:absolute;inset-inline-end:10px;bottom:9px;z-index:1;font-size:10.5px;color:rgba(255,255,255,.72)}
+  .media-tag{max-width:72%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;inset-inline-end:10px;bottom:9px;z-index:1;font-size:10.5px;color:rgba(255,255,255,.72)}
   .media-plats{position:absolute;inset-inline-start:12px;bottom:10px;z-index:1;display:flex;gap:5px;flex-wrap:wrap;max-width:62%}
   .media-plats span{font-size:11px;font-weight:700;padding:3px 7px;border-radius:6px;background:rgba(10,16,32,.82);color:#fff;direction:ltr}
   .card-body{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px}
@@ -1664,7 +1664,7 @@
         ftPhoto: !!d.img, ftImg: d.img || "", ownPhoto: !!(d.img || d.imgx || d.imgl), photoSrc: d.img ? "ft" : d.imgx ? "ec" : d.imgl ? "own" : "",
         mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
         ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
-        ds: d.ds, dso: !!d.dso, cl: d.cl || "", fd: d.fd || null, sig: d.sig || [], ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
+        ds: d.ds, dso: !!d.dso, pcr: d.pcr || "", pcu: d.pcu || "", cl: d.cl || "", fd: d.fd || null, sig: d.sig || [], ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
     });
     custom.forEach(c => {
@@ -1837,6 +1837,7 @@
     if (v.photo) return "";
     if (v.ftPhoto) return `<a class="media-tag" href="${esc(safeUrl(v.ftUrl) || "https://www.firsttable.co.uk/")}" target="_blank" rel="noopener noreferrer">${esc(t("media.ft"))}</a>`;
     if (v.photoSrc === "ec") return `<span class="media-tag">${esc(t("media.ec"))}</span>`;
+    if (v.photoSrc === "own" && v.pcr) return safeUrl(v.pcu) ? `<a class="media-tag" href="${esc(safeUrl(v.pcu))}" target="_blank" rel="noopener noreferrer">${esc(t("media.by", { s: v.pcr }))}</a>` : `<span class="media-tag">${esc(t("media.by", { s: v.pcr }))}</span>`;
     if (v.photoSrc === "own") return `<span class="media-tag">${esc(t("media.own"))}</span>`;
     return `<span class="media-tag">${esc(t("media.tag"))}</span>`;
   }
