@@ -46,7 +46,8 @@ _rj = os.path.join(SRC, 'photo_rejects.json')   # photos checked by eye and turn
 REJECT_SRC = set(json.load(open(_rj, encoding='utf-8'))) if os.path.exists(_rj) else set()
 # extra photos whose address says they are not about the food or the room you eat in
 GAL_SKIP = re.compile(r'(?i)(bedroom|[-_/]rooms?[-_./\d]|suite|[-_/]spa[-_.]|pool|bathroom|wedding|bride|award|rosette|michelin|badge|voucher|'
-                      r'gift-?card|newsletter|loyalty|qr[-_]?code|poster|cookbook|book-?cover|christmas|festive|press|map[-_.])')
+                      r'gift-?card|newsletter|loyalty|qr[-_]?code|poster|cookbook|book-?cover|christmas|festive|press|map[-_.]|flyer|halloween|'
+                      r'skyline|newspaper|[-_/]logo|wallpaper|pattern)')
 SPAM = re.compile(r'(?i)(casino|betting|bookmaker|slot games|free spins|login bonus|poker|viagra|payday loan|escort)')
 CDN = re.compile(r'(?i)(imgix\.net|squarespace(-cdn)?\.com|wixstatic\.com|cloudinary\.com|shopify\.com|website-files\.com|amazonaws\.com|'
                  r'cloudfront\.net|googleusercontent\.com|ctfassets\.net|sanity\.io|storyblok\.com|prismic\.io|wp\.com|b-cdn\.net|'
@@ -233,7 +234,8 @@ def same_photo(a, b):
 PAGE_HINT = re.compile(r'(?i)(galler|photo|album|picture|images|insta|menu|food|drink|dish|eat|about|story|inside|interior|space|venue|'
                        r'private|dining|terrace|garden)')
 PAGE_SKIP = re.compile(r'(?i)(feed|wp-admin|wp-json|xmlrpc|login|account|cart|checkout|basket|privacy|cookie|terms|policy|career|jobs?\b|'
-                       r'vacanc|gift|voucher|book|reserv|contact|press|news|tag/|category/|author/|\.pdf|\.jpe?g|\.png|\.webp|mailto:|tel:)')
+                       r'vacanc|gift|voucher|book|reserv|contact|press|news|tag/|category/|author/|\.pdf|\.jpe?g|\.png|\.webp|mailto:|tel:|'
+                       r'event|whats-?on|what-s-on|rooms?\b|stay|spa\b|hotel|wedding|meeting|shop|store|merch|golf|leisure|club-night)')
 
 
 def site_pages(h, final, n=6):
