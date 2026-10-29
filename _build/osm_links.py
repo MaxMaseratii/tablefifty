@@ -16,7 +16,7 @@ MIRRORS = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.
 COLS = ['::type', '::id', '::lat', '::lon', 'name', 'brand', 'website', 'contact:website', 'url', 'instagram', 'contact:instagram',
         'facebook', 'contact:facebook', 'phone', 'contact:phone']
 AMEN = '^(restaurant|pub|bar|cafe|fast_food|biergarten|food_court)$'
-HEAD = '[out:csv(' + ','.join(c if c.startswith('::') else f'"{c}"' for c in COLS) + ';true;"\\t")][timeout:180];\n'
+HEAD = '[out:csv(' + ','.join(c if c.startswith('::') else f'"{c}"' for c in COLS) + ';true;"\\t")][timeout:90];\n'
 KEYS = ['website', 'contact:website', 'url', 'instagram', 'contact:instagram', 'facebook', 'contact:facebook']
 STOP = {'the', 'restaurant', 'restaurants', 'bar', 'kitchen', 'cafe', 'and', 'ltd', 'limited', 'co', 'grill', 'dining', 'room', 'by', 'at', 'of',
         'london', 'uk', 'eatery', 'house', 'bistro'}
@@ -24,17 +24,36 @@ BAD_WEB = re.compile(r'(?i)(facebook\.com|instagram\.com|tiktok\.com|twitter\.co
                      r'opentable|thefork|firsttable|google\.|yell\.com|bit\.ly)')
 
 
-def query(bbox):
-    b = ','.join(f'{x:.3f}' for x in bbox)
-    return HEAD + '(\n' + ''.join(f'  nwr["amenity"~"{AMEN}"]["name"]["{k}"]({b});\n' for k in KEYS) + ');\nout center;\n'
+def query(bbox, venues=None):
+    """Overpass question. With venues: only the food places within 250 m of each venue (or, for a venue we only know the
+    town of, places with the same name within 9 km) - a small, quick question even on busy days. Without: the whole box."""
+    if not venues:
+        b = ','.join(f'{x:.3f}' for x in bbox)
+        return HEAD + '(\n' + ''.join(f'  nwr["amenity"~"{AMEN}"]["name"]["{k}"]({b});\n' for k in KEYS) + ');\nout center;\n'
+    lines = []
+    for v in venues:
+        la, lo = v['ll']
+        if v.get('llx'):
+            words = [w for w in re.split(r'[^a-z0-9]+', unicodedata.normalize('NFKD', v['n']).encode('ascii', 'ignore').decode().lower()) if w]
+            if not words: continue
+            rx = '^(the )?' + '.{0,3}'.join(words) + '$'
+            lines.append(f'  nwr["amenity"~"{AMEN}"]["name"~"{rx}",i](around:9000,{la:.5f},{lo:.5f});\n')
+        else:
+            lines.append(f'  nwr["amenity"~"{AMEN}"]["name"](around:250,{la:.5f},{lo:.5f});\n')
+    return HEAD + '(\n' + ''.join(lines) + ');\nout center;\n'
 
 
 def cells(venues, size=0.5):
-    """Small map squares (about 55 x 35 km) around our venues, so each Overpass question stays quick."""
+    """Map squares (about 55 x 35 km) around our venues. Each Overpass question only covers the part of the square
+    where our venues are (plus the 6-9 km a town-only venue is searched around), so a square with one venue is a
+    small, quick question instead of a big slow one."""
     out = {}
     for v in venues:
         a, b = math.floor(v['ll'][0] / size), math.floor(v['ll'][1] / size)
-        out.setdefault(f'{a},{b}', ((a * size - 0.01, b * size - 0.01, (a + 1) * size + 0.01, (b + 1) * size + 0.01), []))[1].append(v)
+        out.setdefault(f'{a},{b}', [None, []])[1].append(v)
+    for k, (_, vs) in out.items():
+        la = [v['ll'][0] for v in vs]; lo = [v['ll'][1] for v in vs]
+        out[k] = ((min(la) - 0.08, min(lo) - 0.11, max(la) + 0.08, max(lo) + 0.11), vs)
     return out
 
 
@@ -93,20 +112,32 @@ def clean_ph(p):
     return d[:3] + ' ' + d[3:7] + ' ' + d[7:] if d.startswith('02') else d[:5] + ' ' + d[5:]
 
 
-SLOW = {}   # mirror -> timeouts this run; a mirror that times out twice is skipped for the rest of the run
+SLOW = {}   # mirror -> failures this run; a mirror that fails 3 times is skipped for the rest of the run
+GOOD = {}   # mirror -> answers this run; the mirror that answers is asked first next time
 
 
-def fetch_square(bbox):
+def overpass_error(text):
+    """The reason inside an Overpass error page (they answer with an HTML page), in a few words."""
+    m = re.findall(r'<strong[^>]*>\s*Error\s*</strong>:?(.*?)</p>', text or '', re.S)
+    if m: return re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', m[-1])).strip()[:160]
+    t = re.search(r'<title>(.*?)</title>', text or '', re.S)
+    return (t.group(1).strip() if t else (text or '')[:160]).replace('\n', ' ')
+
+
+def fetch_square(bbox, venues=None):
     """One map square from Overpass. Returns CSV text or None (after trying each working mirror once)."""
     last = ''
-    for m in [x for x in MIRRORS if SLOW.get(x, 0) < 2] or MIRRORS[:1]:
-        r = subprocess.run(['curl', '-sS', '--max-time', '120', '-A', UA, '--data-urlencode', 'data@-', m],
-                           input=query(bbox), capture_output=True, text=True, errors='replace')
+    order = sorted([x for x in MIRRORS if SLOW.get(x, 0) < 3] or MIRRORS, key=lambda x: (-GOOD.get(x, 0), SLOW.get(x, 0), MIRRORS.index(x)))
+    for m in order:
+        r = subprocess.run(['curl', '-sS', '--max-time', '100', '-A', UA, '--data-urlencode', 'data@-', m],
+                           input=query(bbox, venues), capture_output=True, text=True, errors='replace')
         if r.returncode == 0 and r.stdout.startswith('@type'):
+            GOOD[m] = GOOD.get(m, 0) + 1
             return r.stdout, ''
-        last = (r.stderr or r.stdout)[:160].replace('\n', ' ')
-        if r.returncode == 28: SLOW[m] = SLOW.get(m, 0) + 1
-        time.sleep(3)
+        why = overpass_error(r.stdout) if r.stdout.lstrip().startswith('<') else (r.stderr or r.stdout)[:160].replace('\n', ' ')
+        last = f'{m.split("/")[2]}: {why}'
+        SLOW[m] = SLOW.get(m, 0) + 1
+        time.sleep(30 if re.search(r'(?i)(too many|rate.?limit|429|busy|slot)', why) else 3)   # a busy server gets a pause
     return None, last
 
 
@@ -174,7 +205,7 @@ def main():
     t0, ok, bad, last = time.time(), 0, 0, ''
     for k in todo:
         if time.time() - t0 > budget: break
-        text, err = fetch_square(groups[k][0])
+        text, err = fetch_square(*groups[k])
         if text is None:
             bad += 1; last = err; continue
         found = match(groups[k][1], parse(text))
