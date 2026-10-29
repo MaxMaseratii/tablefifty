@@ -12,7 +12,7 @@ Wikidata also gives some places their official website and exact map position (C
 Output: src/photos.json (+ img/ph/*.webp). Run after build.py:  python _build/photos.py
 Owners can ask for a photo to be changed or removed: add the venue id to REMOVE below.
 """
-import datetime, hashlib, html, io, json, math, os, re, subprocess, sys, tempfile, time, unicodedata
+import collections, datetime, hashlib, html, io, json, math, os, re, subprocess, sys, tempfile, threading, time, unicodedata
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urljoin, urlparse, unquote
 
@@ -174,7 +174,13 @@ except Exception:
     cv2 = None
 
 
+try:
+    import numpy as np
+except ImportError:
+    np = None
 ALL = []   # (place id, file, colour histogram) of every photo we host, to stop one picture going on two places
+_BANK = {'m': None, 'n': 0}   # the same histograms as one matrix, so one check against thousands of photos is a single sum
+_LOCK = threading.RLock()     # threads: "is this photo used elsewhere?" and "remember it" happen as one step
 
 
 def _hist(path):
@@ -182,17 +188,29 @@ def _hist(path):
     return [x / t for x in h]
 
 
+def _close(h, vid):
+    """Photos of OTHER places whose colours are close to h (cheap first test before feature matching)."""
+    if np is None:
+        return [of for ov, of, oh in ALL if ov != vid and sum(min(x, y) for x, y in zip(h, oh)) >= 0.72]
+    if not _BANK['n']: return []
+    sc = np.minimum(_BANK['m'][:_BANK['n']], np.asarray(h, np.float32)).sum(1)
+    return [ALL[i][1] for i in np.nonzero(sc >= 0.72)[0] if ALL[i][0] != vid]
+
+
 def used_elsewhere(path, vid):
     """True if this picture is already shown for ANOTHER place (checked by colour first, then by feature matching)."""
-    h = _hist(path)
-    for ov, of, oh in ALL:
-        if ov != vid and sum(min(x, y) for x, y in zip(h, oh)) >= 0.72 and os.path.exists(of) and same_photo(path, of): return True
-    return False
+    return any(os.path.exists(of) and same_photo(path, of) for of in _close(_hist(path), vid))
 
 
 def remember(vid, path):
-    try: ALL.append((vid, path, _hist(path)))
-    except Exception: pass
+    try: h = _hist(path)
+    except Exception: return
+    ALL.append((vid, path, h))
+    if np is not None:
+        m, n = _BANK['m'], _BANK['n']
+        if m is None: m = np.zeros((4096, len(h)), np.float32)
+        elif n == len(m): m = np.vstack([m, np.zeros_like(m)])
+        m[n] = h; _BANK['m'], _BANK['n'] = m, n + 1
 
 
 def same_photo(a, b):
@@ -210,31 +228,148 @@ def same_photo(a, b):
     return mask is not None and int(mask.sum()) >= 30
 
 
-def gallery_from_site(v, rec):
-    """Up to 9 more photos of this place from its own homepage, each different from the others."""
-    site = v['web']
-    if not allowed(site): return []
-    h, code, final = fetch(site)
-    if not h or code >= 400 or code == 0 or len(SPAM.findall(h)) >= 3: return []
-    kept = [os.path.join(ROOT, rec['f'])] if rec.get('f') and os.path.exists(os.path.join(ROOT, rec['f'])) else []
+# ---------- more photos (gallery) from the place's own sites ----------
+# pages of a site that usually hold photos: gallery first, then food / menu / the room, then the rest
+PAGE_HINT = re.compile(r'(?i)(galler|photo|album|picture|images|insta|menu|food|drink|dish|eat|about|story|inside|interior|space|venue|'
+                       r'private|dining|terrace|garden)')
+PAGE_SKIP = re.compile(r'(?i)(feed|wp-admin|wp-json|xmlrpc|login|account|cart|checkout|basket|privacy|cookie|terms|policy|career|jobs?\b|'
+                       r'vacanc|gift|voucher|book|reserv|contact|press|news|tag/|category/|author/|\.pdf|\.jpe?g|\.png|\.webp|mailto:|tel:)')
+
+
+def site_pages(h, final, n=6):
+    """Links on the same site to pages likely to hold photos (gallery, food, menu, about...), best first."""
     out = []
-    for u in page_images(h, final, n=20):
-        if len(out) >= 9: break
-        if u == rec.get('src') or u in USED_SRC or u in REJECT_SRC or GAL_SKIP.search(u): continue
-        if not same_site(u, final) and not CDN.search(urlparse(u).netloc): continue
-        if urlparse(u).netloc == urlparse(final).netloc and not allowed(u): continue
-        data, err = download(u)
-        if not data: continue
-        dest = os.path.join(PH_DIR, f'{v["id"]}-{len(out) + 2}.webp')
-        if to_webp(data, dest, size=GSIZE): continue
-        if any(same_photo(dest, x) for x in kept) or used_elsewhere(dest, v['id']): os.remove(dest); continue
-        kept.append(dest); USED_SRC.add(u); remember(v['id'], dest)
-        out.append({'f': f'img/ph/{v["id"]}-{len(out) + 2}.webp', 'src': u})
+    for m in re.finditer(r'<a\b[^>]*?href\s*=\s*["\']([^"\'#]+)[^"\']*["\'][^>]*>(.*?)</a>', h, re.I | re.S):
+        u = urljoin(final, html.unescape(m.group(1).strip()))
+        if not u.startswith('http') or urlparse(u).netloc != urlparse(final).netloc or u.rstrip('/') == final.rstrip('/'): continue
+        label = re.sub(r'<[^>]+>', ' ', m.group(2))[:80]
+        path = urlparse(u).path + ('?' + urlparse(u).query if urlparse(u).query else '')
+        if PAGE_SKIP.search(path) or not PAGE_HINT.search(path + ' ' + label): continue
+        both = path + ' ' + label
+        score = 0 if re.search(r'(?i)(galler|photo|album|picture|images)', both) else 1 if re.search(r'(?i)(food|menu|dish|inside|interior|space)', both) else 2
+        out.append((score, len(out), u))
+    res = []
+    for _, _, u in sorted(out):
+        if u not in res: res.append(u)
+    return res[:n]
+
+
+def gallery_images(h, base):
+    """Every photo address on a page, in page order: full-size lightbox links, <img> (widest srcset), CSS backgrounds."""
+    found = []
+    for m in re.finditer(r'<a\b[^>]*?href\s*=\s*["\']([^"\']+\.(?:jpe?g|webp|png)(?:\?[^"\']*)?)["\']', h, re.I):
+        found.append((m.start(), m.group(1)))
+    for m in re.finditer(r'<img\b[^>]*>', h, re.I | re.S):
+        tag = m.group(0)
+        ss = re.search(r'(?:data-)?srcset\s*=\s*["\']([^"\']+)["\']', tag, re.I)
+        best = None
+        if ss:
+            parts = [p.strip().rsplit(' ', 1) for p in ss.group(1).split(',') if p.strip()]
+            parts = [(int(p[1][:-1]) if len(p) == 2 and p[1][:-1].isdigit() else 0, p[0]) for p in parts]
+            if parts: best = max(parts)[1]
+        srcs = re.findall(r'(?:data-src|data-lazy-src|data-original|data-image|src)\s*=\s*["\']([^"\']+?\.(?:jpe?g|webp|png)(?:[?/][^"\']*)?)["\']', tag, re.I)
+        w = re.search(r'\bwidth\s*=\s*["\']?(\d+)', tag)
+        if w and int(w.group(1)) < 200 and not ss: continue   # icons (a thumbnail's full photo comes from its link above)
+        u = best or (srcs[0] if srcs else None)
+        if u: found.append((m.start(), u))
+    for m in re.finditer(r'background(?:-image)?\s*:[^;"\']*url\(\s*["\']?([^"\')]+?\.(?:jpe?g|webp|png)[^"\')]*)', h, re.I):
+        found.append((m.start(), m.group(1)))
+    out = []
+    for _, u in sorted(found):
+        u = urljoin(base, html.unescape(u.strip()))
+        # ask for a copy about 1,000-1,500 px wide: big enough for our 640x400, small enough to be quick
+        wp = re.search(r'-(\d{2,4})x\d{2,4}(?=\.(?:jpe?g|webp|png)(?:\?|$))', u)
+        if wp and int(wp.group(1)) < 640: u = u[:wp.start()] + u[wp.end():]   # WordPress thumbnail -> the photo itself
+        u = re.sub(r'(static\.wixstatic\.com/media/([^/?]+?\.(?:jpe?g|png|webp)))(?:/v1/.*)?$', r'\1/v1/fit/w_1200,h_1200,q_85/\2', u, flags=re.I)
+        if '/cdn/shop/' in u: u = re.sub(r'([?&])width=\d+', r'\1width=1200', u)   # Shopify
+        if 'squarespace-cdn.com' in u: u = re.sub(r'\?.*$', '', u) + '?format=1500w'
+        if u.startswith('http') and not BAD_IMG.search(u) and not GAL_SKIP.search(u) and u not in out: out.append(u)
     return out
 
 
-def from_website(v):
-    site = v['web']
+_PREF = {}   # platform photo address -> local copy, to compare our extra photos with the card's own platform photos
+
+
+def platform_refs(v):
+    """Local copies of the card's First Table / EatClub photos (only to stop us adding the same picture twice)."""
+    out = []
+    for u in [v.get('img') or v.get('imgx')] + list(v.get('g') or []):
+        if not u: continue
+        if u not in _PREF:
+            full = 'https://images.firsttable.net/640x360/' + u if u.startswith('public/') else u
+            data, _ = download(full) if full.startswith('https://') else (None, '')
+            path = None
+            if data:
+                path = os.path.join(tempfile.gettempdir(), 'tf_pref_' + hashlib.md5(u.encode()).hexdigest() + '.jpg')
+                open(path, 'wb').write(data)
+            _PREF[u] = path
+        if _PREF[u]: out.append(_PREF[u])
+    return out
+
+
+def gallery(v, rec, sources, limit, refs, deadline):
+    """Adds photos of this place from its own sites until `limit` extra photos: the home page and its gallery, food, menu
+    and about pages. Keeps the photos it already has; each new one must differ from every photo of this card and of any
+    other card. Returns the full list."""
+    have = [x for x in rec.get('g', []) if os.path.exists(os.path.join(ROOT, x['f']))]
+    if len(have) >= limit: return have[:limit]
+    kept = list(refs) + [os.path.join(ROOT, x['f']) for x in have]
+    mine = {x.get('src') for x in have}
+    nums = [int(m.group(1)) for x in have for m in [re.search(r'-(\d+)\.webp$', x['f'])] if m]
+    nxt = max(nums + [1]) + 1
+    out, tried, done_pages = list(have), set(), set()
+    for start, deep in sources:
+        if len(out) >= limit or time.time() > deadline: break
+        if start in done_pages or not allowed(start): continue
+        h, code, final = fetch(start)
+        done_pages.update({start, final})
+        if not h or code >= 400 or code == 0 or len(SPAM.findall(h)) >= 3: continue
+        pages = [(h, final)]
+        for p in (site_pages(h, final) if deep else []):
+            if p in done_pages or not allowed(p): continue
+            ph, pc, pf = fetch(p); done_pages.update({p, pf})
+            if ph and 200 <= pc < 400: pages.append((ph, pf))
+        for ph, pf in pages:
+            for u in gallery_images(ph, pf):
+                if len(out) >= limit or time.time() > deadline: break
+                if u in tried or u in mine or u == rec.get('src') or u in USED_SRC or u in REJECT_SRC: continue
+                tried.add(u)
+                if not same_site(u, pf) and not CDN.search(urlparse(u).netloc): continue
+                if urlparse(u).netloc == urlparse(pf).netloc and not allowed(u): continue
+                data, err = download(u)
+                if not data: continue
+                rel = f'img/ph/{v["id"]}-{nxt}.webp'; dest = os.path.join(ROOT, rel)
+                if to_webp(data, dest, size=GSIZE): continue
+                if any(same_photo(dest, x) for x in kept): os.remove(dest); continue
+                with _LOCK:
+                    if u in USED_SRC or used_elsewhere(dest, v['id']): os.remove(dest); continue
+                    USED_SRC.add(u); remember(v['id'], dest)
+                kept.append(dest); nxt += 1
+                out.append({'f': rel, 'src': u, 'by': urlparse(pf).netloc.lower().removeprefix('www.'), 'page': pf})
+    return out
+
+
+SHARED = set()   # website domains shared by several cards (chains): only the branch's own page is read there
+
+
+def gallery_sources(v, rec, hasr):
+    """Where to look for more photos, as (page, also read its gallery/menu/about pages): the website we list, the page a
+    photo was picked from, the has.restaurant page. A chain's shared site gives only the branch's own page (its other
+    pages show every branch), and nothing when we only know the chain's home page."""
+    out = []
+    for u in [v.get('web'), rec.get('page') if rec.get('from') in ('pick', 'web') else None, hasr]:
+        if not u or not u.startswith('http') or re.search(r'(?i)(wikimedia|wikipedia|commons\.)', u): continue
+        pu = urlparse(u); root = f'{pu.scheme}://{pu.netloc}/'
+        if pu.netloc.lower().removeprefix('www.') in SHARED:
+            if u.rstrip('/') != root.rstrip('/') and (u, False) not in out: out.append((u, False))
+            continue
+        for x in (u, root):
+            if x not in [o[0] for o in out]: out.append((x, True))
+    return out
+
+
+def from_website(v, site=None):
+    site = site or v['web']
     if not allowed(site): return None, 'robots'
     h, code, final = fetch(site)
     if not h or code >= 400 or code == 0: return None, f'site http {code}'
@@ -250,10 +385,10 @@ def from_website(v):
         dest = os.path.join(PH_DIR, v['id'] + '.webp')
         bad = to_webp(data, dest)
         if bad: why = bad; continue
-        if used_elsewhere(dest, v['id']): why = 'same photo as another place'; os.remove(dest); continue
-        remember(v['id'], dest)
+        with _LOCK:
+            if u in USED_SRC or used_elsewhere(dest, v['id']): why = 'same photo as another place'; os.remove(dest); continue
+            remember(v['id'], dest); USED_SRC.add(u)
         dom = urlparse(final).netloc.lower().removeprefix('www.')
-        USED_SRC.add(u)
         return {'f': f'img/ph/{v["id"]}.webp', 'from': 'web', 'src': u, 'by': dom, 'page': site, 't': TODAY.isoformat()}, ''
     return None, why
 
@@ -428,6 +563,9 @@ def main():
         WM.setdefault(k, {})['img'] = f
     pu = os.path.join(SRC, 'photo_urls.json')    # photos picked by hand from the place's own website (image address + page)
     PURL = json.load(open(pu, encoding='utf-8')) if os.path.exists(pu) else {}
+    hf = os.path.join(SRC, 'hasr.json')          # the place's has.restaurant page, if it has one (hasr.py)
+    HASR = (json.load(open(hf, encoding='utf-8')) if os.path.exists(hf) else {}).get('m', {})
+    site_of = lambda v: bool(v.get('web') or HASR.get(v['id']))
     real = lambda s: bool(s and s.get('f') and s.get('from') != 'card')
 
     def fail(vid, **kw):   # remember why there is no photo, but keep a name card if the place has one
@@ -439,7 +577,7 @@ def main():
         s = state.get(v['id'])
         if not s: return True
         if real(s): return not os.path.exists(os.path.join(ROOT, s['f']))
-        if s.get('from_tried') != bool(v.get('web')) or (s.get('wd') != bool(WM.get(v['id'], {}).get('img'))): return True   # new source since
+        if s.get('from_tried') != site_of(v) or (s.get('wd') != bool(WM.get(v['id'], {}).get('img'))): return True   # new source since
         return (TODAY - datetime.date.fromisoformat(s.get('t', '2000-01-01'))).days >= 14
 
     USED_SRC.update(s['src'] for s in state.values() if real(s) and s.get('src'))
@@ -470,19 +608,24 @@ def main():
     print(f'{len(everyone)} cards have no platform photo ({len(need)} single places); {len(todo)} places to try today', flush=True)
 
     # 1) the restaurant website's preview image, a few at a time
-    web_todo = [v for v in todo if v.get('web') and not rejected(v['id'])]
+    web_todo = [v for v in todo if (v.get('web') and not rejected(v['id'])) or HASR.get(v['id'])]
     got_web = {}
     def one(v):
         if time.time() - t0 > BUDGET * 0.6: return v['id'], None, 'time'
-        try: rec, why = from_website(v)
-        except Exception as e: rec, why = None, str(e)[:60]
-        return v['id'], rec, why
+        why = 'no website'
+        for site in [None if rejected(v['id']) else v.get('web'), HASR.get(v['id'])]:   # its website, then has.restaurant
+            if not site: continue
+            try: rec, why = from_website(v, site)
+            except Exception as e: rec, why = None, str(e)[:60]
+            if rec: return v['id'], rec, why
+            if why == 'spam site': break
+        return v['id'], None, why
     with ThreadPoolExecutor(6) as ex:
         for vid, rec, why in ex.map(one, web_todo):
             if rec: state[vid] = rec; got_web[vid] = 1
             elif why != 'time':
                 fail(vid, none=why, from_tried=True)
-                if why == 'spam site': state[vid]['spam'] = next(v['web'] for v in web_todo if v['id'] == vid)
+                if why == 'spam site': state[vid]['spam'] = next(v.get('web') for v in web_todo if v['id'] == vid)
 
     # 2) Wikimedia Commons (one by one, politely): Wikidata matches and photos picked by hand
     rest = [v for v in everyone if (v in todo or v['id'] in PICKED) and due(v) and not real(state.get(v['id'])) and WM.get(v['id'], {}).get('img')]
@@ -499,14 +642,14 @@ def main():
             key = f.replace(' ', '_'); ci = info.get(key) or info.get(key[:1].upper() + key[1:])
             prev = state.get(v['id'], {})
             if not ci or not ci.get('thumb'):
-                fail(v['id'], none=prev.get('none', 'no free photo'), from_tried=bool(v.get('web')), wd=True); continue
-            if ci['thumb'] in USED_SRC: fail(v['id'], none='same photo as another place', from_tried=bool(v.get('web')), wd=True); continue
+                fail(v['id'], none=prev.get('none', 'no free photo'), from_tried=site_of(v), wd=True); continue
+            if ci['thumb'] in USED_SRC: fail(v['id'], none='same photo as another place', from_tried=site_of(v), wd=True); continue
             data, err = download(ci['thumb']); time.sleep(1)
             bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp'), portrait_ok=v['id'] in PICKED) if data else err
             if not bad and used_elsewhere(os.path.join(PH_DIR, v['id'] + '.webp'), v['id']): bad = 'same photo as another place'
             if not bad: remember(v['id'], os.path.join(PH_DIR, v['id'] + '.webp'))
             if bad:   # a refused download (busy server) is tried again next run; a bad picture waits 14 days
-                fail(v['id'], none=bad, from_tried=bool(v.get('web')))
+                fail(v['id'], none=bad, from_tried=site_of(v))
                 if data: state[v['id']]['wd'] = True
                 else: commons_seen.discard(v['id']); time.sleep(4)
                 continue
@@ -517,25 +660,55 @@ def main():
     for v in todo + rest:   # remember what we looked at, so we wait 14 days before trying again
         s = state.get(v['id'])
         if s and not real(s):
-            s.setdefault('from_tried', bool(v.get('web')))
+            s.setdefault('from_tried', site_of(v))
             if v['id'] in commons_seen or not WM.get(v['id'], {}).get('img'): s['wd'] = bool(WM.get(v['id'], {}).get('img'))
             else: s.pop('wd', None)   # Commons not reached today: try again next run
 
-    # 2b) more photos (gallery, up to 10 in all) for places whose photo came from their own website; re-checked monthly
-    gal_new = 0
-    gtodo = [v for v in everyone if v.get('web') and real(state.get(v['id'])) and not rejected(v['id'])
-             and (TODAY - datetime.date.fromisoformat(state[v['id']].get('gt', '2000-01-01'))).days >= 30]
-    def gone_and_get(v):
-        if time.time() - t0 > BUDGET * 0.9: return v['id'], None
-        try: return v['id'], gallery_from_site(v, state[v['id']])
-        except Exception: return v['id'], []
-    with ThreadPoolExecutor(6) as ex:
-        for vid, g in ex.map(gone_and_get, gtodo):
+    # 2b) more photos, up to 10 a card, from the place's own sites: its website, the page a photo was picked from and its
+    #     has.restaurant page (home page + gallery, food, menu and about pages). Platform cards with fewer than 10 photos
+    #     get ours after theirs. Photos already found are kept; a card is looked at again monthly, or when it gets a new site.
+    gal_new, gal_cards = 0, 0
+    deadline = t0 + BUDGET * 0.92
+    _dom = collections.Counter(urlparse(v['web']).netloc.lower().removeprefix('www.') for v in deals if v.get('web'))
+    SHARED.update(k for k, n in _dom.items() if n >= 2)
+    def gjob(v):
+        s = state.get(v['id']) or {}
+        if v.get('img') or v.get('imgx'):
+            limit, src = 9 - len(v.get('g') or []), gallery_sources(v, {}, HASR.get(v['id']))
+        elif real(s) and v in everyone:
+            limit, src = 9, gallery_sources(v, s, HASR.get(v['id']))
+        else:
+            return None
+        if limit <= 0 or not src: return None
+        sig = '|'.join(u for u, _ in src)
+        have = sum(1 for x in s.get('g', []) if os.path.exists(os.path.join(ROOT, x['f'])))
+        age = (TODAY - datetime.date.fromisoformat(s.get('gt', '2000-01-01'))).days
+        if s.get('gs') == sig and (age < 30 or have >= limit): return None
+        return v, s, src, limit, sig
+    jobs = [j for j in (gjob(v) for v in deals if v['id'] not in REMOVE and v.get('reg') != 'multi' and v.get('ct') != 'uk') if j]
+    if os.environ.get('PH_GALLERY', '1') != '1': jobs = []   # switched off (e.g. while a big batch waits to be checked by eye)
+    jobs.sort(key=lambda j: len(j[0].get('g') or []) + len(j[1].get('g', [])))   # fewest photos first
+    print(f'Gallery: {len(jobs)} cards to look at for more photos', flush=True)
+    def grun(j):
+        v, s, src, limit, sig = j
+        if time.time() > deadline: return v['id'], None, sig, False
+        try:
+            refs = platform_refs(v) if (v.get('img') or v.get('imgx')) else [os.path.join(ROOT, s['f'])]
+            g = gallery(v, s, src, limit, refs, deadline)
+            return v['id'], g, sig, time.time() <= deadline
+        except Exception as e:
+            print(f'  gallery {v["id"]}: {str(e)[:80]}', flush=True); return v['id'], None, sig, False
+    with ThreadPoolExecutor(int(os.environ.get('PH_THREADS', '8'))) as ex:
+        for i, (vid, g, sig, complete) in enumerate(ex.map(grun, jobs), 1):
             if g is None: continue
-            old = {x['f'] for x in state[vid].get('g', [])} - {x['f'] for x in g}
-            for f in old:
-                if os.path.exists(os.path.join(ROOT, f)): os.remove(os.path.join(ROOT, f))
-            state[vid]['g'] = g; state[vid]['gt'] = TODAY.isoformat(); gal_new += len(g)
+            s = state.setdefault(vid, {})
+            if not s.get('f'): s['x'] = 1   # a platform card: only extra photos of ours
+            gal_new += len(g) - len(s.get('g', [])); gal_cards += len(g) > len(s.get('g', []))
+            s['g'] = g
+            if complete: s['gt'] = TODAY.isoformat(); s['gs'] = sig
+            if i % 100 == 0:
+                json.dump(dict(sorted(state.items())), open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
+                print(f'  {i}/{len(jobs)} cards, {gal_new} new photos', flush=True)
 
     # 3) everyone still without a photo gets a name card of its own
     cards = 0
@@ -557,7 +730,7 @@ def main():
         if fn.endswith('.webp') and fn not in used: os.remove(os.path.join(PH_DIR, fn))
     json.dump(dict(sorted(state.items())), open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, separators=(',', ':'))
     have = sum(1 for v in everyone if real(state.get(v['id'])))
-    print(f'::notice title=Photos::today: {got_pick} picked, {len(got_web)} from websites, {commons_ok} from Wikimedia Commons, {gal_new} extra gallery photos, {cards} name cards | '
+    print(f'::notice title=Photos::today: {got_pick} picked, {len(got_web)} from websites, {commons_ok} from Wikimedia Commons, {gal_new} extra gallery photos on {gal_cards} cards, {cards} name cards | '
           f'{have} of {len(everyone)} cards without a platform photo have a real photo; the rest have their own name card')
 
 

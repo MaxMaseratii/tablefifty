@@ -62,10 +62,13 @@ jobs:
         timeout-minutes: 35
         continue-on-error: true
         env:
-          PH_BUDGET: "900"
-          PD_BUDGET: "600"
+          PH_BUDGET: "1000"
+          PD_BUDGET: "500"
+          HR_BUDGET: "240"
+          PH_GALLERY: "0"   # back to "1" once the first big batch of gallery photos has been checked by eye
         run: |
           pip install -q pillow opencv-python-headless || true
+          python _build/hasr.py || true
           python _build/photos.py || true
           python _build/photo_dupes.py || true
           python _build/build.py

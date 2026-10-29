@@ -897,9 +897,23 @@ for v in V.values():
         v['imgl'] = p['f']; ph_used += 1
         if p.get('from') == 'card': v['phc'] = 1   # our own name card, not a photo: no credit line
         else: v['pcr'] = p.get('by', ''); v['pcu'] = p.get('page', '')
-    if p and p.get('g') and not v.get('g'):   # more own photos (gallery), each file is only this place's
-        gg = [x['f'] for x in p['g'] if os.path.exists(os.path.join(_ROOT, x['f'])) and x['f'] not in _used]
-        if gg: v['g'] = gg[:9]; _used.update(gg)
+    if p and p.get('g'):   # more own photos (gallery), each file is only this place's
+        gg = [x for x in p['g'] if os.path.exists(os.path.join(_ROOT, x['f'])) and x['f'] not in _used]
+        if v.get('img') or v.get('imgx'):   # a platform card: our photos come after its own, up to 10 in all
+            gg = gg[:max(9 - len(v.get('g') or []), 0)]
+            if gg: v['g'] = (v.get('g') or []) + [x['f'] for x in gg]
+        elif not v.get('g'):
+            gg = gg[:9]
+            if gg: v['g'] = [x['f'] for x in gg]
+        else:
+            gg = []
+        _used.update(x['f'] for x in gg)
+        _wd = re.sub(r'^www\.', '', urllib.parse.urlparse(v['web']).netloc.lower()) if v.get('web') else ''
+        cr = []   # where the extra photos come from, when not the same site as the main photo's credit
+        for x in gg:
+            by, pg = (x['by'], x.get('page', '')) if x.get('by') else (_wd, v.get('web', '')) if _wd else (p.get('by', ''), p.get('page', ''))
+            if by and by != v.get('pcr') and by not in [c[0] for c in cr]: cr.append([by, pg])
+        if cr: v['gcr'] = cr[:3]
 print('Own photos:', ph_used, '| from Wikidata: websites', wd_web, 'map spots', wd_ll)
 _nophoto = [v['id'] for v in V.values() if not (v.get('img') or v.get('imgx') or v.get('imgl'))]
 _allph = [v.get('img') or v.get('imgx') or v.get('imgl') for v in V.values() if v.get('img') or v.get('imgx') or v.get('imgl')]
