@@ -117,12 +117,12 @@
   .spot-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:8px 8px 0}
   .spot-tabs button{display:flex;align-items:center;gap:7px;min-width:0;padding:5px;border-radius:10px;border:1px solid var(--line);background:var(--surface-2);cursor:pointer;text-align:start;color:var(--text)}
   .spot-tabs button[aria-selected="true"]{border-color:var(--amber);background:var(--amber-soft)}
-  .spot-tabs img{width:34px;height:34px;border-radius:8px;object-fit:cover;flex:none}
+  .spot-tabs img,.spot-tabs .ncard{width:34px;height:34px;min-height:0;border-radius:8px;object-fit:cover;flex:none}
   .spot-tabs span{display:grid;min-width:0;font-size:11.5px;line-height:1.25}
   .spot-tabs b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
   .spot-tabs small{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .spot-tabs .tdeal{display:none;color:var(--amber);font-style:normal;font-weight:700}
-  @media (max-width:520px){.spot-tabs button{justify-content:center;padding:4px}.spot-tabs span{display:none}.spot-tabs img{width:100%;height:40px}}
+  @media (max-width:520px){.spot-tabs button{justify-content:center;padding:4px}.spot-tabs span{display:none}.spot-tabs img,.spot-tabs .ncard{width:100%;height:40px}}
   @media (min-width:900px){
     .spot{grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);grid-template-areas:"top top" "media tabs" "body tabs"}
     .spot-top{grid-area:top;font-size:13px;padding:14px 20px}
@@ -130,7 +130,7 @@
     .spot-body{grid-area:body;padding:18px 22px 22px}
     .spot-tabs{grid-area:tabs;grid-template-columns:1fr;align-content:start;gap:10px;padding:16px;border-inline-start:1px solid var(--line);background:rgba(10,16,32,.35)}
     .spot-tabs button{padding:10px;gap:14px;border-radius:14px}
-    .spot-tabs img{width:76px;height:76px;border-radius:12px}
+    .spot-tabs img,.spot-tabs .ncard{width:76px;height:76px;border-radius:12px}
     .spot-tabs span{font-size:15px;gap:3px}
     .spot-tabs small{font-size:12.5px}
     .spot-tabs .tdeal{display:block;font-size:12.5px}
@@ -173,7 +173,7 @@
   #suggest{position:absolute;inset-inline:0;top:calc(100% + 6px);margin:0;padding:6px;list-style:none;background:var(--surface);border:1px solid var(--line-2);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.5);max-height:min(380px,60vh);overflow:auto;z-index:40}
   #suggest li{display:flex;align-items:center;gap:12px;padding:8px 10px;border-radius:10px;cursor:pointer}
   #suggest li[aria-selected="true"],#suggest li:hover{background:var(--surface-2)}
-  #suggest img{flex:none;width:52px;height:40px;border-radius:7px;object-fit:cover}
+  #suggest img,#suggest .ncard{flex:none;width:52px;height:40px;min-height:0;border-radius:7px;object-fit:cover}
   .sg-txt{flex:1;min-width:0}
   .sg-name{font-weight:600}
   .sg-area{color:var(--muted);font-size:13px}
@@ -258,6 +258,14 @@
   .ins-bars u{display:block;height:100%;background:var(--accent);text-decoration:none}
   .ins-bars b{color:var(--text);font-size:13px}
   .ins-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+  .ins-strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:2px}
+  .ins-strip img{flex:0 0 84%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;scroll-snap-align:start;display:block;background:var(--surface-2);min-width:0}
+  @media (min-width:700px){.ins-strip img{flex-basis:64%}}
+  .ins-strip-n{font-size:12px;color:var(--faint);margin:0 0 10px}
+  .ncard{width:100%;height:100%;min-height:100%;display:flex;align-items:flex-end;padding:18px 20px;box-sizing:border-box;color:#fff8ef;
+    background:radial-gradient(circle at 82% 18%,hsl(var(--h2) 60% 50% / .5),transparent 46%),radial-gradient(circle at 10% 110%,hsl(var(--h1) 60% 45% / .45),transparent 50%),linear-gradient(135deg,hsl(var(--h1) 45% 17%),hsl(var(--h2) 48% 30%))}
+  .ncard span{font-family:var(--f-display);font-weight:800;font-size:clamp(20px,3.2vw,30px);line-height:1.05;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;overflow-wrap:anywhere}
+  .ncard.sm{padding:0;border-radius:inherit}
   .ins-gal.one{grid-template-columns:1fr}
   .ins-gal img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;display:block}
   .ins-gal.one img{aspect-ratio:16/8}
@@ -1662,9 +1670,9 @@
            : d.imgx && /^https:\/\/eccdn\.com\.au\/images\/[A-Za-z0-9\/_.-]+$/.test(d.imgx) ? d.imgx
            : d.imgl && /^img\/[a-z0-9\/_.-]+$/.test(d.imgl) ? d.imgl : "",
         ftPhoto: !!d.img, ftImg: d.img || "", ownPhoto: !!(d.img || d.imgx || d.imgl), photoSrc: d.img ? "ft" : d.imgx ? "ec" : d.imgl ? "own" : "",
-        mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: (d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
+        mich: d.mich || null, nodeal: !!d.nodeal, own: d.own || "", pub: !!d.pub, gal: [...(d.gal || []).filter(x => /^img\/[a-z0-9\/_.-]+$/.test(x)), ...(d.g || []).map(galUrl).filter(Boolean)], logo: d.logo, fx: d.fx || [], sub: d.sub || null, mp: d.mp || "",
         ftUrl: (d.o.find(o => o.p === "firsttable") || {}).u || "",
-        ds: d.ds, dso: !!d.dso, pcr: d.pcr || "", pcu: d.pcu || "", cl: d.cl || "", fd: d.fd || null, sig: d.sig || [], ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
+        ds: d.ds, dso: !!d.dso, pcr: d.pcr || "", pcu: d.pcu || "", phc: !!d.phc, cl: d.cl || "", fd: d.fd || null, sig: d.sig || [], ig: d.ig, tt: d.tt, fb: d.fb, web: d.web, menu: d.menu, ph: d.ph, hrs: d.hrs, mains: d.mains || [], celebs: d.celebs || [], sumk: d.sumk, srcs: d.srcs || [], cz: d.c, meals: d.m || [], style: d.s, k: d.k, price: d.price,
         tags: d.tg || [], aliases: [], custom: false, photo: "", offers });
     });
     custom.forEach(c => {
@@ -1680,7 +1688,6 @@
     venues.forEach(v => {
       const cz = cuisineFor(v);
       v.czKey = cz ? cz.key : null;
-      if (!v.img) v.img = cz ? cz.img : GENERIC.img;
       v.alt = cz ? cz.alt : GENERIC.alt;
       const f = arr => { const w = tokens(arr.join(" ")); return { words: w, joined: w.join(" ") }; };
       const czWords = cz ? [t("cz." + cz.key), I18N.en["cz." + cz.key], ...cz.words] : [];
@@ -1827,16 +1834,36 @@
   }
   const FT_IMG = "https://images.firsttable.net/";
   function imgTag(v, eager) {
-    const fb = v.cz ? (CUISINES.find(c => c.key === v.czKey) || GENERIC).img : GENERIC.img;
+    const fb = `data-nc="${esc(v.id)}" data-ncn="${esc(v.name)}"`;   // if the photo fails, the place's own name card
+    if (!v.photo && !v.img) return ncHTML(v);
     if (v.photo) return `<img src="${esc(v.photo)}" alt="${esc(v.name)}" loading="lazy" decoding="async">`;
-    if (v.ownPhoto && !v.ftPhoto) return `<img src="${esc(v.img)}" alt="${esc(v.name)}" loading="${eager ? "eager" : "lazy"}" decoding="async" data-fb="${esc(fb)}">`;
-    if (v.ftPhoto) return `<img src="${esc(v.img)}" srcset="${esc(v.img)} 640w, ${esc(FT_IMG + "1170x655/" + v.ftImg)} 1170w" sizes="(min-width:1000px) 400px, 100vw" alt="${esc(v.name)}" loading="${eager ? "eager" : "lazy"}" decoding="async" data-fb="${esc(fb)}">`;
-    return `<img src="${esc(v.img)}" alt="${esc(v.alt)}" loading="lazy" decoding="async">`;
+    if (v.ownPhoto && !v.ftPhoto) return `<img src="${esc(v.img)}" alt="${esc(v.name)}" loading="${eager ? "eager" : "lazy"}" decoding="async" ${fb}>`;
+    if (v.ftPhoto) return `<img src="${esc(v.img)}" srcset="${esc(v.img)} 640w, ${esc(FT_IMG + "1170x655/" + v.ftImg)} 1170w" sizes="(min-width:1000px) 400px, 100vw" alt="${esc(v.name)}" loading="${eager ? "eager" : "lazy"}" decoding="async" ${fb}>`;
+    return `<img src="${esc(v.img)}" alt="${esc(v.name)}" loading="lazy" decoding="async" ${fb}>`;
+  }
+  function galUrl(x) {
+    if (/^public\/[A-Za-z0-9_.\/+%-]+$/.test(x)) return FT_IMG + "640x360/" + x;
+    if (/^https:\/\/eccdn\.com\.au\/images\/[A-Za-z0-9\/_.-]+$/.test(x)) return x;
+    if (/^img\/[a-z0-9\/_.-]+$/.test(x)) return x;
+    return "";
+  }
+  function ncHTML(v, small) {   // the place's own name card, drawn here: never a picture shared with another place
+    let h = 7; for (const ch of String(v.id || v.name)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+    const a = h % 360, b = (a + 35 + (h >>> 9) % 90) % 360;
+    return `<div class="ncard${small ? " sm" : ""}" style="--h1:${a};--h2:${b}" role="img" aria-label="${esc(v.name)}">${small ? "" : `<span>${esc(v.name)}</span>`}</div>`;
+  }
+  function galleryHTML(v) {
+    const list = [...new Set([v.photo || (v.ownPhoto ? v.img : ""), ...v.gal].filter(Boolean))].slice(0, 10);
+    if (list.length <= 1) return v.ownPhoto || v.photo ? `<div class="ins-gal one">${imgTag(v)}</div>` : "";
+    return `<div class="ins-strip" tabindex="0" aria-label="${esc(t("ins.photos", { n: list.length }))}">${list.map((g, i) =>
+      `<img src="${esc(g)}" alt="${esc(v.name)} (${i + 1}/${list.length})" loading="lazy" decoding="async" data-nc="${esc(v.id)}" data-ncn="${esc(v.name)}">`).join("")}</div>
+      <p class="ins-strip-n">${esc(t("ins.photos", { n: list.length }))}</p>`;
   }
   function photoCredit(v) {
     if (v.photo) return "";
     if (v.ftPhoto) return `<a class="media-tag" href="${esc(safeUrl(v.ftUrl) || "https://www.firsttable.co.uk/")}" target="_blank" rel="noopener noreferrer">${esc(t("media.ft"))}</a>`;
     if (v.photoSrc === "ec") return `<span class="media-tag">${esc(t("media.ec"))}</span>`;
+    if (v.phc) return "";
     if (v.photoSrc === "own" && v.pcr) return safeUrl(v.pcu) ? `<a class="media-tag" href="${esc(safeUrl(v.pcu))}" target="_blank" rel="noopener noreferrer">${esc(t("media.by", { s: v.pcr }))}</a>` : `<span class="media-tag">${esc(t("media.by", { s: v.pcr }))}</span>`;
     if (v.photoSrc === "own") return `<span class="media-tag">${esc(t("media.own"))}</span>`;
     return `<span class="media-tag">${esc(t("media.tag"))}</span>`;
@@ -1918,7 +1945,7 @@
     if (bestFor.length) auto.push(t("ins.auto3", { t: bestFor.map(k => t("ins." + k).toLowerCase()).join(", ") }));
     const deals = v.offers.map(o => o.h === "classic" ? `<li>${esc(t("d.classic"))}</li>` : `<li><b>${esc(platName(o))}:</b> ${esc(offerHead(o))}${o.platform === "eatclub" && o.sl ? ` <small>(${esc(slotsText(o.sl))})</small>` : ""}</li>`).join("");
     return `
-      ${v.gal.length ? `<div class="ins-gal">${v.gal.map(g => `<img src="${esc(g)}" alt="${esc(v.name)}" loading="lazy">`).join("")}</div>` : v.ownPhoto ? `<div class="ins-gal one">${imgTag(v)}</div>` : ""}
+      ${galleryHTML(v)}
       <div class="ins-top">
         ${p ? `<div class="ins-score"><b>${esc(p.s.toFixed(1))}</b><span>${esc(t("score.name"))}<br><small>${esc(t("ins.reviews", { n: p.n.toLocaleString(lang) }))}</small></span></div>` : ""}
         <p class="ins-auto">${esc(auto.join(" "))}</p>
@@ -2203,7 +2230,7 @@
     if (!toks.length || document.activeElement !== qEl) return closeSuggest();
     const top = query().shown.slice(0, 6);
     sg.innerHTML = top.length ? top.map((x, i) => `<li role="option" id="opt-${i}" data-id="${esc(x.v.id)}" data-name="${esc(x.v.name)}" aria-selected="${i === state.active}">
-        <img src="${esc(x.v.photo || x.v.img)}" alt="">
+        ${x.v.photo || x.v.img ? `<img src="${esc(x.v.photo || x.v.img)}" alt="" data-nc="${esc(x.v.id)}" data-ncn="${esc(x.v.name)}">` : ncHTML(x.v, true)}
         <span class="sg-txt"><span class="sg-name">${highlight(x.v.name, toks)}</span><br><span class="sg-area">${esc(x.v.area || "")}</span></span>
         <span class="sg-count">${esc(ribbonFor(x.offers))}</span>
       </li>`).join("") : `<li class="sg-foot" role="presentation">${esc(t("sg.none"))}</li>`;
@@ -3032,7 +3059,7 @@
     const dateTxt = (() => { try { return new Intl.DateTimeFormat(lang, { weekday: "short", day: "numeric", month: "short" }).format(new Date(TODAY + "T12:00:00")); } catch (e) { return TODAY; } })();
     box.dataset.vid = v.id;
     box.innerHTML = `<div class="spot-top"><span>${I.trophy} ${esc(t(pick.ad ? "spot.ad" : state.loc ? "spot.near3" : "spot.label3"))}</span><span class="d">${esc(dateTxt)}</span></div>
-      <div class="spot-tabs" role="tablist">${spotPicks.map((p, i) => `<button type="button" role="tab" data-spot="${i}" aria-selected="${i === spotIdx}" aria-label="${esc(p.v.name)}"><img src="${esc(p.v.img)}" alt="" loading="lazy" data-fb="${esc(GENERIC.img)}"><span><b>${esc(p.v.name)}</b><small>${esc(p.v.sc ? p.v.sc[0].toFixed(1) + " · " : "")}${esc(t("cz." + (p.v.czKey || "generic")))}${p.v.area ? " · " + esc(p.v.area) : ""}</small><i class="tdeal">${esc(offerHead(mainOffer(p.v.offers)))}</i></span></button>`).join("")}</div>
+      <div class="spot-tabs" role="tablist">${spotPicks.map((p, i) => `<button type="button" role="tab" data-spot="${i}" aria-selected="${i === spotIdx}" aria-label="${esc(p.v.name)}">${p.v.img ? `<img src="${esc(p.v.img)}" alt="" loading="lazy" data-nc="${esc(p.v.id)}" data-ncn="${esc(p.v.name)}">` : ncHTML(p.v, true)}<span><b>${esc(p.v.name)}</b><small>${esc(p.v.sc ? p.v.sc[0].toFixed(1) + " · " : "")}${esc(t("cz." + (p.v.czKey || "generic")))}${p.v.area ? " · " + esc(p.v.area) : ""}</small><i class="tdeal">${esc(offerHead(mainOffer(p.v.offers)))}</i></span></button>`).join("")}</div>
       <div class="spot-media" data-insimg="${esc(v.id)}">${imgTag(v, true)}<span class="ribbon">${esc(ribbonFor(v.offers))}</span>${photoCredit(v)}</div>
       <div class="spot-body">
         <h2 id="spotName">${esc(v.name)}</h2>
@@ -3054,7 +3081,12 @@
 
   document.addEventListener("error", e => {
     const im = e.target;
-    if (im && im.tagName === "IMG" && im.dataset.fb && !im.dataset.fbDone) { im.dataset.fbDone = "1"; im.removeAttribute("srcset"); im.src = im.dataset.fb; }
+    if (im && im.tagName === "IMG" && im.dataset.nc && !im.dataset.ncDone) {
+      im.dataset.ncDone = "1";
+      if (im.closest(".ins-strip")) { im.remove(); return; }   // a broken extra photo: just leave it out
+      const d = document.createElement("div"); d.innerHTML = ncHTML({ id: im.dataset.nc, name: im.dataset.ncn }, im.closest(".sg, .spot-tabs, #suggest") != null);
+      im.replaceWith(d.firstElementChild);
+    } else if (im && im.tagName === "IMG" && im.dataset.fb && !im.dataset.fbDone) { im.dataset.fbDone = "1"; im.removeAttribute("srcset"); im.src = im.dataset.fb; }
   }, true);
 
   /* ---------- Toast ---------- */

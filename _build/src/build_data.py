@@ -230,8 +230,10 @@ for path, rec in sorted(PAGES.items()):
     if subs and 'sub' not in v: v['sub'] = [round(subs.get('food', 0), 1), round(subs.get('service', 0), 1)]
     if rec.get('mains') and 'mp' not in v: v['mp'] = rec['mains'].replace('-', '–')
     if rec.get('hours') and 'hrs' not in v: v['hrs'] = re.sub(r'\s*//\s*', ', ', re.sub(r'\s*\r?\n\s*', ' · ', rec['hours'].strip()))[:160]
-    ph = [u for u in (rec.get('photos') or []) if re.match(r'^public/[A-Za-z0-9_./+%-]+$', u or '')]
+    ph = list(dict.fromkeys(u for u in (rec.get('photos') or []) if re.match(r'^public/[A-Za-z0-9_./+%-]+$', u or '')))
     if ph and 'img' not in v: v['img'] = ph[0]
+    v.setdefault('g', []).extend(u for u in ph[1:] if u != v.get('img') and u not in v.get('g', [])   # more photos for Insights
+                                 and not re.search(r'(?i)(screenshot|menu|logo|voucher|gift)', u))
     if rec.get('menus') and 'menu' not in v: v['menu'] = 'https://images.firsttable.net/' + rec['menus'][0].lstrip('/')
     o = dict(p='firsttable', u='https://www.firsttable.co.uk/' + path, h='ft_' + typ, n=50, live=True, seen=rec.get('checked') or SEEN)
     rt, cnt = rec.get('rating') or 0, rec.get('reviews') or 0
@@ -470,8 +472,9 @@ for r in ec_rows:
                   reg=london_reg(ll) if ct == 'london' else ct, ct=ct, c=c, s='casual' if casual else 'smart', m=meals or ['l', 'd'])
         v['ll'] = ll; ec_added += 1
     v.setdefault('_czs', []).extend(t for t in (r.get('cuisines') or []) if t not in v['_czs'])
-    if r.get('image') and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', r['image']) and 'img' not in v and 'imgx' not in v:
-        v['imgx'] = r['image']
+    ecim = [u for u in (r.get('images') or [r.get('image')]) if u and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', u)]
+    if ecim and 'img' not in v and 'imgx' not in v: v['imgx'] = ecim[0]
+    if ecim: v.setdefault('g', []).extend(u for u in ecim if u not in (v.get('img'), v.get('imgx')) and u not in v.get('g', []))
     if set(r.get('cuisines') or []) & {'Bar', 'Drinks Focused', 'Nightclub'} or re.search(r"\b(arms|inn|tavern|pub|taproom|brewery)\b", r['name'].lower()):
         v['pub'] = 1
     if r.get('menu') and re.match(r'^https://eccdn\.com\.au/menuPdfs/[A-Za-z0-9/_.-]+\.pdf$', r['menu']) and 'menu' not in v: v['menu'] = r['menu']
@@ -848,6 +851,26 @@ for c in CLASSICS:
     if c.get('pub'): v['pub'] = 1
 print('British classics:', cl_new, 'added,', cl_merged, 'already listed')
 
+# ---------- Every card must have its OWN photo: a photo used by two cards stays only on the first one ----------
+# (the other card moves to its next unused photo, or loses it and gets its own photo / name card from ../photos.py)
+_used, ph_shared, ph_moved = set(), 0, 0
+for v in sorted(V.values(), key=lambda x: x['id']):
+    k = 'img' if v.get('img') else 'imgx' if v.get('imgx') else 'imgl' if v.get('imgl') else None
+    g = [u for u in v.get('g', []) if u not in _used]
+    if k and v[k] in _used:
+        ph_shared += 1
+        nxt = next((u for u in g if u.startswith(('public/', 'https://eccdn.com.au/'))), None)
+        v.pop(k)
+        if nxt:
+            v['img' if nxt.startswith('public/') else 'imgx'] = nxt; g.remove(nxt); ph_moved += 1
+    for kk in ('img', 'imgx', 'imgl'):
+        if v.get(kk): _used.add(v[kk])
+    g = [u for u in dict.fromkeys(g) if u not in _used][:9]
+    _used.update(g)
+    if g: v['g'] = g
+    else: v.pop('g', None)
+if ph_shared: print(f'::warning title=Photos::{ph_shared} cards shared a photo with another card; {ph_moved} moved to their next own photo, the rest get their own photo or name card')
+
 # ---------- Own photo for venues with no platform photo, plus Wikidata facts (see ../photos.py) ----------
 _ROOT = os.path.dirname(os.path.dirname(HERE))
 _ph = os.path.join(HERE, 'photos.json'); _wd = os.path.join(HERE, 'wikidata.json')
@@ -868,8 +891,18 @@ for v in V.values():
     p = PH.get(v['id'])
     if p and p.get('spam') and v.get('web') == p['spam']: v.pop('web')   # old domain now a spam site
     if p and p.get('f') and not (v.get('img') or v.get('imgx') or v.get('imgl')) and os.path.exists(os.path.join(_ROOT, p['f'])):
-        v['imgl'] = p['f']; v['pcr'] = p.get('by', ''); v['pcu'] = p.get('page', ''); ph_used += 1
+        v['imgl'] = p['f']; ph_used += 1
+        if p.get('from') == 'card': v['phc'] = 1   # our own name card, not a photo: no credit line
+        else: v['pcr'] = p.get('by', ''); v['pcu'] = p.get('page', '')
+    if p and p.get('g') and not v.get('g'):   # more own photos (gallery), each file is only this place's
+        gg = [x['f'] for x in p['g'] if os.path.exists(os.path.join(_ROOT, x['f'])) and x['f'] not in _used]
+        if gg: v['g'] = gg[:9]; _used.update(gg)
 print('Own photos:', ph_used, '| from Wikidata: websites', wd_web, 'map spots', wd_ll)
+_nophoto = [v['id'] for v in V.values() if not (v.get('img') or v.get('imgx') or v.get('imgl'))]
+_allph = [v.get('img') or v.get('imgx') or v.get('imgl') for v in V.values() if v.get('img') or v.get('imgx') or v.get('imgl')]
+print(f'Photo check: {len(V)} cards | {len(_nophoto)} without a photo yet | {len(_allph) - len(set(_allph))} sharing a photo | '
+      f'{sum(1 + len(v.get("g", [])) for v in V.values() if v.get("img") or v.get("imgx") or v.get("imgl"))} photos in total')
+if _nophoto: print(f'::warning title=Photos::{len(_nophoto)} cards have no photo yet, they show their own name card until photos.py runs: ' + ', '.join(_nophoto[:12]))
 
 # ---------- Short description: what kind of food they serve (shown under the address and in Insights) ----------
 # 1) the restaurant's own words from its website, trimmed to one or two clean sentences (often names its best dishes);

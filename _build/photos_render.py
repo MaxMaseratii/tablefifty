@@ -23,7 +23,8 @@ def main():
     from playwright.sync_api import sync_playwright
     deals = json.loads(re.search(r'const DEALS = (\[.*\]);', open(os.path.join(P.SRC, 'deals.js'), encoding='utf-8').read(), re.S).group(1))
     state = json.load(open(P.OUT, encoding='utf-8'))
-    todo = [v for v in deals if v.get('k') == 'dine' and v.get('web') and not (v.get('img') or v.get('imgx') or v.get('imgl'))
+    todo = [v for v in deals if v.get('k') == 'dine' and v.get('web') and not (v.get('img') or v.get('imgx'))
+            and (not v.get('imgl') or state.get(v['id'], {}).get('from') == 'card')
             and v.get('ct') != 'uk' and v.get('reg') != 'multi' and not P.rejected(v['id']) and v['id'] not in P.REMOVE
             and RETRY.search(str(state.get(v['id'], {}).get('none', 'no preview image'))) and not state.get(v['id'], {}).get('rendered')]
     print(len(todo), 'websites to open in a browser')

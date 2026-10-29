@@ -65,6 +65,8 @@ def venue(slug):
         'slug': slug, 'checked': TODAY, 'name': v.get('name'), 'region': v.get('region'), 'area': v.get('city'),
         'address': ', '.join(x for x in [v.get('address1'), v.get('address2')] if x), 'postcode': v.get('postcode'),
         'lat': v.get('latitude'), 'lng': v.get('longitude'), 'cuisines': v.get('cuisines') or [], 'image': v.get('imageLink'),
+        'images': list(dict.fromkeys(u for u in [v.get('imageLink')] + list(v.get('otherImages') or [])
+                                     if isinstance(u, str) and re.match(r'^https://eccdn\.com\.au/images/[A-Za-z0-9/_.-]+$', u)))[:10],
         'phone': v.get('phone'), 'website': v.get('website'), 'menu': v.get('pdfMenu'),
         'rating': float(rating.group(1)) if rating else None, 'reviews': int(rating.group(2)) if rating else 0,
         'deals': ds,
