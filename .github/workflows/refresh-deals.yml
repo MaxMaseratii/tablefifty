@@ -65,7 +65,7 @@ jobs:
           PH_BUDGET: "1000"
           PD_BUDGET: "500"
           HR_BUDGET: "240"
-          PH_GALLERY: "0"   # back to "1" once the first big batch of gallery photos has been checked by eye
+          PH_GALLERY: "0"   # extra gallery photos are collected in batches and checked by eye before they go live
         run: |
           pip install -q pillow opencv-python-headless || true
           python _build/hasr.py || true

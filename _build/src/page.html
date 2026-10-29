@@ -258,9 +258,10 @@
   .ins-bars u{display:block;height:100%;background:var(--accent);text-decoration:none}
   .ins-bars b{color:var(--text);font-size:13px}
   .ins-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-  .ins-strip{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:2px}
-  .ins-strip img{flex:0 0 84%;aspect-ratio:16/10;object-fit:cover;border-radius:12px;scroll-snap-align:start;display:block;background:var(--surface-2);min-width:0}
-  @media (min-width:700px){.ins-strip img{flex-basis:64%}}
+  .ins-strip-w{min-width:0}   /* a plain box around the scrolling strip, so the panel grid never squashes it */
+  .ins-strip{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:8px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;margin-bottom:2px}
+  .ins-strip img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;border-radius:12px;scroll-snap-align:start;display:block;background:var(--surface-2);min-width:0}
+  @media (min-width:700px){.ins-strip{grid-auto-columns:64%}}
   .ins-strip-n{font-size:12px;color:var(--faint);margin:0 0 10px}
   .ins-strip-n a{color:inherit}
   .ncard{width:100%;height:100%;min-height:100%;display:flex;align-items:flex-end;padding:18px 20px;box-sizing:border-box;color:#fff8ef;
@@ -1856,8 +1857,8 @@
   function galleryHTML(v) {
     const list = [...new Set([v.photo || (v.ownPhoto ? v.img : ""), ...v.gal].filter(Boolean))].slice(0, 10);
     if (list.length <= 1) return v.ownPhoto || v.photo ? `<div class="ins-gal one">${imgTag(v)}</div>` : "";
-    return `<div class="ins-strip" tabindex="0" aria-label="${esc(t("ins.photos", { n: list.length }))}">${list.map((g, i) =>
-      `<img src="${esc(g)}" alt="${esc(v.name)} (${i + 1}/${list.length})" loading="lazy" decoding="async" data-nc="${esc(v.id)}" data-ncn="${esc(v.name)}">`).join("")}</div>
+    return `<div class="ins-strip-w"><div class="ins-strip" tabindex="0" aria-label="${esc(t("ins.photos", { n: list.length }))}">${list.map((g, i) =>
+      `<img src="${esc(g)}" alt="${esc(v.name)} (${i + 1}/${list.length})" loading="lazy" decoding="async" data-nc="${esc(v.id)}" data-ncn="${esc(v.name)}">`).join("")}</div></div>
       <p class="ins-strip-n">${esc(t("ins.photos", { n: list.length }))}${v.gcr.length ? " · " + esc(t("ins.more", { s: "%%S%%" })).replace("%%S%%", v.gcr.map(c => safeUrl(c[1]) ? `<a href="${esc(safeUrl(c[1]))}" target="_blank" rel="noopener noreferrer">${esc(c[0])}</a>` : esc(c[0])).join(", ")) : ""}</p>`;
   }
   function photoCredit(v) {
