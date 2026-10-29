@@ -64,7 +64,7 @@ jobs:
         env:
           PH_BUDGET: "900"
         run: |
-          pip install -q pillow || true
+          pip install -q pillow opencv-python-headless || true
           python _build/photos.py || true
           python _build/build.py
       - name: Commit if anything changed

@@ -40,7 +40,13 @@ REJECT_WEB = {   # exact venue ids
     'mich-noto-edinburgh': 'logo', 'mich-plaquemine-lock-london': 'illustration', 'mich-sketch-the-lecture-room-library-london': 'graphic',
     'mich-tamila-london': 'graphic', 'mich-the-samling-ambleside': 'hotel bedroom', 'mich-tropea-birmingham': 'logo',
     'mich-where-the-light-gets-in-stockport': 'logo', 'stereo-covent-garden': 'text banner', 'amor-gastronomia': 'city skyline',
-    'mich-pulpo-negro-new-alresford': 'brick wall', 'mich-ugly-butterfly-by-adam-handling-newquay': 'same photo as Frog'}
+    'mich-pulpo-negro-new-alresford': 'brick wall', 'mich-ugly-butterfly-by-adam-handling-newquay': 'same photo as Frog',
+    'mich-sosban-the-old-butchers-menai-bridge': 'drawings of houses'}
+_rj = os.path.join(SRC, 'photo_rejects.json')   # photos checked by eye and turned down (never used again, for any place)
+REJECT_SRC = set(json.load(open(_rj, encoding='utf-8'))) if os.path.exists(_rj) else set()
+# extra photos whose address says they are not about the food or the room you eat in
+GAL_SKIP = re.compile(r'(?i)(bedroom|[-_/]rooms?[-_./\d]|suite|[-_/]spa[-_.]|pool|bathroom|wedding|bride|award|rosette|michelin|badge|voucher|'
+                      r'gift-?card|newsletter|loyalty|qr[-_]?code|poster|cookbook|book-?cover|christmas|festive|press|map[-_.])')
 SPAM = re.compile(r'(?i)(casino|betting|bookmaker|slot games|free spins|login bonus|poker|viagra|payday loan|escort)')
 CDN = re.compile(r'(?i)(imgix\.net|squarespace(-cdn)?\.com|wixstatic\.com|cloudinary\.com|shopify\.com|website-files\.com|amazonaws\.com|'
                  r'cloudfront\.net|googleusercontent\.com|ctfassets\.net|sanity\.io|storyblok\.com|prismic\.io|wp\.com|b-cdn\.net|'
@@ -161,26 +167,68 @@ def ahash(path):
 def near(a, b): return bin(a ^ b).count('1') <= 12   # same picture at another size or crop
 
 
+try:
+    import cv2, numpy as _np
+    _orb = cv2.ORB_create(1000); _bf = cv2.BFMatcher(cv2.NORM_HAMMING)
+except Exception:
+    cv2 = None
+
+
+ALL = []   # (place id, file, colour histogram) of every photo we host, to stop one picture going on two places
+
+
+def _hist(path):
+    h = Image.open(path).convert('RGB').resize((48, 30)).histogram(); t = sum(h) or 1
+    return [x / t for x in h]
+
+
+def used_elsewhere(path, vid):
+    """True if this picture is already shown for ANOTHER place (checked by colour first, then by feature matching)."""
+    h = _hist(path)
+    for ov, of, oh in ALL:
+        if ov != vid and sum(min(x, y) for x, y in zip(h, oh)) >= 0.72 and os.path.exists(of) and same_photo(path, of): return True
+    return False
+
+
+def remember(vid, path):
+    try: ALL.append((vid, path, _hist(path)))
+    except Exception: pass
+
+
+def same_photo(a, b):
+    """True if two saved photos show the same picture (other crop, zoom or size). Feature matching when OpenCV is there."""
+    if cv2 is None:
+        return near(ahash(a), ahash(b))
+    ia, ib = cv2.imread(a, cv2.IMREAD_GRAYSCALE), cv2.imread(b, cv2.IMREAD_GRAYSCALE)
+    if ia is None or ib is None: return False
+    ka, da = _orb.detectAndCompute(ia, None); kb, db = _orb.detectAndCompute(ib, None)
+    if da is None or db is None or len(ka) < 10 or len(kb) < 10: return near(ahash(a), ahash(b))
+    good = [m for m in _bf.knnMatch(da, db, k=2) if len(m) == 2 and m[0].distance < 0.75 * m[1].distance]
+    if len(good) < 12: return False
+    pa = _np.float32([ka[m[0].queryIdx].pt for m in good]); pb = _np.float32([kb[m[0].trainIdx].pt for m in good])
+    H, mask = cv2.findHomography(pa, pb, cv2.RANSAC, 5.0)
+    return mask is not None and int(mask.sum()) >= 30
+
+
 def gallery_from_site(v, rec):
     """Up to 9 more photos of this place from its own homepage, each different from the others."""
     site = v['web']
     if not allowed(site): return []
     h, code, final = fetch(site)
     if not h or code >= 400 or code == 0 or len(SPAM.findall(h)) >= 3: return []
-    hashes = [ahash(os.path.join(ROOT, rec['f']))] if rec.get('f') and os.path.exists(os.path.join(ROOT, rec['f'])) else []
+    kept = [os.path.join(ROOT, rec['f'])] if rec.get('f') and os.path.exists(os.path.join(ROOT, rec['f'])) else []
     out = []
     for u in page_images(h, final, n=20):
         if len(out) >= 9: break
-        if u == rec.get('src') or u in USED_SRC: continue
+        if u == rec.get('src') or u in USED_SRC or u in REJECT_SRC or GAL_SKIP.search(u): continue
         if not same_site(u, final) and not CDN.search(urlparse(u).netloc): continue
         if urlparse(u).netloc == urlparse(final).netloc and not allowed(u): continue
         data, err = download(u)
         if not data: continue
         dest = os.path.join(PH_DIR, f'{v["id"]}-{len(out) + 2}.webp')
         if to_webp(data, dest, size=GSIZE): continue
-        hh = ahash(dest)
-        if any(near(hh, x) for x in hashes): os.remove(dest); continue
-        hashes.append(hh); USED_SRC.add(u)
+        if any(same_photo(dest, x) for x in kept) or used_elsewhere(dest, v['id']): os.remove(dest); continue
+        kept.append(dest); USED_SRC.add(u); remember(v['id'], dest)
         out.append({'f': f'img/ph/{v["id"]}-{len(out) + 2}.webp', 'src': u})
     return out
 
@@ -195,12 +243,15 @@ def from_website(v):
     for u in page_images(h, final):
         if not same_site(u, final) and not CDN.search(urlparse(u).netloc): why = 'image on another website'; continue
         if u in USED_SRC: why = 'same photo as another place'; continue   # e.g. a group site showing one picture for every branch
+        if u in REJECT_SRC: why = 'photo turned down by eye'; continue
         if urlparse(u).netloc == urlparse(final).netloc and not allowed(u): why = 'image blocked by robots'; continue
         data, err = download(u)
         if not data: why = err; continue
         dest = os.path.join(PH_DIR, v['id'] + '.webp')
         bad = to_webp(data, dest)
         if bad: why = bad; continue
+        if used_elsewhere(dest, v['id']): why = 'same photo as another place'; os.remove(dest); continue
+        remember(v['id'], dest)
         dom = urlparse(final).netloc.lower().removeprefix('www.')
         USED_SRC.add(u)
         return {'f': f'img/ph/{v["id"]}.webp', 'from': 'web', 'src': u, 'by': dom, 'page': site, 't': TODAY.isoformat()}, ''
@@ -393,6 +444,9 @@ def main():
 
     USED_SRC.update(s['src'] for s in state.values() if real(s) and s.get('src'))
     USED_SRC.update(x['src'] for s in state.values() for x in s.get('g', []) if x.get('src'))
+    for vid, s in state.items():
+        for f in ([s['f']] if real(s) else []) + [x['f'] for x in s.get('g', [])]:
+            if os.path.exists(os.path.join(ROOT, f)): remember(vid, os.path.join(ROOT, f))
 
     # 0) photos picked by hand from the place's own website
     got_pick = 0
@@ -404,7 +458,9 @@ def main():
         if not allowed(p['url']): fail(v['id'], none='picked photo blocked by robots'); continue
         data, err = download(p['url'])
         bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp'), portrait_ok=True) if data else err
+        if not bad and used_elsewhere(os.path.join(PH_DIR, v['id'] + '.webp'), v['id']): bad = 'same photo as another place'
         if bad: fail(v['id'], none='picked photo: ' + bad); continue
+        remember(v['id'], os.path.join(PH_DIR, v['id'] + '.webp'))
         page = p.get('page') or p['url']
         state[v['id']] = {'f': f'img/ph/{v["id"]}.webp', 'from': 'pick', 'src': p['url'], 'by': urlparse(page).netloc.lower().removeprefix('www.'),
                           'page': page, 't': TODAY.isoformat()}
@@ -447,6 +503,8 @@ def main():
             if ci['thumb'] in USED_SRC: fail(v['id'], none='same photo as another place', from_tried=bool(v.get('web')), wd=True); continue
             data, err = download(ci['thumb']); time.sleep(1)
             bad = to_webp(data, os.path.join(PH_DIR, v['id'] + '.webp'), portrait_ok=v['id'] in PICKED) if data else err
+            if not bad and used_elsewhere(os.path.join(PH_DIR, v['id'] + '.webp'), v['id']): bad = 'same photo as another place'
+            if not bad: remember(v['id'], os.path.join(PH_DIR, v['id'] + '.webp'))
             if bad:   # a refused download (busy server) is tried again next run; a bad picture waits 14 days
                 fail(v['id'], none=bad, from_tried=bool(v.get('web')))
                 if data: state[v['id']]['wd'] = True
