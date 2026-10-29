@@ -853,11 +853,14 @@ print('British classics:', cl_new, 'added,', cl_merged, 'already listed')
 
 # ---------- Every card must have its OWN photo: a photo used by two cards stays only on the first one ----------
 # (the other card moves to its next unused photo, or loses it and gets its own photo / name card from ../photos.py)
+_dp = os.path.join(HERE, 'photo_dupes.json')   # same picture uploaded by two branches of a chain (see ../photo_dupes.py)
+DUPE = json.load(open(_dp, encoding='utf-8')) if os.path.exists(_dp) else {}
 _used, ph_shared, ph_moved = set(), 0, 0
+_taken = lambda u, vid: u in _used or (u in DUPE and DUPE[u] != vid)
 for v in sorted(V.values(), key=lambda x: x['id']):
     k = 'img' if v.get('img') else 'imgx' if v.get('imgx') else 'imgl' if v.get('imgl') else None
-    g = [u for u in v.get('g', []) if u not in _used]
-    if k and v[k] in _used:
+    g = [u for u in v.get('g', []) if not _taken(u, v['id'])]
+    if k and _taken(v[k], v['id']):
         ph_shared += 1
         nxt = next((u for u in g if u.startswith(('public/', 'https://eccdn.com.au/'))), None)
         v.pop(k)

@@ -58,14 +58,16 @@ jobs:
         run: |
           python _build/webmeta.py || true
           python _build/build.py
-      - name: Own photo for places with no platform photo (restaurant website or Wikimedia Commons), then rebuild
-        timeout-minutes: 20
+      - name: Own photo for every card (no missing or repeated photos), then rebuild
+        timeout-minutes: 35
         continue-on-error: true
         env:
           PH_BUDGET: "900"
+          PD_BUDGET: "600"
         run: |
           pip install -q pillow opencv-python-headless || true
           python _build/photos.py || true
+          python _build/photo_dupes.py || true
           python _build/build.py
       - name: Commit if anything changed
         run: |

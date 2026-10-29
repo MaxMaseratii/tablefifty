@@ -1,4 +1,12 @@
 {
+"amor-gastronomia": {
+"url": "https://static.wixstatic.com/media/08ddad_38b3c59d2d084409868c136cd9934beb~mv2.jpg",
+"page": "https://www.amorgastronomia.com/media"
+},
+"ana-turkish-restaurant-and-bar": {
+"url": "https://flipdish-assets.imgix.net/org47424/br16109/mixed-grill.jpg",
+"page": "https://www.anarestaurant.co.uk/"
+},
 "cl-e-pellicci-london": {
 "url": "https://epellicci.co.uk/cdn/shop/files/e-pellicci-cafe-bethal-green-london-1946-2.jpg?v=1776836884",
 "page": "https://epellicci.co.uk/pages/our-story"
@@ -10,6 +18,22 @@
 "cl-the-muffin-man-tea-shop-london": {
 "url": "https://www.themuffinmanteashop.co.uk/wp-content/uploads/2019/05/44932943_2196378120386915_3223625332221280256_n.jpg",
 "page": "https://www.themuffinmanteashop.co.uk/"
+},
+"el-inca-plebeyo": {
+"url": "https://cdn.prod.website-files.com/6731d72b9a255d90dd3925f3/67408a26629933b6291eb99c_MAITO%20001%20WEB.avif",
+"page": "https://www.elincaplebeyo.co.uk/"
+},
+"itto-stoke-newington": {
+"url": "https://www.itto.co.uk/wp-content/uploads/2026/02/itto-kitchen-e1771839047564.png",
+"page": "https://www.itto.co.uk/?page_id=1014"
+},
+"luso": {
+"url": "https://luso.restaurant/wp-content/uploads/2025/12/LUSO-INTERIORS0314-scaled.jpg",
+"page": "https://luso.restaurant/about/"
+},
+"mate-s-restaurant": {
+"url": "https://matesrestaurant.com/uploads/images/1-8.webp",
+"page": "https://matesrestaurant.com/gallery"
 },
 "mich-almanac-glossop": {
 "url": "https://images.squarespace-cdn.com/content/v1/67716ba91fd76159975ba8ba/021f16d9-2d47-452f-9b25-19c23f962bf7/IMG_8062.JPG",
@@ -30,6 +54,10 @@
 "mich-behind-london": {
 "url": "https://static.wixstatic.com/media/20583c_e1edd1da78ed42e7869789373d92a89c~mv2.jpg/v1/fill/w_1600,h_1067,al_c,q_85/behind-restaurant.jpg",
 "page": "https://www.behindrestaurant.co.uk/about"
+},
+"mich-brooklands-by-claude-bosi-london": {
+"url": "https://www.peninsula.com/-/media/12---london-property/section-refresh/dining/brooklands-by-claude-bosi/brooklands-by-claude-bosi-spotlight-image.png",
+"page": "https://www.peninsula.com/en/london/hotel-fine-dining/brooklands"
 },
 "mich-cadet-london": {
 "url": "https://images.squarespace-cdn.com/content/v1/62b92fddbd8cb528e3c6fe32/1661435356859-4A239J936YE65BUVITLQ/image-asset.jpeg",
@@ -54,6 +82,10 @@
 "mich-cycene-london": {
 "url": "https://cms.bluemountain.school/wp-content/uploads/2024/06/BMS-Cyene-Dining-Room-RD-scaled.jpg",
 "page": "https://www.bluemountain.school/cycene"
+},
+"mich-da-terra-london": {
+"url": "https://www.daterra.co.uk/wp-content/uploads/2022/10/DaTerra-February1463-1.jpg",
+"page": "https://www.daterra.co.uk/gallery/"
 },
 "mich-deanes-at-queens-belfast": {
 "url": "https://www.michaeldeane.co.uk/resources/images/dcms/1031/gallery/DAQ%20Day%20Terrace.jpg",
@@ -247,6 +279,10 @@
 "url": "https://irp.cdn-website.com/3b0c499c/dms3rep/multi/opt/Sculthorpe-Mill-Dining-Room-1920w.jpg",
 "page": "https://www.sculthorpemill.uk/"
 },
+"mich-sketch-the-lecture-room-library-london": {
+"url": "https://sketch.london/static/images/rooms/library-medium.jpeg",
+"page": "https://sketch.london/the-lecture-room-library/"
+},
 "mich-solstice-by-kenny-atkinson-newcastle-upon-tyne": {
 "url": "https://static.wixstatic.com/media/a66989_b461c9b24ea3447face5b16e532aa41a~mv2.jpeg",
 "page": "https://www.solsticencl.com/"
@@ -270,6 +306,10 @@
 "mich-the-broad-chare-newcastle-upon-tyne": {
 "url": "https://thebroadchare.co.uk/wp-content/uploads/2019/03/7.jpg",
 "page": "https://thebroadchare.co.uk/"
+},
+"mich-the-fat-duck-bray": {
+"url": "https://thefatduck.co.uk/img/booking/menus/TFD_27112025_Top-Seat-10.jpg",
+"page": "https://thefatduck.co.uk/the-top-seat"
 },
 "mich-the-reindeer-hoveringham": {
 "url": "https://reindeerpub.com/assets/images/hero-terrace-1600.jpg",
@@ -315,6 +355,10 @@
 "url": "https://image-tc.galaxy.tf/wijpeg-3odrzrovd81i2civabfo6np7e/0c4a9469crop-wide_wide.jpg?crop=1%2C0%2C1899%2C1068&width=1920",
 "page": "https://www.warwickhotels.com/the-capital/dining/tom-brown-at-the-capital"
 },
+"mich-trivet-london": {
+"url": "https://trivetrestaurant.co.uk/wp-content/uploads/2021/11/Trivet-17-08-21-015-scaled.jpg",
+"page": "https://trivetrestaurant.co.uk/kitchen/"
+},
 "mich-tropea-birmingham": {
 "url": "https://images.squarespace-cdn.com/content/v1/60e88663155e0f2c8ef78ba6/68ddac1b-6ce0-407d-98e1-7bdf6a145e2d/Tropea_Opening-%28photo_by_Tom_Bird%29-2-2.jpg",
 "page": "https://www.tropea.uk/about-us"
@@ -338,5 +382,29 @@
 "mich-wilsons-bristol": {
 "url": "https://images.squarespace-cdn.com/content/v1/5d95acbb7bc7f16776f8cd28/130606fa-6ca5-42f4-a5fc-3654e69c0e98/Wilsons_Bristol_Emli_Bendixen_144_Emli+Bendixen.jpg",
 "page": "https://www.wilsonsbristol.co.uk/wilsonsrestaurant"
+},
+"plaza-khao-gaeng": {
+"url": "https://plazakhaogaeng.com/wp-content/uploads/home-2.jpg",
+"page": "https://plazakhaogaeng.com/"
+},
+"stereo-covent-garden": {
+"url": "https://cdn.prod.website-files.com/67b6fac7e68214b8c13c4798/698499b23be8527849138f1d_IMG_5263.webp",
+"page": "https://www.stereocoventgarden.com/private-events"
+},
+"the-sushi-co-ealing-broadway": {
+"url": "https://thesushico.com/wp-content/uploads/2025/07/Photo-22-04-2025-12-43-26-pm-scaled.jpg",
+"page": "https://thesushico.com/ealing/"
+},
+"the-sushi-co-lewisham": {
+"url": "https://thesushico.com/wp-content/uploads/2025/07/Photo-12-05-2025-3-14-58-pm-scaled.jpg",
+"page": "https://thesushico.com/lewisham/"
+},
+"the-sushi-co-streatham": {
+"url": "https://thesushico.com/wp-content/uploads/2025/07/Photo-17-05-2025-2-38-26-pm-scaled.jpg",
+"page": "https://thesushico.com/streatham/"
+},
+"the-sushi-co-walthamstow": {
+"url": "https://thesushico.com/wp-content/uploads/2025/09/thumbnail_IMG_3863-2.jpg",
+"page": "https://thesushico.com/walthamstow-2/"
 }
 }
