@@ -1,8 +1,8 @@
 {
- "date": "2026-10-29",
- "squares_done_today": 15,
- "squares_failed": 14,
- "squares_left": 36,
- "matched_total": 536,
- "last_error": "<?xml version=\"1.0\" encoding=\"UTF-8\"?> <!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"     \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"> <html x"
+ "date": "2026-10-30",
+ "squares_done_today": 14,
+ "squares_failed": 5,
+ "squares_left": 22,
+ "matched_total": 541,
+ "last_error": "overpass.kumi.systems: curl: (28) Operation timed out after 100002 milliseconds with 0 bytes received "
 }
