@@ -7909,43 +7909,6 @@
 "gt":"2026-10-29",
 "gs":"https://cherryon.co.uk/"
 },
-"ec-chotto-matte-soho":{
-"x":1,
-"g":[
-{
-"f":"img/ph/ec-chotto-matte-soho-2.webp",
-"src":"https://chotto-matte.com/wp-content/uploads/2022/04/ChottoMatte2-1-1920x1280.jpg",
-"by":"chotto-matte.com",
-"page":"https://chotto-matte.com/"
-},
-{
-"f":"img/ph/ec-chotto-matte-soho-3.webp",
-"src":"https://chotto-matte.com/wp-content/uploads/2022/04/Beef-Tataki-1.jpg",
-"by":"chotto-matte.com",
-"page":"https://chotto-matte.com/"
-},
-{
-"f":"img/ph/ec-chotto-matte-soho-4.webp",
-"src":"https://chotto-matte.com/wp-content/uploads/2022/04/CHOTTO-MATE-NOV-@lateef.photography-84-1920x1536.jpg",
-"by":"chotto-matte.com",
-"page":"https://chotto-matte.com/"
-},
-{
-"f":"img/ph/ec-chotto-matte-soho-5.webp",
-"src":"https://chotto-matte.com/wp-content/uploads/2022/04/5.png",
-"by":"chotto-matte.com",
-"page":"https://chotto-matte.com/"
-},
-{
-"f":"img/ph/ec-chotto-matte-soho-6.webp",
-"src":"https://chotto-matte.com/wp-content/uploads/2022/04/5X5A1246.jpg",
-"by":"chotto-matte.com",
-"page":"https://chotto-matte.com/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://chotto-matte.com/london/|https://chotto-matte.com/"
-},
 "ec-cirrik-19-numara-bos":{
 "x":1,
 "g":[
@@ -13039,11 +13002,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.elementedinburgh.co.uk/"
 },
-"elements-glasgow-glasgow":{
-"x":1,
-"gt":"2026-10-29",
-"gs":"https://elementsgla.com/"
-},
 "elgin":{
 "x":1,
 "g":[
@@ -16098,7 +16056,7 @@
 "f":"img/ph/itto-stoke-newington.webp",
 "from":"card",
 "sig":"c73e9bb0bd",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"too small 750x230",
 "from_tried":true,
 "wd":false
@@ -20073,7 +20031,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -20335,7 +20293,7 @@
 "f":"img/ph/mich-brooklands-by-claude-bosi-london.webp",
 "from":"card",
 "sig":"caee16c508",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"site http 403",
 "from_tried":true,
 "wd":false
@@ -21937,8 +21895,8 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-10-30",
-"none":"site http 0",
+"t":"2026-10-31",
+"none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
 },
@@ -23525,7 +23483,7 @@
 "f":"img/ph/mich-knepp-wilding-kitchen-horsham.webp",
 "from":"card",
 "sig":"0f95cef154",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"site http 403",
 "from_tried":true,
 "wd":false
@@ -28880,7 +28838,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -28899,7 +28857,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-10-30",
+"t":"2026-10-31",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -31468,19 +31426,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.pizzaexpress.com/highgate-high-street"
-},
-"pizzaexpress-king-street-manchester":{
-"x":1,
-"g":[
-{
-"f":"img/ph/pizzaexpress-king-street-manchester-2.webp",
-"src":"https://a.mktgcdn.com/p/_CJ1T_95lWs9WMfeHAmuWKK5nvg4V6TrTDlYpLWMSPc/829x680.png",
-"by":"locations.pizzaexpress.com",
-"page":"https://locations.pizzaexpress.com/manchester-king-street"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.pizzaexpress.com/manchester-king-street"
 },
 "pizzaexpress-lisburn-road-belfast":{
 "x":1,
