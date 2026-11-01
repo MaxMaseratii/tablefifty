@@ -432,19 +432,6 @@
 "gt":"2026-10-29",
 "gs":"https://after-9-barkitchen.res-discover.com/"
 },
-"afternoon-tea-at-tokii":{
-"x":1,
-"g":[
-{
-"f":"img/ph/afternoon-tea-at-tokii-2.webp",
-"src":"https://www.tokii.co.uk/wp-content/uploads/2024/09/7.jpg",
-"by":"tokii.co.uk",
-"page":"https://www.tokii.co.uk/experiences/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.tokii.co.uk/experiences/"
-},
 "aimer":{
 "x":1,
 "g":[
@@ -3233,19 +3220,6 @@
 "x":1,
 "gt":"2026-10-29",
 "gs":"https://caribbeancroft.co.uk/"
-},
-"carlton-lounge":{
-"x":1,
-"g":[
-{
-"f":"img/ph/carlton-lounge-2.webp",
-"src":"https://www.carltonlounge.co.uk/images/IMG_0998.jpg",
-"by":"carltonlounge.co.uk",
-"page":"https://www.carltonlounge.co.uk/gallery.html"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.carltonlounge.co.uk/contact|https://www.carltonlounge.co.uk/"
 },
 "carluccio-s-regent-s-park":{
 "f":"img/ph/carluccio-s-regent-s-park.webp",
@@ -6264,19 +6238,6 @@
 "gt":"2026-10-29",
 "gs":"https://dadar.co.uk/"
 },
-"dakwala-bombay-canteen-newcastle-upon-tyne":{
-"x":1,
-"g":[
-{
-"f":"img/ph/dakwala-bombay-canteen-newcastle-upon-tyne-2.webp",
-"src":"https://cdn.prod.website-files.com/6530f9f083822b44e9b547cc/660d3007700cb93f7ae82b0a_DSC02621-Edit.webp",
-"by":"dakwala.co.uk",
-"page":"https://dakwala.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://dakwala.co.uk/"
-},
 "dalchini-restaurant":{
 "x":1,
 "g":[
@@ -6747,19 +6708,6 @@
 "x":1,
 "gt":"2026-10-29",
 "gs":"https://drgnfly.co.uk|https://drgnfly.co.uk/"
-},
-"drip-belfast-belfast":{
-"x":1,
-"g":[
-{
-"f":"img/ph/drip-belfast-belfast-2.webp",
-"src":"https://images.squarespace-cdn.com/content/v1/6a70cbddc3f56c4cd42983ab/7c53705e-dda3-4cd2-9062-e1b719f9d81e/IMG_1352.JPG?format=1500w",
-"by":"dripbelfast.com",
-"page":"https://www.dripbelfast.com/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://dripbelfast.com/"
 },
 "drunch-notting-hill":{
 "x":1,
@@ -16056,7 +16004,7 @@
 "f":"img/ph/itto-stoke-newington.webp",
 "from":"card",
 "sig":"c73e9bb0bd",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"too small 750x230",
 "from_tried":true,
 "wd":false
@@ -16690,19 +16638,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.kooksrestaurant.com/"
-},
-"kottaram-nottingham":{
-"x":1,
-"g":[
-{
-"f":"img/ph/kottaram-nottingham-2.webp",
-"src":"https://i0.wp.com/kottaramrestaurant.com/wp-content/uploads/2023/01/IMG_0177.jpg?fit=567%2C423&ssl=1",
-"by":"kottaramrestaurant.com",
-"page":"https://kottaramrestaurant.com/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://kottaramrestaurant.com/"
 },
 "kricket-shoreditch":{
 "f":"img/ph/kricket-shoreditch.webp",
@@ -20031,7 +19966,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -20293,7 +20228,7 @@
 "f":"img/ph/mich-brooklands-by-claude-bosi-london.webp",
 "from":"card",
 "sig":"caee16c508",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"site http 403",
 "from_tried":true,
 "wd":false
@@ -21895,7 +21830,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -23483,7 +23418,7 @@
 "f":"img/ph/mich-knepp-wilding-kitchen-horsham.webp",
 "from":"card",
 "sig":"0f95cef154",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"site http 403",
 "from_tried":true,
 "wd":false
@@ -28838,7 +28773,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -28857,7 +28792,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-10-31",
+"t":"2026-11-01",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
