@@ -1,5 +1,5 @@
 {
-"checked":"2026-10-28",
+"checked":"2026-11-04",
 "m":{
 "the-plough-harborne-birmingham":{
 "q":"Q137190667",
@@ -7,14 +7,6 @@
 "ll":[
 52.46108,
 -1.94374
-]
-},
-"the-cuban-embassy-at-the-bulls-head-birmingham":{
-"q":"Q121213719",
-"img":"Bull's Head, Moseley - geograph.org.uk - 3048937.jpg",
-"ll":[
-52.44651,
--1.8874
 ]
 },
 "the-bracebridge-birmingham":{
@@ -39,14 +31,6 @@
 "ll":[
 50.8238,
 -0.15419
-]
-},
-"the-prestonville-arms-brighton":{
-"q":"Q136771008",
-"img":"Prestonville Arms pub, 64 Hamilton Road, Prestonville, Brighton (July 2019) (3).JPG",
-"ll":[
-50.83372,
--0.14546
 ]
 },
 "the-geese-brighton":{
@@ -380,6 +364,15 @@
 -2.8896
 ]
 },
+"mich-the-fat-duck-bray":{
+"q":"Q2300919",
+"img":"The Fat Duck, High Street, Bray - geograph.org.uk - 1271175.jpg",
+"web":"http://www.fatduck.co.uk/",
+"ll":[
+51.50793,
+-0.70176
+]
+},
 "mich-l-enclume-cartmel":{
 "q":"Q6455662",
 "img":"L'Enclume, Cartmel, Cumbria, UK.jpg",
@@ -516,6 +509,14 @@
 "ll":[
 52.925,
 -1.1675
+]
+},
+"mich-artichoke-amersham":{
+"q":"Q92939448",
+"web":"http://www.artichokerestaurant.co.uk/",
+"ll":[
+51.6665,
+-0.6163
 ]
 },
 "mich-ox-belfast":{
@@ -839,6 +840,14 @@
 -1.1656
 ]
 },
+"mich-beach-house-oxwich":{
+"q":"Q91132902",
+"web":"http://www.beachhouseoxwich.co.uk/",
+"ll":[
+51.557,
+-4.161
+]
+},
 "mich-paul-ainsworth-at-no-6-padstow":{
 "q":"Q92731433",
 "ll":[
@@ -897,6 +906,14 @@
 -0.55753
 ]
 },
+"mich-queen-of-cups-glastonbury":{
+"q":"Q99592223",
+"img":"Queen of Cups - geograph.org.uk - 7942781.jpg",
+"ll":[
+51.14778,
+-2.71855
+]
+},
 "mich-the-loch-the-tyne-old-windsor":{
 "q":"Q122820029",
 "img":"The Oxford Blue pub, Old Windsor - geograph.org.uk - 4314734.jpg",
@@ -946,8 +963,8 @@
 "q":"Q23461994",
 "img":"Sweetings, Queen Victoria Street.jpg",
 "ll":[
-51.51242,
--0.09287
+51.5124,
+-0.0928
 ]
 },
 "cl-ye-olde-cheshire-cheese-london":{

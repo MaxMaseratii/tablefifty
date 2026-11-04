@@ -1,5 +1,5 @@
 {
-"checked":"2026-11-02",
+"checked":"2026-11-04",
 "squares":{
 "100,-10":"2026-11-01",
 "100,-11":"2026-10-28",
@@ -21,7 +21,7 @@
 "102,-4":"2026-10-29",
 "102,-5":"2026-10-28",
 "102,-6":"2026-10-28",
-"102,-7":"2026-10-28",
+"102,-7":"2026-11-04",
 "102,-8":"2026-11-01",
 "102,0":"2026-10-28",
 "102,2":"2026-10-28",
@@ -56,12 +56,12 @@
 "106,-2":"2026-11-01",
 "106,-3":"2026-10-28",
 "106,-4":"2026-10-29",
-"106,-5":"2026-10-28",
-"106,-6":"2026-10-28",
+"106,-5":"2026-11-04",
+"106,-6":"2026-11-04",
 "106,-7":"2026-10-28",
 "106,-9":"2026-10-30",
 "107,-2":"2026-10-29",
-"107,-4":"2026-10-28",
+"107,-4":"2026-11-04",
 "107,-5":"2026-10-28",
 "107,-6":"2026-10-28",
 "107,-7":"2026-10-28",
@@ -80,7 +80,7 @@
 "110,-6":"2026-10-31",
 "110,-8":"2026-10-31",
 "111,-12":"2026-10-31",
-"111,-7":"2026-10-28",
+"111,-7":"2026-11-04",
 "111,-9":"2026-10-28",
 "112,-11":"2026-11-01",
 "112,-6":"2026-10-30",
@@ -166,6 +166,11 @@
 "ph":"01225 672105",
 "osm":"w55466905",
 "m":19
+},
+"cl-sam-s-chop-house-manchester":{
+"web":"https://samschophouse.com/",
+"osm":"n5694767606",
+"m":3
 },
 "cl-the-bridge-tea-rooms-bradford-on-avon":{
 "web":"https://www.thebridgetearooms.co.uk/",
@@ -499,6 +504,12 @@
 "osm":"n5696100032",
 "m":119
 },
+"ec-cafe-a-bloc":{
+"web":"https://www.cafeabloc.com/",
+"ig":"https://www.instagram.com/cafeabloc/",
+"osm":"n12989612142",
+"m":12
+},
 "ec-cafe-de-nata-hammersmith":{
 "web":"https://www.cafedenata.com/",
 "ph":"020 8834 7555",
@@ -652,6 +663,11 @@
 "ph":"020 7349 9499",
 "osm":"n8230562257",
 "m":7
+},
+"ec-dock-and-brew-mann-island":{
+"web":"https://dockandbrew.com/mann-island",
+"osm":"n14341782413",
+"m":107
 },
 "ec-dolci":{
 "web":"https://dolcicafe.co.uk/",
@@ -2369,6 +2385,13 @@
 "osm":"w340292097",
 "m":8
 },
+"ec-vivo-latino":{
+"web":"https://www.vivolatino.co.uk",
+"fb":"vivolatinocardiff",
+"ph":"029 2022 0636",
+"osm":"n13540707198",
+"m":6
+},
 "ec-wahaca-cardiff":{
 "web":"https://www.wahaca.co.uk/locations/cardiff/",
 "ph":"029 2167 0414",
@@ -2919,6 +2942,17 @@
 -2.91878
 ]
 },
+"mich-higher-ground-manchester":{
+"web":"https://highergroundmcr.co.uk/",
+"ig":"https://www.instagram.com/highergroundmcr/",
+"ph":"01614 709821",
+"osm":"n6535193742",
+"m":467,
+"ll":[
+53.47958,
+-2.23833
+]
+},
 "mich-hoppers-london":{
 "web":"https://hopperslondon.com/",
 "osm":"n14178896028",
@@ -3073,6 +3107,12 @@
 50.82738,
 -0.16926
 ]
+},
+"mich-martin-wishart-leith":{
+"web":"http://www.martin-wishart.co.uk/",
+"ph":"01315 533557",
+"osm":"n573453378",
+"m":6
 },
 "mich-miga-london":{
 "ig":"https://www.instagram.com/miga.restaurant/",
@@ -3466,11 +3506,7 @@
 "mich-timberyard-edinburgh":{
 "web":"https://www.timberyard.co/",
 "osm":"n1951364889",
-"m":1102,
-"ll":[
-55.94635,
--3.20173
-]
+"m":1
 },
 "mich-trishna-london":{
 "web":"https://www.trishnalondon.com/",
