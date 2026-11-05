@@ -1,5 +1,5 @@
 {
-"checked":"2026-11-04",
+"checked":"2026-11-05",
 "squares":{
 "100,-10":"2026-11-01",
 "100,-11":"2026-10-28",
@@ -20,7 +20,7 @@
 "102,-3":"2026-11-02",
 "102,-4":"2026-10-29",
 "102,-5":"2026-10-28",
-"102,-6":"2026-10-28",
+"102,-6":"2026-11-05",
 "102,-7":"2026-11-04",
 "102,-8":"2026-11-01",
 "102,0":"2026-10-28",
@@ -34,10 +34,10 @@
 "103,-6":"2026-10-29",
 "103,-7":"2026-10-28",
 "103,-9":"2026-10-30",
-"103,0":"2026-10-28",
+"103,0":"2026-11-05",
 "103,1":"2026-10-30",
 "104,-10":"2026-10-31",
-"104,-4":"2026-10-28",
+"104,-4":"2026-11-05",
 "104,-5":"2026-10-28",
 "104,-6":"2026-10-28",
 "104,0":"2026-10-31",
@@ -45,7 +45,7 @@
 "104,3":"2026-11-01",
 "105,-1":"2026-11-01",
 "105,-2":"2026-10-29",
-"105,-3":"2026-10-28",
+"105,-3":"2026-11-05",
 "105,-4":"2026-10-29",
 "105,-5":"2026-10-28",
 "105,-6":"2026-11-01",
@@ -81,7 +81,7 @@
 "110,-8":"2026-10-31",
 "111,-12":"2026-10-31",
 "111,-7":"2026-11-04",
-"111,-9":"2026-10-28",
+"111,-9":"2026-11-05",
 "112,-11":"2026-11-01",
 "112,-6":"2026-10-30",
 "112,-8":"2026-10-28",
@@ -420,7 +420,7 @@
 "ec-biblos":{
 "web":"http://www.biblosbristol.co.uk/",
 "osm":"w108841031",
-"m":17
+"m":14
 },
 "ec-big-belly-bar-and-comedy-club":{
 "web":"https://www.osbonpharmacy.co.uk/",
@@ -641,6 +641,11 @@
 "osm":"n564406002",
 "m":5
 },
+"ec-dareshack":{
+"web":"https://www.dareshack.com",
+"osm":"n13125158216",
+"m":1
+},
 "ec-dauns":{
 "web":"https://dauns.co.uk/",
 "osm":"n11160718504",
@@ -668,6 +673,12 @@
 "web":"https://dockandbrew.com/mann-island",
 "osm":"n14341782413",
 "m":107
+},
+"ec-docksider":{
+"web":"https://www.docksider.co.uk/",
+"ph":"020 3203 0714",
+"osm":"n8197659744",
+"m":46
 },
 "ec-dolci":{
 "web":"https://dolcicafe.co.uk/",
@@ -1563,6 +1574,18 @@
 "osm":"w1087276209",
 "m":4
 },
+"ec-peggys-coffee-and-brunch":{
+"web":"https://www.peggysbristol.co.uk/",
+"ph":"01179 232076",
+"osm":"w304280234",
+"m":6
+},
+"ec-peggys-coffee-and-cake":{
+"web":"https://www.peggysbristol.co.uk/",
+"ph":"01179 232076",
+"osm":"w263437261",
+"m":10
+},
 "ec-penelopes-birkdale":{
 "web":"https://penelopesbirkdale.com/",
 "ph":"01704 490044",
@@ -1937,6 +1960,12 @@
 "osm":"n9917491119",
 "m":2
 },
+"ec-spitfire-barbecue-bristol":{
+"web":"https://spitfirebarbecue.com/",
+"ph":"01179 254585",
+"osm":"n13140992986",
+"m":4
+},
 "ec-spitfire-barbecue-cardiff":{
 "web":"https://www.spitfirebarbecue.com/",
 "osm":"n13127930588",
@@ -1977,6 +2006,14 @@
 "ph":"029 2233 7542",
 "osm":"n14214430991",
 "m":9
+},
+"ec-sushi-monster":{
+"web":"https://sushimonster.co.uk/",
+"ig":"https://www.instagram.com/sushimonster_uk/",
+"fb":"SushiMonsterChingford",
+"ph":"020 3515 0678",
+"osm":"n12599292501",
+"m":13
 },
 "ec-sutton-and-sons-islington":{
 "web":"http://www.suttonandsons.co.uk/",
@@ -2066,6 +2103,11 @@
 "ph":"01173 294471",
 "osm":"w261007873",
 "m":24
+},
+"ec-the-bristol-stable":{
+"web":"https://stablepizza.com/bristol/",
+"osm":"n12973082099",
+"m":13
 },
 "ec-the-brook-and-badger":{
 "web":"https://brookandbadger.com/",
@@ -2246,6 +2288,12 @@
 "ph":"020 8980 1777",
 "osm":"n13191221846",
 "m":12
+},
+"ec-the-quadrant":{
+"web":"http://www.quadrantbar.co.uk/",
+"ph":"01179 741025",
+"osm":"w270761137",
+"m":7
 },
 "ec-the-rattlin-bog-clapham":{
 "web":"https://www.therattlinbog.co.uk/",
@@ -2758,6 +2806,12 @@
 -0.07669
 ]
 },
+"mich-bulrush-bristol":{
+"web":"https://www.bulrushrestaurant.co.uk/",
+"ph":"01173 290990",
+"osm":"w190581335",
+"m":8
+},
 "mich-cadet-london":{
 "web":"https://www.cadetlondon.com/",
 "osm":"w474840743",
@@ -2888,11 +2942,7 @@
 "web":"https://www.gagaglasgow.com/",
 "ph":"01413 349407",
 "osm":"n12673905801",
-"m":4961,
-"ll":[
-55.87084,
--4.31536
-]
+"m":0
 },
 "mich-galvin-green-man-howe-street":{
 "web":"https://galvinrestaurants.com/pub-restaurant-chelmsford-essex-galvin-green-man/",
@@ -3004,11 +3054,7 @@
 "web":"https://www.kapaogla.com/",
 "ph":"01414 836990",
 "osm":"n7130842684",
-"m":3660,
-"ll":[
-55.87714,
--4.29037
-]
+"m":0
 },
 "mich-kitchen-w8-london":{
 "web":"https://www.kitchenw8.com/",
@@ -3521,11 +3567,7 @@
 "web":"https://www.tropea.uk/restaurant",
 "ph":"01214 279777",
 "osm":"w120796140",
-"m":4414,
-"ll":[
-52.45868,
--1.95859
-]
+"m":0
 },
 "mich-umu-london":{
 "web":"https://www.umurestaurant.com/",
