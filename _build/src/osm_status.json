@@ -1,8 +1,8 @@
 {
- "date": "2026-11-06",
+ "date": "2026-11-07",
  "squares_done_today": 5,
  "squares_failed": 5,
- "squares_left": 50,
- "matched_total": 563,
- "last_error": "overpass.kumi.systems: runtime error: open64: 0 Success /osm3s_osm_base Dispatcher_Client::request_read_and_idx::timeout. The server is probably too busy to handle your request."
+ "squares_left": 53,
+ "matched_total": 565,
+ "last_error": "overpass.kumi.systems: curl: (28) Operation timed out after 100001 milliseconds with 0 bytes received "
 }
