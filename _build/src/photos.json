@@ -15821,7 +15821,7 @@
 "f":"img/ph/itto-stoke-newington.webp",
 "from":"card",
 "sig":"c73e9bb0bd",
-"t":"2026-11-08",
+"t":"2026-11-09",
 "none":"too small 750x230",
 "from_tried":true,
 "wd":false
@@ -19765,7 +19765,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-08",
+"t":"2026-11-09",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -21628,7 +21628,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-08",
+"t":"2026-11-09",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -28570,7 +28570,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-08",
+"t":"2026-11-09",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -28589,7 +28589,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-08",
+"t":"2026-11-09",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -31162,19 +31162,6 @@
 "page":"https://commons.wikimedia.org/wiki/File:Pizza_Express,_Bexleyheath_-_geograph.org.uk_-_3910479.jpg",
 "t":"2026-10-29"
 },
-"pizzaexpress-oxford-golden-cross-oxford":{
-"x":1,
-"g":[
-{
-"f":"img/ph/pizzaexpress-oxford-golden-cross-oxford-2.webp",
-"src":"https://a.mktgcdn.com/p/IM9iTbvdLZlP0s0ufUacvWqVrtlM4cBMk_0BJgQKr9o/829x680.png",
-"by":"locations.pizzaexpress.com",
-"page":"https://locations.pizzaexpress.com/oxford-golden-cross"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.pizzaexpress.com/oxford-golden-cross"
-},
 "pizzaexpress-piccadilly-gardens-manchester":{
 "x":1,
 "g":[
@@ -32993,19 +32980,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://thesatori.co.uk/"
-},
-"saucy-bird":{
-"x":1,
-"g":[
-{
-"f":"img/ph/saucy-bird-2.webp",
-"src":"https://cdn.prod.website-files.com/69e490f01b974fa98e9c4707/6ab64bed1c65496506715710_saucy-banner.png",
-"by":"saucybird.co",
-"page":"https://www.saucybird.co/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.saucybird.co/"
 },
 "schnitzel-heaven":{
 "f":"img/ph/schnitzel-heaven.webp",
@@ -38893,6 +38867,30 @@
 "by":"turtlebay.co.uk",
 "page":"https://turtlebay.co.uk/restaurants/oxford",
 "t":"2026-11-06"
+},
+"turtle-bay-oxford-st-manchester":{
+"f":"img/ph/turtle-bay-oxford-st-manchester.webp",
+"from":"web",
+"src":"https://turtlebay.co.uk/assets/site/_700xAUTO_fit_center-center_none/DSCF6421_WebRes.jpg",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/restaurants/manchester-oxford-st",
+"t":"2026-11-09"
+},
+"turtle-bay-salford-quays-manchester":{
+"f":"img/ph/turtle-bay-salford-quays-manchester.webp",
+"from":"web",
+"src":"https://turtlebay.co.uk/assets/site/_700xAUTO_fit_center-center_none/Turtle-Bay-Sept-202620736_WebRes_2026-10-21-133318_fisc.jpg",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/menu?location=salford-quays",
+"t":"2026-11-09"
+},
+"turtle-bay-sheffield-sheffield":{
+"f":"img/ph/turtle-bay-sheffield-sheffield.webp",
+"from":"web",
+"src":"https://gigpigcdn.s3.eu-west-2.amazonaws.com/42488/925af1a4-2c18-4b48-81e3-ee2fe9ea3cfc",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/restaurants/sheffield",
+"t":"2026-11-09"
 },
 "turtle-bay-southampton-southampton":{
 "f":"img/ph/turtle-bay-southampton-southampton.webp",
