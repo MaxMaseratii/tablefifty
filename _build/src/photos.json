@@ -673,6 +673,12 @@
 "gt":"2026-10-29",
 "gs":"https://amazegourmetspice.com/"
 },
+"amazing-grace-canary-wharf":{
+"f":"img/ph/amazing-grace-canary-wharf.webp",
+"from":"card",
+"sig":"a81dccf158",
+"t":"2026-11-10"
+},
 "amber":{
 "x":1,
 "g":[
@@ -1129,31 +1135,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://ashokamuirhead.com/"
-},
-"ashoka-southside-glasgow":{
-"x":1,
-"g":[
-{
-"f":"img/ph/ashoka-southside-glasgow-2.webp",
-"src":"https://ashokasouthside.com/wp-content/uploads/2022/04/menu_reservation_inner_bg2.jpg",
-"by":"ashokasouthside.com",
-"page":"https://ashokasouthside.com/"
-},
-{
-"f":"img/ph/ashoka-southside-glasgow-3.webp",
-"src":"https://ashokasouthside.com/wp-content/uploads/2023/03/Ashoka_Food_.Hero2-min.jpg",
-"by":"ashokasouthside.com",
-"page":"https://ashokasouthside.com/"
-},
-{
-"f":"img/ph/ashoka-southside-glasgow-4.webp",
-"src":"https://ashokasouthside.com/wp-content/uploads/2023/03/Screenshot-2023-03-18-at-8.51.30-PM-min-1920x1059.png",
-"by":"ashokasouthside.com",
-"page":"https://ashokasouthside.com/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://ashokasouthside.com/"
 },
 "ask-italian":{
 "f":"img/ph/ask-italian.webp",
@@ -8252,19 +8233,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://georgeanddragonlondon.com/"
-},
-"ec-girotondo-management-ltd":{
-"x":1,
-"g":[
-{
-"f":"img/ph/ec-girotondo-management-ltd-2.webp",
-"src":"https://pierinorestaurant.com/wp-content/uploads/2025/04/stephen-harlan-DzW0mvg6yr4-unsplash-min-2048x1365.jpg",
-"by":"pierinorestaurant.com",
-"page":"https://pierinorestaurant.com/drinks-menu/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://pierinorestaurant.com/"
 },
 "ec-goswell-road-coffee":{
 "x":1,
@@ -15671,31 +15639,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.indiansummerbrighton.co.uk/"
 },
-"indiawaale-by-the-arth":{
-"x":1,
-"g":[
-{
-"f":"img/ph/indiawaale-by-the-arth-2.webp",
-"src":"https://indiawaale.co.uk/wp-content/uploads/2024/11/cocktails-scaled.jpg",
-"by":"indiawaale.co.uk",
-"page":"https://indiawaale.co.uk/"
-},
-{
-"f":"img/ph/indiawaale-by-the-arth-3.webp",
-"src":"https://indiawaale.co.uk/wp-content/uploads/2024/11/food-1-scaled.jpg",
-"by":"indiawaale.co.uk",
-"page":"https://indiawaale.co.uk/"
-},
-{
-"f":"img/ph/indiawaale-by-the-arth-4.webp",
-"src":"https://indiawaale.co.uk/wp-content/uploads/2024/11/DSC06559-Copy-scaled.jpg",
-"by":"indiawaale.co.uk",
-"page":"https://indiawaale.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://indiawaale.co.uk/"
-},
 "indico-mailbox-birmingham":{
 "x":1,
 "g":[
@@ -15821,7 +15764,7 @@
 "f":"img/ph/itto-stoke-newington.webp",
 "from":"card",
 "sig":"c73e9bb0bd",
-"t":"2026-11-09",
+"t":"2026-11-10",
 "none":"too small 750x230",
 "from_tried":true,
 "wd":false
@@ -19765,7 +19708,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-09",
+"t":"2026-11-10",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -21628,7 +21571,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-09",
+"t":"2026-11-10",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -23478,16 +23421,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.labombe.co.uk/"
-},
-"mich-lai-rai-london":{
-"none":"no photo on page",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":false,
-"rendered":1,
-"f":"img/ph/mich-lai-rai-london.webp",
-"from":"card",
-"sig":"1abec33bea"
 },
 "mich-lake-road-kitchen-ambleside":{
 "f":"img/ph/mich-lake-road-kitchen-ambleside.webp",
@@ -28570,7 +28503,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-09",
+"t":"2026-11-10",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -28589,7 +28522,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-09",
+"t":"2026-11-10",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -38899,6 +38832,14 @@
 "by":"turtlebay.co.uk",
 "page":"https://turtlebay.co.uk/restaurants/southampton",
 "t":"2026-11-07"
+},
+"turtle-bay-winchester-southampton":{
+"f":"img/ph/turtle-bay-winchester-southampton.webp",
+"from":"web",
+"src":"https://turtlebay.co.uk/assets/site/_1920xAUTO_fit_center-center_none/Beindley-Place-SML-01.jpg",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/restaurants/winchester",
+"t":"2026-11-10"
 },
 "twenty-twenty-newcastle-upon-tyne":{
 "x":1,
