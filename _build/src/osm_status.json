@@ -1,8 +1,8 @@
 {
- "date": "2026-11-11",
- "squares_done_today": 6,
- "squares_failed": 4,
+ "date": "2026-11-12",
+ "squares_done_today": 5,
+ "squares_failed": 6,
  "squares_left": 34,
  "matched_total": 566,
- "last_error": "overpass.private.coffee: curl: (28) Operation timed out after 100002 milliseconds with 0 bytes received "
+ "last_error": "overpass.kumi.systems: curl: (28) Operation timed out after 100000 milliseconds with 0 bytes received "
 }

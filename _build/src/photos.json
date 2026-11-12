@@ -3866,13 +3866,12 @@
 "gs":"https://www.chukuslondon.co.uk/"
 },
 "churrasco-steakhouse-city-liverpool":{
-"t":"2026-10-29",
-"none":"site http 0",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/churrasco-steakhouse-city-liverpool.webp",
-"from":"card",
-"sig":"4c575471f6"
+"from":"web",
+"src":"https://churrascoliverpool.co.uk/images/sliders/Slz4jNhMZ8rYa6QZ-HhI_mvHg5FvH6j22xysF9nxRbgeJxFPc.jpg#joomlaImage://local-images/sliders/Slz4jNhMZ8rYa6QZ-HhI_mvHg5FvH6j22xysF9nxRbgeJxFPc.jpg?width=3136&height=2091",
+"by":"churrascoliverpool.co.uk",
+"page":"https://churrascoliverpool.co.uk/",
+"t":"2026-11-12"
 },
 "chutney-ivy-leicester":{
 "x":1,
@@ -11691,43 +11690,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.thejamrestaurant.com/"
 },
-"ec-the-new-york-deli":{
-"x":1,
-"g":[
-{
-"f":"img/ph/ec-the-new-york-deli-2.webp",
-"src":"https://static.wixstatic.com/media/946db4_a2aa2606f7d6467f8d1bdc70e67c01b7~mv2.jpg/v1/fit/w_1200,h_1200,q_85/946db4_a2aa2606f7d6467f8d1bdc70e67c01b7~mv2.jpg",
-"by":"newyorkdelicardiff.co.uk",
-"page":"https://www.newyorkdelicardiff.co.uk/"
-},
-{
-"f":"img/ph/ec-the-new-york-deli-3.webp",
-"src":"https://static.wixstatic.com/media/946db4_b335fd259ef940ca9441e784b20fc29a~mv2.jpg/v1/fit/w_1200,h_1200,q_85/946db4_b335fd259ef940ca9441e784b20fc29a~mv2.jpg",
-"by":"newyorkdelicardiff.co.uk",
-"page":"https://www.newyorkdelicardiff.co.uk/"
-},
-{
-"f":"img/ph/ec-the-new-york-deli-4.webp",
-"src":"https://static.wixstatic.com/media/946db4_817273bd94474c058404a07a7023c0a0~mv2.jpg/v1/fit/w_1200,h_1200,q_85/946db4_817273bd94474c058404a07a7023c0a0~mv2.jpg",
-"by":"newyorkdelicardiff.co.uk",
-"page":"https://www.newyorkdelicardiff.co.uk/"
-},
-{
-"f":"img/ph/ec-the-new-york-deli-5.webp",
-"src":"https://static.wixstatic.com/media/946db4_008ab3b1292c4f4f9aa71b79f1eeecac~mv2.jpg/v1/fit/w_1200,h_1200,q_85/946db4_008ab3b1292c4f4f9aa71b79f1eeecac~mv2.jpg",
-"by":"newyorkdelicardiff.co.uk",
-"page":"https://www.newyorkdelicardiff.co.uk/"
-},
-{
-"f":"img/ph/ec-the-new-york-deli-6.webp",
-"src":"https://static.wixstatic.com/media/946db4_38c8743e65614eadab7977c5fbbb7513~mv2.jpg/v1/fit/w_1200,h_1200,q_85/946db4_38c8743e65614eadab7977c5fbbb7513~mv2.jpg",
-"by":"newyorkdelicardiff.co.uk",
-"page":"https://www.newyorkdelicardiff.co.uk/gallery"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.newyorkdelicardiff.co.uk/"
-},
 "ec-the-northcote-saviour":{
 "x":1,
 "g":[
@@ -12445,13 +12407,13 @@
 "gs":"https://zialucia.com/hammersmith/"
 },
 "ec-zia-lucia-islington":{
-"t":"2026-10-29",
-"none":"odd shape 800x1000",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/ec-zia-lucia-islington.webp",
 "from":"card",
-"sig":"8d8c0c0880"
+"sig":"8d8c0c0880",
+"t":"2026-11-12",
+"none":"odd shape 800x1000",
+"from_tried":true,
+"wd":false
 },
 "ec-zia-lucia-wandsworth":{
 "f":"img/ph/ec-zia-lucia-wandsworth.webp",
@@ -12537,19 +12499,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.eccovinoedinburgh.com/"
-},
-"edesia-bath":{
-"x":1,
-"g":[
-{
-"f":"img/ph/edesia-bath-2.webp",
-"src":"https://edesiabath.co.uk/wp-content/uploads/2025/07/Edesia-Restaurant.jpg",
-"by":"edesiabath.co.uk",
-"page":"https://edesiabath.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://edesiabath.co.uk/"
 },
 "eighteen-acre-bolney-wine-estate-brighton":{
 "x":1,
@@ -15765,7 +15714,7 @@
 "f":"img/ph/itto-stoke-newington.webp",
 "from":"card",
 "sig":"c73e9bb0bd",
-"t":"2026-11-11",
+"t":"2026-11-12",
 "none":"too small 750x230",
 "from_tried":true,
 "wd":false
@@ -19709,7 +19658,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-11",
+"t":"2026-11-12",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -19932,13 +19881,13 @@
 "gs":"https://www.boxebristol.com/"
 },
 "mich-brat-london":{
-"none":"site http 0",
-"t":"2026-10-28",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/mich-brat-london.webp",
 "from":"card",
-"sig":"34953fb77b"
+"sig":"34953fb77b",
+"t":"2026-11-12",
+"none":"site http 0",
+"from_tried":true,
+"wd":false
 },
 "mich-briar-bruton":{
 "f":"img/ph/mich-briar-bruton.webp",
@@ -21568,7 +21517,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-11",
+"t":"2026-11-12",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -26313,7 +26262,7 @@
 "f":"img/ph/mich-sosban-the-old-butchers-menai-bridge.webp",
 "from":"card",
 "sig":"8aca1155a0",
-"t":"2026-10-29",
+"t":"2026-11-12",
 "none":"odd shape 960x1280",
 "from_tried":true,
 "wd":true
@@ -28476,7 +28425,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-11",
+"t":"2026-11-12",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -28493,7 +28442,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-11",
+"t":"2026-11-12",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -37498,13 +37447,13 @@
 "gs":"https://www.therealgreek.com/restaurants/marylebone/"
 },
 "the-real-greek-norwich-norwich":{
-"t":"2026-10-29",
-"none":"same photo as another place",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/the-real-greek-norwich-norwich.webp",
 "from":"card",
-"sig":"55463b04af"
+"sig":"55463b04af",
+"t":"2026-11-12",
+"none":"same photo as another place",
+"from_tried":true,
+"wd":false
 },
 "the-real-greek-sheffield-sheffield":{
 "x":1,
@@ -37520,13 +37469,12 @@
 "gs":"https://www.therealgreek.com/restaurants/sheffield-meadowhall/"
 },
 "the-real-greek-southampton-southampton":{
-"t":"2026-10-29",
-"none":"http 404",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/the-real-greek-southampton-southampton.webp",
-"from":"card",
-"sig":"1f4aa6baa3"
+"from":"web",
+"src":"https://www.therealgreek.com/wp-content/uploads/2026/11/XMAS_Webpage-Header-Desktop-V4.png",
+"by":"therealgreek.com",
+"page":"https://www.therealgreek.com/",
+"t":"2026-11-12"
 },
 "the-real-greek-st-paul-s":{
 "x":1,
@@ -38735,22 +38683,20 @@
 "sig":"3160309255"
 },
 "turtle-bay-leeds-leeds":{
-"t":"2026-10-29",
-"none":"site http 0",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/turtle-bay-leeds-leeds.webp",
-"from":"card",
-"sig":"b5a5942e77"
+"from":"web",
+"src":"https://turtlebay.co.uk/assets/site/_1200x630_crop_center-center_none/Location-Leeds2-1.jpg",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/restaurants/leeds",
+"t":"2026-11-12"
 },
 "turtle-bay-leicester-leicester":{
-"t":"2026-10-29",
-"none":"site http 0",
-"from_tried":true,
-"wd":false,
 "f":"img/ph/turtle-bay-leicester-leicester.webp",
-"from":"card",
-"sig":"dc2ec3b705"
+"from":"web",
+"src":"https://turtlebay.co.uk/assets/site/_1200x630_crop_center-center_none/Location-leicester.jpg",
+"by":"turtlebay.co.uk",
+"page":"https://turtlebay.co.uk/restaurants/leicester",
+"t":"2026-11-12"
 },
 "turtle-bay-norwich-norwich":{
 "f":"img/ph/turtle-bay-norwich-norwich.webp",
