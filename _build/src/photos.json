@@ -18801,7 +18801,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-13",
+"t":"2026-11-14",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -20660,7 +20660,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-13",
+"t":"2026-11-14",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -27560,7 +27560,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-13",
+"t":"2026-11-14",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -27577,7 +27577,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-13",
+"t":"2026-11-14",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -29258,19 +29258,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.urbanpubsandbars.com/city-by-urban/venues/old-street-tavern"
-},
-"olea-social":{
-"x":1,
-"g":[
-{
-"f":"img/ph/olea-social-2.webp",
-"src":"https://www.oleasocial.co.uk/_next/image?url=%2Fimages%2Fhero.jpg&w=3840&q=75",
-"by":"oleasocial.co.uk",
-"page":"https://www.oleasocial.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://oleasocial.co.uk/"
 },
 "olio":{
 "f":"img/ph/olio.webp",
@@ -34025,19 +34012,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.thedelaunay.com/"
 },
-"the-dhabba-glasgow":{
-"x":1,
-"g":[
-{
-"f":"img/ph/the-dhabba-glasgow-2.webp",
-"src":"https://thedhabba.com/wp-content/uploads/2026/08/the-dhabba-glasgow-authentic-north-indian-punjabi-restaurant.webp",
-"by":"thedhabba.com",
-"page":"https://thedhabba.com/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://www.thedhabba.com/"
-},
 "the-discovery-cardiff":{
 "x":1,
 "g":[
@@ -36552,11 +36526,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://thewinecellarbrighton.co.uk/"
-},
-"the-wine-room":{
-"x":1,
-"gt":"2026-10-29",
-"gs":"https://www.thewineroomkt8.co.uk/"
 },
 "the-winepress-restaurant-at-the-maids-head-norwich":{
 "x":1,
