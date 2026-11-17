@@ -15137,11 +15137,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.karke.co.uk/"
 },
-"kave":{
-"x":1,
-"gt":"2026-10-29",
-"gs":"https://www.kavelondon.com/"
-},
 "kayal-birmingham-birmingham":{
 "x":1,
 "g":[
@@ -18545,7 +18540,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-16",
+"t":"2026-11-17",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -20404,7 +20399,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-16",
+"t":"2026-11-17",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -27304,7 +27299,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-16",
+"t":"2026-11-17",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -27321,7 +27316,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-16",
+"t":"2026-11-17",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -30972,11 +30967,6 @@
 "gt":"2026-10-29",
 "gs":"https://www.silka.co.uk/"
 },
-"silversmiths-sheffield":{
-"x":1,
-"gt":"2026-10-29",
-"gs":"https://silversmithsrestaurant.co.uk/"
-},
 "sir-madam-thai":{
 "x":1,
 "g":[
@@ -33334,19 +33324,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.thefoxandhoundspub.co.uk/"
-},
-"the-fusion-thai":{
-"x":1,
-"g":[
-{
-"f":"img/ph/the-fusion-thai-2.webp",
-"src":"https://fusionthaibexley.co.uk/storage/app/public/images/1735915256.jpeg",
-"by":"fusionthaibexley.co.uk",
-"page":"https://fusionthaibexley.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://fusionthaibexley.co.uk/"
 },
 "the-gallery":{
 "x":1,
