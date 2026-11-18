@@ -1,5 +1,5 @@
 {
-"checked":"2026-11-11",
+"checked":"2026-11-18",
 "m":{
 "the-plough-harborne-birmingham":{
 "q":"Q137190667",
@@ -23,14 +23,6 @@
 "ll":[
 50.7752,
 -2.14425
-]
-},
-"lion-lobster-brighton":{
-"q":"Q136487655",
-"img":"Lion and Lobster pub, 24 Sillwood Street, Brighton (January 2017) (1).JPG",
-"ll":[
-50.8238,
--0.15419
 ]
 },
 "the-geese-brighton":{
@@ -250,20 +242,20 @@
 -2.23108
 ]
 },
-"the-blue-posts":{
-"q":"Q136705143",
-"img":"Broadwick Street.JPG",
-"ll":[
-51.51384,
--0.13498
-]
-},
 "ec-dartmouth-arms":{
 "q":"Q136703333",
 "img":"The Dartmouth Arms (49445681781).jpg",
 "ll":[
 51.55853,
 -0.14366
+]
+},
+"ec-dovedale-towers":{
+"q":"Q136763890",
+"img":"Dovedale Towers, Dovedale Road, Liverpool - geograph.org.uk - 7654264.jpg",
+"ll":[
+53.38713,
+-2.91865
 ]
 },
 "ec-mocka-lounge":{
@@ -292,20 +284,20 @@
 -1.54154
 ]
 },
+"ec-the-bookbinder":{
+"q":"Q136770641",
+"img":"The Bookbinder, Lark Lane 1.jpg",
+"ll":[
+53.38008,
+-2.94723
+]
+},
 "ec-the-clerk-and-well-pub-and-rooms":{
 "q":"Q136721527",
 "img":"Clerk and Well, Clerkenwell, EC1 - 2010-10-22.jpg",
 "ll":[
 51.52214,
 -0.11066
-]
-},
-"ec-the-fox-public-house":{
-"q":"Q136634082",
-"img":"Kingsland Road, The 'Fox' - geograph.org.uk - 1729274.jpg",
-"ll":[
-51.54067,
--0.07617
 ]
 },
 "ec-the-george":{
