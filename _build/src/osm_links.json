@@ -1,5 +1,5 @@
 {
-"checked":"2026-11-18",
+"checked":"2026-11-19",
 "squares":{
 "100,-10":"2026-11-16",
 "100,-11":"2026-11-08",
@@ -21,7 +21,7 @@
 "102,-4":"2026-11-13",
 "102,-5":"2026-11-08",
 "102,-6":"2026-11-05",
-"102,-7":"2026-11-04",
+"102,-7":"2026-11-19",
 "102,-8":"2026-11-16",
 "102,0":"2026-11-06",
 "102,1":"2026-11-09",
@@ -46,7 +46,7 @@
 "104,3":"2026-11-15",
 "105,-1":"2026-11-15",
 "105,-2":"2026-11-10",
-"105,-3":"2026-11-05",
+"105,-3":"2026-11-19",
 "105,-4":"2026-11-09",
 "105,-5":"2026-11-08",
 "105,-6":"2026-11-17",
@@ -58,7 +58,7 @@
 "106,-3":"2026-11-08",
 "106,-4":"2026-11-10",
 "106,-5":"2026-11-17",
-"106,-6":"2026-11-04",
+"106,-6":"2026-11-19",
 "106,-7":"2026-11-06",
 "106,-9":"2026-11-12",
 "107,-2":"2026-11-10",
@@ -881,6 +881,12 @@
 "osm":"n11776282640",
 "m":3
 },
+"ec-grand-indian":{
+"web":"https://grandindian.co.uk",
+"ph":"029 2034 3705",
+"osm":"n5888349905",
+"m":3
+},
 "ec-great-beyond-taproom-and-brewery":{
 "web":"https://greatbeyond.beer/",
 "ig":"https://www.instagram.com/greatbeyondbeer/",
@@ -943,6 +949,13 @@
 "web":"https://www.postmarket.co.uk/",
 "osm":"n12199018632",
 "m":126
+},
+"ec-heavenly-desserts-cardiff":{
+"web":"https://heavenlydesserts.co.uk/our-stores/cardiff/",
+"fb":"HeavenlyDesserts.UK",
+"ph":"029 2023 0973",
+"osm":"n9428001120",
+"m":5
 },
 "ec-heist-bank":{
 "web":"https://www.heistbank.com/",
@@ -1578,6 +1591,12 @@
 "osm":"n7066346899",
 "m":2
 },
+"ec-pasha-sandwich-bar":{
+"web":"https://pashatakeawaycardiff.co.uk",
+"ph":"029 2063 0335",
+"osm":"n9874447697",
+"m":24
+},
 "ec-passyunk-avenue-battersea":{
 "web":"https://passyunkavenue.com",
 "ph":"020 8194 8686",
@@ -1878,6 +1897,12 @@
 "ph":"020 7534 7000",
 "osm":"n4191567196",
 "m":5
+},
+"ec-scaramantica-pizzeria":{
+"web":"https://www.scaramanticapizzeria.uk/",
+"ph":"029 2047 1183",
+"osm":"n8926841646",
+"m":8
 },
 "ec-schnitzel-forever":{
 "web":"https://www.schnitzelforever.co.uk/",
@@ -2441,6 +2466,13 @@
 "web":"https://www.vaultytowers.london",
 "osm":"n13103481999",
 "m":2
+},
+"ec-vegatarian-food-studio":{
+"web":"http://www.vegetarianfoodstudio.co.uk",
+"fb":"VegetarianFoodStudio",
+"ph":"029 2023 8222",
+"osm":"n5832549299",
+"m":3
 },
 "ec-viet-shack":{
 "web":"https://www.vietshackrestaurant.co.uk/",
@@ -3114,6 +3146,16 @@
 "ll":[
 51.50544,
 -0.09159
+]
+},
+"mich-kushi-ya-nottingham":{
+"web":"https://kushi-ya.co.uk/",
+"fb":"kushiyanotts",
+"osm":"n2310337932",
+"m":599,
+"ll":[
+52.95124,
+-1.14772
 ]
 },
 "mich-l-enclume-cartmel":{
