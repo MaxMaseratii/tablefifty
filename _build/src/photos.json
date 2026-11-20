@@ -18379,7 +18379,7 @@
 "f":"img/ph/mich-behind-london.webp",
 "from":"card",
 "sig":"3ea1d39a58",
-"t":"2026-11-19",
+"t":"2026-11-20",
 "none":"too small 147x98",
 "from_tried":true,
 "wd":false
@@ -20238,7 +20238,7 @@
 "f":"img/ph/mich-fordwich-arms-fordwich.webp",
 "from":"card",
 "sig":"d964a80803",
-"t":"2026-11-19",
+"t":"2026-11-20",
 "none":"odd shape 1920x517",
 "from_tried":true,
 "wd":false
@@ -27138,7 +27138,7 @@
 "f":"img/ph/mich-tropea-birmingham.webp",
 "from":"card",
 "sig":"e3ce955319",
-"t":"2026-11-19",
+"t":"2026-11-20",
 "none":"picked photo: too few colours (logo or graphic)",
 "from_tried":true,
 "wd":false
@@ -27155,7 +27155,7 @@
 "f":"img/ph/mich-ugly-butterfly-by-adam-handling-newquay.webp",
 "from":"card",
 "sig":"c0b9245f91",
-"t":"2026-11-19",
+"t":"2026-11-20",
 "none":"picked photo: mostly blank",
 "from_tried":true,
 "wd":false
@@ -33206,19 +33206,6 @@
 ],
 "gt":"2026-10-29",
 "gs":"https://www.thegeorgebradfordonavon.co.uk/eat|https://www.thegeorgebradfordonavon.co.uk/"
-},
-"the-gilded-saloon-edinburgh":{
-"x":1,
-"g":[
-{
-"f":"img/ph/the-gilded-saloon-edinburgh-2.webp",
-"src":"https://thegildedsaloon.co.uk/wp-content/uploads/2026/09/DSC00834-scaled.jpg",
-"by":"thegildedsaloon.co.uk",
-"page":"https://thegildedsaloon.co.uk/"
-}
-],
-"gt":"2026-10-29",
-"gs":"https://thegildedsaloon.co.uk/"
 },
 "the-golden-peacock-brighton":{
 "x":1,
