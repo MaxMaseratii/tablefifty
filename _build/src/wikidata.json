@@ -1,5 +1,5 @@
 {
-"checked":"2026-11-18",
+"checked":"2026-11-25",
 "m":{
 "the-plough-harborne-birmingham":{
 "q":"Q137190667",
@@ -41,12 +41,12 @@
 0.16618
 ]
 },
-"crown-and-anchor-brighton":{
-"q":"Q136531829",
-"img":"Crown and Anchor pub and other buildings on the High Street, Shoreham-by-Sea, West Sussex - July 2025.jpg",
+"the-bridge-inn-brighton":{
+"q":"Q136226005",
+"img":"The Bridge Inn, High Street, Shoreham-by-Sea, West Sussex - July 2025.jpg",
 "ll":[
-50.83162,
--0.27609
+50.83226,
+-0.2785
 ]
 },
 "the-bear-swan-bristol":{
@@ -68,7 +68,7 @@
 },
 "tiny-rebel-cardiff":{
 "q":"Q29498981",
-"img":"Former Glamorgan Staff Club, Cardiff, October 2010 (.jpg",
+"img":"Tiny Rebel.jpg",
 "web":"http://www.tinyrebel.co.uk/bars/cardiff/",
 "ll":[
 51.47991,
@@ -90,15 +90,6 @@
 -2.82628
 ]
 },
-"the-jugged-hare":{
-"q":"Q27082427",
-"img":"Jugged Hare, Barbican, EC1 (7070209737).jpg",
-"web":"http://www.thejuggedhare.com/",
-"ll":[
-51.5209,
--0.0922
-]
-},
 "mon-plaisir":{
 "q":"Q42847288",
 "img":"Mon Plaisir, Monmouth Street, Covent Garden 01.jpg",
@@ -114,14 +105,6 @@
 "ll":[
 51.51405,
 -0.10493
-]
-},
-"quaglino-s":{
-"q":"Q20127776",
-"img":"Judy Garland Wedding Cake Allan Warren.jpg",
-"ll":[
-51.5074,
--0.139
 ]
 },
 "galvin-la-chapelle":{
@@ -155,6 +138,14 @@
 "ll":[
 51.52866,
 -0.21651
+]
+},
+"the-hare-hounds":{
+"q":"Q134545518",
+"img":"Albert and Pearl, Islington - geograph.org.uk - 1135624.jpg",
+"ll":[
+51.5426,
+-0.1033
 ]
 },
 "mug-house":{
@@ -209,14 +200,6 @@
 -0.30707
 ]
 },
-"the-jolly-gardeners":{
-"q":"Q136629576",
-"img":"The Jolly Gardeners Public House, Black Prince Road - geograph.org.uk - 3109395.jpg",
-"ll":[
-51.49133,
--0.11824
-]
-},
 "the-elephant-castle":{
 "q":"Q132307658",
 "img":"Elephant and Castle Pub - geograph.org.uk - 165898.jpg",
@@ -226,20 +209,12 @@
 -0.0996
 ]
 },
-"the-black-lion-manchester":{
-"q":"Q136800696",
-"img":"The Black Lion, Salford.jpg",
+"last-pub-standing-norwich":{
+"q":"Q26303149",
+"img":"27-29 King Street - Last Pub Standing - geograph.org.uk - 5816668.jpg",
 "ll":[
-53.48467,
--2.24941
-]
-},
-"the-wild-alderman-manchester":{
-"q":"Q26546509",
-"img":"Steak And Kabab Restaurant.jpg",
-"ll":[
-53.41077,
--2.23108
+52.62876,
+1.29939
 ]
 },
 "ec-dartmouth-arms":{
@@ -282,6 +257,14 @@
 "ll":[
 53.79957,
 -1.54154
+]
+},
+"ec-quaglinos":{
+"q":"Q20127776",
+"img":"Judy Garland Wedding Cake Allan Warren.jpg",
+"ll":[
+51.5074,
+-0.139
 ]
 },
 "ec-the-bookbinder":{
