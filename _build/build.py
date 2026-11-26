@@ -14,7 +14,12 @@ TODAY = datetime.date.today().isoformat()
 # no plugins, no <base> hijack, forms may only post to us or FormSubmit, always HTTPS, and other sites only see our domain.
 SEC_META = ('<meta charset="utf-8">\n<meta http-equiv="Content-Security-Policy" content="object-src \'none\'; base-uri \'self\'; '
             'form-action \'self\' https://formsubmit.co; upgrade-insecure-requests">\n<meta name="referrer" content="strict-origin-when-cross-origin">')
-def secure(h): return h.replace('<meta charset="utf-8">', SEC_META, 1)
+TRACK = '<script src="https://www.maxmaserati.com/admin/social/track.js" data-biz="table"></script>'
+def secure(h):
+    h = h.replace('<meta charset="utf-8">', SEC_META, 1)
+    if 'track.js' not in h and '</head>' in h:
+        h = h.replace('</head>', TRACK + '\n</head>', 1)
+    return h
 BRAND='TableFifty'; DOMAIN='tablefifty.co.uk'; BASE=f'https://{DOMAIN}/'
 CONTACT = 'info@tablefifty.co.uk'
 # Spotlight payment links from Stripe. Empty = the "For restaurants" page shows an email button instead.
