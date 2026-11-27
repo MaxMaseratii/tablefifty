@@ -1,8 +1,8 @@
 {
- "date": "2026-11-26",
+ "date": "2026-11-27",
  "squares_done_today": 3,
- "squares_failed": 7,
+ "squares_failed": 6,
  "squares_left": 50,
  "matched_total": 578,
- "last_error": "overpass-api.de: curl: (7) Failed to connect to overpass-api.de port 443 after 340 ms: Could not connect to server "
+ "last_error": "overpass.kumi.systems: curl: (28) Operation timed out after 100001 milliseconds with 0 bytes received "
 }
